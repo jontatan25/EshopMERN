@@ -11,6 +11,6 @@ const userSchema = new Schema({
   avatar: { type: String, required: true },
   cart: []
 });
-const UserModel = mongoose.model('newUsers', userSchema);
+const UserModel = mongoose.model('Users', userSchema);
 
 export default UserModel;

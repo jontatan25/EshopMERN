@@ -1,10 +1,10 @@
 import express from "express";
 
 const { Router } = express;
-const usersRouter = Router();
+const productsRouter = Router();
 
-import Container from "../mongoContainerUsers.js"
-const contenedorUsers = new Container("users");
+import Container from "../mongoContainerProducts.js"
+const productsContainer = new Container("products");
 
 function checkAuthentication(req, res, next) {
   if (req.isAuthenticated()) {
@@ -15,7 +15,7 @@ function checkAuthentication(req, res, next) {
   }
 }
 
-// usersRouter.get("/admin", async (req, res) => {
+// productsRouter.get("/admin", async (req, res) => {
 //   const checkAdmin = await contenedor.checkAdmin();
 //   if (checkAdmin) {
 //     res.send({
@@ -28,18 +28,9 @@ function checkAuthentication(req, res, next) {
 // });
 
 // MONGODB
-
-usersRouter.get("/:id", async (req, res) => {
-  const user = await contenedorUsers.getUserById(req.params.id);
-  res.send({
-    message: "USERS",
-    data: user,
-  });
-});
-
-usersRouter.post("/", async (req, res) => {
+productsRouter.post("/", async (req, res) => {
  
-    const saveProduct = await contenedorUsers.saveUser(req.body);
+    const saveProduct = await productsContainer.saveProduct(req.body);
     res.send({
       message: "Product has been posted",
       Product: saveProduct
@@ -47,7 +38,15 @@ usersRouter.post("/", async (req, res) => {
 
 });
 
-// usersRouter.put("/:id", async (req, res) => {
+productsRouter.get("/:id", async (req, res) => {
+  const user = await productsContainer.getProductById(req.params.id);
+  res.send({
+    message: "USERS",
+    data: user,
+  });
+});
+
+// productsRouter.put("/:id", async (req, res) => {
 //   const checkAdmin = await contenedor.checkAdmin();
 //   const producto = req.body;
 //   let newProduct = { id: req.params.id, ...producto };
@@ -69,17 +68,17 @@ usersRouter.post("/", async (req, res) => {
 //   }
 // });
 
-usersRouter.delete("/:id", async (req, res) => {
+productsRouter.delete("/:id", async (req, res) => {
 
   console.log(req.params.id)
 
-    const productById = await contenedorUsers.getUserById(req.params.id);
+    const productById = await productsContainer.getProductById(req.params.id);
     if (!productById) {
       res.send({
         error: `"El producto con el id # ${req.params.id} no existe"`,
       });
     } else {
-      await contenedorUsers.deleteUser(req.params.id)
+      await productsContainer.deleteProduct(req.params.id)
       res.send({
         message: `"El producto con el id # ${req.params.id} ha sido borrado`,
       });
@@ -89,4 +88,4 @@ usersRouter.delete("/:id", async (req, res) => {
 });
 
 
-export default usersRouter;
+export default productsRouter;
