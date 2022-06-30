@@ -3,6 +3,8 @@ const app = express();
 
 import usersRouter from "./router/users.js";
 import productsRouter from "./router/products.js";
+import messagesRouter from "./router/messages.js";
+import cartRouter from "./router/cart.js";
 import minimist from "minimist";
 import bodyParser from "body-parser";
 
@@ -18,6 +20,8 @@ app.use(bodyParser.json());
 //ROUTERS
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
+app.use("/messages", messagesRouter);
+app.use("/cart", cartRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
