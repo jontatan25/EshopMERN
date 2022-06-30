@@ -20,7 +20,7 @@ class CartContainer {
   async saveCart(cart) {
     try {
       await connect(URL);
-      console.log(`Base de datos connectada en ${URL} `);
+      console.log(`DB Connected to ${URL} `);
       console.log(cart)
       const prod1 = new CartModel({
         email: cart.email,
@@ -40,7 +40,7 @@ class CartContainer {
   async getCartById(id) {
     try {
       await connect(URL);
-      console.log(`Base de datos connectada en ${URL} `);
+      console.log(`DB Connected to ${URL} `);
       const getProducts = await CartModel.find({ _id: id });
       return getProducts;
     } catch (error) {
@@ -65,12 +65,11 @@ class CartContainer {
       disconnect().catch((error) => console(error));
     }
   }
-  
 
   async getAllCarts() {
     try {
         await connect(URL);
-        console.log(`Base de datos connectada en ${URL} `);
+        console.log(`DB Connected to ${URL} `);
         const getProducts = await CartModel.find({});
         return getProducts;
       } catch (error) {
@@ -78,6 +77,52 @@ class CartContainer {
       } finally {
         disconnect().catch((error) => console(error));
       }
+  }
+
+  async addProduct(newItem) {
+    try {
+      await mongoose.connect(URL);
+      console.log(newItem)
+      const newProduct = {
+        id: newItem.id,
+        name: newItem.name,
+        price: newItem.price,
+        URLPhoto: newItem.URLPhoto,
+        description: newItem.description,
+        quantity: newItem.quantity,
+      };
+      await CartModel.findByIdAndUpdate(
+        { _id: newItem.cartId },
+        {
+          $push: {
+            items: newProduct,
+          },
+        },
+        { new: true, safe: true, upsert: true }
+      );
+    } catch (error) {
+      console.log(`Server error: ${error}`);
+    } finally {
+      mongoose.disconnect().catch((error) => console(error));
+    }
+  }
+  async deleteProduct(deleteInfo) {
+    try {
+      await mongoose.connect(URL);
+      await CartModel.updateOne(
+        { _id: deleteInfo.cartId },
+        {
+          $pull: {
+            items: { id: deleteInfo.id },
+          },
+        },
+        { safe: true, multi: false }
+      );
+    } catch (error) {
+      console.log(`Server error: ${error}`);
+    } finally {
+      mongoose.disconnect().catch((error) => console(error));
+    }
   }
 }
 

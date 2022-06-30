@@ -7,7 +7,7 @@ import CartContainer from "../mongoContainercart.js"
 const mContainer = new CartContainer("cart");
 
 // MONGODB
-cartRouter.post("/", async (req, res) => {
+cartRouter.post("/addCart", async (req, res) => {
     console.log(req.body)
     const saveCart = await mContainer.saveCart(req.body);
     res.send({
@@ -20,11 +20,29 @@ cartRouter.post("/", async (req, res) => {
 cartRouter.get("/all", async (req, res) => {
     const cart = await mContainer.getAllcarts();
     res.send({
-      message: "USERS",
+      message: "geting all the Carts",
       data: cart,
     });
   });
   
+  cartRouter.post("/product/:cartId", async (req, res) => {
+        const newItem = {...req.body,cartId: req.params.cartId}
+        
+      const cart = await mContainer.addProduct(newItem);
+      res.send({
+        message: "Product added",
+      });
+    });
+    
+    cartRouter.delete("/product/:cartId", async (req, res) => {
+          const deleteInfo = {...req.body,cartId: req.params.cartId}
+          
+        const cart = await mContainer.deleteProduct(deleteInfo);
+        res.send({
+          message: "product deleted",
+    
+        });
+      });
 cartRouter.get("/:id", async (req, res) => {
   const user = await mContainer.getCartById(req.params.id);
   res.send({
