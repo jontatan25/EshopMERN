@@ -8,7 +8,6 @@ const mContainer = new CartContainer("cart");
 
 // MONGODB
 cartRouter.post("/addCart", async (req, res) => {
-    console.log(req.body)
     const saveCart = await mContainer.saveCart(req.body);
     res.send({
       message: "Product has been posted",

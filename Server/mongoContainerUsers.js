@@ -25,7 +25,6 @@ class Container {
         password: user.password,
         username: user.username,
         direccion: user.direccion,
-        edad: user.edad,
         telefono: user.telefono,
         avatar: user.avatar,
       });
