@@ -16,32 +16,12 @@ class Container {
   }
 
   //USERS
-  async saveUser(user) {
-    try {
-      await connect(URL);
-      console.log(`Base de datos connectada en ${URL} `);
-      const prod1 = new UserModel({
-        email: user.email,
-        password: user.password,
-        username: user.username,
-        direccion: user.direccion,
-        telefono: user.telefono,
-        avatar: user.avatar,
-      });
-      await prod1.save();
-      console.log("Documento Guardado");
-    } catch (error) {
-      console.log(`Server error: ${error}`);
-    } finally {
-      await disconnect().catch((error) => console(error));
-    }
-  }
 
-  async getUserById(id) {
+  async getUserByEmail(email) {
     try {
       await connect(URL);
       console.log(`Base de datos connectada en ${URL} `);
-      const getUser = await UserModel.find({ _id: id });
+      const getUser = await UserModel.find({ email: email });
       return getUser;
     } catch (error) {
       console.log(`Server error: ${error}`);
@@ -49,6 +29,53 @@ class Container {
       disconnect().catch((error) => console(error));
     }
   }
+  async getUserByUsername(username) {
+    try {
+      await connect(URL);
+      console.log(`Base de datos connectada en ${URL} `);
+      const getUserName = await UserModel.find({ username: username });
+      return getUserName;
+    } catch (error) {
+      console.log(`Server error: ${error}`);
+    } finally {
+      disconnect().catch((error) => console(error));
+    }
+  }
+
+  async saveUser(user) {
+    try {
+      await connect(URL);
+      console.log(`Base de datos connectada en ${URL} `);
+      const emailExists = await this.getUserByEmail(user.email)
+      const userNameExists = await this.getUserByUsername(user.username)
+      if (emailExists.length == 0 && userNameExists.length == 0) {
+        await connect(URL);
+        const newUser = new UserModel({
+          email: user.email,
+          password: user.password,
+          username: user.username,
+          address: user.address,
+          cart: []
+        });
+        await newUser.save();
+        console.log("User has been created");
+        
+      } else if (emailExists.length == 1 && userNameExists.length == 0){
+        console.log("The email already exists please try with a different email")
+      } else if (emailExists.length == 0 && userNameExists.length == 1){
+        console.log("The username already exists please try with a different username")
+      }
+      else {
+        console.log("The username and email already exists please try with a different username and email")
+      }
+    } catch (error) {
+      console.log(`Server error: ${error}`);
+    } finally {
+      await disconnect().catch((error) => console(error));
+    }
+  }
+
+
   async deleteUser(id) {
     try {
       await connect(URL);

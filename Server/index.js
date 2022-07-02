@@ -1,14 +1,18 @@
 import express from "express";
 const app = express();
-
+//ROUTERS
 import usersRouter from "./router/users.js";
 import productsRouter from "./router/products.js";
 import messagesRouter from "./router/messages.js";
 import ordersRouter from "./router/orders.js";
 import cartRouter from "./router/cart.js";
+//Libraries
 import minimist from "minimist";
 import bodyParser from "body-parser";
+import passport from "passport";
+import { ExtractJwt, Strategy } from "passport-jwt";
 
+//Inputs from Console when starting the server
 let consoleInputs = minimist(process.argv.slice(2));
 
 const port = consoleInputs.PORT || 8080;
