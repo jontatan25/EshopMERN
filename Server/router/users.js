@@ -2,10 +2,11 @@ import express from "express";
 
 const { Router } = express;
 const usersRouter = Router();
-import {Strategy as LocalStrategy } from "passport-local"
+// import {Strategy as LocalStrategy } from "passport-local"
 import { ExtractJwt, Strategy as JwtStrategy } from "passport-jwt";
 import passport from "passport";
 import { compareSync, hashSync, genSaltSync } from "bcrypt";
+import jsonwebtoken from "jsonwebtoken";
 // import { isValidPassword,createHash,postSignup,failSignup } from "../utils/utils.js";
 
 import Container from "../mongoContainerUsers.js";
@@ -15,52 +16,61 @@ const contenedorUsers = new Container("users");
 //Passport JWT Authentication
 
 var opts = {};
-opts.passReqToCallback = true ;
+opts.passReqToCallback = true;
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = "secretWord";
 opts.algorithms = ["RS256"];
 opts.jsonwebtokenOptions = {};
 
 // passport.use(
-//   "signup",
-//   new LocalStrategy(
-//     { passReqToCallback: true },
-//     (req, email, password, done) => {
-//       const findUser = async () => {
-//         try {
-//           const user = await contenedorUsers.getUserByEmail(email);
-//           if (user.length > 0) {
-//             console.log("user is already in use");
-//             return done(null, false);
+//   "login",
+//   new LocalStrategy(opts, (payload, done) => {
+//     const findUser = async () => {
+//       try {
+//         await contenedorUsers.getUserByEmail(payload.email).then((user) => {
+//           if (user) {
+//             console.log("user found");
+//             return done(null, user);
 //           } else {
-//             const newUser = {
-//               email: req.body.email,
-//               password: createHash(password),
-//               username: req.body.username,
-//               address: req.body.address,
-//               cart: [],
-//             };
-//             const saveUser = async () => {
-//               try {
-//                 await contenedorUsers.saveUser(newUser);
-//                 console.log("Nuevo Usuario creado");
-//               } catch (error) {
-//                 console.log(error);
-//               }
-//             };
-//             saveUser();
-//             return done(null, true);
+//             console.log("Not Authorized");
+//             return done(null, false);
 //           }
-//         } catch (error) {
-//           console.log(error);
-//         }
-//       };
-//       findUser();
-//     }
-//   )
+//         });
+
+//         // else if (!isValidPassword(user[0], password)) {
+//         //   console.log("Invalid password");
+//         //   return done(null, false);
+//         // }
+//       } catch (error) {
+//         console.log(error);
+//       }
+//     };
+//     findUser();
+//   })
 // );
 
 //JWT utils
+
+function issueJWT(user) {
+  const _id = user._id;
+
+  const expiresIn = 60;
+
+  const payload = {
+    sub: _id,
+    iat: Date.now(),
+  };
+
+  const signedToken = jsonwebtoken.sign(payload, "secretWord", {
+    expiresIn: expiresIn,
+    
+  });
+
+  return {
+    token: "Bearer " + signedToken,
+    expires: expiresIn,
+  };
+}
 
 function isValidPassword(user, password) {
   return compareSync(password, user.password);
@@ -79,28 +89,15 @@ function checkAuthentication(req, res, next) {
   }
 }
 
-function issueJWT(user) {
-    const _id = user._id;
-  
-    const expiresIn = '1d';
-  
-    const payload = {
-      sub: _id,
-      iat: Date.now()
-    };
-  
-    const signedToken = jsonwebtoken.sign(payload, "secretWord", { expiresIn: expiresIn, algorithm: 'RS256' });
-  
-    return {
-      token: "Bearer " + signedToken,
-      expires: expiresIn
-    }
-  }
-
 function postSignup(req, res) {
   var user = req.user;
-  const jwt = issueJWT(user)
-  res.json({success: true, user: user,token:jwt.token,expiresnIn: jwt.expires});
+  const jwt = issueJWT(user);
+  res.json({
+    success: true,
+    user: user,
+    token: jwt.token,
+    expiresnIn: jwt.expires,
+  });
 }
 function failSignup(req, res) {
   res.send("Error en Signup");
@@ -115,13 +112,20 @@ function failLogin(req, res) {
 ////////////////////////UTILS
 usersRouter.post("/signup", async (req, res) => {
   //another LAYER - Encrypting
-  const passwordHash = createHash(req.body.password)
-  const userEncrypted = {...req.body, password: passwordHash}
-  const saveProduct = await contenedorUsers.saveUser(userEncrypted);
-  res.send({
-    message: "User has been posted",
-    Product: saveProduct,
-  });
+  // const passwordHash = createHash(req.body.password);
+  // const userEncrypted = { ...req.body, password: passwordHash };
+  // const userSaved = await contenedorUsers.saveUser(userEncrypted);
+  const userSaved = await contenedorUsers.saveUser(req.body);
+  
+  if (userSaved.status != 409) {
+    const jwt = issueJWT(userSaved);
+    res.json({
+      success: true,
+      user: userSaved,
+      token: jwt.token,
+      expiresnIn: jwt.expires,
+    });
+  } else res.status(userSaved.status).send(userSaved.reason);
 });
 
 usersRouter.get("/signup", async (req, res) => {
@@ -136,22 +140,22 @@ usersRouter.get("/failsignup", async (req, res) => {
   });
 });
 
-usersRouter.post('/login', function (req, res, next) {
-  passport.authenticate('local', {session: false}, (err, user, info) => {
-      if (err || !user) {
-          return res.status(400).json({
-              message: 'Something is not right',
-              user   : user
-          });
-      }
-     req.login(user, {session: false}, (err) => {
-         if (err) {
-             res.send(err);
-         }
-         // generate a signed son web token with the contents of user object and return it in the response
-         const token = jwt.sign(user, 'your_jwt_secret');
-         return res.json({user, token});
+usersRouter.post("/login", function (req, res, next) {
+  passport.authenticate("local", { session: false }, (err, user, info) => {
+    if (err || !user) {
+      return res.status(400).json({
+        message: "Something is not right",
+        user: user,
       });
+    }
+    req.login(user, { session: false }, (err) => {
+      if (err) {
+        res.send(err);
+      }
+      // generate a signed son web token with the contents of user object and return it in the response
+      const token = jwt.sign(user, "your_jwt_secret");
+      return res.json({ user, token });
+    });
   })(req, res);
 });
 

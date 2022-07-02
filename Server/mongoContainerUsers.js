@@ -1,5 +1,5 @@
-import  mongoose from "mongoose";
-const {connect,disconnect} = mongoose;
+import mongoose from "mongoose";
+const { connect, disconnect } = mongoose;
 // MODELS
 
 import UserModel from "./models/User.js";
@@ -46,8 +46,8 @@ class Container {
     try {
       await connect(URL);
       console.log(`Base de datos connectada en ${URL} `);
-      const emailExists = await this.getUserByEmail(user.email)
-      const userNameExists = await this.getUserByUsername(user.username)
+      const emailExists = await this.getUserByEmail(user.email);
+      const userNameExists = await this.getUserByUsername(user.username);
       if (emailExists.length == 0 && userNameExists.length == 0) {
         await connect(URL);
         const newUser = new UserModel({
@@ -55,18 +55,29 @@ class Container {
           password: user.password,
           username: user.username,
           address: user.address,
-          cart: []
+          cart: [],
         });
         await newUser.save();
         console.log("User has been created");
-        
-      } else if (emailExists.length == 1 && userNameExists.length == 0){
-        console.log("The email already exists please try with a different email")
-      } else if (emailExists.length == 0 && userNameExists.length == 1){
-        console.log("The username already exists please try with a different username")
-      }
-      else {
-        console.log("The username and email already exists please try with a different username and email")
+        return newUser;
+      } else if (emailExists.length == 1 && userNameExists.length == 0) {
+        const res = {
+          status: 409,
+          reason: "The email already exists please try with a different email",
+        };
+        return res;
+      } else if (emailExists.length == 0 && userNameExists.length == 1) {
+        const res = {
+          status: 409,
+          reason: "The username already exists please try with a different username",
+        };
+        return res;
+      } else {
+        const res = {
+          status: 409,
+          reason: "The email and username already exists please try with a different email and username",
+        };
+        return res;
       }
     } catch (error) {
       console.log(`Server error: ${error}`);
@@ -75,17 +86,17 @@ class Container {
     }
   }
 
-
   async deleteUser(id) {
     try {
       await connect(URL);
       const res = await UserModel.deleteOne({ _id: id });
       if (res.deletedCount == 1) {
-        console.log("User has been deleted")
+        console.log("User has been deleted");
       } else {
-        console.log(`THe user with the ID ${id} doesn't exist or has been already deleted`)
+        console.log(
+          `THe user with the ID ${id} doesn't exist or has been already deleted`
+        );
       }
-      
     } catch (error) {
       console.log(`Server error: ${error}`);
     } finally {
