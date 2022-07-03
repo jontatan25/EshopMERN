@@ -41,6 +41,18 @@ class Container {
       disconnect().catch((error) => console(error));
     }
   }
+  async getUserById(id) {
+    try {
+      await connect(URL);
+      console.log(`Base de datos connectada en ${URL} `);
+      const getUser = await UserModel.find({ _id: id });
+      return getUser;
+    } catch (error) {
+      console.log(`Server error: ${error}`);
+    } finally {
+      disconnect().catch((error) => console(error));
+    }
+  }
 
   async saveUser(user) {
     try {
