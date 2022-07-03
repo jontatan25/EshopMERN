@@ -11,14 +11,6 @@ import Container from "../mongoContainerUsers.js";
 
 const contenedorUsers = new Container("users");
 
-//Passport JWT Authentication
-
-// var opts = {};
-// opts.passReqToCallback = true;
-// opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-// opts.secretOrKey = process.env.ACCESS_TOKEN_SECRET;
-// opts.jsonwebtokenOptions = {};
-
 //JWT utils
 
 function issueJWT(user) {
@@ -38,7 +30,6 @@ function issueJWT(user) {
     expires: expiresIn,
   };
 }
-const posts = [{username:"user One"},{username:"user Two"}]
 
 function authenticateToken(req, res, next) {
   const authHeader = req.headers['authorization']
@@ -93,11 +84,10 @@ function createHash(password) {
 // }
 ////////////////////////UTILS
 usersRouter.post("/signup", async (req, res) => {
-  //another LAYER - Encrypting
-  // const passwordHash = createHash(req.body.password);
-  // const userEncrypted = { ...req.body, password: passwordHash };
-  // const userSaved = await contenedorUsers.saveUser(userEncrypted);
-  const userSaved = await contenedorUsers.saveUser(req.body);
+  // another LAYER - Encrypting
+  const passwordHash = createHash(req.body.password);
+  const userEncrypted = { ...req.body, password: passwordHash };
+  const userSaved = await contenedorUsers.saveUser(userEncrypted);
 
   if (userSaved.status != 409) {
     const accessToken = jwt.sign(userSaved, process.env.ACCESS_TOKEN_SECRET)
@@ -115,24 +105,24 @@ usersRouter.get("/protected",authenticateToken, (req, res, next) => {
     .status(200)
     .json({ success: true, message: "You are authorized to access" ,user: req.user });
 });
-usersRouter.get("/signup", async (req, res) => {
-  res.send({
-    message: "Register Page",
-  });
-});
+// usersRouter.get("/signup", async (req, res) => {
+//   res.send({
+//     message: "Register Page",
+//   });
+// });
 
-usersRouter.get("/failsignup", async (req, res) => {
-  res.send({
-    message: "FailSignup",
-  });
-});
+// usersRouter.get("/failsignup", async (req, res) => {
+//   res.send({
+//     message: "FailSignup",
+//   });
+// });
 
 usersRouter.post("/login", async function (req, res, next) {
   const user = await contenedorUsers.getUserByEmail(req.body.email);
 
   if (user.length == 0) {
     res.status(401).json({ success: false, message: "User not found" });
-  } else if (req.body.password != user[0].password) {
+  } else if (!isValidPassword(user[0],req.body.password)) {
     res
       .status(401)
       .json({ success: false, message: "you entered the wrong password" });
