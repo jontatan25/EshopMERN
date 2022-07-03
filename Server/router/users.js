@@ -100,12 +100,12 @@ usersRouter.post("/signup", async (req, res) => {
   const userSaved = await contenedorUsers.saveUser(req.body);
 
   if (userSaved.status != 409) {
-    const jwt = issueJWT(userSaved);
+    const accessToken = jwt.sign(userSaved, process.env.ACCESS_TOKEN_SECRET)
     res.json({
       success: true,
       user: userSaved,
-      token: jwt.token,
-      expiresnIn: jwt.expires,
+      token: accessToken,
+      expiresnIn: '1d',
     });
   } else res.status(userSaved.status).json(userSaved.reason);
 });

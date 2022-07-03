@@ -69,9 +69,10 @@ class Container {
           address: user.address,
           cart: [],
         });
-        await newUser.save();
+        const userCreated = await newUser.save();
         console.log("User has been created");
-        return newUser;
+        const userCreatedId = userCreated._id.toString()
+        return userCreatedId;
       } else if (emailExists.length == 1 && userNameExists.length == 0) {
         const res = {
           status: 409,
