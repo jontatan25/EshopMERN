@@ -1,10 +1,13 @@
 import express from "express";
 
+import utils from "../utils/utils.js"
+import MessagesContainer from "../mongoContainerMessages.js"
 const { Router } = express;
 const messagesRouter = Router();
-
-import MessagesContainer from "../mongoContainerMessages.js"
 const mContainer = new MessagesContainer("messages");
+const jwtAuth = utils.authenticateToken
+
+messagesRouter.use(jwtAuth)
 
 // MONGODB
 messagesRouter.post("/", async (req, res) => {
@@ -14,7 +17,6 @@ messagesRouter.post("/", async (req, res) => {
       message: "Product has been posted",
       body: saveMessage
     });
-
 });
 
 messagesRouter.get("/all", async (req, res) => {
@@ -25,7 +27,7 @@ messagesRouter.get("/all", async (req, res) => {
     });
   });
   
-messagesRouter.get("/:id", async (req, res) => {
+messagesRouter.get("/id/:id", async (req, res) => {
   const user = await mContainer.getMessageById(req.params.id);
   res.send({
     message: "USERS",
@@ -33,8 +35,7 @@ messagesRouter.get("/:id", async (req, res) => {
   });
 });
 
-
-messagesRouter.delete("/:id", async (req, res) => {
+messagesRouter.delete("/id/:id", async (req, res) => {
 
   console.log(req.params.id)
 
@@ -52,5 +53,8 @@ messagesRouter.delete("/:id", async (req, res) => {
     }
 });
 
+messagesRouter.get("*", async (req, res) => {
+  res.status(404).send('Sorry, cant find that');
+});
 
 export default messagesRouter;

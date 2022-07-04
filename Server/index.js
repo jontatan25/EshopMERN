@@ -22,6 +22,7 @@ const port = consoleInputs.PORT || 8080;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+
 //ROUTERS
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);

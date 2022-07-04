@@ -5,12 +5,12 @@ const usersRouter = Router();
 
 import { compareSync, hashSync, genSaltSync } from "bcrypt";
 import jwt from "jsonwebtoken";
-// import { isValidPassword,createHash,postSignup,failSignup } from "../utils/utils.js";
+import utils from "../utils/utils.js"
 
 import Container from "../mongoContainerUsers.js";
 
 const contenedorUsers = new Container("users");
-
+const jwtAuth = utils.authenticateToken
 //JWT utils
 
 function issueJWT(user) {
@@ -31,19 +31,21 @@ function issueJWT(user) {
   };
 }
 
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers['authorization']
-  const token = authHeader && authHeader.split(' ')[1]
-  if (token == null) return res.sendStatus(401)
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    if (err) {
-      console.log(err) 
-      return res.sendStatus(403)
-    }
-    req.user = user
-    next()
-  })
-} 
+// function authenticateToken(req, res, next) {
+//   const authHeader = req.headers['authorization']
+//   const token = authHeader && authHeader.split(' ')[1]
+//   if (token == null) return res.redirect('/users/login')
+//   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+//     if (err) {
+//       console.log(err) 
+//       return res.sendStatus(403)
+//     }
+//     req.user = user
+//     next()
+//   })
+// } 
+
+//BCrypt
 
 function isValidPassword(user, password) {
   return compareSync(password, user.password);
@@ -83,6 +85,8 @@ function createHash(password) {
 //   res.send("Error en login");
 // }
 ////////////////////////UTILS
+
+//ROUTES
 usersRouter.post("/signup", async (req, res) => {
   // another LAYER - Encrypting
   const passwordHash = createHash(req.body.password);
@@ -100,7 +104,7 @@ usersRouter.post("/signup", async (req, res) => {
   } else res.status(userSaved.status).json(userSaved.reason);
 });
 
-usersRouter.get("/protected",authenticateToken, (req, res, next) => {
+usersRouter.get("/protected",jwtAuth, (req, res, next) => {
   res
     .status(200)
     .json({ success: true, message: "You are authorized to access" ,user: req.user });
@@ -138,6 +142,12 @@ usersRouter.post("/login", async function (req, res, next) {
   }
 });
 
+usersRouter.get("/login", async (req, res) => {
+  
+  res.send({
+    message: "Login Page",
+  });
+});
 usersRouter.get("/:email", async (req, res) => {
   const user = await contenedorUsers.getUserByEmail(req.params.email);
   res.send({
@@ -146,7 +156,7 @@ usersRouter.get("/:email", async (req, res) => {
   });
 });
 
-usersRouter.delete("/:id", async (req, res) => {
+usersRouter.delete("/id/:id", async (req, res) => {
   console.log(req.params.id);
 
   const productById = await contenedorUsers.getUserById(req.params.id);

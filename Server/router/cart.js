@@ -1,11 +1,13 @@
 import express from "express";
 
+import CartContainer from "../mongoContainercart.js"
+import utils from "../utils/utils.js"
 const { Router } = express;
 const cartRouter = Router();
-
-import CartContainer from "../mongoContainercart.js"
 const mContainer = new CartContainer("cart");
+const jwtAuth = utils.authenticateToken
 
+cartRouter.use(jwtAuth)
 // MONGODB
 cartRouter.post("/addCart", async (req, res) => {
     const saveCart = await mContainer.saveCart(req.body);
@@ -42,7 +44,7 @@ cartRouter.get("/all", async (req, res) => {
     
         });
       });
-cartRouter.get("/:id", async (req, res) => {
+cartRouter.get("/id/:id", async (req, res) => {
   const user = await mContainer.getCartById(req.params.id);
   res.send({
     message: "USERS",
@@ -51,7 +53,7 @@ cartRouter.get("/:id", async (req, res) => {
 });
 
 
-cartRouter.delete("/:id", async (req, res) => {
+cartRouter.delete("/id/:id", async (req, res) => {
 
   console.log(req.params.id)
 
@@ -69,5 +71,8 @@ cartRouter.delete("/:id", async (req, res) => {
     }
 });
 
+cartRouter.get("*", async (req, res) => {
+  res.status(404).send('Sorry, cant find that');
+});
 
 export default cartRouter;

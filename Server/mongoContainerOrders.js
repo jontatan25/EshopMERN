@@ -30,7 +30,8 @@ class OrderContainer {
         email: order.email,
       });
       await newOrder.save();
-      console.log("Documento Guardado");
+      console.log("Document saved");
+      return newOrder
     } catch (error) {
       console.log(`Server error: ${error}`);
     } finally {
