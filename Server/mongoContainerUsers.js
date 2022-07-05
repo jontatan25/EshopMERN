@@ -107,7 +107,7 @@ class Container {
         console.log("User has been deleted");
       } else {
         console.log(
-          `THe user with the ID ${id} doesn't exist or has been already deleted`
+          `The user with the ID ${id} doesn't exist or has been already deleted`
         );
       }
     } catch (error) {

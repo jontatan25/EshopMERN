@@ -1,5 +1,8 @@
 import { compareSync, hashSync, genSaltSync } from "bcrypt";
 import jwt from "jsonwebtoken";
+import minimist from "minimist";
+
+let consoleInputs = minimist(process.argv.slice(2));
 
 // function isValidPassword(user, password) {
 //   return compareSync(password, user.password);
@@ -18,23 +21,31 @@ import jwt from "jsonwebtoken";
 //   }
 // }
 
-// function issueJWT(user) {
-//     const _id = user._id;
+function signJWT(userSaved) {
+  const expirationTime = consoleInputs.EXP || 300 // Console input or 300 seconds
+  const signedToken = jwt.sign({data: userSaved}, process.env.ACCESS_TOKEN_SECRET,{
+
+    expiresIn: expirationTime
+
+     })
   
-//     const expiresIn = '1d';
+    return {
+      token: signedToken,
+      expires: 30,
+    }
+  }
+function signJWTLogin(user) {
+  const expirationTime = consoleInputs.EXP || 300 // Console input or 300 seconds
+  const signedToken = jwt.sign({data:user[0]._id.toString()}, process.env.ACCESS_TOKEN_SECRET,{
+
+    expiresIn: expirationTime
+     })
   
-//     const payload = {
-//       sub: _id,
-//       iat: Date.now()
-//     };
-  
-//     const signedToken = jsonwebtoken.sign(payload, "secretWord", { expiresIn: expiresIn, algorithm: 'RS256' });
-  
-//     return {
-//       token: "Bearer " + signedToken,
-//       expires: expiresIn
-//     }
-//   }
+    return {
+      token: signedToken,
+      expires: expirationTime,
+    }
+  }
 
 // function postSignup(req, res) {
 //   var user = req.user;
@@ -66,4 +77,4 @@ function authenticateToken(req, res, next) {
   })
 } 
 
-export default {authenticateToken};
+export default {authenticateToken, signJWT, signJWTLogin};

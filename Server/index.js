@@ -9,8 +9,6 @@ import cartRouter from "./router/cart.js";
 //Libraries
 import minimist from "minimist";
 import bodyParser from "body-parser";
-import passport from "passport";
-import { ExtractJwt, Strategy } from "passport-jwt";
 
 //Inputs from Console when starting the server
 let consoleInputs = minimist(process.argv.slice(2));
@@ -36,4 +34,5 @@ app.get("/", (req, res) => {
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
+
 });

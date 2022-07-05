@@ -4,46 +4,14 @@ const { Router } = express;
 const usersRouter = Router();
 
 import { compareSync, hashSync, genSaltSync } from "bcrypt";
-import jwt from "jsonwebtoken";
 import utils from "../utils/utils.js"
 
 import Container from "../mongoContainerUsers.js";
 
 const contenedorUsers = new Container("users");
 const jwtAuth = utils.authenticateToken
-//JWT utils
-
-function issueJWT(user) {
-  const _id = user._id;
-  const expiresIn = "1d";
-  const payload = {
-    sub: _id,
-    iat: Date.now(),
-  };
-
-  const signedToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: expiresIn,
-  });
-
-  return {
-    token: signedToken,
-    expires: expiresIn,
-  };
-}
-
-// function authenticateToken(req, res, next) {
-//   const authHeader = req.headers['authorization']
-//   const token = authHeader && authHeader.split(' ')[1]
-//   if (token == null) return res.redirect('/users/login')
-//   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-//     if (err) {
-//       console.log(err) 
-//       return res.sendStatus(403)
-//     }
-//     req.user = user
-//     next()
-//   })
-// } 
+const signJWT = utils.signJWT
+const signJWTLogin = utils.signJWTLogin
 
 //BCrypt
 
@@ -55,37 +23,6 @@ function createHash(password) {
   return hashSync(password, genSaltSync(10), null);
 }
 
-// function checkAuthentication(req, res, next) {
-//   if (req.isAuthenticated()) {
-//     next();
-//   } else {
-//     console.log("Usuario no Logeado,redirect a Login");
-//     res.send("redirect a Login");
-//   }
-// }
-
-// function postSignup(req, res) {
-//   var user = req.user;
-//   const jwt = issueJWT(user);
-//   res.json({
-//     success: true,
-//     user: user,
-//     token: jwt.token,
-//     expiresnIn: jwt.expires,
-//   });
-// }
-// function failSignup(req, res) {
-//   res.send("Error en Signup");
-// }
-// function postLogin(req, res) {
-//   var user = req.user;
-//   res.send("Usuario Loggeado");
-// }
-// function failLogin(req, res) {
-//   res.send("Error en login");
-// }
-////////////////////////UTILS
-
 //ROUTES
 usersRouter.post("/signup", async (req, res) => {
   // another LAYER - Encrypting
@@ -94,12 +31,12 @@ usersRouter.post("/signup", async (req, res) => {
   const userSaved = await contenedorUsers.saveUser(userEncrypted);
 
   if (userSaved.status != 409) {
-    const accessToken = jwt.sign(userSaved, process.env.ACCESS_TOKEN_SECRET)
+    const accessToken = signJWT(userSaved)
     res.json({
       success: true,
       user: userSaved,
-      token: accessToken,
-      expiresnIn: '1d',
+      token: accessToken.token,
+      expiresnIn: accessToken.expires
     });
   } else res.status(userSaved.status).json(userSaved.reason);
 });
@@ -123,7 +60,6 @@ usersRouter.get("/protected",jwtAuth, (req, res, next) => {
 
 usersRouter.post("/login", async function (req, res, next) {
   const user = await contenedorUsers.getUserByEmail(req.body.email);
-
   if (user.length == 0) {
     res.status(401).json({ success: false, message: "User not found" });
   } else if (!isValidPassword(user[0],req.body.password)) {
@@ -132,22 +68,22 @@ usersRouter.post("/login", async function (req, res, next) {
       .json({ success: false, message: "you entered the wrong password" });
   } else {
     // const tokenObject = issueJWT(user);
-    const accessToken = jwt.sign(user[0]._id.toString(), process.env.ACCESS_TOKEN_SECRET)
+    const accessToken = signJWTLogin(user)
     res.status(200).json({
       success: true,
       user: user[0],
-      token: accessToken,
-      expiresnIn: '1d',
+      token: accessToken.token,
+      expiresnIn: accessToken.expires
     });
   }
 });
 
 usersRouter.get("/login", async (req, res) => {
-  
   res.send({
     message: "Login Page",
   });
 });
+
 usersRouter.get("/:email", async (req, res) => {
   const user = await contenedorUsers.getUserByEmail(req.params.email);
   res.send({
@@ -158,7 +94,6 @@ usersRouter.get("/:email", async (req, res) => {
 
 usersRouter.delete("/id/:id", async (req, res) => {
   console.log(req.params.id);
-
   const productById = await contenedorUsers.getUserById(req.params.id);
   if (!productById) {
     res.send({
