@@ -27,7 +27,18 @@ async function getUserByEmail(email) {
       disconnect().catch((error) => console(error));
     }
   }
-
+  
+  async function getUserById(id) {
+    try {
+      await connect(URL);
+      const getId = await UserModel.find({ _id: id });
+      return getId;
+    } catch (error) {
+      console.log(`Persistance error: ${error}`);
+    } finally {
+      disconnect().catch((error) => console(error));
+    }
+  }
 async function saveUserDB(user) {
   try {
     await connect(URL);
@@ -63,4 +74,4 @@ async function deleteUserDB(email) {
   }
 
 
-export {saveUserDB,getUserByEmail,getUserByUsername, deleteUserDB };
+export {saveUserDB,getUserByEmail,getUserByUsername, deleteUserDB, getUserById };

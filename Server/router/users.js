@@ -1,12 +1,12 @@
 import express from "express";
+import { authenticateToken } from "../utils/utils.js";
+import { saveUserController,loginController, deleteController } from "../controller/users.js";
+
 const { Router } = express;
 const usersRouter = Router();
 
-import { authenticateToken } from "../utils/utils.js";
-
-import { saveUserController,loginController, deleteController } from "../controller/users.js";
-
 usersRouter.post("/signup", saveUserController);
+usersRouter.post("/login", loginController);
 
 usersRouter.get("/protected", authenticateToken, (req, res, next) => {
   res.status(200).json({
@@ -22,13 +22,11 @@ usersRouter.get("/protected", authenticateToken, (req, res, next) => {
 //   });
 // });
 
-usersRouter.post("/login", loginController);
 
 usersRouter.get("/login",(req, res) => {
   res.send({ message: "Login Page"})
 })
 
-usersRouter.delete("/delete",authenticateToken, deleteController
-);
+usersRouter.delete("/delete",authenticateToken, deleteController)
 
 export default usersRouter;
