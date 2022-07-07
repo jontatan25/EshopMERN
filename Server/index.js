@@ -41,7 +41,7 @@ io.on('connection', socket => {
 //ROUTERS
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
-app.use("/chat", messagesRouter);
+app.use("/messages", messagesRouter);
 app.use("/cart", cartRouter);
 app.use("/order", ordersRouter);
 

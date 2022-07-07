@@ -1,45 +1,26 @@
 import express from "express";
 
 import {authenticateToken} from "../utils/utils.js"
-import MessagesContainer from "../mongoContainerMessages.js"
+import {saveMessageController,getAllMessagesController,getLoggedUserMessagesController} from "../controller/messages.js"
+// import MessagesContainer from "../mongoContainerMessages.js"
+// const mContainer = new MessagesContainer("messages");
 const { Router } = express;
 const messagesRouter = Router();
-const mContainer = new MessagesContainer("messages");
 
 messagesRouter.use(authenticateToken)
 
 messagesRouter.get("/chat", async (req, res) => {
-  
   res.send({
-    message: "chat started",
+    message: "Chat Home",
   });
 });
 
 // MONGODB
-messagesRouter.post("/", async (req, res) => {
-    console.log(req.body)
-    const saveMessage = await mContainer.saveMessage(req.body);
-    res.send({
-      message: "Product has been posted",
-      body: saveMessage
-    });
-});
-
-messagesRouter.get("/all", async (req, res) => {
-    const messages = await mContainer.getAllMessages();
-    res.send({
-      message: "USERS",
-      data: messages,
-    });
-  });
+messagesRouter.post("/", saveMessageController);
+messagesRouter.get("/", getAllMessagesController);
   
-messagesRouter.get("/id/:id", async (req, res) => {
-  const user = await mContainer.getMessageById(req.params.id);
-  res.send({
-    message: "USERS",
-    data: user,
-  });
-});
+messagesRouter.get("/myMessages", getLoggedUserMessagesController);
+// messagesRouter.get("/email/:userEmail", getMessagesByEmailController);
 
 messagesRouter.delete("/id/:id", async (req, res) => {
 
