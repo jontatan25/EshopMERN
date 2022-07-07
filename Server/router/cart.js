@@ -1,13 +1,12 @@
 import express from "express";
 
 import CartContainer from "../mongoContainercart.js"
-import utils from "../utils/utils.js"
+import {authenticateToken} from "../utils/utils.js"
 const { Router } = express;
 const cartRouter = Router();
 const mContainer = new CartContainer("cart");
-const jwtAuth = utils.authenticateToken
 
-cartRouter.use(jwtAuth)
+cartRouter.use(authenticateToken)
 // MONGODB
 cartRouter.post("/addCart", async (req, res) => {
     const saveCart = await mContainer.saveCart(req.body);

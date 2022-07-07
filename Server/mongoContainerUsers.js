@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
+import UserModel from "./models/User.js";
 const { connect, disconnect } = mongoose;
+
 // MODELS
 
-import UserModel from "./models/User.js";
 
 const URL = "mongodb://localhost:27017/ecommerce";
 

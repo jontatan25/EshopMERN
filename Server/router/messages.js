@@ -1,13 +1,19 @@
 import express from "express";
 
-import utils from "../utils/utils.js"
+import {authenticateToken} from "../utils/utils.js"
 import MessagesContainer from "../mongoContainerMessages.js"
 const { Router } = express;
 const messagesRouter = Router();
 const mContainer = new MessagesContainer("messages");
-const jwtAuth = utils.authenticateToken
 
-messagesRouter.use(jwtAuth)
+messagesRouter.use(authenticateToken)
+
+messagesRouter.get("/chat", async (req, res) => {
+  
+  res.send({
+    message: "chat started",
+  });
+});
 
 // MONGODB
 messagesRouter.post("/", async (req, res) => {
@@ -56,5 +62,9 @@ messagesRouter.delete("/id/:id", async (req, res) => {
 messagesRouter.get("*", async (req, res) => {
   res.status(404).send('Sorry, cant find that');
 });
+
+//SOCKET.IO
+
+
 
 export default messagesRouter;

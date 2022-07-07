@@ -2,14 +2,13 @@ import express from "express";
 import nodemailer from "nodemailer"
 
 import OrderContainer from "../mongoContainerOrders.js"
-import utils from "../utils/utils.js"
+import {authenticateToken} from "../utils/utils.js"
 
 const { Router } = express;
 const orderRouter = Router();
-const jwtAuth = utils.authenticateToken
 const oContainer = new OrderContainer("order");
 
-orderRouter.use(jwtAuth)
+orderRouter.use(authenticateToken)
 
 //Nodemailer
 let transporter = nodemailer.createTransport({
@@ -26,7 +25,7 @@ function sendOrderNodeMailer(order) {
   let newOrder = {
     from: "zamiipx@gmail.com",
     to: order.email,
-    subject: `Detalles de la compra username`,
+    subject: `Purchase details for order ${order._id}`,
     text: JSON.stringify(order.items, null, "\t"),
   };
   transporter.sendMail(newOrder, (err) => {

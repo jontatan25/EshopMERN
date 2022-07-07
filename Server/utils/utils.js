@@ -1,16 +1,17 @@
 import { compareSync, hashSync, genSaltSync } from "bcrypt";
+import "dotenv/config.js";
 import jwt from "jsonwebtoken";
 import minimist from "minimist";
 
 let consoleInputs = minimist(process.argv.slice(2));
 
-// function isValidPassword(user, password) {
-//   return compareSync(password, user.password);
-// }
+function isValidPassword(user, password) {
+  return compareSync(password, user.password);
+}
 
-// function createHash(password) {
-//   return hashSync(password, genSaltSync(10), null);
-// }
+function createHash(password) {
+  return hashSync(password, genSaltSync(10), null);
+}
 
 // function checkAuthentication(req, res, next) {
 //   if (req.isAuthenticated()) {
@@ -77,4 +78,4 @@ function authenticateToken(req, res, next) {
   })
 } 
 
-export default {authenticateToken, signJWT, signJWTLogin};
+export {authenticateToken, signJWT, signJWTLogin, createHash, isValidPassword };
