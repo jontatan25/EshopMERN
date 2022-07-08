@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
-import itemSchema from "./Items.js"
+import productsInCartSchema from "../models/ProductsInCart.js";
 const {Schema} = mongoose
 const orderSchema = new Schema({
     _id: { type: String, required: true },
-    items: [itemSchema],
+    items: [productsInCartSchema],
     date: { type: String, required: true },
     status: { type: String, required: true },
     email: { type: String, required: true },

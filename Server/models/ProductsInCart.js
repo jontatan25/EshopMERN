@@ -1,14 +1,14 @@
 import mongoose from "mongoose";
 const {Schema} = mongoose
-const itemSchema = new Schema({
-    id: {type:Number, required: true},
+const productsInCartSchema = new Schema({
+    _id: { type: String, required: true },
     name: { type: String, required: true },
     price: { type: Number, required: true },
     URLPhoto: { type: String, required: true },
     description: { type: String, required: true },
+    category: { type: String, required: true },
     quantity: { type: Number, required: true },
-    
-},{ _id : false });
-// const ItemsModel = mongoose.model('carts', itemsSchema);
+}, { _id: false });
+// const ProductInCartModel = mongoose.model('productsInCart', productsInCartSchema);
 
-export default itemSchema;
+export default productsInCartSchema;

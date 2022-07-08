@@ -10,7 +10,6 @@ async function saveProductDB(product) {
     await connect(URL);
     console.log(`Base de datos connectada en ${URL} `);
     const prod1 = new ProductModel({
-      id: product.id,
       name: product.name,
       price: product.price,
       URLPhoto: product.URLPhoto,
@@ -57,6 +56,18 @@ async function getAllProductsDB() {
     disconnect().catch((error) => console(error));
   }
 }
+async function getProductsByIdDB(id) {
+  try {
+    await connect(URL);
+    console.log(`Base de datos connectada en ${URL} `);
+    const getProducts = await ProductModel.find({_id:id});
+    return getProducts;
+  } catch (error) {
+    console.log(`Server error: ${error}`);
+  } finally {
+    disconnect().catch((error) => console(error));
+  }
+}
 async function deleteProductDB(id) {
   try {
     await connect(URL);
@@ -75,4 +86,5 @@ export {
   getProductByCategoryDB,
   getAllProductsDB,
   deleteProductDB,
+  getProductsByIdDB
 };
