@@ -1,4 +1,4 @@
-import {saveMessage,getAllMessages,getLoggedUserMessages} from "../api/messages.js"
+import {saveMessage,getAllMessages,getLoggedUserMessages,getMessagesByEmail} from "../api/messages.js"
 
 async function saveMessageController(req, res) {
     try {
@@ -27,4 +27,13 @@ async function getLoggedUserMessagesController(req, res) {
     console.log("Error in Product Controller:" + error);
   }
 }
-export {saveMessageController,getAllMessagesController,getLoggedUserMessagesController}
+async function getMessagesByEmailController(req, res) {
+  try {
+    const userEmail = req.params.userEmail
+    const getResult = await getMessagesByEmail(userEmail);
+    res.json(getResult);
+  } catch (error) {
+    console.log("Error in Product Controller:" + error);
+  }
+}
+export {saveMessageController,getAllMessagesController,getLoggedUserMessagesController,getMessagesByEmailController}

@@ -1,20 +1,29 @@
 import express from "express";
-
-import CartContainer from "../mongoContainercart.js"
 import {authenticateToken} from "../utils/utils.js"
+import {saveCartController} from "../controller/carts.js";
+
 const { Router } = express;
 const cartRouter = Router();
-const mContainer = new CartContainer("cart");
+// import CartContainer from "../mongoContainercart.js"
+// const mContainer = new CartContainer("cart");
 
 cartRouter.use(authenticateToken)
-// MONGODB
+
+cartRouter.post("/addCart", saveCartController);
+// cartRouter.post("/addCart", async (req, res) => {
+//     const saveCart = await mContainer.saveCart(req.body);
+//     res.send({
+//       message: "Product has been posted",
+//       body: saveCart
+//     });
+// });
+
 cartRouter.post("/addCart", async (req, res) => {
     const saveCart = await mContainer.saveCart(req.body);
     res.send({
       message: "Product has been posted",
       body: saveCart
     });
-
 });
 
 cartRouter.get("/all", async (req, res) => {

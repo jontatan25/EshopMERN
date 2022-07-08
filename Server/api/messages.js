@@ -2,6 +2,7 @@ import {
   saveMessageDB,
   getAllMessagesDB,
   getLoggedUserMessagesDB,
+  getMessagesByEmailDB
 } from "../DAOs/messagesMongoDB.js";
 import { getUserById } from "../DAOs/userMongoDB.js";
 import {getMessagesByEmailDTO} from "../DTOs/messages.js"
@@ -19,8 +20,11 @@ async function saveMessage(message) {
 async function getAllMessages() {
   try {
     const res = await getAllMessagesDB();
-    if (res) {
-      return { message: " Messages gathered", messages: res };
+    if (res.length === 0) {
+      return { success: false, message: "There is no Messages yet" };
+    } else {
+      const messagesDTO = getMessagesByEmailDTO(res)
+      return { success: true, message: " Messages gathered", messages: messagesDTO };
     }
   } catch (error) {
     console.log(`Error while saving: ${error}`);
@@ -29,17 +33,17 @@ async function getAllMessages() {
 async function getLoggedUserMessages(userId) {
   try {
     const getUser = await getUserById(userId);
-    if (getUser.length == 0) {
+    if (getUser.length === 0) {
       return { success: false, message: "User not Found" };
     } else {
       try {
         const userEmail = getUser[0].email;
         const getMessages = await getLoggedUserMessagesDB(userEmail);
-        if (getMessages.length == 0) {
+        if (getMessages.length === 0) {
           return { success: false, message: "You have no Messages yet" };
         } else {
           const messagesDTO = getMessagesByEmailDTO(getMessages)
-          return { message: " User messages gathered", messages: messagesDTO };
+          return {success: true, message: " User messages gathered", messages: messagesDTO };
         }
         
       } catch (error) {
@@ -50,5 +54,18 @@ async function getLoggedUserMessages(userId) {
     console.log(`Error while saving: ${error}`);
   }
 }
+async function getMessagesByEmail(userEmail) {
+  try {
+    const getMessages = await getMessagesByEmailDB(userEmail);
+    if (getMessages.length === 0) {
+      return { success: false, message: `No messages for the email ${userEmail}` };
+    } else {
+      const messagesDTO = getMessagesByEmailDTO(getMessages)
+      return { success: true, message: " User Messages By Email gathered", messages: messagesDTO };
+    }
+  } catch (error) {
+    console.log(`Error while saving: ${error}`);
+  }
+}
 
-export { saveMessage, getAllMessages, getLoggedUserMessages };
+export { saveMessage, getAllMessages, getLoggedUserMessages,getMessagesByEmail };

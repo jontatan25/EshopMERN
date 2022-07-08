@@ -33,6 +33,7 @@ async function getAllMessagesDB (){
         disconnect().catch((error) => console(error));
       }
 }
+
 async function getLoggedUserMessagesDB (userEmail){
     try {
         await connect(URL);
@@ -45,4 +46,16 @@ async function getLoggedUserMessagesDB (userEmail){
         disconnect().catch((error) => console(error));
       }
 }
-export {saveMessageDB,getAllMessagesDB,getLoggedUserMessagesDB}
+async function getMessagesByEmailDB (userEmail){
+  try {
+      await connect(URL);
+      console.log(`Base de datos connectada en ${URL} `);
+      const getMessagesByEmail = await MessageModel.find({email:userEmail});
+      return getMessagesByEmail;
+    } catch (error) {
+      console.log(`Server error: ${error}`);
+    } finally {
+      disconnect().catch((error) => console(error));
+    }
+}
+export {saveMessageDB,getAllMessagesDB,getLoggedUserMessagesDB,getMessagesByEmailDB}
