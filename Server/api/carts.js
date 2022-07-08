@@ -1,7 +1,7 @@
 import {
   saveCartDB,
   getCurrentUserCartDB,
-  addNewProductDB
+  addNewProductDB,
 } from "../DAOs/cartsMongoDB.js";
 import { getUserById } from "../DAOs/userMongoDB.js";
 import { getProductsByIdDB } from "../DAOs/productsMongoDB.js";
@@ -59,8 +59,11 @@ async function saveCart(userId) {
     console.log(`Error while saving: ${error}`);
   }
 }
- function checkIfProductInCart(cart, productId) {
-  const findProduct = cart.filter((product) => product._id === productId);
+function checkIfProductInCart(cart, productId) {
+  const cartProducts = cart[0].items;
+  const findProduct = cartProducts.filter(
+    (product) => product._id === productId
+  );
   if (findProduct.length === 0) {
     return false;
   } else return true;
@@ -73,52 +76,25 @@ async function addProduct(productWithUserId) {
     const cart = getCart.cart;
     const productId = productWithUserId.newProduct.id;
     const findProduct = checkIfProductInCart(cart, productId);
-    const productInArray = await getProductsByIdDB(productId)
+    const productInArray = await getProductsByIdDB(productId);
     console.log(findProduct);
     if (!findProduct) {
       try {
-        const cartId = cart._id
-        const product = productInArray[0]
-        product.quantity = 1
-        const res =await addNewProductDB(product,cartId)
-        return res
+        const cartId = cart[0]._id;
+        let product = {
+          ...productInArray[0]._doc,
+          quantity: 1,
+          cartId: cartId,
+        };
+        const res = await addNewProductDB(product);
+        if (res)
+          return { success: true, message: "New product added successfully" };
       } catch (error) {
         console.log(`Error while saving: AddnewProductDB ${error}`);
       }
+    } else {
+      return { success: true, message: "Product + 1" };
     }
-    // if (getUser.length === 0) {
-    //   return { success: false, message: "User not Found" };
-    // } else {
-    //   try {
-    //     const userEmail = getUser[0].email;
-    //     const getCart = await getCurrentUserCart(userEmail)
-    //     console.log(getCart)
-    // const productWithEmail = {
-    //   email: userEmail,
-    //   product: productWithUserId,
-    // };
-    // const productId = productWithUserId.newProduct.id;
-    // const getProduct = await getProductsByIdDB(productId);
-    // if (!getProduct) {
-    //   return {
-    //     success: false,
-    //     message: "Persistance Error-cannot find the provided ID",
-    //   };
-    // } else {
-    //   console.log(getProduct)
-    //   const res = await addProductDB(productWithEmail);
-    //   if (res) {
-    //     return {
-    //       success: true,
-    //       message: "Product added to Cart",
-    //       message: res,
-    //     };
-    //   }
-    // }
-    //   } catch (error) {
-    //     console.log(`Error while saving getUser/else: ${error}`);
-    //   }
-    // }
   } catch (error) {
     console.log(`Error while saving: ${error}`);
   }

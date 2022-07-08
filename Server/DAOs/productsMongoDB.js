@@ -8,7 +8,7 @@ const URL = "mongodb://localhost:27017/ecommerce";
 async function saveProductDB(product) {
   try {
     await connect(URL);
-    console.log(`Base de datos connectada en ${URL} `);
+    console.log(`DB connected to: ${URL} `);
     const prod1 = new ProductModel({
       name: product.name,
       price: product.price,
@@ -29,7 +29,7 @@ async function getProductByCategoryDB(category) {
   try {
     try {
       await connect(URL);
-      console.log(`Base de datos connectada en ${URL} `);
+      console.log(`DB connected to: ${URL} `);
       const getProduct = await ProductModel.find({ category: category });
       return getProduct;
     } catch (error) {
@@ -47,7 +47,7 @@ async function getProductByCategoryDB(category) {
 async function getAllProductsDB() {
   try {
     await connect(URL);
-    console.log(`Base de datos connectada en ${URL} `);
+    console.log(`DB connected to: ${URL} `);
     const getProducts = await ProductModel.find({});
     return getProducts;
   } catch (error) {
@@ -59,7 +59,7 @@ async function getAllProductsDB() {
 async function getProductsByIdDB(id) {
   try {
     await connect(URL);
-    console.log(`Base de datos connectada en ${URL} `);
+    console.log(`DB connected to: ${URL} `);
     const getProducts = await ProductModel.find({_id:id});
     return getProducts;
   } catch (error) {
