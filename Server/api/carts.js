@@ -3,6 +3,8 @@ import {
   getCurrentUserCartDB,
   addNewProductDB,
   addOneProductDB,
+  substractOneProductDB,
+  deleteProductFromCartDB
 } from "../DAOs/cartsMongoDB.js";
 import { getUserById } from "../DAOs/userMongoDB.js";
 import { getProductsByIdDB } from "../DAOs/productsMongoDB.js";
@@ -69,6 +71,18 @@ function checkIfProductInCart(cart, productId) {
     return false;
   } else return true;
 }
+function checkIfQuantityIsOne(cart, productId) {
+  const cartProducts = cart[0].items;
+  const findProduct = cartProducts.filter(
+    (product) => product._id === productId
+  );
+  // console.log(cart)
+  // console.log("-------------------------------")
+  // console.log(findProduct[0])
+  if (findProduct[0].quantity === 1) {
+    return true;
+  } else return false;
+}
 
 async function addProduct(productWithUserId) {
   try {
@@ -100,5 +114,52 @@ async function addProduct(productWithUserId) {
     console.log(`Error while saving: ${error}`);
   }
 }
+async function substractOneProduct(productWithUserId) {
+  try {
+    const userId = productWithUserId.userId;
+    const getCart = await getCurrentUserCart(userId);
+    const cart = getCart.cart;
+    const productId = productWithUserId.newProduct.id;
+    const findProduct = checkIfProductInCart(cart, productId);
+    const productInArray = await getProductsByIdDB(productId);
+    const cartId = cart[0]._id;
+    let product = {
+      ...productInArray[0]._doc,
+      quantity: 1,
+      cartId: cartId,
+    };
+    if (findProduct) {
+      try {
+        const productQuantityIsOne = checkIfQuantityIsOne(cart, productId);
+        if (!productQuantityIsOne) {
+          const res = await substractOneProductDB(product);
+          if (res)
+            return {
+              success: true,
+              message: "Product quantity -1",
+              product: res,
+            };
+        } else {
+          const res = await deleteProductFromCartDB(product);
+          if (res)
+            return {
+              success: true,
+              message:
+                "Product quantity -1, itemQuantity is now 0, deleting from Cart",
+            };
+        }
+      } catch (error) {
+        console.log(`Error while saving: substractOneProductDB ${error}`);
+      }
+    } else {
+      return {
+        success: false,
+        message: "The products does not exist in the cart",
+      };
+    }
+  } catch (error) {
+    console.log(`Error while saving: ${error}`);
+  }
+}
 
-export { saveCart, getCurrentUserCart, addProduct };
+export { saveCart, getCurrentUserCart, addProduct, substractOneProduct };

@@ -1,6 +1,6 @@
 import express from "express";
 import { authenticateToken } from "../utils/utils.js";
-import { saveCartController,getCurrentUserCartController,addProductController,deleteProductController } from "../controller/carts.js";
+import { saveCartController,getCurrentUserCartController,addProductController,deleteProductController,substractOneProductController } from "../controller/carts.js";
 
 const { Router } = express;
 const cartRouter = Router();
@@ -12,6 +12,7 @@ cartRouter.use(authenticateToken);
 cartRouter.post("/newCart", saveCartController);
 cartRouter.get("/myCart", getCurrentUserCartController);
 cartRouter.post("/addProduct", addProductController);
+cartRouter.post("/substractOneProduct", substractOneProductController);
 
 cartRouter.delete("/deleteProduct", deleteProductController);
 // cartRouter.delete("/product/:cartId", async (req, res) => {

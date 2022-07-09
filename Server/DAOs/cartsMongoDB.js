@@ -76,5 +76,44 @@ async function addOneProductDB(product) {
     mongoose.disconnect().catch((error) => console(error));
   }
 }
+async function substractOneProductDB(product) {
+  try {
+    await connect(URL);
+    const productDTO = addNewProductDTO(product);
+    const res = await CartModel.findOneAndUpdate(
+      { _id: product.cartId,"items._id": productDTO._id },
+      {
+        $inc: {
+          "items.$.quantity": -1,
+        },
+      },
+      { new: true}
+    );
+    return res;
+  } catch (error) {
+    console.log(`Server error: ${error}`);
+  } finally {
+    mongoose.disconnect().catch((error) => console(error));
+  }
+}
 
-export { saveCartDB, getCurrentUserCartDB, addNewProductDB, addOneProductDB };
+async function deleteProductFromCartDB(product) {
+  try {
+    await connect(URL);
+    const productDTO = addNewProductDTO(product);
+    const res = await CartModel.findOneAndUpdate(
+      { _id: product.cartId },
+      {
+        $pull: {
+          items: {_id: productDTO._id},
+        },
+      },
+    );
+    return res;
+  } catch (error) {
+    console.log(`Server error: ${error}`);
+  } finally {
+    mongoose.disconnect().catch((error) => console(error));
+  }
+}
+export { saveCartDB, getCurrentUserCartDB, addNewProductDB, addOneProductDB, substractOneProductDB, deleteProductFromCartDB };
