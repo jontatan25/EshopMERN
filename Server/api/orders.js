@@ -1,6 +1,7 @@
 import { createOrderDB, getAllOrders } from "../DAOs/ordersMongoDB.js";
 import { getCurrentUserCart } from "./carts.js";
 import { resetCartDB } from "../DAOs/cartsMongoDB.js";
+import { sendOrderNodeMailer } from "../utils/nodemailer.js";
 
 async function createOrder(userId) {
   try {
@@ -18,10 +19,11 @@ async function createOrder(userId) {
         cart: userCartRes.cart,
         ordersLength: ordersLength,
       };
-      const res = await createOrderDB(userCartWithLength);
-      if (res.items.length > 0) {
+      const saveOrder = await createOrderDB(userCartWithLength);
+      if (saveOrder) {
         const userCart = userCartRes.cart;
         const cartId = userCart[0]._id;
+        sendOrderNodeMailer(saveOrder)
         await resetCartDB(cartId);
         return ` Order was made and the Cart has been cleared, Thanks for your order!`;
       } else return "The cart doesn't exist or its already been cleared'";
