@@ -1,4 +1,4 @@
-import {saveCart,getCurrentUserCart,addProduct,substractOneProduct} from "../api/carts.js"
+import {saveCart,getCurrentUserCart,addProduct,substractOneProduct,deleteProduct} from "../api/carts.js"
 
 async function saveCartController(req, res) {
   try {
@@ -46,4 +46,4 @@ async function deleteProductController(req, res) {
     }
   }
 
-export {saveCartController,getCurrentUserCartController,addProductController,deleteProductController,substractOneProductController}
+export {saveCartController,getCurrentUserCartController,addProductController,substractOneProductController,deleteProductController}

@@ -4,7 +4,7 @@ import {
   addNewProductDB,
   addOneProductDB,
   substractOneProductDB,
-  deleteProductFromCartDB
+  deleteProductFromCartDB,
 } from "../DAOs/cartsMongoDB.js";
 import { getUserById } from "../DAOs/userMongoDB.js";
 import { getProductsByIdDB } from "../DAOs/productsMongoDB.js";
@@ -125,7 +125,7 @@ async function substractOneProduct(productWithUserId) {
     const cartId = cart[0]._id;
     let product = {
       ...productInArray[0]._doc,
-      quantity: 1,
+      quantity: 1, ///REVIEW IF NECESSARY
       cartId: cartId,
     };
     if (findProduct) {
@@ -154,7 +154,7 @@ async function substractOneProduct(productWithUserId) {
     } else {
       return {
         success: false,
-        message: "The products does not exist in the cart",
+        message: "The product does not exist in the cart",
       };
     }
   } catch (error) {
@@ -162,4 +162,34 @@ async function substractOneProduct(productWithUserId) {
   }
 }
 
-export { saveCart, getCurrentUserCart, addProduct, substractOneProduct };
+async function deleteProduct(productWithUserId) {
+  try {
+    const userId = productWithUserId.userId;
+    const getCart = await getCurrentUserCart(userId);
+    const cart = getCart.cart;
+    const productId = productWithUserId.newProduct.id;
+    const findProduct = checkIfProductInCart(cart, productId);
+    const productInArray = await getProductsByIdDB(productId);
+    const cartId = cart[0]._id;
+    let product = {
+      ...productInArray[0]._doc,
+      cartId: cartId,
+    };
+    if (findProduct) {
+      const res = await deleteProductFromCartDB(product);
+      if (res)
+        return {
+          success: true,
+          message: `Product with the id deleted from the Cart`,
+        };
+    } else
+      return {
+        success: false,
+        message: "The products does not exist in the cart",
+      };
+  } catch (error) {
+    console.log(`Error while saving: ${error}`);
+  }
+}
+
+export { saveCart, getCurrentUserCart, addProduct, substractOneProduct,deleteProduct };

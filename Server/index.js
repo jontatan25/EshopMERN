@@ -46,7 +46,7 @@ app.use("/cart", cartRouter);
 app.use("/order", ordersRouter);
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("HOME");
 });
 
 const server = httpServer.listen(port, () => {
