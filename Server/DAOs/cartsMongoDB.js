@@ -56,18 +56,18 @@ async function addNewProductDB(product) {
   }
 }
 
-async function addOneProduct(productWithEmail) {
+async function addOneProductDB(product) {
   try {
     await connect(URL);
-    const productDTO = addProductDTO(productWithEmail);
+    const productDTO = addNewProductDTO(product);
     const res = await CartModel.findOneAndUpdate(
-      { email: productWithEmail.email },
+      { _id: product.cartId,"items._id": productDTO._id },
       {
-        $push: {
-          items: productDTO,
+        $inc: {
+          "items.$.quantity": 1,
         },
       },
-      { new: true, safe: true, upsert: true }
+      { new: true}
     );
     return res;
   } catch (error) {
@@ -77,4 +77,4 @@ async function addOneProduct(productWithEmail) {
   }
 }
 
-export { saveCartDB, getCurrentUserCartDB, addNewProductDB };
+export { saveCartDB, getCurrentUserCartDB, addNewProductDB, addOneProductDB };

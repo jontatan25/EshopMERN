@@ -2,6 +2,7 @@ import {
   saveCartDB,
   getCurrentUserCartDB,
   addNewProductDB,
+  addOneProductDB,
 } from "../DAOs/cartsMongoDB.js";
 import { getUserById } from "../DAOs/userMongoDB.js";
 import { getProductsByIdDB } from "../DAOs/productsMongoDB.js";
@@ -77,15 +78,14 @@ async function addProduct(productWithUserId) {
     const productId = productWithUserId.newProduct.id;
     const findProduct = checkIfProductInCart(cart, productId);
     const productInArray = await getProductsByIdDB(productId);
-    console.log(findProduct);
+    const cartId = cart[0]._id;
+    let product = {
+      ...productInArray[0]._doc,
+      quantity: 1,
+      cartId: cartId,
+    };
     if (!findProduct) {
       try {
-        const cartId = cart[0]._id;
-        let product = {
-          ...productInArray[0]._doc,
-          quantity: 1,
-          cartId: cartId,
-        };
         const res = await addNewProductDB(product);
         if (res)
           return { success: true, message: "New product added successfully" };
@@ -93,7 +93,8 @@ async function addProduct(productWithUserId) {
         console.log(`Error while saving: AddnewProductDB ${error}`);
       }
     } else {
-      return { success: true, message: "Product + 1" };
+      const res = await addOneProductDB(product);
+      return { success: true, message: res };
     }
   } catch (error) {
     console.log(`Error while saving: ${error}`);
