@@ -7,6 +7,7 @@ const orderSchema = new Schema({
     date: { type: String, required: true },
     status: { type: String, required: true },
     email: { type: String, required: true },
+    address : { type: String, required: true },
 });
 const OrderModel = mongoose.model('orders', orderSchema);
 

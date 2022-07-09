@@ -61,13 +61,13 @@ async function addOneProductDB(product) {
     await connect(URL);
     const productDTO = addNewProductDTO(product);
     const res = await CartModel.findOneAndUpdate(
-      { _id: product.cartId,"items._id": productDTO._id },
+      { _id: product.cartId, "items._id": productDTO._id },
       {
         $inc: {
           "items.$.quantity": 1,
         },
       },
-      { new: true}
+      { new: true }
     );
     return res;
   } catch (error) {
@@ -81,13 +81,13 @@ async function substractOneProductDB(product) {
     await connect(URL);
     const productDTO = addNewProductDTO(product);
     const res = await CartModel.findOneAndUpdate(
-      { _id: product.cartId,"items._id": productDTO._id },
+      { _id: product.cartId, "items._id": productDTO._id },
       {
         $inc: {
           "items.$.quantity": -1,
         },
       },
-      { new: true}
+      { new: true }
     );
     return res;
   } catch (error) {
@@ -105,9 +105,9 @@ async function deleteProductFromCartDB(product) {
       { _id: product.cartId },
       {
         $pull: {
-          items: {_id: productDTO._id},
+          items: { _id: productDTO._id },
         },
-      },
+      }
     );
     return res;
   } catch (error) {
@@ -116,4 +116,50 @@ async function deleteProductFromCartDB(product) {
     mongoose.disconnect().catch((error) => console(error));
   }
 }
-export { saveCartDB, getCurrentUserCartDB, addNewProductDB, addOneProductDB, substractOneProductDB, deleteProductFromCartDB };
+async function deleteCartFromDB(cartId) {
+  try {
+    await connect(URL);
+    const res = await CartModel.deleteOne({ _id: cartId });
+    if (res.deletedCount == 1) {
+      console.log("Cart has been deleted");
+    } else {
+      console.log(
+        `THe cart with the ID ${cartId} doesn't exist or has been already deleted`
+      );
+    }
+  } catch (error) {
+    console.log(`Server error: ${error}`);
+  } finally {
+    disconnect().catch((error) => console(error));
+  }
+}
+
+async function resetCartDB(cartId) {
+  try {
+    await connect(URL);
+    const res = await CartModel.findOneAndUpdate(
+      { _id: cartId },
+      {
+        $set: {
+          items: [],
+        },
+      }
+    );
+    return res;
+  } catch (error) {
+    console.log(`Server error: ${error}`);
+  } finally {
+    mongoose.disconnect().catch((error) => console(error));
+  }
+}
+
+export {
+  saveCartDB,
+  getCurrentUserCartDB,
+  addNewProductDB,
+  addOneProductDB,
+  substractOneProductDB,
+  deleteProductFromCartDB,
+  deleteCartFromDB,
+  resetCartDB,
+};

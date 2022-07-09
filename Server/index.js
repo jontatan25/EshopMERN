@@ -43,7 +43,7 @@ app.use("/users", usersRouter);
 app.use("/products", productsRouter);
 app.use("/messages", messagesRouter);
 app.use("/cart", cartRouter);
-app.use("/order", ordersRouter);
+app.use("/orders", ordersRouter);
 
 app.get("/", (req, res) => {
   res.send("HOME");

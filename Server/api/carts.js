@@ -8,6 +8,7 @@ import {
 } from "../DAOs/cartsMongoDB.js";
 import { getUserById } from "../DAOs/userMongoDB.js";
 import { getProductsByIdDB } from "../DAOs/productsMongoDB.js";
+
 async function getCurrentUserCart(userId) {
   try {
     const getUser = await getUserById(userId);

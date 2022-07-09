@@ -18,6 +18,7 @@ function addNewProductDTO(product) {
     price: product.price,
     URLPhoto: product.URLPhoto,
     description: product.description,
+    category: product.category,
     quantity: product.quantity,
   };
   return newProduct;
