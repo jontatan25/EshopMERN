@@ -27,15 +27,16 @@
 }
 
 .signup__container-input {
-  width: 90%;
+  width: 85%;
   height: 3em;
   border-radius: 5px;
   border: none;
   margin-bottom: 1em;
   font-size: 1em;
+  padding-left: 10px;
 }
+
 .signup__container-input:last-of-type{
-  
   margin-bottom: 2.5em;
 }
 .signup__container-input:focus {
@@ -50,11 +51,10 @@
   border: none;
   border-radius: 5px;
   background-color: #555efb;
-  padding: 1.1em 7em;
+  padding: 0.7em 6em;
   color: white;
   font-family: "FiraGO", sans-serif;
-  letter-spacing: 0.1em;
-  font-size: 1.1em;
+  font-size: 1.5em;
 }
 
 .signup__form-btn:hover {
