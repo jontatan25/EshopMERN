@@ -1,0 +1,15 @@
+.homeContainer {
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.35);
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  font-family: "Fraunces", serif;
+  font-size: 5em;
+  width: 80vw;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
