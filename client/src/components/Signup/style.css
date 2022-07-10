@@ -1,32 +1,32 @@
-.signupContainer{
+.signup__container{
   display: flex;
-  justify-content: space-around;
-  margin: 0 auto;
-  width: 70vw;
-}
+  align-items: center;
+  height: 80vh;
 
-.signup__container {
+}
+.signup__formContainer {
   background-color: rgba(255, 255, 255, 0.35);
   width: 30vw;
   height: 65vh;
-  margin: 8vh 0;
+  margin: 0 auto;
   padding: 2rem;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   font-family: "FiraGO", sans-serif;
   box-shadow: 1px #555efb;
 }
 
-.signup__container h3 {
+.signup__formContainer h3 {
   font-size: 3.5rem;
   margin: 0.3em 0 0.8em 0;
   color: white;
   font-family: "Fraunces", serif;
 }
 
-.signup__container-input {
+.signup__formContainer-input {
   width: 85%;
   height: 3em;
   border-radius: 5px;
@@ -36,10 +36,10 @@
   padding-left: 10px;
 }
 
-.signup__container-input:last-of-type{
+.signup__formContainer-input:last-of-type {
   margin-bottom: 2.5em;
 }
-.signup__container-input:focus {
+.signup__formContainer-input:focus {
   outline: solid #555efb;
 }
 
@@ -55,6 +55,7 @@
   color: white;
   font-family: "FiraGO", sans-serif;
   font-size: 1.5em;
+  cursor: pointer;
 }
 
 .signup__form-btn:hover {

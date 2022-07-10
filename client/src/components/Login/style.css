@@ -63,6 +63,7 @@
   border: none;
   margin-bottom: 0.5em;
   font-size: 1em;
+  padding-left: 8px;
 }
 .login__container-input:focus {
   outline: solid #555efb;

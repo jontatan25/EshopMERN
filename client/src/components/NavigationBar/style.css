@@ -1,13 +1,13 @@
-.navcontainer{
-    display: flex;
+/* .navcontainer{
     
-}
+} */
 .nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: "FiraGO", sans-serif;
     font-size: 1.3rem;  
+    margin-bottom: 0.8em;
 }
 .navList{
     list-style-type: none;
