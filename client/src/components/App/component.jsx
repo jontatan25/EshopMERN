@@ -7,6 +7,7 @@ import Login from "../Login/component"
 import Signup from '../Signup/component';
 
 import "./style.css";
+import Chat from '../Chat/component';
 function App() {
   return (
 
@@ -16,6 +17,8 @@ function App() {
         <Route path="/" element={<HomeContainer />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/chat" element={<Chat messagesToGet = "messages"/>}></Route>
+        <Route path="/chat/email" element={<Chat messagesToGet = "email"/>}></Route>
         {/* <Route path="/loginfb" element={<LoginFacebook />}></Route>
         <Route
           path="/datos"

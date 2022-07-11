@@ -34,8 +34,16 @@ app.use(cors())
 io.on('connection', socket => {
   console.log("a user connected");
   socket.emit('request', /* … */); // emit an event to the socket
-  io.emit('broadcast', /* … */); // emit an event to all connected sockets
+  io.emit('previous_messages', {message:"Message1",message2:"Message2"}); // emit an event to all connected sockets
   socket.on('reply', () => { /* … */ }); // listen to the event
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  })
+
+  socket.on('send_message', (data) => {
+    io.emit('receive_message',data); // emit an event to all connected sockets
+    console.log(data)
+  })
 });
 
 //ROUTERS
