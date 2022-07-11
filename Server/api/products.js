@@ -24,7 +24,7 @@ async function getAllProducts() {
   try {
     const res = await getAllProductsDB();
     if (res.length > 0) {
-      return {message:" All Products gathered" , product : res}
+      return {message:" All Products gathered" , products : res}
     } else return {message:" Product not found"}
   } catch (error) {
     console.log(`Error while saving: ${error}`)

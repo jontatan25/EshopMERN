@@ -48,8 +48,8 @@ io.on('connection', socket => {
 
 //ROUTERS
 app.use("/users", usersRouter);
-app.use("/products", productsRouter);
-app.use("/messages", messagesRouter);
+app.use("/products", productsRouter); /// JWT Disabled
+app.use("/messages", messagesRouter); /// JWT Disabled
 app.use("/cart", cartRouter);
 app.use("/orders", ordersRouter);
 

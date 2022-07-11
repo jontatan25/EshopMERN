@@ -4,9 +4,11 @@ import {saveProductController, getProductByCategoryController,getAllProductsCont
 const { Router } = express;
 const productsRouter = Router();
 
-productsRouter.post("/",authenticateToken, saveProductController);
-productsRouter.get("/category/:categoryId", authenticateToken, getProductByCategoryController);
-productsRouter.get("/", authenticateToken, getAllProductsController);
+// productsRouter.use(authenticateToken)
+
+productsRouter.post("/", saveProductController);
+productsRouter.get("/category/:categoryId", getProductByCategoryController);
+productsRouter.get("/", getAllProductsController);
 productsRouter.delete("/:id", deleteProductController);
 
 

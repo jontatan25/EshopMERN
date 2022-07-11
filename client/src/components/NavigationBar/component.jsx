@@ -13,13 +13,16 @@ const NavigationBar = () => {
               <Link className="navContainer__Link" to="/">Home</Link>
             </li>
             <li>
-              <Link className="navContainer__Link" to="/login">login</Link>
+              <Link className="navContainer__Link" to="/login">Login</Link>
             </li>
             <li>
               <Link className="navContainer__Link" to="/signup">Sign Up</Link>
             </li>
             <li>
               <Link className="navContainer__Link" to="/Chat">Chat</Link>
+            </li>
+            <li>
+              <Link className="navContainer__Link" to="/Products">Products</Link>
             </li>
           </ul>
         </nav>
