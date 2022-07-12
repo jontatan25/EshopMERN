@@ -11,6 +11,7 @@ import "./style.css";
 import Chat from "../Chat/component";
 import Products from "../Products/component";
 import Cart from "../Cart/component";
+import Logout from "../Logout/component";
 
 import CartContextProvider,{useCartContext} from "../CartContext/context";
 function App() {
@@ -38,6 +39,7 @@ function App() {
           ></Route>
           <Route path="/products/id" element={<Products filter="id" />}></Route>
           <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/logout" element={<Logout />}></Route>
           {/* <Route path="/loginfb" element={<LoginFacebook />}></Route>
         <Route
           path="/datos"

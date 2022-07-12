@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import axios from "axios";
 import "./style.css";
 
@@ -15,14 +15,26 @@ const Login = () => {
       const res = await axios.post('http://localhost:8080/users/login',data)
       console.log(res.data)
       if (res.data.success === true) {
+        localStorage.setItem("user", JSON.stringify(res.data.token))
         alert("Logged In !")
-        window.open("http://192.168.0.104:3000/products")
+        window.open("http://192.168.0.104:3000/products","_self")
       }
       else alert(res.data.reason)
     } catch (error) {
       console.log(error)
     }
   }
+
+  const getUser = async () => {
+    const user = JSON.parse(localStorage.getItem("user"))
+    if (user) {
+      window.open("http://192.168.0.104:3000/products","_self")
+    } 
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
   
   return (
     <>

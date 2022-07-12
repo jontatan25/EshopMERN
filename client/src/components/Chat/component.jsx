@@ -36,11 +36,23 @@ const Chat = ({messagesToGet}) => {
     socket.emit("send_message", { message: inputRef.current.value });
   };
 
+  const getUser = async () => {
+    const user = JSON.parse(localStorage.getItem("user"))
+    if (!user) {
+      alert("You need to login before using the chat.")
+      window.open("http://192.168.0.104:3000/login","_self")
+    } 
+  };
+  useEffect(() => {
+    getUser();
+  }, []);
+
   // useEffect(() => {
   //   socket.on("receive_message",(data)=>{
   //     alert(data.message)
   //   })
   // }, [socket])
+
 
   return (
     <>
