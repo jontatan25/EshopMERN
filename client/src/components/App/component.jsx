@@ -20,6 +20,8 @@ function App() {
         <Route path="/chat" element={<Chat messagesToGet = "messages"/>}></Route>
         <Route path="/chat/email" element={<Chat messagesToGet = "email"/>}></Route>
         <Route path="/products" element={<Products/>}></Route>
+        <Route path="/products/category" element={<Products filter = "category"/>}></Route>
+        <Route path="/products/id" element={<Products filter = "id"/>}></Route>
         {/* <Route path="/loginfb" element={<LoginFacebook />}></Route>
         <Route
           path="/datos"

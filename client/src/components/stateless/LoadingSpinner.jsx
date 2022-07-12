@@ -4,11 +4,11 @@ import "./LoadingSpinnercss.css"
 
 const LoadingSpinner = () => {
   return (
-    <div class="container">
-      <div class="spinner">
-        <div class="spinner-item"></div>
-        <div class="spinner-item"></div>
-        <div class="spinner-item"></div>
+    <div className="container">
+      <div className="spinner">
+        <div className="spinner-item"></div>
+        <div className="spinner-item"></div>
+        <div className="spinner-item"></div>
       </div>
     </div>
   );

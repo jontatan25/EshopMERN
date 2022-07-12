@@ -1,6 +1,6 @@
 import express from "express";
 import { authenticateToken } from "../utils/utils.js";
-import {saveProductController, getProductByCategoryController,getAllProductsController,deleteProductController} from "../controller/products.js"
+import {saveProductController, getProductByCategoryController,getProductByIdController,getAllProductsController,deleteProductController} from "../controller/products.js"
 const { Router } = express;
 const productsRouter = Router();
 
@@ -8,6 +8,7 @@ const productsRouter = Router();
 
 productsRouter.post("/", saveProductController);
 productsRouter.get("/category/:categoryId", getProductByCategoryController);
+productsRouter.get("/id/:id", getProductByIdController);
 productsRouter.get("/", getAllProductsController);
 productsRouter.delete("/:id", deleteProductController);
 

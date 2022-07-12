@@ -1,4 +1,4 @@
-import { saveProductDB, getProductByCategoryDB, getAllProductsDB, deleteProductDB } from "../DAOs/productsMongoDB.js";
+import { saveProductDB, getProductByCategoryDB, getProductByIdDB, getAllProductsDB, deleteProductDB } from "../DAOs/productsMongoDB.js";
 
 async function saveProduct(product) {
   try {
@@ -14,11 +14,30 @@ async function getProductByCategory(category) {
   try {
     const res = await getProductByCategoryDB(category);
     if (res.length > 0) {
-      return {message:" Product gathered" , product : res}
+      return {message:" Products gathered by Category" , products : res}
     } else return {message:" Product not found"}
   } catch (error) {
     console.log(`Error while saving: ${error}`)
   }
+}
+async function getProductById(productId) {
+  try {
+      const getProduct = await getProductByIdDB(productId);
+      if (getProduct == null) {
+        return {
+          success: false,
+          message: `The Product with the id ${productId} was not found or it's been deleted`,
+        };
+      } else {
+        return {
+          success: true,
+          message: `"The Product with the id ${productId} has been gathered`,
+          product: getProduct
+        };
+      }
+    } catch (error) {
+      console.log(`Error while saving: ${error}`)
+    }
 }
 async function getAllProducts() {
   try {
@@ -30,6 +49,7 @@ async function getAllProducts() {
     console.log(`Error while saving: ${error}`)
   }
 }
+
 async function deleteProduct(id) {
     try {
         const deleteProduct = await deleteProductDB(id);
@@ -48,4 +68,4 @@ async function deleteProduct(id) {
       } catch (error) {}
 }
 
-export { saveProduct, getProductByCategory, getAllProducts,deleteProduct };
+export { saveProduct, getProductByCategory, getProductById, getAllProducts,deleteProduct };

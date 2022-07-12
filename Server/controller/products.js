@@ -1,4 +1,4 @@
-import {saveProduct, getProductByCategory, getAllProducts, deleteProduct} from "../api/products.js"
+import {saveProduct, getProductByCategory, getProductById, getAllProducts, deleteProduct} from "../api/products.js"
 
 async function saveProductController(req, res) {
     try {
@@ -18,6 +18,15 @@ async function getProductByCategoryController(req, res) {
       console.log("Error in Product Controller:" + error);
     }
   }
+  async function getProductByIdController(req, res) {
+    try {
+      const productId = req.params.id;
+      const getResult = await getProductById(productId);
+      res.json(getResult);
+    } catch (error) {
+      console.log("Error in Product Controller:" + error);
+    }
+  }
 async function getAllProductsController(req, res) {
     try {
       const getResult = await getAllProducts();
@@ -26,6 +35,7 @@ async function getAllProductsController(req, res) {
       console.log("Error in Product Controller:" + error);
     }
   }
+  
   
   async function deleteProductController(req, res) {
       try {
@@ -36,4 +46,4 @@ async function getAllProductsController(req, res) {
         console.log("Error in Product Controller:" + error);
       }
     }
-  export {saveProductController,getProductByCategoryController,getAllProductsController,deleteProductController}
+  export {saveProductController,getProductByCategoryController,getProductByIdController,getAllProductsController,deleteProductController}

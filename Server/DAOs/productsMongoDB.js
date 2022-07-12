@@ -30,8 +30,8 @@ async function getProductByCategoryDB(category) {
     try {
       await connect(URL);
       console.log(`DB connected to: ${URL} `);
-      const getProduct = await ProductModel.find({ category: category });
-      return getProduct;
+      const getProducts = await ProductModel.find({ category: category });
+      return getProducts;
     } catch (error) {
       console.log(`Server error: ${error}`);
     } finally {
@@ -44,6 +44,18 @@ async function getProductByCategoryDB(category) {
   }
 }
 
+async function getProductByIdDB(productId) {
+  try {
+    await connect(URL);
+    console.log(`DB connected to: ${URL} `);
+    const getProduct = await ProductModel.find({_id: productId});
+    return getProduct;
+  } catch (error) {
+    console.log(`Server error: ${error}`);
+  } finally {
+    disconnect().catch((error) => console(error));
+  }
+}
 async function getAllProductsDB() {
   try {
     await connect(URL);
@@ -56,11 +68,11 @@ async function getAllProductsDB() {
     disconnect().catch((error) => console(error));
   }
 }
-async function getProductsByIdDB(id) {
+async function getProductsByIdDB(productId) {
   try {
     await connect(URL);
     console.log(`DB connected to: ${URL} `);
-    const getProducts = await ProductModel.find({_id:id});
+    const getProducts = await ProductModel.find({_id:productId});
     return getProducts;
   } catch (error) {
     console.log(`Server error: ${error}`);
@@ -84,6 +96,7 @@ async function deleteProductDB(id) {
 export {
   saveProductDB,
   getProductByCategoryDB,
+  getProductByIdDB,
   getAllProductsDB,
   deleteProductDB,
   getProductsByIdDB
