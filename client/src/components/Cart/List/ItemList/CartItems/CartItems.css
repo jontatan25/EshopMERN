@@ -1,0 +1,54 @@
+.CartItem_container {
+  display: flex;
+}
+
+.CartItem__list-titles {
+  display: flex;
+  align-items: center;
+  height: 7em;
+  width: 100%;
+  border-bottom: 1px solid grey;
+  list-style: none;
+}
+
+.CartItem__list-titles li:first-child {
+  flex: 2;
+}
+.CartItem__list-titles li:last-child {
+  flex: 0.07;
+
+}
+
+.CartItem__list-titles li{
+  flex: 1;
+  text-align: center;
+}
+
+.CartItem__Photo {
+  height: 5.5em;
+  flex: 0.5;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.CartItem__Container-Photo {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5em;
+}
+
+.CartItem__title {
+  flex: 1.5;
+  padding-left: 1em;
+}
+
+.CartItem__delete-button{
+  border: none;
+  background-color:white;
+}
+
+.CartItem__delete-icon:hover{
+  color:black;
+  cursor: pointer;
+  transform: scale(1.4)
+}

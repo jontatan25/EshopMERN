@@ -31,7 +31,6 @@ const Products = ({filter}) => {
     const res = await axios.get("http://192.168.0.104:8080/products");
     setProducts(res.data.products);
     setloading(false);
-    console.log(res.data)
   };
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 
 import {React,createContext,useContext,useState} from 'react';
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 const CartContext = createContext([]);
 // avoiding to import Usecontext everywhere
@@ -9,6 +9,7 @@ export const useCartContext =  ()  => useContext(CartContext);
 
 const CartContextProvider = ({children}) => {
 
+    const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
     const [data, setData] = useState([]);
     
@@ -49,6 +50,7 @@ const CartContextProvider = ({children}) => {
         <CartContext.Provider value={{
             cart,setCart,
             data,setData,
+            products,setProducts,
             // deleteItem,deleteAll
         }}>
             {children}
