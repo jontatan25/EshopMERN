@@ -1,4 +1,4 @@
-import React,{useState,useRef} from "react";
+import React,{useState} from "react";
 import axios from "axios";
 import "./style.css";
 
@@ -18,6 +18,7 @@ const Signup = () => {
       console.log(res.data)
       if (res.data.success === true) {
         alert("User Created")
+        window.open("http://192.168.0.104:3000/products")
       }
       else alert(res.data.reason)
     } catch (error) {
