@@ -1,36 +1,47 @@
-import React from "react";
+import React,{useState} from "react";
+import axios from "axios";
 import "./style.css";
 
 const Login = () => {
-  let redirect_gg = (e) => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  let handleSubmit = async (e) => {
     e.preventDefault();
-    window.open("http://192.168.0.104:8000/auth/google");
-  };
-  let redirect_fb = (e) => {
-    e.preventDefault();
-    window.open("http://192.168.0.104:8000/auth/facebook");
-  };
+    const data = {email: email, password: password}
+    console.log(data)
+    try {
+      const res = await axios.post('http://localhost:8080/users/login',data)
+      console.log(res.data)
+      if (res.data.success === true) {
+        alert("Logged In !")
+        window.open("http://192.168.0.104:3000/products")
+      }
+      else alert(res.data.reason)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  
   return (
     <>
       <div className="loginContainer">
         <div className="login__container-social" id="-social">
           <button
-            onClick={redirect_gg}
             className="login__social-btn"
             value="Login"
           >
             Google
           </button>
 
-          <button
-            onClick={redirect_fb}
+          <button    
             className="login__social-btn"
             value="Login"
           >
             Facebook
           </button>
           <button
-            onClick={redirect_fb}
             className="login__social-btn"
             value="Login"
           >
@@ -39,16 +50,20 @@ const Login = () => {
         </div>
         <div className="login__container">
           <h3>Sign in</h3>
-          <form id="loginForm" action="">
+          <form id="loginForm" onSubmit= {handleSubmit}>
             <input
               type="text"
               className="login__container-input login__container-input-1"
-              placeholder="Username"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type="text"
               className="login__container-input"
               placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <div className="login__form-options">
               <div className="login__form-optionsCheck">
@@ -59,7 +74,6 @@ const Login = () => {
             </div>
             <button
               type="submit"
-              onClick={redirect_fb}
               className="login__form-btn"
               value="Login"
             >

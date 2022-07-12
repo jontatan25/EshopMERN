@@ -57,9 +57,9 @@ async function loginUser(loginInfo) {
   try {
     const user = await getUserByEmail(loginInfo.email);
     if (user.length == 0) {
-      return { success: false, message: "Email not found" };
+      return { success: false, reason: "Email not found" };
     } else if (!isValidPassword(user[0], loginInfo.password)) {
-      return { success: false, message: "you entered the wrong password" };
+      return { success: false, reason: "you entered the wrong password" };
     } else {
       const accessToken = signJWTLogin(user);
       return {

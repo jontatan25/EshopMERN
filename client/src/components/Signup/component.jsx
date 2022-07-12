@@ -12,7 +12,6 @@ const Signup = () => {
   let handleSubmit = async (e) => {
     e.preventDefault();
     const data = {email: email, password: password, username: username, address: address}
-    console.log(data)
     try {
       const res = await axios.post('http://localhost:8080/users/signup',data)
       console.log(res.data)
