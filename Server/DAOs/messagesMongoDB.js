@@ -6,11 +6,11 @@ const { connect, disconnect } = mongoose;
 
 const URL = "mongodb://localhost:27017/ecommerce";
 
-async function saveMessageDB (message){
+async function saveMessageDB (messageWithEmail){
     try {
         await connect(URL);
         console.log(`Base de datos connectada en ${URL} `);
-        const messageDTO = saveMessageDTO(message)
+        const messageDTO = saveMessageDTO(messageWithEmail)
         const newMessage = new MessageModel(messageDTO);
         const saveResult = await newMessage.save();
         return saveResult

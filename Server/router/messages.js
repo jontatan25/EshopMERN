@@ -4,7 +4,7 @@ import {saveMessageController,getAllMessagesController,getLoggedUserMessagesCont
 const { Router } = express;
 const messagesRouter = Router();
 
-// messagesRouter.use(authenticateToken)
+messagesRouter.use(authenticateToken)
 
 messagesRouter.get("/chat", async (req, res) => {
   res.send({

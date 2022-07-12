@@ -2,7 +2,8 @@ import {saveMessage,getAllMessages,getLoggedUserMessages,getMessagesByEmail} fro
 
 async function saveMessageController(req, res) {
     try {
-        const message = req.body;
+        const userId = req.user.data
+        const message = {userId: userId,text:req.body};
         const saveResult = await saveMessage(message);
         res.json(saveResult);
       } catch (error) {

@@ -5,12 +5,28 @@ import {
   getMessagesByEmailDB
 } from "../DAOs/messagesMongoDB.js";
 import { getUserById } from "../DAOs/userMongoDB.js";
-import {getMessagesByEmailDTO} from "../DTOs/messages.js"
+import {getMessagesByEmailDTO,saveMessageDTOClient} from "../DTOs/messages.js"
+
 async function saveMessage(message) {
   try {
-    const res = await saveMessageDB(message);
-    if (res) {
-      return { message: " Message saved", message: res };
+    const getUser = await getUserById(message.userId);
+    if (getUser.length === 0) {
+      return { success: false, message: "User not Found" };
+    } else {
+      try {
+        const userEmail = getUser[0].email;
+        const messageWithEmail= {email: userEmail, message: message.text}
+        const getMessages = await saveMessageDB(messageWithEmail);
+        if (getMessages.length === 0) {
+          return { success: false, message: "You have no Messages yet" };
+        } else {
+          const messagesDTO = saveMessageDTOClient(getMessages)
+          return {success: true, message: "Message saved", body: messagesDTO };
+        }
+        
+      } catch (error) {
+        console.log(`Error while getting user Messages: ${error}`);
+      }
     }
   } catch (error) {
     console.log(`Error while saving: ${error}`);

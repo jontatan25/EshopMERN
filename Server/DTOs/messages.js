@@ -1,11 +1,22 @@
-function saveMessageDTO(message) {
+function saveMessageDTO(messageWithEmail) {
   const date = new Date();
   const dateString = date.toString();
   const messageDTO = {
-    email: message.email,
+    email: messageWithEmail.email,
     type: "user",
     date: dateString,
-    body: message.body,
+    body: messageWithEmail.message.body,
+  };
+  return messageDTO;
+}
+function saveMessageDTOClient(getMessages) {
+  const date = new Date();
+  const dateString = date.toString();
+  const messageDTO = {
+    email: getMessages.email,
+    type: "user",
+    date: dateString,
+    body: getMessages.body,
   };
   return messageDTO;
 }
@@ -19,4 +30,4 @@ function getMessagesByEmailDTO(messages) {
   return messagesDTO;
 }
 
-export { saveMessageDTO, getMessagesByEmailDTO };
+export { saveMessageDTO, getMessagesByEmailDTO, saveMessageDTOClient };

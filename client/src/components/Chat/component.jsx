@@ -19,10 +19,27 @@ const Chat = ({messagesToGet}) => {
     const res = await axios.get("http://192.168.0.104:8080/messages");
     setMessages(res.data.messages);
   };
-
+  
+  const handleSumbitMessage = async (e) => {
+    e.preventDefault();
+    const data = {body: inputRef.current.value}
+    console.log(data)
+    try {
+      const res = await axios.post('http://localhost:8080/users/messages',data )
+      console.log(res.data)
+      // if (res.data.success === true) {
+      //   localStorage.setItem("user", JSON.stringify(res.data.token))
+      //   alert("Logged In !")
+      //   window.open("http://192.168.0.104:3000/products","_self")
+      // }
+      // else alert(res.data.reason)
+    } catch (error) {
+      console.log(error)
+    }
+  };
   useEffect(() => {
     getInfo();
-  }, [messages]);
+  }, []);
 
   useEffect(() => {
       socket.on("new_message", () => {
@@ -31,10 +48,10 @@ const Chat = ({messagesToGet}) => {
   }, [socket]);
 
   const inputRef = useRef(null);
-  const sendMessage = (e) => {
-    e.preventDefault();
-    socket.emit("send_message", { message: inputRef.current.value });
-  };
+  // const sendMessage = (e) => {
+  //   e.preventDefault();
+  //   socket.emit("send_message", { message: inputRef.current.value });
+  // };
 
   const getUser = async () => {
     const user = JSON.parse(localStorage.getItem("user"))
@@ -61,7 +78,7 @@ const Chat = ({messagesToGet}) => {
           return <li className="messages__user">{message.email}:<li className="messages__user-message">{message.body}</li> </li>;
         })}
       </ul>
-      <form id="form" action="">
+      <form id="form" onSubmit = {handleSumbitMessage}>
         <input
           id="input"
           type="text"
@@ -69,7 +86,7 @@ const Chat = ({messagesToGet}) => {
           autoComplete="off"
           name="message"
         />
-        <button onClick={sendMessage}>Send</button>
+        <button type="submit" className="messages_btn">Send</button>
       </form>
     </>
   );
