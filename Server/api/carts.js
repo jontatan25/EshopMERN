@@ -1,5 +1,4 @@
 import {
-  saveCartDB,
   getCurrentUserCartDB,
   addNewProductDB,
   addOneProductDB,
@@ -41,28 +40,6 @@ async function getCurrentUserCart(userId) {
   }
 }
 
-async function saveCart(userId) {
-  try {
-    const checkIfCartIsCreated = await getCurrentUserCart(userId);
-    if (checkIfCartIsCreated.success === true) {
-      return { success: false, message: "The User already has a Cart created" };
-    } else {
-      try {
-        const userInfo = await getUserById(userId);
-        const res = await saveCartDB(userInfo[0]);
-        if (res) {
-          return { success: true, message: "User Cart created", message: res };
-        }
-      } catch (error) {
-        console.log(
-          `Error while saving: checkIfCartIsCreated.success / else ${error}`
-        );
-      }
-    }
-  } catch (error) {
-    console.log(`Error while saving: ${error}`);
-  }
-}
 function checkIfProductInCart(cart, productId) {
   const cartProducts = cart[0].items;
   const findProduct = cartProducts.filter(
@@ -93,6 +70,7 @@ async function addProduct(productWithUserId) {
     const productId = productWithUserId.newProduct.id;
     const findProduct = checkIfProductInCart(cart, productId);
     const productInArray = await getProductsByIdDB(productId);
+    if (productInArray.length === 0) return { success: false, message: "The product does Not Exist" };
     const cartId = cart[0]._id;
     let product = {
       ...productInArray[0]._doc,
@@ -172,6 +150,12 @@ async function deleteProduct(productWithUserId) {
     const findProduct = checkIfProductInCart(cart, productId);
     const productInArray = await getProductsByIdDB(productId);
     const cartId = cart[0]._id;
+    console.log(productId)
+    console.log("----------------------")
+    console.log(findProduct)
+    console.log("----------------------")
+    console.log(productInArray)
+
     let product = {
       ...productInArray[0]._doc,
       cartId: cartId,
@@ -193,4 +177,4 @@ async function deleteProduct(productWithUserId) {
   }
 }
 
-export { saveCart, getCurrentUserCart, addProduct, substractOneProduct,deleteProduct };
+export { getCurrentUserCart, addProduct, substractOneProduct,deleteProduct };

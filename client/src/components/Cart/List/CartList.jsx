@@ -1,19 +1,33 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import CartItemList from "./ItemList/CartItemList";
 import "./CartList.css";
-// import { useCartContext } from "../CartContext/CartContext";
 
 const CartList = () => {
 
-  // const { cart, deleteAll } = useCartContext();
+  const token = JSON.parse(localStorage.getItem("user"));
+  let [loading, setloading] = useState(true);
+  const [cart, setCart] = useState([]);
+
+  const getInfo = async () => {
+    const res = await axios.get("http://192.168.0.104:8080/cart/myCart", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const itemsFromCart = res.data.cart[0].items;
+    setCart(itemsFromCart);
+    setloading(false);
+  };
+  useEffect(() => {
+    getInfo();
+  }, []);
 
   let subtotalPrice = 0;
 
-  // for (let i = 0; i < cart.length; i++) {
-  //   const totalProduct = (cart[i].price* cart[i].cantidad.amount);
-  //   subtotalPrice += totalProduct;
-  // }
+  for (let i = 0; i < cart.length; i++) {
+    const totalProduct = (cart[i].price* cart[i].quantity);
+    subtotalPrice += totalProduct;
+  }
 
   return (
     <div className="cartContainer__list">
@@ -29,7 +43,7 @@ const CartList = () => {
       <CartItemList/>
       <div className="cartContainer__list-footer"> 
           <button  className="btn__deleteAll">delete all</button> 
-          <Link to="/" className="list-footer_BackButton">
+          <Link to="/products" className="list-footer_BackButton">
             &lt; continue Shopping
           </Link>
         <ul className="cartContainer__footerPrice">

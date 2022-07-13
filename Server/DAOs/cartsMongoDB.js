@@ -6,11 +6,11 @@ const { connect, disconnect } = mongoose;
 
 const URL = "mongodb://localhost:27017/ecommerce";
 
-async function saveCartDB(userInfo) {
+async function saveCartDB(user) {
   try {
     await connect(URL);
     console.log(`DB Connected to ${URL} `);
-    const cartDTO = saveCartDTO(userInfo);
+    const cartDTO = saveCartDTO(user);
     const newCart = new CartModel(cartDTO);
     const res = await newCart.save();
     return res;

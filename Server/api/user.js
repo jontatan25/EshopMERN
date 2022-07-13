@@ -1,3 +1,4 @@
+import { saveCartDB } from "../DAOs/cartsMongoDB.js";
 import {
   saveUserDB,
   getUserByEmail,
@@ -19,13 +20,17 @@ async function saveUser(user) {
     const userEncrypted = { ...user, password: passwordHash };
 
     if (emailExists.length == 0 && userNameExists.length == 0) {
+      
       const userSaved = await saveUserDB(userEncrypted);
       const accessToken = signJWT(userSaved);
+      const createCart = await saveCartDB(user);
+  
       return {
         success: true,
         user: userSaved,
         token: accessToken.token,
         expiresnIn: accessToken.expires,
+        cart: createCart
       };
     } else if (emailExists.length == 1 && userNameExists.length == 0) {
       const res = {

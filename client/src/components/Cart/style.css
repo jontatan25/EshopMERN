@@ -1,13 +1,13 @@
 .cartContainer{
     width: 93vw;
-    height: 88vh;
+    height: 100vh;
     display:flex;
     margin: 0 auto;
     background-color:white;
     align-items: center;
 }
 
-/* .cartContainer__list{
+.cartContainer__list{
     padding: 1em 4em ;
     flex: 2.5;
 }
@@ -20,4 +20,4 @@
     background-color: rgb(236, 236, 236);
     border-radius: 10px;
 
-} */
+}

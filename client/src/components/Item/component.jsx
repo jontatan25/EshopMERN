@@ -16,7 +16,7 @@ const Item = ({productsArray}) => {
             <div className="itemcontainer__item-body">
               <h4>{product.name}</h4>
               <p>${product.price} USD</p>
-              <Link to={`./item/${product._id}`}>
+              <Link to={`/product/${product._id}`}>
                 <button>More Details</button>
               </Link>
             </div>

@@ -40,16 +40,15 @@ io.on('connection', socket => {
     console.log('user disconnected');
   })
 
-  socket.on('send_message', (data) => {
-    io.emit('receive_message',data); // emit an event to all connected sockets
-    console.log(data)
+  socket.on('user_message', (newMessage) => {
+    io.emit('new_message',newMessage); // emit an event to all connected sockets
   })
 });
 
 //ROUTERS
 app.use("/users", usersRouter);
-app.use("/products", productsRouter); /// JWT Disabled
-app.use("/messages", messagesRouter); /// JWT Disabled
+app.use("/products", productsRouter); 
+app.use("/messages", messagesRouter); 
 app.use("/cart", cartRouter);
 app.use("/orders", ordersRouter);
 

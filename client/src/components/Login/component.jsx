@@ -30,7 +30,6 @@ const Login = () => {
       window.open("http://192.168.0.104:3000/products","_self")
     } 
   };
-
   useEffect(() => {
     getUser();
   }, []);
@@ -79,7 +78,7 @@ const Login = () => {
             <div className="login__form-options">
               <div className="login__form-optionsCheck">
                 <input type="checkbox" className="login__form-checkbox" />
-                <label for="login__form-checkbox">Remember me</label>
+                <label htmlFor="login__form-checkbox">Remember me</label>
               </div>
               <p>Forgot Password?</p>
             </div>

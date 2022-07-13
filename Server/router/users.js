@@ -16,16 +16,6 @@ usersRouter.get("/protected", authenticateToken, (req, res, next) => {
   });
 });
 
-// Router.get("/failsignup", async (req, res) => {
-//   res.send({
-//     message: "FailSignup",
-//   });
-// });
-
-
-usersRouter.get("/login",(req, res) => {
-  res.send({ message: "Login Page"})
-})
 
 usersRouter.delete("/delete",authenticateToken, deleteController)
 

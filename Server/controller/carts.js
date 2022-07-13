@@ -1,14 +1,6 @@
-import {saveCart,getCurrentUserCart,addProduct,substractOneProduct,deleteProduct} from "../api/carts.js"
+import {getCurrentUserCart,addProduct,substractOneProduct,deleteProduct} from "../api/carts.js"
 
-async function saveCartController(req, res) {
-  try {
-    const userId = req.user.data
-    const saveResult = await saveCart(userId);
-    res.json(saveResult);
-  } catch (error) {
-    console.log("Error in Cart Controller:" + error);
-  }
-}
+
 async function getCurrentUserCartController(req, res) {
     try {
       const userId = req.user.data
@@ -39,6 +31,10 @@ async function substractOneProductController(req, res) {
 async function deleteProductController(req, res) {
     try {
       const productWithUserId = {userId: req.user.data, newProduct :req.body}
+      function print(productWithUserId) {
+        console.log(productWithUserId)
+      }
+      print()
       const deleteResult = await deleteProduct(productWithUserId);
       res.json(deleteResult);
     } catch (error) {
@@ -46,4 +42,4 @@ async function deleteProductController(req, res) {
     }
   }
 
-export {saveCartController,getCurrentUserCartController,addProductController,substractOneProductController,deleteProductController}
+export { getCurrentUserCartController,addProductController,substractOneProductController,deleteProductController}

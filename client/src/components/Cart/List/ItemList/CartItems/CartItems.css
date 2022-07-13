@@ -52,3 +52,19 @@
   cursor: pointer;
   transform: scale(1.4)
 }
+
+.counter__container-button{
+  background-color: #F4D06F;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5em 0.75em
+}
+.counter__container-button:hover{
+  background-color: #ffbb00;
+  transform: scale(0.95);
+  cursor: pointer;
+  
+}
+.counter__container-quantity{
+  padding: 0 10px
+}

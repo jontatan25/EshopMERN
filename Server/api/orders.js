@@ -25,10 +25,10 @@ async function createOrder(userId) {
         const cartId = userCart[0]._id;
         sendOrderNodeMailer(saveOrder)
         await resetCartDB(cartId);
-        return ` Order was made and the Cart has been cleared, Thanks for your order!`;
-      } else return "The cart doesn't exist or its already been cleared'";
+        return {success:true, message:` Order was made and the Cart has been cleared, Thanks for your order!`}
+      } else return {success: false, message:"The cart doesn't exist or its already been cleared'"}
     } else if (userCartRes.success === true && productLength === 0) {
-      return { message: "Cannot create an order if the cart is empty" };
+      return {success:false, message: "Cannot create an order if the cart is empty" };
     } else return userCartRes;
   } catch (error) {
     console.log(`Error while getting Cart:  ${error}`);
