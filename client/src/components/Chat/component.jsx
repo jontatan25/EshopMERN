@@ -1,21 +1,20 @@
 import React, { useRef, useEffect, useState } from "react";
 import axios from "axios";
 import io from "socket.io-client";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./style.css";
 const socket = io.connect("http://localhost:8080");
 
-const Chat = ({ messagesToGet }) => {
+const Chat = () => {
   const [messages, setMessages] = useState([]);
-  const search = useLocation().search;
-  const emailFromParams = new URLSearchParams(search).get("email");
+  const {email} = useParams()
   const token = JSON.parse(localStorage.getItem("user"));
   const inputRef = useRef(null);
 
   const getInfo = async (token) => {
-    if (messagesToGet === "email") {
+    if (email) {
       const res = await axios.get(
-        "http://192.168.0.104:8080/messages/email/" + emailFromParams,
+        "http://192.168.0.104:8080/messages/email/" + email,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -28,6 +27,7 @@ const Chat = ({ messagesToGet }) => {
       headers: { Authorization: `Bearer ${token}` },
     });
     setMessages(res.data.messages);
+    return
   };
 
   let handleSumbitMessage = async (e) => {
@@ -50,6 +50,7 @@ const Chat = ({ messagesToGet }) => {
   useEffect(() => {
     socket.on("new_message", (newMessage) => {
       setMessages((messages) => [...messages, newMessage]);
+      return
     });
   }, [socket]);
 
@@ -58,7 +59,7 @@ const Chat = ({ messagesToGet }) => {
       alert("You need to login before using the chat.");
       window.open("http://192.168.0.104:3000/login", "_self");
     } else {
-      getInfo(token);
+      await getInfo(token);
     }
   };
 

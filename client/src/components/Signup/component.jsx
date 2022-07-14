@@ -42,7 +42,7 @@ const Signup = () => {
           <h3>Register</h3>
           <form id="signupForm" onSubmit={handleSubmit}>
             <input
-              type="text"
+              type="email"
               className="signup__formContainer-input"
               placeholder="Email"
               value = {email}

@@ -62,7 +62,7 @@ const Login = () => {
           <h3>Sign in</h3>
           <form id="loginForm" onSubmit= {handleSubmit}>
             <input
-              type="text"
+              type="email"
               className="login__container-input login__container-input-1"
               placeholder="Email"
               value={email}

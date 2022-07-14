@@ -27,17 +27,17 @@ function App() {
           <Route path="/signup" element={<Signup />}></Route>
           <Route
             path="/chat"
-            element={<Chat messagesToGet="messages" />}
+            element={<Chat/>}
           ></Route>
           <Route
-            path="/chat/email"
-            element={<Chat messagesToGet="email" />}
+            path="/chat/:email"
+            element={<Chat/>}
           ></Route>     
           <Route path="/products" element={<Products />}></Route>
           <Route path="/product/:id" element={<ItemDetailContainer/>}></Route>
           <Route
-            path="/products/category"
-            element={<Products filter="category" />}
+            path="/products/category/:category"
+            element={<Products/>}
           ></Route>
           <Route path="/cart" element={<Cart />}></Route>
           <Route path="/logout" element={<Logout />}></Route>
