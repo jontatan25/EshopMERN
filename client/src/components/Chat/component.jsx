@@ -1,16 +1,16 @@
 import React, { useRef, useEffect, useState } from "react";
 import axios from "axios";
 import io from "socket.io-client";
-import { useParams,useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./style.css";
 const socket = io.connect("http://localhost:8080");
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
-  const {email} = useParams()
+  const { email } = useParams();
   const token = JSON.parse(localStorage.getItem("user"));
   const inputRef = useRef(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const getInfo = async (token) => {
     if (email) {
@@ -28,7 +28,7 @@ const Chat = () => {
       headers: { Authorization: `Bearer ${token}` },
     });
     setMessages(res.data.messages);
-    return
+    return;
   };
 
   let handleSumbitMessage = async (e) => {
@@ -42,7 +42,7 @@ const Chat = () => {
         const newMessage = res.data.body;
 
         socket.emit("user_message", newMessage);
-        inputRef.current.value =""
+        inputRef.current.value = "";
       }
     } catch (error) {
       console.log(error);
@@ -52,8 +52,8 @@ const Chat = () => {
   useEffect(() => {
     const eventListener = (newMessage) => {
       setMessages((messages) => [...messages, newMessage]);
-    }
-    socket.on("new_message",eventListener);
+    };
+    socket.on("new_message", eventListener);
     return () => socket.off("new_message", eventListener);
   }, [messages]);
 
@@ -72,32 +72,34 @@ const Chat = () => {
 
   return (
     <>
-      <ul id="messages">
-        {messages ? (
-          messages.map((message) => {
-            return (
-              <li className="messages__user">
-                {message.email}:
-                <li className="messages__user-message">{message.body}</li>{" "}
-              </li>
-            );
-          })
-        ) : (
-          <li className="messages__user">No messages</li>
-        )}
-      </ul>
-      <form id="form" onSubmit={handleSumbitMessage}>
-        <input
-          id="input"
-          type="text"
-          ref={inputRef}
-          autoComplete="off"
-          name="message"
-        />
-        <button type="submit" className="messages_btn">
-          Send
-        </button>
-      </form>
+      <div className="messagesContainer">
+        <ul id="messages">
+          {messages ? (
+            messages.map((message) => {
+              return (
+                <li className="messages__user">
+                  {message.email}:
+                  <li className="messages__user-message">{message.body}</li>{" "}
+                </li>
+              );
+            })
+          ) : (
+            <li className="messages__user">No messages</li>
+          )}
+        </ul>
+        <form id="form" onSubmit={handleSumbitMessage}>
+          <input
+            id="input"
+            type="text"
+            ref={inputRef}
+            autoComplete="off"
+            name="message"
+          />
+          <button type="submit" className="messages_btn">
+            Send
+          </button>
+        </form>
+      </div>
     </>
   );
 };

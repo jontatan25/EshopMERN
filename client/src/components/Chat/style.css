@@ -1,9 +1,19 @@
+.messagesContainer{
+  height: 79vh;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-y: scroll; /* Add vertical scrollbar */
+}
+
 #messages {
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.35);
   list-style-type: none;
   margin: 0;
   padding: 0;
+  height: 3;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-y: scroll; /* Add vertical scrollbar */
+
 }
 
 #messages > li:nth-child(odd) {
