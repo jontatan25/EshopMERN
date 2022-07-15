@@ -49,11 +49,12 @@ const Chat = () => {
   };
 
   useEffect(() => {
-    socket.on("new_message", (newMessage) => {
+    const eventListener = (newMessage) => {
       setMessages((messages) => [...messages, newMessage]);
-      return
-    });
-  }, [socket]);
+    }
+    socket.on("new_message",eventListener);
+    return () => socket.off("new_message", eventListener);
+  }, [messages]);
 
   const getUser = async () => {
     if (!token) {
