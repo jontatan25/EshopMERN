@@ -95,7 +95,7 @@ const Chat = () => {
               return (
                 <li key={message.id} className="messages__user">
                   {message.email}:
-                  <li className="messages__user-message">{message.body}</li>{" "}
+                  <li className="messages__user-message">{message.body}</li>
                 </li>
               );
             })
