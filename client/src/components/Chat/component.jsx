@@ -52,6 +52,7 @@ const Chat = () => {
 
   useEffect(() => {
     const eventListener = (newMessage) => {
+      console.log(newMessage)
       if (messages) {
         setMessages((messages) => [...messages, newMessage]);
       } else
@@ -92,7 +93,7 @@ const Chat = () => {
           {messages ? (
             messages.map((message) => {
               return (
-                <li className="messages__user">
+                <li key={message.id} className="messages__user">
                   {message.email}:
                   <li className="messages__user-message">{message.body}</li>{" "}
                 </li>
