@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import axios from "axios";
 import io from "socket.io-client";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import "./style.css";
 const socket = io.connect("http://localhost:8080");
 
@@ -10,6 +10,7 @@ const Chat = () => {
   const {email} = useParams()
   const token = JSON.parse(localStorage.getItem("user"));
   const inputRef = useRef(null);
+  const navigate = useNavigate()
 
   const getInfo = async (token) => {
     if (email) {
@@ -57,7 +58,7 @@ const Chat = () => {
   const getUser = async () => {
     if (!token) {
       alert("You need to login before using the chat.");
-      window.open("http://192.168.0.104:3000/login", "_self");
+      navigate("/login");
     } else {
       await getInfo(token);
     }

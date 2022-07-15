@@ -1,12 +1,15 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom'
+
 import "./style.css";
 
 const Logout = () => {
+  const navigate= useNavigate()
   let handleLogout = async (e) => {
     e.preventDefault();
     localStorage.removeItem("user");
     alert("User logged out");
-    window.open("http://192.168.0.104:3000/login", "_self");
+   navigate("/login");
   };
   return (
     <div className="logoutContainer">

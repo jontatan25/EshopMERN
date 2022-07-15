@@ -13,11 +13,11 @@ const Signup = () => {
     e.preventDefault();
     const data = {email: email, password: password, username: username, address: address}
     try {
-      const res = await axios.post('http://localhost:8080/users/signup',data)
+      const res = await axios.post('http://192.168.0.102:3000/users/signup',data)
       console.log(res.data)
       if (res.data.success === true) {
         alert("User Created, Redirecting to Login Page...")
-        window.open("http://192.168.0.104:3000/login","_self")
+        window.open("http://192.168.0.102:3000/login","_self")
       }
       else alert(res.data.reason)
     } catch (error) {
@@ -27,7 +27,7 @@ const Signup = () => {
   const getUser = async () => {
     const user = JSON.parse(localStorage.getItem("user"))
     if (user) {
-      window.open("http://192.168.0.104:3000/products","_self")
+      window.open("http://192.168.0.102:3000/products","_self")
     } 
   };
 

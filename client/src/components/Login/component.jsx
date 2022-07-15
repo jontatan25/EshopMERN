@@ -1,9 +1,10 @@
 import React,{useState,useEffect} from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import "./style.css";
 
 const Login = () => {
-
+  const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,12 +12,12 @@ const Login = () => {
     e.preventDefault();
     const data = {email: email, password: password}
     try {
-      const res = await axios.post('http://localhost:8080/users/login',data)
+      const res = await axios.post('http://192.168.0.102:8080/users/login',data)
       console.log(res.data)
       if (res.data.success === true) {
         localStorage.setItem("user", JSON.stringify(res.data.token))
         alert("Logged In !")
-        window.open("http://192.168.0.104:3000/products","_self")
+        navigate("/")
       }
       else alert(res.data.reason)
     } catch (error) {
@@ -27,7 +28,7 @@ const Login = () => {
   const getUser = async () => {
     const user = JSON.parse(localStorage.getItem("user"))
     if (user) {
-      window.open("http://192.168.0.104:3000/products","_self")
+      navigate("/")
     } 
   };
   useEffect(() => {
