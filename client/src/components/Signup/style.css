@@ -17,6 +17,7 @@
   justify-content: space-around;
   font-family: "FiraGO", sans-serif;
   box-shadow: 1px #555efb;
+  position: relative;
 }
 
 .signup__formContainer h3 {
@@ -68,11 +69,11 @@
 }
 .signup__formContainer-fa-eye{
   position: absolute;
-  left: 935px;
-  top: 476px;
+  left: 433px;
+  top: 363px;
   cursor: pointer;
 }
 
 .fa-eye-confirm{
-  top:541px;
+  top: 428px;
 }
