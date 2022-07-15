@@ -42,6 +42,7 @@ const Chat = () => {
         const newMessage = res.data.body;
 
         socket.emit("user_message", newMessage);
+        inputRef.current.value =""
       }
     } catch (error) {
       console.log(error);
