@@ -2,6 +2,7 @@
   height: 79vh;
   overflow-x: hidden; /* Hide horizontal scrollbar */
   overflow-y: scroll; /* Add vertical scrollbar */
+  border-radius: 15px;
 }
 
 #messages {
