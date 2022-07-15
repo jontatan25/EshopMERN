@@ -10,6 +10,7 @@ const Chat = () => {
   const { email } = useParams();
   const token = JSON.parse(localStorage.getItem("user"));
   const inputRef = useRef(null);
+  const msgListref = useRef(null);
   const navigate = useNavigate();
 
   const getInfo = async (token) => {
@@ -70,10 +71,22 @@ const Chat = () => {
     getUser();
   }, []);
 
+  useEffect(() => {
+    if (msgListref && msgListref.current) {
+      const element = msgListref.current
+      element.scroll({
+        top: element.scrollHeight,
+        left: 0,
+        behavior: 'smooth'
+      })
+    }
+
+  }, [msgListref,messages])
+  
   return (
     <>
       <div className="messagesContainer">
-        <ul id="messages">
+        <ul ref={msgListref} id="messages">
           {messages ? (
             messages.map((message) => {
               return (
