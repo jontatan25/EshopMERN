@@ -14,7 +14,7 @@ const Products = () => {
   
   const getInfo = async (token) => {
     if (category) {
-      const res = await axios.get("http://192.168.0.104:8080/products/category/"+category,
+      const res = await axios.get("http://192.168.0.102:8080/products/category/"+category,
       {
         headers: { Authorization: `Bearer ${token}` },
       })
@@ -23,7 +23,7 @@ const Products = () => {
       return
     } 
 
-    const res = await axios.get("http://192.168.0.104:8080/products",
+    const res = await axios.get("http://192.168.0.102:8080/products",
     {
       headers: { Authorization: `Bearer ${token}` },
     });

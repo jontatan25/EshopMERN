@@ -15,7 +15,7 @@ const Chat = () => {
   const getInfo = async (token) => {
     if (email) {
       const res = await axios.get(
-        "http://192.168.0.104:8080/messages/email/" + email,
+        "http://192.168.0.102:8080/messages/email/" + email,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -24,7 +24,7 @@ const Chat = () => {
       setMessages(messages);
       return messages;
     }
-    const res = await axios.get("http://192.168.0.104:8080/messages", {
+    const res = await axios.get("http://192.168.0.102:8080/messages", {
       headers: { Authorization: `Bearer ${token}` },
     });
     setMessages(res.data.messages);

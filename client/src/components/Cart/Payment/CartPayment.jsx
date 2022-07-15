@@ -15,7 +15,7 @@ const CartPayment = () => {
     e.preventDefault();
     try {
       
-      const res = await axios.post("http://192.168.0.104:8080/orders/create",{}, {
+      const res = await axios.post("http://192.168.0.102:8080/orders/create",{}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.data.success === true){

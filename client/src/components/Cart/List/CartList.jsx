@@ -11,7 +11,7 @@ const CartList = () => {
   const [cart, setCart] = useState([]);
 
   const getInfo = async () => {
-    const res = await axios.get("http://192.168.0.104:8080/cart/myCart", {
+    const res = await axios.get("http://192.168.0.102:8080/cart/myCart", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const itemsFromCart = res.data.cart[0].items;
