@@ -52,7 +52,10 @@ const Chat = () => {
 
   useEffect(() => {
     const eventListener = (newMessage) => {
-      setMessages((messages) => [...messages, newMessage]);
+      if (messages) {
+        setMessages((messages) => [...messages, newMessage]);
+      } else
+      setMessages ([newMessage])
     };
     socket.on("new_message", eventListener);
     return () => socket.off("new_message", eventListener);
@@ -73,16 +76,15 @@ const Chat = () => {
 
   useEffect(() => {
     if (msgListref && msgListref.current) {
-      const element = msgListref.current
+      const element = msgListref.current;
       element.scroll({
         top: element.scrollHeight,
         left: 0,
-        behavior: 'smooth'
-      })
+        behavior: "smooth",
+      });
     }
+  }, [msgListref, messages]);
 
-  }, [msgListref,messages])
-  
   return (
     <>
       <div className="messagesContainer">
