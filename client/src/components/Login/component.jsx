@@ -8,7 +8,7 @@ const Login = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [eyeActive,setEyeActive] = useState(true)
+  const [eyeActive,setEyeActive] = useState(false)
 
   let handleSubmit = async (e) => {
     e.preventDefault();

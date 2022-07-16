@@ -9,8 +9,8 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [username, setUsername] = useState("");
   const [address, setAddress] = useState("");
-  const [eyeActive, seteyeActive] = useState(true);
-  const [eyeActiveConfirm, seteyeActiveConfirm] = useState(true);
+  const [eyeActive, seteyeActive] = useState(false);
+  const [eyeActiveConfirm, seteyeActiveConfirm] = useState(false);
   const navigate = useNavigate();
   let handleSubmit = async (e) => {
     e.preventDefault();
