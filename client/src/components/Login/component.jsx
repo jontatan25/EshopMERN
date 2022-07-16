@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import { useNavigate } from 'react-router-dom';
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import axios from "axios";
 import "./style.css";
 
@@ -7,6 +8,7 @@ const Login = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [eyeActive,setEyeActive] = useState(true)
 
   let handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +26,10 @@ const Login = () => {
       console.log(error)
     }
   }
-
+  const handleToggle = () => {
+    setEyeActive(!eyeActive)
+  }
+  
   const getUser = async () => {
     const user = JSON.parse(localStorage.getItem("user"))
     if (user) {
@@ -70,12 +75,27 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
-              type="text"
+              type={eyeActive?"text":"password"}
               className="login__container-input"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {eyeActive ? (
+              <AiOutlineEye
+                onClick={handleToggle}
+                size="20px"
+                color="#808080"
+                className="login__container-input-fa-eye"
+              />
+            ) : (
+              <AiOutlineEyeInvisible
+                onClick={handleToggle}
+                size="20px"
+                color="#808080"
+                className="login__container-input-fa-eye"
+              />
+            )}
             <div className="login__form-options">
               <div className="login__form-optionsCheck">
                 <input type="checkbox" className="login__form-checkbox" />

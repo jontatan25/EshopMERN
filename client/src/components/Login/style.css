@@ -3,6 +3,7 @@
   justify-content: space-around;
   margin: 0 auto;
   width: 70vw;
+  position: relative;
 }
 
 .login__container-social {
@@ -109,4 +110,11 @@
 
 .login__form-btn:hover {
   background-color: #3842ff;
+}
+
+.login__container-input-fa-eye{
+  position: absolute;
+  cursor: pointer;
+  top: 320px;
+  left: 933px;
 }
