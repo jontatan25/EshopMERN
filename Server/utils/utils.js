@@ -5,6 +5,11 @@ import minimist from "minimist";
 
 let consoleInputs = minimist(process.argv.slice(2));
 
+function confirmPassword(password,confirmPassword){
+  if (password === confirmPassword) return true;
+  else return false
+}
+
 function isValidPassword(user, password) {
   return compareSync(password, user.password);
 }
@@ -77,6 +82,7 @@ function authenticateToken(req, res, next) {
 }
 
 export {
+  confirmPassword,
   authenticateToken,
   signJWT,
   signJWTLogin,

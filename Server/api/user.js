@@ -6,6 +6,7 @@ import {
   deleteUserDB,
 } from "../DAOs/userMongoDB.js";
 import {
+  confirmPassword,
   signJWT,
   createHash,
   isValidPassword,
@@ -13,49 +14,56 @@ import {
 } from "../utils/utils.js";
 
 async function saveUser(user) {
-  try {
-    const emailExists = await getUserByEmail(user.email);
-    const userNameExists = await getUserByUsername(user.username);
-    const passwordHash = createHash(user.password);
-    const userEncrypted = { ...user, password: passwordHash };
+  const passwordConfirmed = confirmPassword(
+    user.password,
+    user.confirmPassword
+  );
+  if (passwordConfirmed) {
+    try {
+      const emailExists = await getUserByEmail(user.email);
+      const userNameExists = await getUserByUsername(user.username);
+      const passwordHash = createHash(user.password);
+      const userEncrypted = { ...user, password: passwordHash };
 
-    if (emailExists.length == 0 && userNameExists.length == 0) {
-      
-      const userSaved = await saveUserDB(userEncrypted);
-      const accessToken = signJWT(userSaved);
-      const createCart = await saveCartDB(user);
-  
-      return {
-        success: true,
-        user: userSaved,
-        token: accessToken.token,
-        expiresnIn: accessToken.expires,
-        cart: createCart
-      };
-    } else if (emailExists.length == 1 && userNameExists.length == 0) {
-      const res = {
-        status: 409,
-        reason: "The email already exists. please try with a different email",
-      };
-      return res;
-    } else if (emailExists.length == 0 && userNameExists.length == 1) {
-      const res = {
-        status: 409,
-        reason:
-          "The username already exists please try with a different username",
-      };
-      return res;
-    } else {
-      const res = {
-        status: 409,
-        reason:
-          "The email and username already exists please try with a different email and username",
-      };
-      return res;
+      if (emailExists.length == 0 && userNameExists.length == 0) {
+        const userSaved = await saveUserDB(userEncrypted);
+        const accessToken = signJWT(userSaved);
+        const createCart = await saveCartDB(user);
+
+        return {
+          success: true,
+          user: userSaved,
+          token: accessToken.token,
+          expiresnIn: accessToken.expires,
+          cart: createCart,
+        };
+      } else if (emailExists.length == 1 && userNameExists.length == 0) {
+        const res = {
+          status: 409,
+          reason: "The email already exists. please try with a different email",
+        };
+        return res;
+      } else if (emailExists.length == 0 && userNameExists.length == 1) {
+        const res = {
+          success: false,
+          status: 409,
+          reason:
+            "The username already exists please try with a different username",
+        };
+        return res;
+      } else {
+        const res = {
+          success: false,
+          status: 409,
+          reason:
+            "The email and username already exists please try with a different email and username",
+        };
+        return res;
+      }
+    } catch (error) {
+      console.log("Error in Users Service" + error);
     }
-  } catch (error) {
-    console.log("Error in Users Service" + error);
-  }
+  } else return {success: false, reason: "password and confirm password does not match"}
 }
 
 async function loginUser(loginInfo) {

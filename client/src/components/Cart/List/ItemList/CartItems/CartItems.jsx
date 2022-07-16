@@ -11,7 +11,7 @@ const CartItems = () => {
   let [loading, setloading] = useState(true);
   const [cart, setCart] = useState([]);
   const getInfo = async () => {
-    const res = await axios.get("http://192.168.0.102:8080/cart/myCart", {
+    const res = await axios.get("http://192.168.0.105:8080/cart/myCart", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const itemsFromCart = res.data.cart[0].items;
@@ -24,7 +24,7 @@ const CartItems = () => {
     try {
       const data = {id:id}
       const res = await axios.post(
-        `http://192.168.0.102:8080/cart/addProduct`,data,
+        `http://192.168.0.105:8080/cart/addProduct`,data,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -45,7 +45,7 @@ const CartItems = () => {
     try {
       const data = {id:id}
       const res = await axios.post(
-        `http://192.168.0.102:8080/cart/substractOneProduct`,data,
+        `http://192.168.0.105:8080/cart/substractOneProduct`,data,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -65,7 +65,7 @@ const CartItems = () => {
     try {
       const data = {id:id}
       const res = await axios.delete(
-        `http://192.168.0.102:8080/cart/deleteProduct`,
+        `http://192.168.0.105:8080/cart/deleteProduct`,
         {
           headers: { Authorization: `Bearer ${token}` },
           data:data

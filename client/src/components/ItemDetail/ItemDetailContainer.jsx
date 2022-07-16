@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
   let getProduct = async () => {
     try {
       const res = await axios.get(
-        `http://192.168.0.102:8080/products/id/${id}`,
+        `http://192.168.0.105:8080/products/id/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

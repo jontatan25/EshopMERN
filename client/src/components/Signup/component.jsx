@@ -6,25 +6,28 @@ import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [username, setUsername] = useState("");
   const [address, setAddress] = useState("");
   const [eyeActive, seteyeActive] = useState(true);
   const navigate = useNavigate();
   let handleSubmit = async (e) => {
     e.preventDefault();
+    
     const data = {
       email: email,
       password: password,
-      password2: passwordConfirmation,
+      confirmPassword: confirmPassword,
       username: username,
       address: address,
     };
+    console.log(data)
     try {
       const res = await axios.post(
-        "http://192.168.0.102:3000/users/signup",
+        "http://192.168.0.105:8080/users/signup",
         data
       );
+      console.log(res)
       if (res.data.success === true) {
         alert("User Created, Redirecting to Login Page...");
         navigate("/login");
@@ -100,9 +103,9 @@ const Signup = () => {
             <input
               type="text"
               className="signup__formContainer-input"
-              placeholder="Repeat Password"
-              value={passwordConfirmation}
-              onChange={(e) => setPasswordConfirmation(e.target.value)}
+              placeholder="Confirm password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
              {eyeActive ? (
               <AiOutlineEye
