@@ -10,6 +10,7 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [address, setAddress] = useState("");
   const [eyeActive, seteyeActive] = useState(true);
+  const [eyeActiveConfirm, seteyeActiveConfirm] = useState(true);
   const navigate = useNavigate();
   let handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,6 +51,9 @@ const Signup = () => {
   const handleToggle = () => {
     seteyeActive(!eyeActive);
   };
+  const handleToggleConfirm = () => {
+    seteyeActiveConfirm(!eyeActiveConfirm);
+  };
 
   return (
     <>
@@ -79,7 +83,7 @@ const Signup = () => {
               onChange={(e) => setAddress(e.target.value)}
             />
             <input
-              type="text"
+              type={eyeActive?"text":"password"}
               className="signup__formContainer-input"
               placeholder="Password"
               value={password}
@@ -101,22 +105,22 @@ const Signup = () => {
               />
             )}
             <input
-              type="text"
+              type={eyeActiveConfirm?"text":"password"}
               className="signup__formContainer-input"
               placeholder="Confirm password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
-             {eyeActive ? (
+             {eyeActiveConfirm ? (
               <AiOutlineEye
-                onClick={handleToggle}
+                onClick={handleToggleConfirm}
                 size="20px"
                 color="#808080"
                 className="signup__formContainer-fa-eye fa-eye-confirm"
               />
             ) : (
               <AiOutlineEyeInvisible
-                onClick={handleToggle}
+                onClick={handleToggleConfirm}
                 size="20px"
                 color="#808080"
                 className="signup__formContainer-fa-eye fa-eye-confirm"
