@@ -22,7 +22,7 @@ const Item = ({ productsArray }) => {
                 {product.description}
               </p>
               <p className="itemcontainer__item-body-price">
-                ${product.price} USD
+               <b>$</b>{product.price} USD
               </p>
               <div className="itemcontainer__item-buttonContainer">
                 <Link to={`/product/${product._id}`}>
