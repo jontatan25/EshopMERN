@@ -2,12 +2,10 @@
     background-color: white;
     width: 30vw;
     min-width: 18rem;
-    height: 80vh;
+    height: 85vh;
     border: solid 1px black;
     border-radius: 5px;
-    margin: 0.4em;
     transition: transform 0.1s ease-in-out;
-    padding-top: 20px;
     overflow: hidden;
   }
   
@@ -21,7 +19,7 @@
   }
   
   .itemcontainer__item-imgContainer {
-    height: 75%;
+    height: 72%;
     display: flex;
     margin: 0 auto;
   }
@@ -32,7 +30,7 @@
   }
 
   .itemcontainer__item-body {
-    height: 25%;
+    height: 28%;
     padding: 1em;
     background-color:#3CD0FF
     
@@ -40,19 +38,48 @@
   .itemcontainer__item-body:hover {
     background-color: #D999B9
   }
-  .itemcontainer__item-body h4 {
+
+  .itemcontainer__item-body-title{
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    margin-bottom: 1em;
+    margin: 0.3em 0 0.8em 0
   }
-  
-  .itemcontainer__item-body p {
-    margin-bottom: 1em;
+ 
+  .itemcontainer__item-body-description{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 0.3em 
   }
-  
-  .itemcontainer__item-body button {
-    padding: 0.5em 1em;
-    margin: 0 0.5rem;
+
+  .itemcontainer__item-body-price{
+    padding-left: 0.3em;
+    margin: 0.5em 0
   }
-  
+.itemcontainer__item-buttonContainer{
+  display: flex;
+  justify-content: center;
+  height: 10vh
+}
+  .itemcontainer__item-body-button {
+    padding: 0.7em 4em;
+    border-radius:6px;
+    background-color: #555EFB ;
+    color: white;
+    font-size:1.1rem;
+    margin: 0 auto;
+    border: none
+  }
+
+  .itemcontainer__item-body-button:hover {
+    background-color: rgb(50, 50, 253);
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .itemcontainer__item-body-button:active {
+      background-color:  #ffbb00;
+      transform: scale(0.97);
+      transition: transform 0.3s ease-in-out;
+      color: black;
+  }
