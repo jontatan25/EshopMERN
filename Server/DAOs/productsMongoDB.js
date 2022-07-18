@@ -83,7 +83,7 @@ async function getProductsByIdDB(productId) {
 async function deleteProductDB(id) {
   try {
     await connect(URL);
-    const res = await ProductModel.deleteOne({ id: id });
+    const res = await ProductModel.deleteOne({ _id: id });
     const deleteConfirmation = res.deletedCount;
     return deleteConfirmation;
   } catch (error) {

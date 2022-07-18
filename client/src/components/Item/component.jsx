@@ -10,9 +10,8 @@ const Item = ({productsArray}) => {
         productsArray.map((product) => (
           <div className="itemcontainer__item" key={product._id}>
             <div
-              className="itemcontainer__item-img"
-              // style={{ backgroundImage: `url(${item.image})` }}
-            ></div>
+              className="itemcontainer__item-imgContainer"
+            ><img  className="itemcontainer__item-img"src={product.URLPhoto} alt="product Image" /> </div>
             <div className="itemcontainer__item-body">
               <h4>{product.name}</h4>
               <p>${product.price} USD</p>
