@@ -51,21 +51,6 @@ function signJWTLogin(user) {
   };
 }
 
-// function postSignup(req, res) {
-//   var user = req.user;
-//   const jwt = issueJWT(user)
-//   res.json({success: true, user: user,token:jwt.token,expiresnIn: jwt.expires});
-// }
-// function failSignup(req, res) {
-//   res.send("Error en Signup");
-// }
-// function postLogin(req, res) {
-//   var user = req.user;
-//   res.send("Usuario Loggeado");
-// }
-// function failLogin(req, res) {
-//   res.send("Error en login");
-// }
 
 function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
@@ -73,7 +58,6 @@ function authenticateToken(req, res, next) {
   if (token == null) return res.redirect("/users/login");
   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
     if (err) {
-      console.log(err);
       return res.sendStatus(403);
     }
     req.user = user;

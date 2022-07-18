@@ -16,22 +16,40 @@ const Products = () => {
   const getInfo = async (token) => {
     if (token) {
       if (category) {
-        const res = await axios.get(
-          "http://192.168.0.105:8080/products/category/" + category,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
-        );
+        try {
+          const res = await axios.get(
+            "http://192.168.0.105:8080/products/category/" + category,
+            {
+              headers: { Authorization: `Bearer ${token}` },
+            }
+          );
+          setProducts(res.data.products);
+          setloading(false);
+          
+          return;
+        } catch (error) {
+          console.log(error)
+        }
+      }
+      try {
+        const res = await axios.get("http://192.168.0.105:8080/products", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         setProducts(res.data.products);
         setloading(false);
-        return;
+        
+      } catch (error) {
+        switch (error.response.status) {
+          case 403:
+              alert("Session expired, redirecting to login..")
+              localStorage.removeItem("user");
+              navigate("/login")
+              break
+          default:
+            console.log(error)
+              break
+       }
       }
-
-      const res = await axios.get("http://192.168.0.105:8080/products", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setProducts(res.data.products);
-      setloading(false);
     } else {alert("Please login before continuing"); navigate("/login")}
   };
 

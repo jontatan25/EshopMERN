@@ -57,7 +57,7 @@ app.get("/", (req, res) => {
 });
 
 const server = httpServer.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Eshop app listening on port ${port}`);
 });
 
 server.on('error', (err) => console.log('Express Server Error: ' + err) )

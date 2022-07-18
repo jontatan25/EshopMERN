@@ -15,21 +15,47 @@ const Chat = () => {
 
   const getInfo = async (token) => {
     if (email) {
-      const res = await axios.get(
-        "http://192.168.0.105:8080/messages/email/" + email,
-        {
-          headers: { Authorization: `Bearer ${token}` },
+      try {
+        const res = await axios.get(
+          "http://192.168.0.105:8080/messages/email/" + email,
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
+        const messages = res.data.messages;
+        setMessages(messages);
+        return messages;
+      } catch (error) {
+        switch (error.response.status) {
+          case 403:
+            alert("Session expired, redirecting to login..");
+            localStorage.removeItem("user");
+            navigate("/login");
+            break;
+          default:
+            console.log(error);
+            break;
         }
-      );
-      const messages = res.data.messages;
-      setMessages(messages);
-      return messages;
+      }
     }
-    const res = await axios.get("http://192.168.0.105:8080/messages", {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    setMessages(res.data.messages);
-    return;
+    try {
+      const res = await axios.get("http://192.168.0.105:8080/messages", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setMessages(res.data.messages);
+      return;
+    } catch (error) {
+      switch (error.response.status) {
+        case 403:
+          alert("Session expired, redirecting to login..");
+          localStorage.removeItem("user");
+          navigate("/login");
+          break;
+        default:
+          console.log(error);
+          break;
+      }
+    }
   };
 
   let handleSumbitMessage = async (e) => {
@@ -52,11 +78,10 @@ const Chat = () => {
 
   useEffect(() => {
     const eventListener = (newMessage) => {
-      console.log(newMessage)
+      console.log(newMessage);
       if (messages) {
         setMessages((messages) => [...messages, newMessage]);
-      } else
-      setMessages ([newMessage])
+      } else setMessages([newMessage]);
     };
     socket.on("new_message", eventListener);
     return () => socket.off("new_message", eventListener);
