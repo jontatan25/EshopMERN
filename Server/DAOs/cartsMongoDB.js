@@ -1,10 +1,12 @@
 import CartModel from "../models/Carts.js";
 import mongoose from "mongoose";
+import "dotenv/config.js";
 import { saveCartDTO, addNewProductDTO } from "../DTOs/carts.js";
 
 const { connect, disconnect } = mongoose;
 
-const URL = "mongodb://localhost:27017/ecommerce";
+// const URL = "mongodb://localhost:27017/ecommerce";
+const URL = process.env.MONGO_ATLAS_URL
 
 async function saveCartDB(user) {
   try {

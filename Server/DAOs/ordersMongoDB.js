@@ -4,7 +4,8 @@ import { createOrderDTO } from "../DTOs/orders.js";
 
 const { connect, disconnect } = mongoose;
 
-const URL = "mongodb://localhost:27017/ecommerce";
+// const URL = "mongodb://localhost:27017/ecommerce";
+const URL = process.env.MONGO_ATLAS_URL
 
 async function createOrderDB(userCartWithLength) {
   try {
