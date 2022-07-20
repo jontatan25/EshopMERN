@@ -56,6 +56,14 @@ app.get("/", (req, res) => {
   res.send("HOME");
 });
 
+// FOR HEROKU
+app.use(express.static(path.join(__dirname, "/client/build")));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+});
+
+
 const server = httpServer.listen(port, () => {
   console.log(`Eshop app listening on port ${port}`);
 });

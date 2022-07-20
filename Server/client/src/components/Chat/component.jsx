@@ -17,7 +17,7 @@ const Chat = () => {
     if (email) {
       try {
         const res = await axios.get(
-          "http://192.168.0.105:8080/messages/email/" + email,
+          "https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/messages/email/" + email,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -39,7 +39,7 @@ const Chat = () => {
       }
     }
     try {
-      const res = await axios.get("http://192.168.0.105:8080/messages", {
+      const res = await axios.get("https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/messages", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessages(res.data.messages);

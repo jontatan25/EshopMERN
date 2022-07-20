@@ -9,7 +9,7 @@ const ItemDetailProperties = ({ item, id }) => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `http://192.168.0.105:8080/products/id/${id}`,{
+        `https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/products/id/${id}`,{
           headers: { Authorization: `Bearer ${token}` },
         }
         );

@@ -15,7 +15,7 @@ const ItemDetail = ({ item }) => {
       const productId = item._id  
       const data = {id: productId}
       const res = await axios.post(
-        `http://192.168.0.105:8080/cart/addProduct`,data,
+        `https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/cart/addProduct`,data,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-import ItemDetail from "../ItemDetail/ItemDetail";
+import ItemDetail from "./ItemDetail";
 import LoadingSpinner from "../stateless/LoadingSpinner";
 
 import "./ItemDetailContainer.css";
@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
   let getProduct = async () => {
     try {
       const res = await axios.get(
-        `http://192.168.0.105:8080/products/id/${id}`,
+        `https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/products/id/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

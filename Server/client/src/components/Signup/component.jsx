@@ -25,7 +25,7 @@ const Signup = () => {
     console.log(data)
     try {
       const res = await axios.post(
-        "http://192.168.0.105:8080/users/signup",
+        "https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/users/signup",
         data
       );
       console.log(res)

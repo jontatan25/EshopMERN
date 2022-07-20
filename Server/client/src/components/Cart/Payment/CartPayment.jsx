@@ -15,7 +15,7 @@ const CartPayment = () => {
     e.preventDefault();
     try {
       
-      const res = await axios.post("http://192.168.0.105:8080/orders/create",{}, {
+      const res = await axios.post("https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/orders/create",{}, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (res.data.success === true){
