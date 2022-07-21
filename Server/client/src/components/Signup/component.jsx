@@ -25,7 +25,7 @@ const Signup = () => {
     console.log(data)
     try {
       const res = await axios.post(
-        "https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/users/signup",
+        "https://mern-eshop-espitia-jonathans.herokuapp.com/users/signup",
         data
       );
       console.log(res)

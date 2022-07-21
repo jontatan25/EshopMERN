@@ -19,7 +19,7 @@ function createHash(password) {
 }
 
 function signJWT(userSaved) {
-  const expirationTime = consoleInputs.EXP || 3000; // Console input or 3000 seconds
+  const expirationTime = process.env.EXPIRE_TIME || 3000; // Console input or 3000 seconds
   const signedToken = jwt.sign(
     {
       data: userSaved,

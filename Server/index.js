@@ -2,6 +2,9 @@ import express from "express";
 import cors from 'cors';
 import { createServer } from 'http';
 import { Server } from "socket.io";
+import { fileURLToPath } from 'url';
+import path,{ dirname }  from 'path';
+
 
 //ROUTERS
 import usersRouter from "./router/users.js";
@@ -20,8 +23,13 @@ const httpServer = createServer(app);
 const io = new Server(httpServer, { cors: { origin: '*' } });
 
 //Inputs from Console when starting the server
-let consoleInputs = minimist(process.argv.slice(2));
-const port = consoleInputs.PORT || 8080;
+
+// DISABLED FOR HEROKU DEPLOY
+// let consoleInputs = minimist(process.argv.slice(2));
+
+const port = process.env.PORT || 8080;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 //MIDDLEWARES
 
@@ -51,10 +59,6 @@ app.use("/products", productsRouter);
 app.use("/messages", messagesRouter); 
 app.use("/cart", cartRouter);
 app.use("/orders", ordersRouter);
-
-app.get("/", (req, res) => {
-  res.send("HOME");
-});
 
 // FOR HEROKU
 app.use(express.static(path.join(__dirname, "/client/build")));

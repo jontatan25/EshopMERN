@@ -18,7 +18,7 @@ const Products = () => {
       if (category) {
         try {
           const res = await axios.get(
-            "https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/products/category/" + category,
+            "https://mern-eshop-espitia-jonathans.herokuapp.com/products/category/" + category,
             {
               headers: { Authorization: `Bearer ${token}` },
             }
@@ -32,7 +32,7 @@ const Products = () => {
         }
       }
       try {
-        const res = await axios.get("https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/products", {
+        const res = await axios.get("https://mern-eshop-espitia-jonathans.herokuapp.com/products", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProducts(res.data.products);

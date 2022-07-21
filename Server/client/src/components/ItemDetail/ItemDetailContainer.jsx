@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
   let getProduct = async () => {
     try {
       const res = await axios.get(
-        `https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/products/id/${id}`,
+        `https://mern-eshop-espitia-jonathans.herokuapp.com/products/id/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

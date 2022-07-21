@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     const data = {email: email, password: password}
     try {
-      const res = await axios.post('https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/users/login',data)
+      const res = await axios.post('https://mern-eshop-espitia-jonathans.herokuapp.com/users/login',data)
       console.log(res.data)
       if (res.data.success === true) {
         localStorage.setItem("user", JSON.stringify(res.data.token))

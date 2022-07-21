@@ -3,7 +3,7 @@ import axios from "axios";
 import io from "socket.io-client";
 import { useParams, useNavigate } from "react-router-dom";
 import "./style.css";
-const socket = io.connect("http://localhost:8080");
+const socket = io.connect("https://mern-eshop-espitia-jonathans.herokuapp.com");
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
@@ -17,7 +17,7 @@ const Chat = () => {
     if (email) {
       try {
         const res = await axios.get(
-          "https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/messages/email/" + email,
+          "https://mern-eshop-espitia-jonathans.herokuapp.com/messages/email/" + email,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -39,7 +39,7 @@ const Chat = () => {
       }
     }
     try {
-      const res = await axios.get("https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/messages", {
+      const res = await axios.get("https://mern-eshop-espitia-jonathans.herokuapp.com/messages", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessages(res.data.messages);
@@ -62,7 +62,7 @@ const Chat = () => {
     e.preventDefault();
     var message = { body: inputRef.current.value };
     try {
-      var res = await axios.post("http://localhost:8080/messages", message, {
+      var res = await axios.post("https://mern-eshop-espitia-jonathans.herokuapp.com/messages", message, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if ((res.data.success = true)) {

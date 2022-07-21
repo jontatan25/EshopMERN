@@ -11,7 +11,7 @@ const CartItems = () => {
   let [loading, setloading] = useState(true);
   const [cart, setCart] = useState([]);
   const getInfo = async () => {
-    const res = await axios.get("https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/cart/myCart", {
+    const res = await axios.get("https://mern-eshop-espitia-jonathans.herokuapp.com/cart/myCart", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const itemsFromCart = res.data.cart[0].items;
@@ -24,7 +24,7 @@ const CartItems = () => {
     try {
       const data = {id:id}
       const res = await axios.post(
-        `https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/cart/addProduct`,data,
+        `https://mern-eshop-espitia-jonathans.herokuapp.com/cart/addProduct`,data,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -45,7 +45,7 @@ const CartItems = () => {
     try {
       const data = {id:id}
       const res = await axios.post(
-        `https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/cart/substractOneProduct`,data,
+        `https://mern-eshop-espitia-jonathans.herokuapp.com/cart/substractOneProduct`,data,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -65,7 +65,7 @@ const CartItems = () => {
     try {
       const data = {id:id}
       const res = await axios.delete(
-        `https://dashboard.heroku.com/apps/mern-eshop-espitia-jonathan/cart/deleteProduct`,
+        `https://mern-eshop-espitia-jonathans.herokuapp.com/cart/deleteProduct`,
         {
           headers: { Authorization: `Bearer ${token}` },
           data:data
