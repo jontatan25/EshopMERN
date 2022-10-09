@@ -1,0 +1,23 @@
+.cartContainer{
+    width: 93vw;
+    height: 100vh;
+    display:flex;
+    margin: 0 auto;
+    background-color:white;
+    align-items: center;
+}
+
+.cartContainer__list{
+    padding: 1em 4em ;
+    flex: 2.5;
+}
+
+.cartContainer__payment{
+    height: 84vh;
+    padding: 1em 2em ;
+    margin-right: 1em;
+    flex: 0.9;
+    background-color: rgb(236, 236, 236);
+    border-radius: 10px;
+
+}

@@ -1,0 +1,71 @@
+.cartContainer__payment-title {
+  display: flex;
+  align-items: center;
+  height: 3.5em;
+  font-size: 1.5rem;
+}
+.cartContainer__payment-formFieldContainer{
+    display: flex;
+    align-items: center;
+    height: 2.5em;
+}
+
+.formFieldContainer__icon{
+    margin: 0 4px 0 11px;
+}
+.cartContainer__payment-formField {
+  border: none;
+  margin-bottom: 1.5em;
+}
+
+.cartContainer__payment-formFieldTitle {
+  display: flex;
+  align-items: center;
+  height: 2.3em;
+  margin-bottom: 0.3em
+}
+
+.formField__card{
+    width:40px;
+    margin-left: 5px;
+}
+
+/* .formField__card:not(:first-child){
+    
+} */
+
+.formField__expirationContainer{
+    display: flex;
+}
+
+.formField__expirationContainerLeft{
+    flex: 1;
+}
+.formField__expirationContainerRight{
+    flex: 1;
+}
+.formField__cvv{
+    width:33px;
+}
+.cartContainer__payment-ContainerButton{
+    display: flex;
+    justify-content: space-between;
+}
+.cartContainer__payment-button{
+    padding: 1em 6em;
+    border-radius:6px;
+    background-color: rgb(31, 31, 247);
+    color: white;
+    font-size:1.1rem;
+    margin: 0 auto;
+    border: none
+}
+.cartContainer__payment-button:hover{
+   background-color:  #ffbb00;
+   transform: scale(0.97);
+   color: black;
+   cursor: pointer
+}
+#formField__last{
+    margin-bottom: 1.2em;
+  }

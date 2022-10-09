@@ -1,0 +1,43 @@
+.header__Container{
+    display: flex;
+    align-items: center;
+    background-color: #F4D06F;
+    justify-content: space-between;
+    padding: 0 15px;
+    height: 115px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    line-height: 21px;
+    
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "FiraGO", sans-serif;
+    font-size: 14px;  
+    
+}
+
+.navList{
+    list-style-type: none;
+}
+
+.navContainer__Link{
+    padding: 0.5em 0;
+    margin: 0 0.7em
+}
+
+
+.navContainer__Link:hover{
+    border-bottom: solid #FF8811  ;
+}
+
+.navContainer__Link:visited{
+    color: black;
+}
+
+.nav-logo__img{
+    height: 40px;
+    /* aspect-ratio: 1; */
+}

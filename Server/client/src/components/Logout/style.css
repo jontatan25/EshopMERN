@@ -1,0 +1,11 @@
+
+.logoutContainer{
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    align-items: center;
+}
+.logoutContainer__btn{
+    height: fit-content;
+    padding: 35px 40px;
+}
