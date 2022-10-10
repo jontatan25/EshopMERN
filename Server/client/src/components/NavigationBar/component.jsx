@@ -6,7 +6,7 @@ const NavigationBar = () => {
   return (
     <>
       <div className="header__Container">
-        <div className="nav-logo">
+        <div className="nav__logo">
           <img
             className="nav-logo__img"
             src={"./img/logo/logo.svg"}
@@ -43,8 +43,7 @@ const NavigationBar = () => {
           </ul>
         </nav>
         <div className="nav__login">
-          {" "}
-          <ul className="nav navList">
+          <ul className="nav navList login">
             <li>
               <Link className="navContainer__Link" to="/login">
                 SIGN&nbsp;IN
