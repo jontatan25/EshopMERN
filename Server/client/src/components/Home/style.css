@@ -21,7 +21,7 @@
   justify-content: center;
 }
 
-.carousel__sign-text-container{
+.carousel__sign-text-container {
   width: 394px;
   height: 225px;
   padding: 25px 32px 0 0;
@@ -30,7 +30,7 @@
   position: relative;
 }
 .carousel__sign-text {
-  width: 95%;
+  width: 100%;
 }
 
 .carousel__sign-text-container::before {
@@ -52,8 +52,27 @@
   font-family: "Oswald", sans-serif;
 }
 
-.carousel__images{
+.carousel__images {
   width: 652px;
-  height:100%;
-  border: 2px solid black;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.carousel__images-smallImage {
+  width: 325px;
+  height: 487.5px;
+  background-size: cover;
+  box-shadow: 6px 8px 22px -1px rgba(0, 0, 0, 0.34);
+  -webkit-box-shadow: 6px 8px 22px -1px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: 6px 8px 22px -1px rgba(0, 0, 0, 0.34);
+}
+
+.carousel__images-bigImage {
+  width: 450px;
+  height: 100%;
+  background-size: cover;
+  box-shadow: 6px 8px 22px -1px rgba(0, 0, 0, 0.34);
+  -webkit-box-shadow: 6px 8px 22px -1px rgba(0, 0, 0, 0.34);
+  -moz-box-shadow: 6px 8px 22px -1px rgba(0, 0, 0, 0.34);
 }
