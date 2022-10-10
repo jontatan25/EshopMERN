@@ -7,29 +7,45 @@ import bigImage from "../../images/carrousel/bigImage.jpg";
 
 const HomeContainer = () => {
   return (
-    <div
-      className="homeContainer"
-      style={{ backgroundImage: `url(${carrouselBackground})` }}
-    >
-      <div className="carousel__container">
-        <div className="carousel__sign">
-          <div className="carousel__sign-text-container">
-            <img className="carousel__sign-text" src={carouselSign} alt="" />
+    <>
+      <div
+        className="homeContainer"
+        style={{ backgroundImage: `url(${carrouselBackground})` }}
+      >
+        <div className="carousel__container">
+          <div className="carousel__sign">
+            <div className="carousel__sign-text-container">
+              <h2 className="carousel__sign-text">
+                SUMMER SALE GET{" "}
+                <span className="carousel__sign-text highlight">30% OFF</span>{" "}
+                ON ALL DRESS.
+              </h2>
+            </div>
+            <button className="carousel__sign-btn">SHOP NOW</button>
           </div>
-          <button className="carousel__sign-btn">SHOP NOW</button>
-        </div>
-        <div className="carousel__images">
-          <div
-            className="carousel__images-smallImage"
-            style={{ backgroundImage: `url(${smallImage})` }}
-          ></div>
-          <div
-            className="carousel__images-bigImage"
-            style={{ backgroundImage: `url(${bigImage})` }}
-          ></div>
+          <div className="carousel__images">
+            <div
+              className="carousel__images-smallImage"
+              style={{ backgroundImage: `url(${smallImage})` }}
+            ></div>
+            <div
+              className="carousel__images-bigImage"
+              style={{ backgroundImage: `url(${bigImage})` }}
+            ></div>
+          </div>
         </div>
       </div>
-    </div>
+      <div className="banner__container">
+        <p className="banner__text" >CHOOSE YOUR BRAND</p>
+        <div className="banner__icon"></div>
+        <div className="banner__icon"></div>
+        <div className="banner__icon"></div>
+        <div className="banner__icon"></div>
+        <div className="banner__icon"></div>
+        <div className="banner__icon"></div>
+        <div className="banner__icon"></div>
+      </div>
+    </>
   );
 };
 

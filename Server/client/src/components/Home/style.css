@@ -1,7 +1,7 @@
 .homeContainer {
-  width: 1469x;
   height: 626px;
   margin-left: 50px;
+  margin-bottom: 32px;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -24,15 +24,23 @@
 .carousel__sign-text-container {
   width: 394px;
   height: 225px;
-  padding: 25px 32px 0 0;
+  padding: 22px 32px 0 0;
   border: 2px solid transparent;
   margin-bottom: 37px;
   position: relative;
 }
 .carousel__sign-text {
-  width: 100%;
+  font-family: "Oswald";
+  font-weight: 600;
+  font-size: 66px;
+  line-height: 75px;
+  margin: 0;
 }
 
+.highlight {
+  color: rgba(0, 0, 0, 0);
+  -webkit-text-stroke: 2px black;
+}
 .carousel__sign-text-container::before {
   content: "";
   position: absolute;
@@ -75,4 +83,33 @@
   box-shadow: 6px 8px 22px -1px rgba(0, 0, 0, 0.34);
   -webkit-box-shadow: 6px 8px 22px -1px rgba(0, 0, 0, 0.34);
   -moz-box-shadow: 6px 8px 22px -1px rgba(0, 0, 0, 0.34);
+}
+
+.banner__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 160px;
+  width: 98%;
+  margin: 0 auto;
+  border: 2px solid #c4c4c4;
+  position: relative;
+}
+
+.banner__text {
+  position: absolute;
+  top: -25px;
+  background-color: white;
+  padding: 0 115px;
+  margin: 0;
+  font-family: "Oswald";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 45px;
+}
+.banner__icon {
+  width: 184px;
+  height: 110px;
+  border: black 1px solid
 }
