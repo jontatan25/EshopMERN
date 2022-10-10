@@ -1,15 +1,59 @@
 .homeContainer {
-  margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.35);
-  border-radius: 5px;
-  text-align: center;
-  color: white;
-  font-family: "Fraunces", serif;
-  font-size: 5em;
-  width: 80vw;
-  height: 80vh;
+  width: 1469x;
+  height: 626px;
+  margin-left: 50px;
+  background-size: cover;
   display: flex;
-  align-items: center;
   justify-content: center;
- 
+  align-items: center;
+}
+
+.carousel__container {
+  height: 554px;
+  width: 1141px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.carousel__sign {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.carousel__sign-text-container{
+  width: 394px;
+  height: 225px;
+  padding: 25px 32px 0 0;
+  border: 2px solid transparent;
+  margin-bottom: 37px;
+  position: relative;
+}
+.carousel__sign-text {
+  width: 95%;
+}
+
+.carousel__sign-text-container::before {
+  content: "";
+  position: absolute;
+  width: 388px;
+  height: 78px;
+  right: 0;
+  top: 0;
+  border-right: 2px solid black;
+  border-top: 2px solid black;
+}
+
+.carousel__sign-btn {
+  width: 137px;
+  height: 43.8px;
+  background-color: transparent;
+  font-weight: 500;
+  font-family: "Oswald", sans-serif;
+}
+
+.carousel__images{
+  width: 652px;
+  height:100%;
+  border: 2px solid black;
 }

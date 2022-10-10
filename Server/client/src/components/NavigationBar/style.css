@@ -4,10 +4,11 @@
   background-color: #f4d06f;
   justify-content: space-between;
   padding: 0 15px;
-  height: 115px;
+  height: 90px;
   font-family: "Oswald", sans-serif;
   font-weight: 600;
   line-height: 21px;
+  margin-bottom: 20px;
 }
 .nav {
   display: flex;

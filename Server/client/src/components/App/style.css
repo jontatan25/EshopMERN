@@ -18,12 +18,6 @@ font-family: 'Roboto', sans-serif;
 }
 html {
   min-height: 100%;
-  background: rgb(85, 94, 251);
-  background: linear-gradient(
-    180deg,
-    rgba(85, 94, 251, 1) 0%,
-    rgba(60, 208, 255, 1) 100%
-  );
 }
 
 body {
