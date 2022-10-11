@@ -15,6 +15,7 @@ import frame4 from "../../images/brandBanner/Frame-4.png";
 import frame5 from "../../images/brandBanner/Frame-5.png";
 import frame6 from "../../images/brandBanner/Frame-6.png";
 
+import sampleImg from "../../images/productSample.jpg";
 
 const HomeContainer = () => {
   return (
@@ -137,7 +138,14 @@ const HomeContainer = () => {
             </li>
           </ul>
         </div>
-        <div className="collection__filter-itemList"></div>
+        <div className="collection__filter-itemList">
+          <div className="collection__item">
+            <div className="collection__item-photo-container" style={{ backgroundImage: `url(${sampleImg})`}}></div>
+            <h4 className="collection__item-title">COLLECTION</h4>
+            <p className="collection__item-name">Product description</p>
+            <p className="collection__item-price">PRICE EUR</p>
+          </div>
+        </div>
       </div>
     </>
   );
