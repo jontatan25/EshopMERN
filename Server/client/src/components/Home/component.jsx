@@ -1,9 +1,11 @@
 import React from "react";
 import "./style.css";
 import carrouselBackground from "../../images/carrousel/carrousel-background.jpg";
-import carouselSign from "../../../src/images/carrousel/summerSale.svg";
 import smallImage from "../../images/carrousel/smallImg.jpg";
 import bigImage from "../../images/carrousel/bigImage.jpg";
+import smallPromo1 from "../../images/promo/small1.jpg";
+import smallPromo2 from "../../images/promo/small2.jpg";
+import bigPromo1 from "../../images/promo/big1.jpg";
 
 const HomeContainer = () => {
   return (
@@ -21,7 +23,7 @@ const HomeContainer = () => {
                 ON ALL DRESS.
               </h2>
             </div>
-            <button className="carousel__sign-btn">SHOP NOW</button>
+            <button className="transparent__btn">SHOP NOW</button>
           </div>
           <div className="carousel__images">
             <div
@@ -36,7 +38,7 @@ const HomeContainer = () => {
         </div>
       </div>
       <div className="banner__container">
-        <p className="banner__text" >CHOOSE YOUR BRAND</p>
+        <p className="banner__text">CHOOSE YOUR BRAND</p>
         <div className="banner__icon"></div>
         <div className="banner__icon"></div>
         <div className="banner__icon"></div>
@@ -44,6 +46,42 @@ const HomeContainer = () => {
         <div className="banner__icon"></div>
         <div className="banner__icon"></div>
         <div className="banner__icon"></div>
+      </div>
+      <div className="promotions__container">
+        <div className="promotions__small-container">
+          <div
+            className="promotion__promo-one"
+            style={{ backgroundImage: `url(${smallPromo1})` }}
+          >
+            <div className="promotion__promo-one-container">
+              <h3 className="promo__title">
+                CHOOSE <br></br> YOUR LOOK
+              </h3>
+              <p className="promo__text">See our clothing collections</p>
+              <button className="transparent__btn">SEE OFFERS</button>
+            </div>
+          </div>
+          <div
+            className="promotion__promo-two"
+            style={{ backgroundImage: `url(${smallPromo2})` }}
+          >
+            <div className="promotion__promo-two-container">
+              <h3 className="promo__title-two">BRAND NEW STYLE</h3>
+              <p className="promo__text-two">Popular clothing brands</p>
+              <button className="transparent__btn">SEE OFFERS</button>
+            </div>
+          </div>
+        </div>
+        <div
+          className="promotion__promo-three"
+          style={{ backgroundImage: `url(${bigPromo1})` }}
+        >
+          <div className="promotion__promo-three-container">
+            <h3 className="promo__title-three">UP TO 40% OFF</h3>
+            <p className="promo__text-three">Special offers and great deals</p>
+            <button className="transparent__btn">SEE OFFERS</button>
+          </div>
+        </div>
       </div>
     </>
   );
