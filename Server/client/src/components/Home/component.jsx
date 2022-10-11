@@ -7,6 +7,15 @@ import smallPromo1 from "../../images/promo/small1.jpg";
 import smallPromo2 from "../../images/promo/small2.jpg";
 import bigPromo1 from "../../images/promo/big1.jpg";
 
+import frame from "../../images/brandBanner/Frame.png";
+import frame1 from "../../images/brandBanner/Frame-1.png";
+import frame2 from "../../images/brandBanner/Frame-2.png";
+import frame3 from "../../images/brandBanner/Frame-3.png";
+import frame4 from "../../images/brandBanner/Frame-4.png";
+import frame5 from "../../images/brandBanner/Frame-5.png";
+import frame6 from "../../images/brandBanner/Frame-6.png";
+
+
 const HomeContainer = () => {
   return (
     <>
@@ -39,13 +48,34 @@ const HomeContainer = () => {
       </div>
       <div className="banner__container">
         <p className="banner__text">CHOOSE YOUR BRAND</p>
-        <div className="banner__icon"></div>
-        <div className="banner__icon"></div>
-        <div className="banner__icon"></div>
-        <div className="banner__icon"></div>
-        <div className="banner__icon"></div>
-        <div className="banner__icon"></div>
-        <div className="banner__icon"></div>
+        <div
+          className="banner__icon"
+          style={{ backgroundImage: `url(${frame})` }}
+        ></div>
+        <div
+          className="banner__icon"
+          style={{ backgroundImage: `url(${frame1})` }}
+        ></div>
+        <div
+          className="banner__icon"
+          style={{ backgroundImage: `url(${frame2})` }}
+        ></div>
+        <div
+          className="banner__icon"
+          style={{ backgroundImage: `url(${frame3})` }}
+        ></div>
+        <div
+          className="banner__icon"
+          style={{ backgroundImage: `url(${frame4})` }}
+        ></div>
+        <div
+          className="banner__icon"
+          style={{ backgroundImage: `url(${frame5})` }}
+        ></div>
+        <div
+          className="banner__icon"
+          style={{ backgroundImage: `url(${frame6})` }}
+        ></div>
       </div>
       <div className="promotions__container">
         <div className="promotions__small-container">
@@ -82,6 +112,32 @@ const HomeContainer = () => {
             <button className="transparent__btn">SEE OFFERS</button>
           </div>
         </div>
+      </div>
+      <div className="collection__container">
+        <div className="collection__filter-container">
+          <h3 className="filter__title">Shop Some Wear:</h3>
+          <ul className="filter__list">
+            <li className="filter__list-item">
+              <button className="square__btn-empty"></button>BEST SELLERS
+            </li>
+            <li className="filter__list-item">
+              <button className="square__btn-empty"></button>NEW ARRIVALS
+            </li>
+            <li className="filter__list-item">
+              <button className="square__btn-empty"></button>TOP WOMEN
+            </li>
+            <li className="filter__list-item">
+              <button className="square__btn-empty"></button>COLLECTION: SUMMER
+            </li>
+            <li className="filter__list-item">
+              <button className="square__btn-empty"></button>COLLECTION: SPRING
+            </li>
+            <li className="filter__list-item">
+              <button className="square__btn-empty"></button>TRENDING
+            </li>
+          </ul>
+        </div>
+        <div className="collection__filter-itemList"></div>
       </div>
     </>
   );

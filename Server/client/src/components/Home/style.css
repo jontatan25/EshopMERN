@@ -117,14 +117,14 @@
 .banner__icon {
   width: 184px;
   height: 110px;
-  border: black 1px solid;
+  background-size: auto 100%;
 }
 
 .promotions__container {
   height: 702px;
   width: 98%;
   display: flex;
-  margin: 0 auto;
+  margin: 0 auto 23.5px auto;
   justify-content: space-between;
 }
 
@@ -143,7 +143,7 @@
   align-items: center;
   justify-content: flex-end;
   border: white 1px solid;
-  transition: all 0.5s ease
+  transition: all 0.5s ease;
 }
 
 .promotion__promo-one:hover {
@@ -159,17 +159,23 @@
   background-size: auto 100%;
   display: flex;
   align-items: center;
-  transition: all 0.5s ease
+  transition: all 0.5s ease;
 }
 .promotion__promo-two:hover {
   filter: brightness(91%);
   transition: all 0.5s ease;
   border: #c4c4c4 1px solid;
 }
+.promotion__promo-three:hover {
+  filter: brightness(91%);
+  transition: all 0.5s ease;
+  border: #c4c4c4 1px solid;
+}
 .promotion__promo-three {
+  border: white 1px solid;
   height: 702px;
   width: 743px;
-  border: black 1px solid;
+  transition: all 0.5s ease;
 }
 
 .promotion__promo-one-container {
@@ -185,7 +191,7 @@
 .promotion__promo-three-container {
   width: 289px;
   height: 285.6px;
-  margin:336.5px 0 0 67.5px;
+  margin: 336.5px 0 0 67.5px;
 }
 
 .promo__title {
@@ -223,7 +229,7 @@
   font-size: 17.2px;
   line-height: 168%;
   letter-spacing: 0.01em;
-  margin: 0 0 39px 0 ;
+  margin: 0 0 39px 0;
 }
 .promo__text-three {
   font-family: "Roboto";
@@ -231,9 +237,57 @@
   font-size: 17.2px;
   line-height: 168%;
   letter-spacing: 0.01em;
-  margin: 0 0 40px 0 ;
+  margin: 0 0 40px 0;
 }
 
-.promotion__promo-three{
+.promotion__promo-three {
   background-size: 100% auto;
+}
+
+.collection__container {
+  display: flex;
+  width: 98%;
+  margin: 0 auto;
+}
+.collection__filter-container {
+  flex: 1;
+  margin-left: 10px;
+}
+.filter__title {
+  font-family: "Oswald";
+  font-weight: 400;
+  font-size: 18.7px;
+  line-height: 32px;
+  margin: 0;
+}
+.filter__list{
+  list-style-type: none;
+  padding:0;
+}
+.filter__list-item{
+  height: 17.2px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 486%;
+  margin: 0 0 15.7px 0;
+  display: flex;
+  align-items: center;
+}
+
+.square__btn-empty{
+  background-color: transparent;
+  padding: 3px;
+  margin-right: 7px;
+  border: 1px solid #ccc;
+}
+.square__btn-empty:hover{
+  cursor: pointer;
+}
+
+.collection__filter-itemList{
+  height: auto;
+  flex: 4;
+  border: 1px solid #ccc
 }
