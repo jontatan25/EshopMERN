@@ -17,6 +17,7 @@ import frame6 from "../../images/brandBanner/Frame-6.png";
 
 import sampleImg from "../../images/productSample.jpg";
 
+import banner2 from "../../images/banner2/banner2-background.jpg";
 const HomeContainer = () => {
   return (
     <>
@@ -110,7 +111,7 @@ const HomeContainer = () => {
           <div className="promotion__promo-three-container">
             <h3 className="promo__title-three">UP TO 40% OFF</h3>
             <p className="promo__text-three">Special offers and great deals</p>
-            <button className="transparent__btn">SEE OFFERS</button>
+            <button className="transparent__btn">SHOP NOW</button>
           </div>
         </div>
       </div>
@@ -140,54 +141,88 @@ const HomeContainer = () => {
         </div>
         <div className="collection__filter-itemList">
           <div className="collection__item">
-            <div className="collection__item-photo-container" style={{ backgroundImage: `url(${sampleImg})`}}></div>
+            <div
+              className="collection__item-photo-container"
+              style={{ backgroundImage: `url(${sampleImg})` }}
+            ></div>
             <h4 className="collection__item-title">COLLECTION</h4>
             <p className="collection__item-name">Product description</p>
             <p className="collection__item-price">PRICE EUR</p>
           </div>
           <div className="collection__item">
-            <div className="collection__item-photo-container" style={{ backgroundImage: `url(${sampleImg})`}}></div>
+            <div
+              className="collection__item-photo-container"
+              style={{ backgroundImage: `url(${sampleImg})` }}
+            ></div>
             <h4 className="collection__item-title">COLLECTION</h4>
             <p className="collection__item-name">Product description</p>
             <p className="collection__item-price">PRICE EUR</p>
           </div>
           <div className="collection__item">
-            <div className="collection__item-photo-container" style={{ backgroundImage: `url(${sampleImg})`}}></div>
+            <div
+              className="collection__item-photo-container"
+              style={{ backgroundImage: `url(${sampleImg})` }}
+            ></div>
             <h4 className="collection__item-title">COLLECTION</h4>
             <p className="collection__item-name">Product description</p>
             <p className="collection__item-price">PRICE EUR</p>
           </div>
           <div className="collection__item">
-            <div className="collection__item-photo-container" style={{ backgroundImage: `url(${sampleImg})`}}></div>
+            <div
+              className="collection__item-photo-container"
+              style={{ backgroundImage: `url(${sampleImg})` }}
+            ></div>
             <h4 className="collection__item-title">COLLECTION</h4>
             <p className="collection__item-name">Product description</p>
             <p className="collection__item-price">PRICE EUR</p>
           </div>
           <div className="collection__item">
-            <div className="collection__item-photo-container" style={{ backgroundImage: `url(${sampleImg})`}}></div>
+            <div
+              className="collection__item-photo-container"
+              style={{ backgroundImage: `url(${sampleImg})` }}
+            ></div>
             <h4 className="collection__item-title">COLLECTION</h4>
             <p className="collection__item-name">Product description</p>
             <p className="collection__item-price">PRICE EUR</p>
           </div>
           <div className="collection__item">
-            <div className="collection__item-photo-container" style={{ backgroundImage: `url(${sampleImg})`}}></div>
+            <div
+              className="collection__item-photo-container"
+              style={{ backgroundImage: `url(${sampleImg})` }}
+            ></div>
             <h4 className="collection__item-title">COLLECTION</h4>
             <p className="collection__item-name">Product description</p>
             <p className="collection__item-price">PRICE EUR</p>
           </div>
           <div className="collection__item">
-            <div className="collection__item-photo-container" style={{ backgroundImage: `url(${sampleImg})`}}></div>
+            <div
+              className="collection__item-photo-container"
+              style={{ backgroundImage: `url(${sampleImg})` }}
+            ></div>
             <h4 className="collection__item-title">COLLECTION</h4>
             <p className="collection__item-name">Product description</p>
             <p className="collection__item-price">PRICE EUR</p>
           </div>
           <div className="collection__item">
-            <div className="collection__item-photo-container" style={{ backgroundImage: `url(${sampleImg})`}}></div>
+            <div
+              className="collection__item-photo-container"
+              style={{ backgroundImage: `url(${sampleImg})` }}
+            ></div>
             <h4 className="collection__item-title">COLLECTION</h4>
             <p className="collection__item-name">Product description</p>
             <p className="collection__item-price">PRICE EUR</p>
           </div>
           <button className="transparent__btn -greybtn">LOAD MORE</button>
+        </div>
+      </div>
+      <div
+        className="banner2__container"
+        style={{ backgroundImage: `url(${banner2})` }}
+      >
+        <div className="banner2__content">
+          <h3 className="banner2__title">SHOPING WITHOUT LIMITS</h3>
+          <p className="banner2__text">You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!</p>
+          <button className="transparent__btn" >SHOP NOW</button>
         </div>
       </div>
     </>
