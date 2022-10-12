@@ -18,6 +18,7 @@ import frame6 from "../../images/brandBanner/Frame-6.png";
 import sampleImg from "../../images/productSample.jpg";
 
 import banner2 from "../../images/banner2/banner2-background.jpg";
+
 const HomeContainer = () => {
   return (
     <>
@@ -221,8 +222,49 @@ const HomeContainer = () => {
       >
         <div className="banner2__content">
           <h3 className="banner2__title">SHOPING WITHOUT LIMITS</h3>
-          <p className="banner2__text">You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!</p>
-          <button className="transparent__btn" >SHOP NOW</button>
+          <p className="banner2__text">
+            You can choose the best option for you, and it does not matter
+            whether you are in Prague or San Francisco. We will deliver your
+            purchase anywhere!
+          </p>
+          <button className="transparent__btn">SHOP NOW</button>
+        </div>
+      </div>
+      <div className="featuredItems__container">
+        <h3 className="featuredItems__title">Featured Items</h3>
+        <div className="featuredItems__btn-container">
+           <button className="btn__arrow btn__arrow-left">
+          <svg className="btn__svg"
+            width="8"
+            height="14"
+            viewBox="0 0 8 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.45624 1.3999L1.79956 7.05658L7.45624 12.7133"
+              stroke="#828282"
+              stroke-width="1.5"
+            />
+          </svg>
+        </button>
+        <button className="btn__arrow btn__arrow-right">
+          <svg className="btn__svg"
+            width="8"
+            height="14"
+            viewBox="0 0 8 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.45624 1.3999L1.79956 7.05658L7.45624 12.7133"
+              stroke="#828282"
+              stroke-width="1.5"
+            />
+          </svg>
+        </button>
+        </div>
+        <div className="featuredItems__itemList">
         </div>
       </div>
     </>
