@@ -151,6 +151,7 @@
   filter: brightness(91%);
   transition: all 0.5s ease;
   border: #c4c4c4 1px solid;
+  scale: 1.02;
 }
 
 .promotion__promo-two {
@@ -166,11 +167,13 @@
   filter: brightness(91%);
   transition: all 0.5s ease;
   border: #c4c4c4 1px solid;
+  scale: 1.02;
 }
 .promotion__promo-three:hover {
   filter: brightness(91%);
   transition: all 0.5s ease;
   border: #c4c4c4 1px solid;
+  scale: 1.02;
 }
 .promotion__promo-three {
   border: white 1px solid;
@@ -285,6 +288,7 @@
 }
 .square__btn-empty:hover {
   cursor: pointer;
+  scale: 1.02;
 }
 
 .collection__filter-itemList {
@@ -355,6 +359,14 @@
   display: flex;
   align-items: center;
   padding-left: 211px;
+  border: white 1px solid;
+}
+
+.banner2__container:hover {
+  filter: brightness(91%);
+  transition: all 0.5s ease;
+  border: #c4c4c4 1px solid;
+  scale: 1.02;
 }
 
 .banner2__content {
@@ -414,6 +426,7 @@
 
 .btn__arrow:hover {
   border: 2px solid #828282;
+  scale: 1.02;
 }
 
 .btn__arrow path {
@@ -422,6 +435,7 @@
 
 .btn__arrow:hover path {
   stroke: #3f3f3f;
+  scale: 1.02;
 }
 
 .single-container__itemList {
@@ -446,8 +460,15 @@
   padding-right: 55px;
   background-size: auto 100%;
   background-repeat: no-repeat;
+  border: 1px solid white;
 }
 
+.banner3__container:hover{
+  filter: brightness(91%);
+  transition: all 0.5s ease;
+  border: #c4c4c4 1px solid;
+  scale: 1.02;
+}
 .banner3__content-container {
   width: 501px;
   height: 227px;
@@ -495,6 +516,15 @@
   height: 329px;
   background-color: white;
   padding: 19px 19px 0 19px;
+  border: 1px solid #f8f9fb;
+}
+
+.blog__article-item:hover{
+  filter: brightness(95%);
+  transition: all 0.5s ease;
+  border: #c4c4c4 1px solid;
+  cursor: pointer;
+  scale: 1.02;
 }
 
 .blog__article-type {
