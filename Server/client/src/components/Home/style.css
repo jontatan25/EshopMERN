@@ -351,7 +351,7 @@
 .banner2__container {
   height: 367px;
   width: 98%;
-  margin: 0 auto;
+  margin: 0 auto 53px auto;
   display: flex;
   align-items: center;
   padding-left: 211px;
@@ -381,7 +381,7 @@
 
 .single-container {
   width: 98%;
-  margin: 0 auto;
+  margin: 0 auto 50px auto;
   position: relative;
 }
 
@@ -428,7 +428,6 @@
   display: flex;
   justify-content: space-between;
   height: 473px;
-  border: 1px solid #ccc;
   overflow: hidden;
   position: relative;
 }
