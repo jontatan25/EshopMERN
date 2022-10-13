@@ -463,7 +463,7 @@
   border: 1px solid white;
 }
 
-.banner3__container:hover{
+.banner3__container:hover {
   filter: brightness(91%);
   transition: all 0.5s ease;
   border: #c4c4c4 1px solid;
@@ -497,9 +497,9 @@
   padding: 36px 16.5px;
 }
 
-.blog__container-flex{
+.blog__container-flex {
   display: flex;
- justify-content: space-between;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -519,7 +519,7 @@
   border: 1px solid #f8f9fb;
 }
 
-.blog__article-item:hover{
+.blog__article-item:hover {
   filter: brightness(95%);
   transition: all 0.5s ease;
   border: #c4c4c4 1px solid;
@@ -558,11 +558,37 @@
 
 .article__details {
   font-family: "Oswald";
-  font-style: normal;
   font-weight: 300;
   font-size: 10px;
   line-height: 265%;
-  color: #4F4F4F;
+  color: #4f4f4f;
   border-top: 3px solid black;
   display: block;
+}
+
+.advantages__list {
+  height: 80px;
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 27.5px 0;
+  margin: 0;
+  background-color: #E6F1FA;
+}
+
+.advangates__list-item {
+  font-family: "Oswald";
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16.5px;
+  height: 35px;
+  display:flex;
+  align-items: center;
+  width: 173px;
+}
+
+.advangates__check{
+  margin-right: 6px;
 }

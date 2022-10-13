@@ -20,6 +20,7 @@ import sampleImg from "../../images/productSample.jpg";
 import banner2 from "../../images/banner/banner2-background.jpg";
 import banner3 from "../../images/banner/banner3-background.jpg";
 
+import btnCheck from "../../images/btn/check.svg";
 
 const HomeContainer = () => {
   return (
@@ -380,6 +381,13 @@ const HomeContainer = () => {
         </div>
         </div>
       </div>
+      <ul className="advantages__list">
+        <li className="advangates__list-item"><img className="advangates__check" src={btnCheck}></img> Duties and Taxes Guaranteed</li>
+        <li className="advangates__list-item"><img className="advangates__check" src={btnCheck}></img>Free Express Shipping</li>
+        <li className="advangates__list-item"><img className="advangates__check" src={btnCheck}></img>Customer Love</li>
+        <li className="advangates__list-item"><img className="advangates__check" src={btnCheck}></img>Easy Returns</li>
+        <li className="advangates__list-item"><img className="advangates__check" src={btnCheck}></img>Secure Payment</li>
+      </ul>
     </>
   );
 };
