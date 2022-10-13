@@ -476,6 +476,12 @@
   padding: 36px 16.5px;
 }
 
+.blog__container-flex{
+  display: flex;
+ justify-content: space-between;
+  width: 100%;
+}
+
 .blog__title {
   font-family: "Oswald";
   font-weight: 400;

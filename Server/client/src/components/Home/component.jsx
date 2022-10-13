@@ -352,8 +352,26 @@ const HomeContainer = () => {
         </div>
       </div>
       <div className="blog__container">
-        <div className="blog__container-flex">
         <h3 className="blog__title">Blog</h3>
+        <div className="blog__container-flex">
+        <div className="blog__article-item">
+          <h4 className="blog__article-type">ARTICLE</h4>
+          <h5 className="article__title">Exactly What To Wear To Every Type Of Wedding This Summer</h5>
+          <p className="article__text">A large part of the business here is building up the "experience". Double-page spreads in magazines. Ads on TV. Product placement and sponsorship in golf tournaments, tennis matches and sailing competitions. All of this builds up your perception of the brand - and additionally, it costs money.</p>
+          <span className="article__details">21 January 2018 by guido</span>
+        </div>
+        <div className="blog__article-item">
+          <h4 className="blog__article-type">ARTICLE</h4>
+          <h5 className="article__title">Exactly What To Wear To Every Type Of Wedding This Summer</h5>
+          <p className="article__text">A large part of the business here is building up the "experience". Double-page spreads in magazines. Ads on TV. Product placement and sponsorship in golf tournaments, tennis matches and sailing competitions. All of this builds up your perception of the brand - and additionally, it costs money.</p>
+          <span className="article__details">21 January 2018 by guido</span>
+        </div>
+        <div className="blog__article-item">
+          <h4 className="blog__article-type">ARTICLE</h4>
+          <h5 className="article__title">Exactly What To Wear To Every Type Of Wedding This Summer</h5>
+          <p className="article__text">A large part of the business here is building up the "experience". Double-page spreads in magazines. Ads on TV. Product placement and sponsorship in golf tournaments, tennis matches and sailing competitions. All of this builds up your perception of the brand - and additionally, it costs money.</p>
+          <span className="article__details">21 January 2018 by guido</span>
+        </div>
         <div className="blog__article-item">
           <h4 className="blog__article-type">ARTICLE</h4>
           <h5 className="article__title">Exactly What To Wear To Every Type Of Wedding This Summer</h5>
