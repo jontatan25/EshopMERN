@@ -21,6 +21,7 @@ import banner2 from "../../images/banner/banner2-background.jpg";
 import banner3 from "../../images/banner/banner3-background.jpg";
 
 import btnCheck from "../../images/btn/check.svg";
+import Footer from "../Footer/component.jsx";
 
 const HomeContainer = () => {
   return (
@@ -344,50 +345,100 @@ const HomeContainer = () => {
           </div>
         </div>
       </div>
-      <div className="banner3__container"
-              style={{ backgroundImage: `url(${banner3})` }}>
+      <div
+        className="banner3__container"
+        style={{ backgroundImage: `url(${banner3})` }}
+      >
         <div className="banner3__content-container">
           <h3 className="content__title">EXPLORE THE BEST OF YOU</h3>
-          <p className="content__text">You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco.</p>
+          <p className="content__text">
+            You can choose the best option for you, and it does not matter
+            whether you are in Prague or San Francisco.
+          </p>
           <button className="transparent__btn">SHOP NOW</button>
         </div>
       </div>
       <div className="blog__container">
         <h3 className="blog__title">Blog</h3>
         <div className="blog__container-flex">
-        <div className="blog__article-item">
-          <h4 className="blog__article-type">ARTICLE</h4>
-          <h5 className="article__title">Exactly What To Wear To Every Type Of Wedding This Summer</h5>
-          <p className="article__text">A large part of the business here is building up the "experience". Double-page spreads in magazines. Ads on TV. Product placement and sponsorship in golf tournaments, tennis matches and sailing competitions. All of this builds up your perception of the brand - and additionally, it costs money.</p>
-          <span className="article__details">21 January 2018 by guido</span>
-        </div>
-        <div className="blog__article-item">
-          <h4 className="blog__article-type">ARTICLE</h4>
-          <h5 className="article__title">Exactly What To Wear To Every Type Of Wedding This Summer</h5>
-          <p className="article__text">A large part of the business here is building up the "experience". Double-page spreads in magazines. Ads on TV. Product placement and sponsorship in golf tournaments, tennis matches and sailing competitions. All of this builds up your perception of the brand - and additionally, it costs money.</p>
-          <span className="article__details">21 January 2018 by guido</span>
-        </div>
-        <div className="blog__article-item">
-          <h4 className="blog__article-type">ARTICLE</h4>
-          <h5 className="article__title">Exactly What To Wear To Every Type Of Wedding This Summer</h5>
-          <p className="article__text">A large part of the business here is building up the "experience". Double-page spreads in magazines. Ads on TV. Product placement and sponsorship in golf tournaments, tennis matches and sailing competitions. All of this builds up your perception of the brand - and additionally, it costs money.</p>
-          <span className="article__details">21 January 2018 by guido</span>
-        </div>
-        <div className="blog__article-item">
-          <h4 className="blog__article-type">ARTICLE</h4>
-          <h5 className="article__title">Exactly What To Wear To Every Type Of Wedding This Summer</h5>
-          <p className="article__text">A large part of the business here is building up the "experience". Double-page spreads in magazines. Ads on TV. Product placement and sponsorship in golf tournaments, tennis matches and sailing competitions. All of this builds up your perception of the brand - and additionally, it costs money.</p>
-          <span className="article__details">21 January 2018 by guido</span>
-        </div>
+          <div className="blog__article-item">
+            <h4 className="blog__article-type">ARTICLE</h4>
+            <h5 className="article__title">
+              Exactly What To Wear To Every Type Of Wedding This Summer
+            </h5>
+            <p className="article__text">
+              A large part of the business here is building up the "experience".
+              Double-page spreads in magazines. Ads on TV. Product placement and
+              sponsorship in golf tournaments, tennis matches and sailing
+              competitions. All of this builds up your perception of the brand -
+              and additionally, it costs money.
+            </p>
+            <span className="article__details">21 January 2018 by guido</span>
+          </div>
+          <div className="blog__article-item">
+            <h4 className="blog__article-type">ARTICLE</h4>
+            <h5 className="article__title">
+              Exactly What To Wear To Every Type Of Wedding This Summer
+            </h5>
+            <p className="article__text">
+              A large part of the business here is building up the "experience".
+              Double-page spreads in magazines. Ads on TV. Product placement and
+              sponsorship in golf tournaments, tennis matches and sailing
+              competitions. All of this builds up your perception of the brand -
+              and additionally, it costs money.
+            </p>
+            <span className="article__details">21 January 2018 by guido</span>
+          </div>
+          <div className="blog__article-item">
+            <h4 className="blog__article-type">ARTICLE</h4>
+            <h5 className="article__title">
+              Exactly What To Wear To Every Type Of Wedding This Summer
+            </h5>
+            <p className="article__text">
+              A large part of the business here is building up the "experience".
+              Double-page spreads in magazines. Ads on TV. Product placement and
+              sponsorship in golf tournaments, tennis matches and sailing
+              competitions. All of this builds up your perception of the brand -
+              and additionally, it costs money.
+            </p>
+            <span className="article__details">21 January 2018 by guido</span>
+          </div>
+          <div className="blog__article-item">
+            <h4 className="blog__article-type">ARTICLE</h4>
+            <h5 className="article__title">
+              Exactly What To Wear To Every Type Of Wedding This Summer
+            </h5>
+            <p className="article__text">
+              A large part of the business here is building up the "experience".
+              Double-page spreads in magazines. Ads on TV. Product placement and
+              sponsorship in golf tournaments, tennis matches and sailing
+              competitions. All of this builds up your perception of the brand -
+              and additionally, it costs money.
+            </p>
+            <span className="article__details">21 January 2018 by guido</span>
+          </div>
         </div>
       </div>
       <ul className="advantages__list">
-        <li className="advangates__list-item"><img className="advangates__check" src={btnCheck}></img> Duties and Taxes Guaranteed</li>
-        <li className="advangates__list-item"><img className="advangates__check" src={btnCheck}></img>Free Express Shipping</li>
-        <li className="advangates__list-item"><img className="advangates__check" src={btnCheck}></img>Customer Love</li>
-        <li className="advangates__list-item"><img className="advangates__check" src={btnCheck}></img>Easy Returns</li>
-        <li className="advangates__list-item"><img className="advangates__check" src={btnCheck}></img>Secure Payment</li>
+        <li className="advangates__list-item">
+          <img className="advangates__check" src={btnCheck}></img> Duties and
+          Taxes Guaranteed
+        </li>
+        <li className="advangates__list-item">
+          <img className="advangates__check" src={btnCheck}></img>Free Express
+          Shipping
+        </li>
+        <li className="advangates__list-item">
+          <img className="advangates__check" src={btnCheck}></img>Customer Love
+        </li>
+        <li className="advangates__list-item">
+          <img className="advangates__check" src={btnCheck}></img>Easy Returns
+        </li>
+        <li className="advangates__list-item">
+          <img className="advangates__check" src={btnCheck}></img>Secure Payment
+        </li>
       </ul>
+      <Footer/>
     </>
   );
 };

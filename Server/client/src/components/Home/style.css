@@ -575,7 +575,7 @@
   align-items: center;
   padding: 27.5px 0;
   margin: 0;
-  background-color: #E6F1FA;
+  background-color: #e6f1fa;
 }
 
 .advangates__list-item {
@@ -584,11 +584,12 @@
   font-size: 13px;
   line-height: 16.5px;
   height: 35px;
-  display:flex;
+  display: flex;
   align-items: center;
   width: 173px;
 }
 
-.advangates__check{
+.advangates__check {
   margin-right: 6px;
 }
+

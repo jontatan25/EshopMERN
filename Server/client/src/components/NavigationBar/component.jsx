@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
+import logo from "../../images/logo/logo.svg"
 
 const NavigationBar = () => {
   return (
@@ -9,7 +10,7 @@ const NavigationBar = () => {
         <div className="nav__logo">
           <img
             className="nav-logo__img"
-            src={"./img/logo/logo.svg"}
+            src={logo}
             alt="img"
           />
         </div>
