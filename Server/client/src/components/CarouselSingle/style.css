@@ -1,0 +1,60 @@
+.single-container {
+  width: 98%;
+  margin: 0 auto 50px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.single-container__btn-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.btn__arrow {
+  padding: 8px 11px;
+  background-color: white;
+  border: 2px solid #c4c4c4;
+  cursor: pointer;
+
+  transition: all 0.5s ease;
+}
+
+.btn__arrow-left {
+  margin-right: 4px;
+}
+
+.btn__arrow-right {
+  transform: rotate(180deg);
+}
+
+.btn__svg {
+  display: flex;
+}
+
+.btn__arrow:hover {
+  border: 2px solid #828282;
+  scale: 1.02;
+}
+
+.btn__arrow path {
+  transition: all 0.5s ease;
+}
+
+.btn__arrow:hover path {
+  stroke: #3f3f3f;
+  scale: 1.02;
+}
+
+.single-container__itemList {
+  display: flex;
+  justify-content: space-between;
+  height: 473px;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.single-container__item {
+  min-width: 274px;
+  margin-right: 29px;
+}

@@ -25,6 +25,7 @@ import Footer from "../Footer/component.jsx";
 import BtnTransparent from "../../stateless/btn-transparent/BtnTransparent";
 
 import FilteredItemList from "../filteredItemList/FilteredItemList";
+import CarouselSingle from "../CarouselSingle/CarouselSingle";
 
 const HomeContainer = () => {
   const [isActive, setIsActive] = useState(false);
@@ -140,117 +141,7 @@ const HomeContainer = () => {
           <button className="transparent__btn">SHOP NOW</button>
         </div>
       </div>
-      <div className="single-container">
-        <h3 className="single-container__title">Featured Items</h3>
-        <div className="single-container__btn-container">
-          <button className="btn__arrow btn__arrow-left">
-            <svg
-              className="btn__svg"
-              width="8"
-              height="14"
-              viewBox="0 0 8 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.45624 1.3999L1.79956 7.05658L7.45624 12.7133"
-                stroke="#828282"
-                stroke-width="1.5"
-              />
-            </svg>
-          </button>
-          <button className="btn__arrow btn__arrow-right">
-            <svg
-              className="btn__svg"
-              width="8"
-              height="14"
-              viewBox="0 0 8 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7.45624 1.3999L1.79956 7.05658L7.45624 12.7133"
-                stroke="#828282"
-                stroke-width="1.5"
-              />
-            </svg>
-          </button>
-        </div>
-        <div className="single-container__itemList">
-          <div className="single-container__item">
-            <div
-              className="collection__item-photo-container"
-              style={{ backgroundImage: `url(${sampleImg})` }}
-            ></div>
-            <h4 className="collection__item-title">COLLECTION</h4>
-            <p className="collection__item-name">Product description</p>
-            <p className="collection__item-price">PRICE EUR</p>
-          </div>
-          <div className="single-container__item">
-            <div
-              className="collection__item-photo-container"
-              style={{ backgroundImage: `url(${sampleImg})` }}
-            ></div>
-            <h4 className="collection__item-title">COLLECTION</h4>
-            <p className="collection__item-name">Product description</p>
-            <p className="collection__item-price">PRICE EUR</p>
-          </div>
-          <div className="single-container__item">
-            <div
-              className="collection__item-photo-container"
-              style={{ backgroundImage: `url(${sampleImg})` }}
-            ></div>
-            <h4 className="collection__item-title">COLLECTION</h4>
-            <p className="collection__item-name">Product description</p>
-            <p className="collection__item-price">PRICE EUR</p>
-          </div>
-          <div className="single-container__item">
-            <div
-              className="collection__item-photo-container"
-              style={{ backgroundImage: `url(${sampleImg})` }}
-            ></div>
-            <h4 className="collection__item-title">COLLECTION</h4>
-            <p className="collection__item-name">Product description</p>
-            <p className="collection__item-price">PRICE EUR</p>
-          </div>
-          <div className="single-container__item">
-            <div
-              className="collection__item-photo-container"
-              style={{ backgroundImage: `url(${sampleImg})` }}
-            ></div>
-            <h4 className="collection__item-title">COLLECTION</h4>
-            <p className="collection__item-name">Product description</p>
-            <p className="collection__item-price">PRICE EUR</p>
-          </div>
-          <div className="single-container__item">
-            <div
-              className="collection__item-photo-container"
-              style={{ backgroundImage: `url(${sampleImg})` }}
-            ></div>
-            <h4 className="collection__item-title">COLLECTION</h4>
-            <p className="collection__item-name">Product description</p>
-            <p className="collection__item-price">PRICE EUR</p>
-          </div>
-          <div className="single-container__item">
-            <div
-              className="collection__item-photo-container"
-              style={{ backgroundImage: `url(${sampleImg})` }}
-            ></div>
-            <h4 className="collection__item-title">COLLECTION</h4>
-            <p className="collection__item-name">Product description</p>
-            <p className="collection__item-price">PRICE EUR</p>
-          </div>
-          <div className="single-container__item">
-            <div
-              className="collection__item-photo-container"
-              style={{ backgroundImage: `url(${sampleImg})` }}
-            ></div>
-            <h4 className="collection__item-title">COLLECTION</h4>
-            <p className="collection__item-name">Product description</p>
-            <p className="collection__item-price">PRICE EUR</p>
-          </div>
-        </div>
-      </div>
+     <CarouselSingle/>
       <div
         className="banner3__container"
         style={{ backgroundImage: `url(${banner3})` }}
