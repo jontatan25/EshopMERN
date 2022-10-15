@@ -3,7 +3,7 @@ import sampleImg from "../../images/productSample.jpg";
 
 import "./style.css";
 
-const CarouselSingle = () => {
+const CarouselSingle = ({title}) => {
   const [activeIndex, setActiveIndex] = useState(1);
 
   const updateIndex = (newIndex) => {
@@ -13,11 +13,10 @@ const CarouselSingle = () => {
       newIndex = 5;
     }
     setActiveIndex(newIndex)
-    console.log(newIndex)
   };
   return (
     <div className="single-container">
-      <h3 className="single-container__title">Featured Items</h3>
+      <h3 className="single-container__title">{title}</h3>
       <div className="single-container__btn-container">
         <button
           className="btn__arrow btn__arrow-left"
@@ -36,7 +35,7 @@ const CarouselSingle = () => {
             <path
               d="M7.45624 1.3999L1.79956 7.05658L7.45624 12.7133"
               stroke="#828282"
-              stroke-width="1.5"
+              strokeWidth="1.5"
             />
           </svg>
         </button>
@@ -54,7 +53,7 @@ const CarouselSingle = () => {
             <path
               d="M7.45624 1.3999L1.79956 7.05658L7.45624 12.7133"
               stroke="#828282"
-              stroke-width="1.5"
+              strokeWidth="1.5"
             />
           </svg>
         </button>
