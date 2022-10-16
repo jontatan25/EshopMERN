@@ -48,13 +48,9 @@
 
 .single-container__itemList {
   display: flex;
-  justify-content: space-between;
   height: 473px;
-  position: relative;
+  width: fit-content;
+  overflow: hidden;
   transition: all 0.5s ease;
 }
 
-.single-container__item {
-  min-width: 274px;
-  margin-right: 29px;
-}

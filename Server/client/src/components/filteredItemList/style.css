@@ -1,0 +1,73 @@
+.collection__container {
+  display: flex;
+  width: 98%;
+  margin: 0 auto 19px auto;
+}
+
+.collection__filter-container {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.promotion__promo-three {
+  background-size: 100% auto;
+}
+
+.filter__title {
+  font-family: "Oswald";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  margin: 0;
+}
+.filter__list {
+  list-style-type: none;
+  padding: 0;
+}
+.filter__list-item {
+  height: 17.2px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 486%;
+  margin: 0 0 15.7px 0;
+  display: flex;
+  align-items: center;
+}
+
+.square__btn-empty {
+  background-color: transparent;
+  padding: 3px;
+  margin-right: 7px;
+  border: 1px solid #ccc;
+}
+.square__btn-empty:hover {
+  cursor: pointer;
+  scale: 1.02;
+}
+
+.collection__filter-itemList-container {
+  height: auto;
+  max-width: 98%;
+  flex: 4;
+  justify-content: flex-end;
+  border-left: 1px solid #ccc;
+}
+.collection__filter-itemList {
+  height: 932px;
+  flex-wrap: wrap;
+  display: flex;
+  overflow: hidden;
+  transition: all 1s ease;
+}
+
+.collection__filter-itemList-full {
+  height: 1864px;
+}
+.collection__filter-itemList-btn {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+

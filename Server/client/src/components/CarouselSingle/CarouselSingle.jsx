@@ -1,16 +1,17 @@
 import { React, useState } from "react";
 import sampleImg from "../../images/productSample.jpg";
+import CarouselItem from "../Carouseltem/CarouselItem";
 
 import "./style.css";
 
 const CarouselSingle = ({title}) => {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const updateIndex = (newIndex) => {
-    if (newIndex < 1) {
-      newIndex = 1;
-    } else if (newIndex >= 6) {
-      newIndex = 5;
+    if (newIndex < 0) {
+      newIndex = 0;
+    } else if (newIndex >= 5) {
+      newIndex = 4;
     }
     setActiveIndex(newIndex)
   };
@@ -62,105 +63,15 @@ const CarouselSingle = ({title}) => {
         className="single-container__itemList"
         style={{ transform: `translate(${activeIndex * -303}px)` }}
       >
-        <div className="single-container__item">
-          <div
-            className="collection__item-photo-container"
-            style={{ backgroundImage: `url(${sampleImg})` }}
-          ></div>
-          <h4 className="collection__item-title">COLLECTION</h4>
-          <p className="collection__item-name">Product description 1</p>
-          <p className="collection__item-price">PRICE EUR</p>
-        </div>
-        <div className="single-container__item">
-          <div
-            className="collection__item-photo-container"
-            style={{ backgroundImage: `url(${sampleImg})` }}
-          ></div>
-          <h4 className="collection__item-title">COLLECTION</h4>
-          <p className="collection__item-name">Product description 2</p>
-          <p className="collection__item-price">PRICE EUR</p>
-        </div>
-        <div className="single-container__item">
-          <div
-            className="collection__item-photo-container"
-            style={{ backgroundImage: `url(${sampleImg})` }}
-          ></div>
-          <h4 className="collection__item-title">COLLECTION</h4>
-          <p className="collection__item-name">Product description 3</p>
-          <p className="collection__item-price">PRICE EUR</p>
-        </div>
-        <div className="single-container__item">
-          <div
-            className="collection__item-photo-container"
-            style={{ backgroundImage: `url(${sampleImg})` }}
-          ></div>
-          <h4 className="collection__item-title">COLLECTION</h4>
-          <p className="collection__item-name">Product description 4</p>
-          <p className="collection__item-price">PRICE EUR</p>
-        </div>
-        <div className="single-container__item">
-          <div
-            className="collection__item-photo-container"
-            style={{ backgroundImage: `url(${sampleImg})` }}
-          ></div>
-          <h4 className="collection__item-title">COLLECTION</h4>
-          <p className="collection__item-name">Product description 5</p>
-          <p className="collection__item-price">PRICE EUR</p>
-        </div>
-        <div className="single-container__item">
-          <div
-            className="collection__item-photo-container"
-            style={{ backgroundImage: `url(${sampleImg})` }}
-          ></div>
-          <h4 className="collection__item-title">COLLECTION</h4>
-          <p className="collection__item-name">Product description 6</p>
-          <p className="collection__item-price">PRICE EUR</p>
-        </div>
-        <div className="single-container__item">
-          <div
-            className="collection__item-photo-container"
-            style={{ backgroundImage: `url(${sampleImg})` }}
-          ></div>
-          <h4 className="collection__item-title">COLLECTION</h4>
-          <p className="collection__item-name">Product description 7</p>
-          <p className="collection__item-price">PRICE EUR</p>
-        </div>
-        <div className="single-container__item">
-          <div
-            className="collection__item-photo-container"
-            style={{ backgroundImage: `url(${sampleImg})` }}
-          ></div>
-          <h4 className="collection__item-title">COLLECTION</h4>
-          <p className="collection__item-name">Product description 8</p>
-          <p className="collection__item-price">PRICE EUR</p>
-        </div>
-        <div className="single-container__item">
-          <div
-            className="collection__item-photo-container"
-            style={{ backgroundImage: `url(${sampleImg})` }}
-          ></div>
-          <h4 className="collection__item-title">COLLECTION</h4>
-          <p className="collection__item-name">Product description 8</p>
-          <p className="collection__item-price">PRICE EUR</p>
-        </div>
-        <div className="single-container__item">
-          <div
-            className="collection__item-photo-container"
-            style={{ backgroundImage: `url(${sampleImg})` }}
-          ></div>
-          <h4 className="collection__item-title">COLLECTION</h4>
-          <p className="collection__item-name">Product description 8</p>
-          <p className="collection__item-price">PRICE EUR</p>
-        </div>
-        <div className="single-container__item">
-          <div
-            className="collection__item-photo-container"
-            style={{ backgroundImage: `url(${sampleImg})` }}
-          ></div>
-          <h4 className="collection__item-title">COLLECTION</h4>
-          <p className="collection__item-name">Product description 8</p>
-          <p className="collection__item-price">PRICE EUR</p>
-        </div>
+        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 1"} price = {"PRICE EUR"}/>
+        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 2"} price = {"PRICE EUR"}/>
+        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 3"} price = {"PRICE EUR"}/>
+        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 4"} price = {"PRICE EUR"}/>
+        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 5"} price = {"PRICE EUR"}/>
+        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 6"} price = {"PRICE EUR"}/>
+        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 7"} price = {"PRICE EUR"}/>
+        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 8"} price = {"PRICE EUR"}/>
+        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 8"} price = {"PRICE EUR"}/>
       </div>
     </div>
   );

@@ -15,8 +15,6 @@ import frame4 from "../../images/brandBanner/Frame-4.png";
 import frame5 from "../../images/brandBanner/Frame-5.png";
 import frame6 from "../../images/brandBanner/Frame-6.png";
 
-import sampleImg from "../../images/productSample.jpg";
-
 import banner2 from "../../images/banner/banner2-background.jpg";
 import banner3 from "../../images/banner/banner3-background.jpg";
 
