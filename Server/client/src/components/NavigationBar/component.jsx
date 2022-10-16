@@ -1,59 +1,59 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./style.css";
-import logo from "../../images/logo/logo.svg"
+import logo from "../../images/logo/logo.svg";
 
 const NavigationBar = () => {
   return (
     <>
       <div className="header__Container">
         <div className="nav__logo">
-          <img
-            className="nav-logo__img"
-            src={logo}
-            alt="img"
-          />
+          <NavLink to="/">
+            <img className="nav-logo__img" src={logo} alt="img" />
+          </NavLink>
         </div>
         <nav className="nav">
-          <ul className="nav navList">
-            <li>
-              <Link className="navContainer__Link" to="/">
+          <ul className="nav__navList">
+            <li className="nav__listItem" >
+              <NavLink className={(navData) => navData.isActive ? "active" : "nav-link" }
+                to="/"
+              >
                 HOME
-              </Link>
+              </NavLink>
             </li>
-            <li>
-              <Link className="navContainer__Link" to="/login">
+            <li className="nav__listItem" >
+              <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/login">
                 SIGN&nbsp;IN
-              </Link>
+              </NavLink>
             </li>
-            <li>
-              <Link className="navContainer__Link" to="/signup">
+            <li className="nav__listItem" >
+              <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/signup">
                 CREATE&nbsp;AN&nbsp;ACCOUNT
-              </Link>
+              </NavLink>
             </li>
-            <li>
-              <Link className="navContainer__Link" to="/Chat">
+            <li className="nav__listItem" >
+              <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/Chat">
                 CHAT
-              </Link>
+              </NavLink>
             </li>
-            <li>
-              <Link className="navContainer__Link" to="/Products">
+            <li className="nav__listItem" >
+              <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/Products">
                 PRODUCTS
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>
-        <div className="nav__login">
-          <ul className="nav navList login">
+        <div className="nav__login-container">
+          <ul className="nav__login-list">
             <li>
-              <Link className="navContainer__Link" to="/login">
+              <NavLink className="nav-link" to="/login">
                 SIGN&nbsp;IN
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link className="navContainer__Link" to="/signup">
+              <NavLink className="nav-link" to="/signup">
                 CREATE&nbsp;AN&nbsp;ACCOUNT
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>

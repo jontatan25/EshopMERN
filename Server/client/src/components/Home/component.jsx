@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React from "react";
 import "./style.css";
 import carrouselBackground from "../../images/carrousel/carrousel-background.jpg";
 import smallImage from "../../images/carrousel/smallImg.jpg";
@@ -26,7 +26,6 @@ import FilteredItemList from "../filteredItemList/FilteredItemList";
 import CarouselSingle from "../CarouselSingle/CarouselSingle";
 
 const HomeContainer = () => {
-  const [isActive, setIsActive] = useState(false);
 
   return (
     <>

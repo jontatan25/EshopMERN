@@ -19,6 +19,7 @@ font-family: 'Roboto', sans-serif;
 }
 html {
   min-height: 100%;
+  overflow-y: scroll;
 }
 
 body {
