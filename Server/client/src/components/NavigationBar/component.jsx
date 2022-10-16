@@ -22,22 +22,22 @@ const NavigationBar = () => {
               </NavLink>
             </li>
             <li className="nav__listItem" >
-              <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/login">
+              <NavLink className={(navData) => navData.isActive ? "active" : "nav-link" } to="/login">
                 SIGN&nbsp;IN
               </NavLink>
             </li>
             <li className="nav__listItem" >
-              <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/signup">
+              <NavLink className={(navData) => navData.isActive ? "active" : "nav-link" } to="/signup">
                 CREATE&nbsp;AN&nbsp;ACCOUNT
               </NavLink>
             </li>
             <li className="nav__listItem" >
-              <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/Chat">
+              <NavLink className={(navData) => navData.isActive ? "active" : "nav-link" } to="/Chat">
                 CHAT
               </NavLink>
             </li>
             <li className="nav__listItem" >
-              <NavLink className={(navData) => navData.isActive ? "active" : "" } to="/Products">
+              <NavLink className={(navData) => navData.isActive ? "active" : "nav-link" } to="/Products">
                 PRODUCTS
               </NavLink>
             </li>
@@ -45,12 +45,12 @@ const NavigationBar = () => {
         </nav>
         <div className="nav__login-container">
           <ul className="nav__login-list">
-            <li>
+            <li className="nav__listItem">
               <NavLink className="nav-link" to="/login">
                 SIGN&nbsp;IN
               </NavLink>
             </li>
-            <li>
+            <li className="nav__listItem">
               <NavLink className="nav-link" to="/signup">
                 CREATE&nbsp;AN&nbsp;ACCOUNT
               </NavLink>
