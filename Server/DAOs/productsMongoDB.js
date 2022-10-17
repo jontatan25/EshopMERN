@@ -17,6 +17,9 @@ async function saveProductDB(product) {
       description: product.description,
       category: product.category,
       stock: product.stock,
+      brand: product.brand,
+      color: product.color,
+      promo: product.promo,
     });
     const saveResult = await prod1.save();
     return saveResult;

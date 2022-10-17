@@ -13,15 +13,18 @@ function saveCartDTO(userInfo) {
 function addNewProductDTO(product) {
   const idToString = product._id.toString();
   const newProduct = {
-    _id: idToString, 
+    _id: idToString,
     name: product.name,
     price: product.price,
     URLPhoto: product.URLPhoto,
     description: product.description,
     category: product.category,
     quantity: product.quantity,
+    brand: product.brand,
+    color: product.color,
+    promo: product.promo,
   };
   return newProduct;
 }
 
-export { saveCartDTO,addNewProductDTO };
+export { saveCartDTO, addNewProductDTO };

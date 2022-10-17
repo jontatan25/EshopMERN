@@ -44,7 +44,7 @@
 .nav__listItem {
   padding: 0.5em 0;
   margin: 0 0.7em;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .nav__listItem:hover {

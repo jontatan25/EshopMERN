@@ -8,6 +8,9 @@ const productsInCartSchema = new Schema({
     description: { type: String, required: true },
     category: { type: String, required: true },
     quantity: { type: Number, required: true },
+    brand: { type: String, required: true},
+    color: { type: String, required: true},
+    promo: { type: String, required: true },
 }, { _id: false });
 // const ProductInCartModel = mongoose.model('productsInCart', productsInCartSchema);
 

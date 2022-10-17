@@ -215,22 +215,22 @@ const HomeContainer = () => {
         </div>
       </div>
       <ul className="advantages__list">
-        <li className="advangates__list-item">
-          <img className="advangates__check" src={btnCheck}></img> Duties and
+        <li className="advantages__list-item">
+          <img className="advantages__check" src={btnCheck}></img> Duties and
           Taxes Guaranteed
         </li>
-        <li className="advangates__list-item">
-          <img className="advangates__check" src={btnCheck}></img>Free Express
+        <li className="advantages__list-item">
+          <img className="advantages__check" src={btnCheck}></img>Free Express
           Shipping
         </li>
-        <li className="advangates__list-item">
-          <img className="advangates__check" src={btnCheck}></img>Customer Love
+        <li className="advantages__list-item">
+          <img className="advantages__check" src={btnCheck}></img>Customer Love
         </li>
-        <li className="advangates__list-item">
-          <img className="advangates__check" src={btnCheck}></img>Easy Returns
+        <li className="advantages__list-item">
+          <img className="advantages__check" src={btnCheck}></img>Easy Returns
         </li>
-        <li className="advangates__list-item">
-          <img className="advangates__check" src={btnCheck}></img>Secure Payment
+        <li className="advantages__list-item">
+          <img className="advantages__check" src={btnCheck}></img>Secure Payment
         </li>
       </ul>
       <Footer />

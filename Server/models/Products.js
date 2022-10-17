@@ -7,6 +7,9 @@ const productSchema = new Schema({
     description: { type: String, required: true },
     category: { type: String, required: true },
     stock: { type: Number, required: true },
+    brand: { type: String, required: true},
+    color: { type: String, required: true},
+    promo: { type: String, required: true },
 });
 const ProductModel = mongoose.model('products', productSchema);
 
