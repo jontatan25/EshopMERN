@@ -10,7 +10,7 @@ const CarouselItem = ({urlPhoto, itemTitle, description, price}) => {
     ></div>
     <h4 className="collection__item-title">{itemTitle}</h4>
     <p className="collection__item-name">{description}</p>
-    <p className="collection__item-price">{price}</p>
+    <p className="collection__item-price">{price} USD</p>
   </div>
   )
 }

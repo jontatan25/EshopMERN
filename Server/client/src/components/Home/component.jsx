@@ -1,4 +1,4 @@
-import React from "react";
+import {React,useEffect, useState} from "react";
 import "./style.css";
 import carrouselBackground from "../../images/carrousel/carrousel-background.jpg";
 import smallImage from "../../images/carrousel/smallImg.jpg";
@@ -25,8 +25,37 @@ import BtnTransparent from "../../stateless/btn-transparent/BtnTransparent";
 import FilteredItemList from "../filteredItemList/FilteredItemList";
 import CarouselSingle from "../CarouselSingle/CarouselSingle";
 
-const HomeContainer = () => {
+import axios from 'axios'
 
+const HomeContainer = () => {
+  const [products, setProducts] = useState("")
+  
+  let getAllProducts = async () => {
+    try {
+      const res = await axios.get(
+        // `https://mern-eshop-espitia-jonathans.herokuapp.com/products/id/${id}`,
+        // {
+        //   headers: { Authorization: `Bearer ${token}` },
+        // }
+        "http://192.168.0.105:8080/products",
+           {
+          headers: { Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjJkN2M0NzQwM2I0ZGE0ZGI4ZGZjMzEwIiwiaWF0IjoxNjY2MDY5Mjg0LCJleHAiOjE2NjYwOTkyODR9.yq0JGRr13x9BI5HHYjl9zNcEe3J4pi1FEeRBeLWXhD0"}` },
+        }
+        );
+      return res.data.products
+    } catch (error) {
+      console.log(error);
+    } 
+  };
+  
+  useEffect(() => {
+    const initProducts = async() => {
+      const data = await getAllProducts();
+      setProducts(data)
+    }
+    initProducts()
+  }, []);
+  
   return (
     <>
       <div
@@ -123,7 +152,8 @@ const HomeContainer = () => {
           </div>
         </div>
       </div>
-     <FilteredItemList/>
+      {products && products.length > 0 ? (<FilteredItemList products = {products}/>): ( <span>Loading data...</span> )}
+     
       <div
         className="banner2__container"
         style={{ backgroundImage: `url(${banner2})` }}
@@ -216,21 +246,23 @@ const HomeContainer = () => {
       </div>
       <ul className="advantages__list">
         <li className="advantages__list-item">
-          <img className="advantages__check" src={btnCheck}></img> Duties and
+          <img className="advantages__check" src={btnCheck} alt="Duties and
+          Taxes Guaranteed" ></img> Duties and
           Taxes Guaranteed
         </li>
         <li className="advantages__list-item">
-          <img className="advantages__check" src={btnCheck}></img>Free Express
+          <img className="advantages__check" src={btnCheck} alt="Free Express
+          Shipping" ></img>Free Express
           Shipping
         </li>
         <li className="advantages__list-item">
-          <img className="advantages__check" src={btnCheck}></img>Customer Love
+          <img className="advantages__check" src={btnCheck} alt="Customer Love" ></img>Customer Love
         </li>
         <li className="advantages__list-item">
-          <img className="advantages__check" src={btnCheck}></img>Easy Returns
+          <img className="advantages__check" src={btnCheck} alt="Easy Returns" ></img>Easy Returns
         </li>
         <li className="advantages__list-item">
-          <img className="advantages__check" src={btnCheck}></img>Secure Payment
+          <img className="advantages__check" src={btnCheck} alt="Secure Payment" ></img>Secure Payment
         </li>
       </ul>
       <Footer />
