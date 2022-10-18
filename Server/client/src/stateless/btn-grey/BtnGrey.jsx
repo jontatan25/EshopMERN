@@ -1,9 +1,9 @@
 import React from 'react'
 import "./style.css"
 
-const BtnGrey = ({text,activeToogle,actualToogle}) => {
+const BtnGrey = ({text,increaseHeigth}) => {
   const handleClick = () => {
-    activeToogle(!actualToogle)
+    increaseHeigth()
   };
   return (
     <button className="btn__grey" onClick={handleClick}>{text}</button>

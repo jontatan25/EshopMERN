@@ -55,16 +55,12 @@
   border-left: 1px solid #ccc;
 }
 .collection__filter-itemList {
-  height: 932px;
   flex-wrap: wrap;
   display: flex;
   overflow: hidden;
   transition: all 1s ease;
 }
 
-.collection__filter-itemList-full {
-  height: 1864px;
-}
 .collection__filter-itemList-btn {
   margin-bottom: 30px;
   display: flex;

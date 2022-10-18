@@ -2,13 +2,21 @@ import { React, useState } from "react";
 import "./style.css";
 
 import BtnGrey from "../../stateless/btn-grey/BtnGrey";
-
-import sampleImg from "../../images/productSample.jpg";
 import CarouselItem from "../Carouseltem/CarouselItem";
 
 const FilteredItemList = ({ products }) => {
-  const [isActive, setIsActive] = useState(true);
-  console.log(products);
+
+  const [boxHeigth, setBoxHeigth] = useState(932);
+  const [boxHeigthCounter, setBoxHeigthCounter] = useState(2);
+
+  const increaseHeigth = () => {
+    // box heigth will expand based of the amount of items
+    if (boxHeigthCounter < products.length / 4) {
+      setBoxHeigth((boxHeigth) => (boxHeigth += 466));
+      setBoxHeigthCounter((boxHeigthCounter) => boxHeigthCounter + 1);
+    }
+  };
+
   return (
     <div className="collection__container">
       <div className="collection__filter-container">
@@ -36,15 +44,12 @@ const FilteredItemList = ({ products }) => {
       </div>
       <div className="collection__filter-itemList-container">
         <div
-          className={
-            isActive
-              ? "collection__filter-itemList"
-              : "collection__filter-itemList collection__filter-itemList-full"
-          }
+          className={"collection__filter-itemList"}
+          style={{ height: `${boxHeigth}px` }}
         >
           {products.map((product) => (
             <CarouselItem
-            key = {product._id}
+              key={product._id}
               urlPhoto={product.URLPhoto}
               itemTitle={product.category}
               description={product.name}
@@ -53,19 +58,10 @@ const FilteredItemList = ({ products }) => {
           ))}
         </div>
         <div className="collection__filter-itemList-btn">
-          {isActive ? (
-            <BtnGrey
-              text={"SEE MORE"}
-              activeToogle={setIsActive}
-              actualToogle={isActive}
-            />
-          ) : (
-            <BtnGrey
-              text={"SEE LESS"}
-              activeToogle={setIsActive}
-              actualToogle={isActive}
-            />
-          )}
+          <BtnGrey
+            text={"SEE MORE"}
+            increaseHeigth={increaseHeigth}
+          />
         </div>
       </div>
     </div>
