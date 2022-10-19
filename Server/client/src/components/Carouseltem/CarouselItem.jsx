@@ -3,7 +3,7 @@ import "./style.css"
 
 const CarouselItem = ({urlPhoto, itemTitle, description, price}) => {
   return (
-    <div className="collection__item">
+    <div className="collection__item" >
     <div
       className="collection__item-photo-container"
       style={{ backgroundImage: `url(${urlPhoto})` }}

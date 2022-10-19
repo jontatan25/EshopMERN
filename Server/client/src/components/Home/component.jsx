@@ -39,7 +39,7 @@ const HomeContainer = () => {
         // }
         "http://192.168.0.105:8080/products",
            {
-          headers: { Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjJkN2M0NzQwM2I0ZGE0ZGI4ZGZjMzEwIiwiaWF0IjoxNjY2MDY5Mjg0LCJleHAiOjE2NjYwOTkyODR9.yq0JGRr13x9BI5HHYjl9zNcEe3J4pi1FEeRBeLWXhD0"}` },
+          headers: { Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjJkN2M0NzQwM2I0ZGE0ZGI4ZGZjMzEwIiwiaWF0IjoxNjY2MTY1MjMyLCJleHAiOjE2NjYxOTUyMzJ9.ooOyCGdD_M7Q9Q-UnGCDwyZ-usiHJaspjU8CS9U7Mf0"}` },
         }
         );
       return res.data.products

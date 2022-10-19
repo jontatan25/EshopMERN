@@ -4,7 +4,7 @@ import CarouselItem from "../Carouseltem/CarouselItem";
 
 import "./style.css";
 
-const CarouselSingle = ({title}) => {
+const CarouselSingle = ({title,products}) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const updateIndex = (newIndex) => {
