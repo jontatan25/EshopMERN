@@ -3,7 +3,7 @@ import "./style.css";
 
 import BtnGrey from "../../stateless/btn-grey/BtnGrey";
 import CarouselItem from "../Carouseltem/CarouselItem";
-import { useState,useEffect,useRef } from "react";
+import { useState, useEffect } from "react";
 
 const FilteredItemList = ({ products }) => {
   const [boxHeigth, setBoxHeigth] = useState(932);
@@ -11,9 +11,9 @@ const FilteredItemList = ({ products }) => {
   const [filteredProducts, setFilteredProducts] = useState("");
   const [newFilter, setNewFilter] = useState("");
 
-  const handleChange = (e) => { 
-    setNewFilter(e.target.value)
-  }; 
+  const handleChange = (e) => {
+    setNewFilter(e.target.value);
+  };
 
   const increaseHeigth = () => {
     // box heigth will expand based of the amount of items
@@ -29,6 +29,7 @@ const FilteredItemList = ({ products }) => {
         (product) => product.category == newFilter
       );
       setFilteredProducts(filtered);
+      console.log(boxHeigth);
     };
     filterItems();
   }, [newFilter]);
@@ -37,91 +38,98 @@ const FilteredItemList = ({ products }) => {
     <div className="collection__container">
       <div className="collection__filter-container">
         <h3 className="filter__title">Shop Some Wear:</h3>
-        <form >
-          <label htmlFor="filter__all" className="filter__check">
-            <input 
+        <form className="filter__form">
+          <label htmlFor="check">
+            <input
               type="radio"
               name="filter"
-              id="filter__all"
-              className="filter__input"
-              value = ""
+              id="check"
+              value=""
               onChange={handleChange}
             />
             All
+            <span></span>
           </label>
-          <label htmlFor="filter__newArrivals" className="filter__check">
+          <label htmlFor="filter__newArrivals">
             <input
               type="radio"
               name="filter"
               id="filter__newArrivals"
-              className="filter__input"
-              value = "NEW-ARRIVALS"
+              value="NEW-ARRIVALS"
               onChange={handleChange}
             />
             NEW ARRIVALS
+            <span></span>
           </label>
-          <label htmlFor="filter__topWomen" className="filter__check">
+          <label htmlFor="filter__topWomen">
             <input
               type="radio"
               name="filter"
               id="filter__topWomen"
-              className="filter__input"
-              value = "TOP-WOMEN"
+              value="TOP-WOMEN"
               onChange={handleChange}
             />
             TOP WOMEN
+            <span></span>
           </label>
-          <label htmlFor="filter__bestSeller" className="filter__check">
+          <label htmlFor="filter__bestSeller">
             <input
               type="radio"
               name="filter"
               id="filter__bestSeller"
-              className="filter__input"
-              value = "BEST-SELLER"
+              value="BEST-SELLER"
               onChange={handleChange}
             />
             BEST SELLERS
+            <span></span>
           </label>
-          <label htmlFor="filter__summer" className="filter__check">
+          <label htmlFor="filter__summer">
             <input
               type="radio"
               name="filter"
               id="filter__summer"
-              className="filter__input"
-              value = "SUMMER"
+              value="SUMMER"
               onChange={handleChange}
             />
             SUMMER
+            <span></span>
           </label>
-          <label htmlFor="filter__trending" className="filter__check">
+          <label htmlFor="filter__spring">
             <input
               type="radio"
               name="filter"
-              id="filter__trending"
-              className="filter__input"
-              value = "SPRING"
+              id="filter__spring"
+              value="SPRING"
               onChange={handleChange}
             />
             SPRING
+            <span></span>
           </label>
-          <label htmlFor="filter__trending" className="filter__check">
+          <label htmlFor="filter__trending">
             <input
               type="radio"
               name="filter"
               id="filter__trending"
-              className="filter__input"
-              value = "TRENDING"
+              value="TRENDING"
               onChange={handleChange}
             />
             TRENDING
+            <span></span>
           </label>
         </form>
-   
       </div>
       <div className="collection__filter-itemList-container">
         <div
-          className={"collection__filter-itemList"}
-          style={{ height: `${boxHeigth}px` }}
+          className={
+            boxHeigth == 932
+              ? "collection__filter-itemList animate"
+              : "collection__filter-itemList"
+          }
+          style={
+            filteredProducts.length == 0
+              ? { height: `${boxHeigth}px` }
+              : { height: `${466}px` }
+          }
           key={Math.random()}
         >
           {filteredProducts.length == 0
@@ -144,9 +152,13 @@ const FilteredItemList = ({ products }) => {
                 />
               ))}
         </div>
-        <div className="collection__filter-itemList-btn">
-          <BtnGrey text={"SEE MORE"} increaseHeigth={increaseHeigth} />
-        </div>
+        {filteredProducts.length == 0 ? (
+          <div className="collection__filter-itemList-btn">
+            <BtnGrey text={"SEE MORE"} increaseHeigth={increaseHeigth} />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
