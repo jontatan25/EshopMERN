@@ -168,8 +168,8 @@ const HomeContainer = () => {
           <button className="transparent__btn">SHOP NOW</button>
         </div>
       </div>
-     <CarouselSingle title="Featured Items"/>
-     <CarouselSingle title="Most Popular"/>
+     <CarouselSingle products = {products} title="Featured Items" filterName= {"NEW-ARRIVALS"}/>
+     <CarouselSingle products = {products} title="Most Popular" filterName= {"TRENDING"}/>
       <div
         className="banner3__container"
         style={{ backgroundImage: `url(${banner3})` }}

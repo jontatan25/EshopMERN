@@ -24,6 +24,7 @@
 .filter__form {
   display: flex;
   flex-direction: column;
+  padding-left: 13px;
 }
 
 #check,
@@ -39,13 +40,13 @@
 }
 label {
   position: relative;
-  padding-left: 20px;
+  padding-left: 17px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   cursor: pointer;
-  margin-bottom: 13px;
+  margin-bottom: 14px;
 }
 
 #check + span,
@@ -60,8 +61,8 @@ label {
   /*para que el span esté a la izquierda)*/
   top: 0;
   left: 0;
-  width: 13px;
-  height: 13px;
+  width: 10px;
+  height: 10px;
   text-align: center;
   background-image: url(../../images/buttons/radio-regular.svg);
   background-size: 100% auto;
@@ -88,24 +89,6 @@ label {
   background-image: url(../../images/buttons/radio-selected.svg);
 }
 
-#check + span:before,
-#filter__newArrivals + span:before,
-#filter__topWomen + span:before,
-#filter__bestSeller + span:before,
-#filter__filter__summer + span:before,
-#filter__trending + span:before,
-#filter__spring + span:before
-{
-  content: "\2713"; /*unicode del signo*/
-  position: absolute;
-  /*0 de 4 lados, para que ocupe todo el espacio del padre*/
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
 .square__btn-empty {
   background-color: transparent;
   padding: 3px;

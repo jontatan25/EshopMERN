@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e4569b73.css",
+    "main.js": "/static/js/main.de74e9cd.js",
+    "static/media/carrousel-background.jpg": "/static/media/carrousel-background.f39c029f848a1c187575.jpg",
+    "static/media/banner2-background.jpg": "/static/media/banner2-background.05b15c0fabd183c22d1f.jpg",
+    "static/media/bigImage.jpg": "/static/media/bigImage.e612c241dcb8c83295ec.jpg",
+    "static/media/big1.jpg": "/static/media/big1.22ef4748b33b2cd0d8ec.jpg",
+    "static/media/banner3-background.jpg": "/static/media/banner3-background.681bf3f7ac2073e4aa4c.jpg",
+    "static/media/small1.jpg": "/static/media/small1.7073ee9573316a80cf21.jpg",
+    "static/media/productSample.jpg": "/static/media/productSample.e5e3acac13b5fef030b8.jpg",
+    "static/media/small2.jpg": "/static/media/small2.ea921881b74109a727f8.jpg",
+    "static/media/smallImg.jpg": "/static/media/smallImg.8254636299ec553f5299.jpg",
+    "static/media/logo-white.svg": "/static/media/logo-white.6c1c9b72a4ec54090bc781b92b650ea6.svg",
+    "static/media/logo.svg": "/static/media/logo.3d2c6b80aaa5c982e2841b258d8c09a8.svg",
+    "static/media/itlogo.svg": "/static/media/itlogo.0e27c8c826b4f3fd70c778105ef2dd66.svg",
+    "static/media/twtlogo.svg": "/static/media/twtlogo.325c82f72e8f51092de60f4e757c4842.svg",
+    "index.html": "/index.html",
+    "static/media/fblogo.svg": "/static/media/fblogo.f100299b2055488034722ba8366493fb.svg",
+    "static/media/radio-selected.svg": "/static/media/radio-selected.cb7336bd11efb3f1cee1.svg",
+    "static/media/check.svg": "/static/media/check.4a8cb95cc56e6dae6548cdd0ad93c611.svg",
+    "static/media/radio-hover.svg": "/static/media/radio-hover.12a63135245eb6e807f3.svg",
+    "static/media/radio-regular.svg": "/static/media/radio-regular.d43ba2faab172b44f6bf.svg",
+    "main.e4569b73.css.map": "/static/css/main.e4569b73.css.map",
+    "main.de74e9cd.js.map": "/static/js/main.de74e9cd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e4569b73.css",
+    "static/js/main.de74e9cd.js"
+  ]
+}

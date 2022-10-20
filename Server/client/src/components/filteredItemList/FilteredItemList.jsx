@@ -47,7 +47,7 @@ const FilteredItemList = ({ products }) => {
               value=""
               onChange={handleChange}
             />
-            All
+            ALL
             <span></span>
           </label>
           <label htmlFor="filter__newArrivals">

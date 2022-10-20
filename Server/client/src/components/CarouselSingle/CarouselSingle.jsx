@@ -1,19 +1,26 @@
 import { React, useState } from "react";
-import sampleImg from "../../images/productSample.jpg";
 import CarouselItem from "../Carouseltem/CarouselItem";
 
 import "./style.css";
 
-const CarouselSingle = ({title,products}) => {
+const CarouselSingle = ({ title, products, filterName }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [productCounter, setProductCounter] = useState(0);
 
   const updateIndex = (newIndex) => {
+    // FILTERING PRODUCTS
+    const filtered = products.filter(
+      (product) => product.category === filterName
+    );
+    // GETTING THE AMOUNT OF MOVEMENTS BASE ON # OF PRODUCTS
+    const getMovements = filtered.length - 5;
+
     if (newIndex < 0) {
       newIndex = 0;
-    } else if (newIndex >= 5) {
-      newIndex = 4;
+    } else if (newIndex > getMovements) {
+      newIndex = getMovements;
     }
-    setActiveIndex(newIndex)
+    setActiveIndex(newIndex);
   };
   return (
     <div className="single-container">
@@ -40,9 +47,12 @@ const CarouselSingle = ({title,products}) => {
             />
           </svg>
         </button>
-        <button className="btn__arrow btn__arrow-right" onClick={() => {
+        <button
+          className="btn__arrow btn__arrow-right"
+          onClick={() => {
             updateIndex(activeIndex + 1);
-          }}>
+          }}
+        >
           <svg
             className="btn__svg"
             width="8"
@@ -63,15 +73,18 @@ const CarouselSingle = ({title,products}) => {
         className="single-container__itemList"
         style={{ transform: `translate(${activeIndex * -303}px)` }}
       >
-        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 1"} price = {"PRICE EUR"}/>
-        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 2"} price = {"PRICE EUR"}/>
-        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 3"} price = {"PRICE EUR"}/>
-        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 4"} price = {"PRICE EUR"}/>
-        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 5"} price = {"PRICE EUR"}/>
-        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 6"} price = {"PRICE EUR"}/>
-        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 7"} price = {"PRICE EUR"}/>
-        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 8"} price = {"PRICE EUR"}/>
-        <CarouselItem urlPhoto= {sampleImg} itemTitle = {"COMPONENT"} description = {"Product description 8"} price = {"PRICE EUR"}/>
+        {products &&
+          products
+            .filter((product) => product.category === filterName)
+            .map((product) => (
+              <CarouselItem
+                key={product._id}
+                urlPhoto={product.URLPhoto}
+                itemTitle={product.category}
+                description={product.name}
+                price={product.price}
+              />
+            ))}
       </div>
     </div>
   );
