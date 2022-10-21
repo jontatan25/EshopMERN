@@ -153,7 +153,6 @@ const HomeContainer = () => {
         </div>
       </div>
       {products && products.length > 0 ? (<FilteredItemList products = {products}/>): ( <span>Loading data...</span> )}
-     
       <div
         className="banner2__container"
         style={{ backgroundImage: `url(${banner2})` }}

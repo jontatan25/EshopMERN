@@ -4,7 +4,7 @@ import {saveProductController, getProductByCategoryController,getProductByIdCont
 const { Router } = express;
 const productsRouter = Router();
 
-productsRouter.use(authenticateToken)
+// productsRouter.use(authenticateToken)
 
 productsRouter.post("/", saveProductController);
 productsRouter.get("/category/:categoryId", getProductByCategoryController);

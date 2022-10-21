@@ -250,6 +250,17 @@
   padding-top: 15px;
   width: 500px;
   height: 244px;
+  position: relative;
+}
+.banner2__content::before {
+  content: "";
+  position: absolute;
+  width: 441px;
+  height: 78px;
+  right: 0;
+  top: 0;
+  border-right: 2px solid black;
+  border-top: 2px solid black;
 }
 
 .banner2__title {
@@ -290,6 +301,17 @@
   width: 501px;
   height: 227px;
   padding-top: 16.5px;
+  position: relative;
+}
+.banner3__content-container::before {
+  content: "";
+  width: 488px;
+  height: 92px;
+  position:absolute;
+  top:0;
+  right: 0;
+  border-right: 2px solid black;
+  border-top: 2px solid black;
 }
 
 .content__title {
