@@ -229,56 +229,6 @@
   margin: 0 0 40px 0;
 }
 
-.banner2__container {
-  height: 367px;
-  width: 98%;
-  margin: 0 auto 53px auto;
-  display: flex;
-  align-items: center;
-  padding-left: 211px;
-  border: white 1px solid;
-}
-
-.banner2__container:hover {
-  filter: brightness(91%);
-  transition: all 0.5s ease;
-  border: #c4c4c4 1px solid;
-  scale: 1.02;
-}
-
-.banner2__content {
-  padding-top: 15px;
-  width: 500px;
-  height: 244px;
-  position: relative;
-}
-.banner2__content::before {
-  content: "";
-  position: absolute;
-  width: 441px;
-  height: 78px;
-  right: 0;
-  top: 0;
-  border-right: 2px solid black;
-  border-top: 2px solid black;
-}
-
-.banner2__title {
-  font-family: "Oswald";
-  font-weight: 500;
-  font-size: 44px;
-  line-height: 129%;
-  margin: 0 0 13px 0;
-}
-
-.banner2__text {
-  font-family: "Roboto";
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 148%;
-  margin: 0 0 18px 0;
-}
-
 .banner3__container {
   width: 98%;
   height: 285px;

@@ -1,0 +1,157 @@
+.catalog__location {
+  width: 98%;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  color: #828282;
+  margin: 0 auto 15px auto;
+}
+
+.productsContainer {
+  width: 98%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.productsContainer__filter {
+  flex: 1;
+}
+
+.productsContainer__list {
+  padding: 18px 39px 0 0;
+  list-style-type: none;
+  margin: 0;
+}
+.productsContainer__listFilterName {
+  /* UNUSED */
+}
+
+.productsContainer__listTitle {
+  font-family: "Oswald";
+  font-weight: 400;
+  font-size: 20px;
+  height: 25px;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.productsContainer__btn {
+    position: absolute;
+    right: 0;
+    height: 16px;
+    width: 16px;
+    margin: 5px 0;
+    border: none;
+    background-color: white;
+    background-size: auto 100%;
+  }
+
+.-minus {
+  background-image: url(../images/buttons/minus.svg);
+  background-size: auto 100%;
+}
+
+.-minus:hover {
+  cursor: pointer;
+  background-image: url(../images/buttons/minus-hover.svg);
+  background-size: auto 100%;
+}
+
+.-plus {
+  background-image: url(../images/buttons/plus.svg);
+  background-size: auto 100%;
+}
+.-plus:hover {
+  cursor: pointer;
+  background-image: url(../images/buttons/plus-hover.svg);
+  background-size: auto 100%;
+}
+
+.productsContainer__listTitle-form {
+  display: flex;
+  flex-direction: column;
+  padding-left: 13px;
+}
+.hide {
+  display: none;
+  transition: all 0.5s ease;
+}
+label {
+  position: relative;
+  padding-left: 17px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+
+#burberry,
+#dior,
+#fendi,
+#versace,
+#gucci,
+#armani {
+  position: absolute;
+  opacity: 0;
+}
+
+#burberry + span,
+#dior + span,
+#fendi + span,
+#versace + span,
+#gucci + span,
+#armani + span {
+  position: absolute;
+  /*para que el span esté a la izquierda)*/
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  text-align: center;
+  background-image: url(../images/buttons/square-regular.svg);
+  background-size: 100% auto;
+}
+
+#burberry + span:hover,
+#dior + span:hover,
+#fendi + span:hover,
+#versace + span:hover,
+#gucci + span:hover,
+#armani + span:hover {
+  background-image: url(../images/buttons/square-hover.svg);
+}
+#burberry:checked + span,
+#dior:checked + span,
+#fendi:checked + span,
+#versace:checked + span,
+#gucci:checked + span,
+#armani:checked + span {
+  background-image: url(../images/buttons/square-selected.svg);
+}
+
+/* 
+ITEM LI */
+.productsContainer__listTitle-sublist-filterName {
+  list-style-type: none;
+
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 11px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.productsContainer__itemList {
+  flex: 4;
+  border-left: 1px solid #c4c4c4;
+  display: flex;
+  flex-wrap: wrap;
+}

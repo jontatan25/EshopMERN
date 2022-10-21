@@ -1,4 +1,4 @@
-import {React,useEffect, useState} from "react";
+import { React, useEffect, useState } from "react";
 import "./style.css";
 import carrouselBackground from "../../images/carrousel/carrousel-background.jpg";
 import smallImage from "../../images/carrousel/smallImg.jpg";
@@ -25,11 +25,12 @@ import BtnTransparent from "../../stateless/btn-transparent/BtnTransparent";
 import FilteredItemList from "../filteredItemList/FilteredItemList";
 import CarouselSingle from "../CarouselSingle/CarouselSingle";
 
-import axios from 'axios'
+import axios from "axios";
+import Banner2 from "../Banner2.jsx/Banner2";
 
 const HomeContainer = () => {
-  const [products, setProducts] = useState("")
-  
+  const [products, setProducts] = useState("");
+
   let getAllProducts = async () => {
     try {
       const res = await axios.get(
@@ -38,24 +39,26 @@ const HomeContainer = () => {
         //   headers: { Authorization: `Bearer ${token}` },
         // }
         "http://192.168.0.105:8080/products",
-           {
-          headers: { Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjJkN2M0NzQwM2I0ZGE0ZGI4ZGZjMzEwIiwiaWF0IjoxNjY2MjU0MDQ4LCJleHAiOjE2NjYyODQwNDh9.HFcu1vGdhipD3laWXDXTpivVpmhkOsd5dXXhXh4VALQ"}` },
+        {
+          headers: {
+            Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjJkN2M0NzQwM2I0ZGE0ZGI4ZGZjMzEwIiwiaWF0IjoxNjY2MjU0MDQ4LCJleHAiOjE2NjYyODQwNDh9.HFcu1vGdhipD3laWXDXTpivVpmhkOsd5dXXhXh4VALQ"}`,
+          },
         }
-        );
-      return res.data.products
+      );
+      return res.data.products;
     } catch (error) {
       console.log(error);
-    } 
-  };
-  
-  useEffect(() => {
-    const initProducts = async() => {
-      const data = await getAllProducts();
-      setProducts(data)
     }
-    initProducts()
+  };
+
+  useEffect(() => {
+    const initProducts = async () => {
+      const data = await getAllProducts();
+      setProducts(data);
+    };
+    initProducts();
   }, []);
-  
+
   return (
     <>
       <div
@@ -152,23 +155,29 @@ const HomeContainer = () => {
           </div>
         </div>
       </div>
-      {products && products.length > 0 ? (<FilteredItemList products = {products}/>): ( <span>Loading data...</span> )}
-      <div
-        className="banner2__container"
-        style={{ backgroundImage: `url(${banner2})` }}
-      >
-        <div className="banner2__content">
-          <h3 className="banner2__title">SHOPING WITHOUT LIMITS</h3>
-          <p className="banner2__text">
-            You can choose the best option for you, and it does not matter
-            whether you are in Prague or San Francisco. We will deliver your
-            purchase anywhere!
-          </p>
-          <button className="transparent__btn">SHOP NOW</button>
-        </div>
-      </div>
-     <CarouselSingle products = {products} title="Featured Items" filterName= {"NEW-ARRIVALS"}/>
-     <CarouselSingle products = {products} title="Most Popular" filterName= {"TRENDING"}/>
+      {products && products.length > 0 ? (
+        <FilteredItemList products={products} />
+      ) : (
+        <span>Loading data...</span>
+      )}
+      <Banner2
+        bannerImg={banner2}
+        title={"SHOPING WITHOUT LIMITS"}
+        text={
+          "You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!"
+        }
+        btnText = "SHOP NOW"
+      />
+      <CarouselSingle
+        products={products}
+        title="Featured Items"
+        filterName={"NEW-ARRIVALS"}
+      />
+      <CarouselSingle
+        products={products}
+        title="Most Popular"
+        filterName={"TRENDING"}
+      />
       <div
         className="banner3__container"
         style={{ backgroundImage: `url(${banner3})` }}
@@ -179,7 +188,7 @@ const HomeContainer = () => {
             You can choose the best option for you, and it does not matter
             whether you are in Prague or San Francisco.
           </p>
-          <button className="transparent__btn">SHOP NOW</button>
+          <BtnTransparent text = "SHOP NOW"/>
         </div>
       </div>
       <div className="blog__container">
@@ -245,23 +254,46 @@ const HomeContainer = () => {
       </div>
       <ul className="advantages__list">
         <li className="advantages__list-item">
-          <img className="advantages__check" src={btnCheck} alt="Duties and
-          Taxes Guaranteed" ></img> Duties and
-          Taxes Guaranteed
+          <img
+            className="advantages__check"
+            src={btnCheck}
+            alt="Duties and
+          Taxes Guaranteed"
+          ></img>{" "}
+          Duties and Taxes Guaranteed
         </li>
         <li className="advantages__list-item">
-          <img className="advantages__check" src={btnCheck} alt="Free Express
-          Shipping" ></img>Free Express
-          Shipping
+          <img
+            className="advantages__check"
+            src={btnCheck}
+            alt="Free Express
+          Shipping"
+          ></img>
+          Free Express Shipping
         </li>
         <li className="advantages__list-item">
-          <img className="advantages__check" src={btnCheck} alt="Customer Love" ></img>Customer Love
+          <img
+            className="advantages__check"
+            src={btnCheck}
+            alt="Customer Love"
+          ></img>
+          Customer Love
         </li>
         <li className="advantages__list-item">
-          <img className="advantages__check" src={btnCheck} alt="Easy Returns" ></img>Easy Returns
+          <img
+            className="advantages__check"
+            src={btnCheck}
+            alt="Easy Returns"
+          ></img>
+          Easy Returns
         </li>
         <li className="advantages__list-item">
-          <img className="advantages__check" src={btnCheck} alt="Secure Payment" ></img>Secure Payment
+          <img
+            className="advantages__check"
+            src={btnCheck}
+            alt="Secure Payment"
+          ></img>
+          Secure Payment
         </li>
       </ul>
       <Footer />

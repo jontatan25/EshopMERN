@@ -29,7 +29,6 @@ const FilteredItemList = ({ products }) => {
         (product) => product.category == newFilter
       );
       setFilteredProducts(filtered);
-      console.log(boxHeigth);
     };
     filterItems();
   }, [newFilter]);
