@@ -22,7 +22,6 @@ const Catalog = ({ products, loading }) => {
           (product) => product.brand == newFilter
         );
         setFilteredProducts(filtered);
-        console.log(filtered)
       }
     };
     filterItems();
@@ -61,9 +60,9 @@ const Catalog = ({ products, loading }) => {
                 ></button>
               </h4>
               <form
-                className={
-                  showBrand ? "productsContainer__listTitle-form" : "hide"
-                }
+                className=
+                  "productsContainer__listTitle-form"
+                aria-expanded={!showBrand}
               >
                 <label htmlFor="burberry">
                   <input

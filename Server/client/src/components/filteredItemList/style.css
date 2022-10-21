@@ -114,18 +114,6 @@ label {
   transition: height 1s ease;
 }
 
-.animate {
-  animation: appear 1.5s;
-}
-
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 .collection__filter-itemList-btn {
   margin-bottom: 30px;
   display: flex;

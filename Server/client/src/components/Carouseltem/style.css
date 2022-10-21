@@ -3,6 +3,18 @@
   height: 429px;
   margin: 0 0 37px 23.5px;
 }
+.animate {
+  animation: appear 1.5s;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .single-container__item {
   min-width: 274px;
   margin-right: 29px;
