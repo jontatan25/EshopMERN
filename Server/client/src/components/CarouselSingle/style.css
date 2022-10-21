@@ -34,16 +34,19 @@
 
 .btn__arrow:hover {
   border: 2px solid #828282;
-  scale: 1.02;
 }
 
 .btn__arrow path {
-  transition: all 0.5s ease;
+  transition: all 0.4s ease;
 }
 
 .btn__arrow:hover path {
   stroke: #3f3f3f;
   scale: 1.02;
+}
+.btn__arrow:active path {
+  stroke: #3f3f3f;
+  scale: 0.85;
 }
 
 .single-container__itemList {

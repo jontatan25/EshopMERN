@@ -45,10 +45,12 @@
   padding: 0.5em 0;
   margin: 0 0.7em;
   transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
 }
 
 .nav__listItem:hover {
-  scale: 1.08
+  scale: 1.05;
+  border-bottom: 1px solid black;
 }
 
 .nav-link:visited {

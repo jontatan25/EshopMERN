@@ -5,7 +5,6 @@ import "./style.css";
 
 const CarouselSingle = ({ title, products, filterName }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [productCounter, setProductCounter] = useState(0);
 
   const updateIndex = (newIndex) => {
     // FILTERING PRODUCTS

@@ -16,14 +16,13 @@ const Footer = () => {
           <li className="footer__list-item">
             <h4 className="footer__list-item-title">FEATURES</h4>
             <ul className="item__sublist">
-              <li className="sublist__item">MEN</li>
-              <li className="sublist__item">WOMEN</li>
-              <li className="sublist__item">BOYS</li>
-              <li className="sublist__item">GIRLS</li>
               <li className="sublist__item">NEW ARRIVALS</li>
-              <li className="sublist__item">SHOES</li>
-              <li className="sublist__item">CLOTHES</li>
-              <li className="sublist__item">ACCESORIES</li>
+              <li className="sublist__item">TOP WOMEN</li>
+              <li className="sublist__item">BEST SELLERS</li>
+              <li className="sublist__item">SUMMER</li>
+              <li className="sublist__item">SPRING</li>
+              <li className="sublist__item">TRENDING</li>
+              <li className="sublist__item">BLOG</li>
             </ul>
           </li>
           <li className="footer__list-item">

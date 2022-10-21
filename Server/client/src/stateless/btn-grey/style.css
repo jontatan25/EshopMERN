@@ -9,10 +9,16 @@
   transition: all 0.3s ease;
   background: linear-gradient(to left, #ffffff 50%, #c9c9c9 50%) right;
   background-size: 200% 105% ;
-  transition: 0.5s ease-out;
+  transition: 0.3s ease-out;
 }
 
 .btn__grey:hover {
   cursor: pointer;
   background-position: left;
+  border: 2px #b0b0b0 solid;
+}
+
+.btn__grey:active {
+  background-image: linear-gradient(rgb(0 0 0/10%) 0 0);
+  transform: scale(0.95)
 }
