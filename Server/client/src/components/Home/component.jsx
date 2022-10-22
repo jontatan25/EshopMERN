@@ -28,33 +28,25 @@ import CarouselSingle from "../CarouselSingle/CarouselSingle";
 import axios from "axios";
 import Banner2 from "../Banner2.jsx/Banner2";
 
-const HomeContainer = () => {
-  const [products, setProducts] = useState("");
+import {getProducts} from "../../service/index"
 
-  let getAllProducts = async () => {
-    try {
-      const res = await axios.get(
-        // `https://mern-eshop-espitia-jonathans.herokuapp.com/products/id/${id}`,
-        // {
-        //   headers: { Authorization: `Bearer ${token}` },
-        // }
-        "http://192.168.0.105:8080/products",
-        {
-          headers: {
-            Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjJkN2M0NzQwM2I0ZGE0ZGI4ZGZjMzEwIiwiaWF0IjoxNjY2MjU0MDQ4LCJleHAiOjE2NjYyODQwNDh9.HFcu1vGdhipD3laWXDXTpivVpmhkOsd5dXXhXh4VALQ"}`,
-          },
-        }
-      );
-      return res.data.products;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+const HomeContainer = () => {
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const initProducts = async () => {
-      const data = await getAllProducts();
-      setProducts(data);
+      try {
+        setLoading(true);
+        const data = await getProducts();
+        setProducts(data);
+      } catch (error) {
+        setError(error);
+        console.log(error)
+      } finally {
+        setLoading(false);
+      }
     };
     initProducts();
   }, []);
@@ -155,10 +147,11 @@ const HomeContainer = () => {
           </div>
         </div>
       </div>
-      {products && products.length > 0 ? (
-        <FilteredItemList products={products} />
-      ) : (
+      {loading ? 
+      (
         <span>Loading data...</span>
+        ) : (
+        <FilteredItemList loading={loading} products={products} error = {error}/>
       )}
       <Banner2
         bannerImg={banner2}

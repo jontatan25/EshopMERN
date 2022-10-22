@@ -3,13 +3,33 @@ import { useEffect, useState } from "react";
 import Banner2 from "../components/Banner2.jsx/Banner2";
 import "./style.css";
 import catalogBackground from "../images/banner/catalog-banner1.jpg";
-import axios from "axios";
 import CarouselItem from "../components/Carouseltem/CarouselItem";
+import {getProducts} from "../service/index";
 
-const Catalog = ({ products, loading }) => {
+const Catalog = () => {
   const [showBrand, setShowBrand] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState("");
   const [newFilter, setNewFilter] = useState("");
+
+  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const initProducts = async () => {
+      try {
+        setLoading(true);
+        const data = await getProducts();
+        setProducts(data);
+      } catch (error) {
+        setError(error);
+        console.log(error)
+      } finally {
+        setLoading(false);
+      }
+    };
+    initProducts();
+  }, []);
 
   const handleChange = (e) => {
     setNewFilter(e.target.value);
@@ -17,11 +37,13 @@ const Catalog = ({ products, loading }) => {
 
   useEffect(() => {
     const filterItems = () => {
-      if (!loading) {
+      if (products) {
         const filtered = products.filter(
           (product) => product.brand == newFilter
         );
         setFilteredProducts(filtered);
+        console.log(newFilter);
+        console.log(filtered);
       }
     };
     filterItems();
@@ -60,8 +82,7 @@ const Catalog = ({ products, loading }) => {
                 ></button>
               </h4>
               <form
-                className=
-                  "productsContainer__listTitle-form"
+                className="productsContainer__listTitle-form"
                 aria-expanded={!showBrand}
               >
                 <label htmlFor="burberry">
@@ -135,25 +156,31 @@ const Catalog = ({ products, loading }) => {
           </ul>
         </div>
         <div className="productsContainer__itemList">
-          {filteredProducts.length == 0
-            ? products.map((product) => (
-                <CarouselItem
-                  key={product._id}
-                  urlPhoto={product.URLPhoto}
-                  itemTitle={product.category}
-                  description={product.name}
-                  price={product.price}
-                />
-              ))
-            : filteredProducts.map((product) => (
-                <CarouselItem
-                  key={product._id}
-                  urlPhoto={product.URLPhoto}
-                  itemTitle={product.category}
-                  description={product.name}
-                  price={product.price}
-                />
-              ))}
+          {loading ? (
+            <h2>LOADING</h2>
+          ) : error ? (
+            <h2>Something went Wrong. Try again Later</h2>
+          ) : filteredProducts ? (
+            filteredProducts.map((product) => (
+              <CarouselItem
+                key={product._id}
+                urlPhoto={product.URLPhoto}
+                itemTitle={product.category}
+                description={product.name}
+                price={product.price}
+              />
+            ))
+          ) : (
+            products?.map((product) => (
+              <CarouselItem
+                key={product._id}
+                urlPhoto={product.URLPhoto}
+                itemTitle={product.category}
+                description={product.name}
+                price={product.price}
+              />
+            ))
+          )}
         </div>
       </div>
     </div>

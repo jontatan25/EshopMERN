@@ -5,11 +5,11 @@ import BtnGrey from "../../stateless/btn-grey/BtnGrey";
 import CarouselItem from "../Carouseltem/CarouselItem";
 import { useState, useEffect } from "react";
 
-const FilteredItemList = ({ products }) => {
+const FilteredItemList = ({ loading, products, error }) => {
   const [boxHeigth, setBoxHeigth] = useState(932);
   const [boxHeigthCounter, setBoxHeigthCounter] = useState(2);
   const [filteredProducts, setFilteredProducts] = useState("");
-  const [newFilter, setNewFilter] = useState("");
+  const [newFilter, setNewFilter] = useState("ALL");
 
   const handleChange = (e) => {
     setNewFilter(e.target.value);
@@ -25,13 +25,19 @@ const FilteredItemList = ({ products }) => {
 
   useEffect(() => {
     const filterItems = () => {
-      const filtered = products.filter(
-        (product) => product.category == newFilter
-      );
-      setFilteredProducts(filtered);
+      if (products) {
+        const filtered = products.filter(
+          (product) => product.category == newFilter
+        );
+        setFilteredProducts(filtered);
+      }
     };
     filterItems();
   }, [newFilter]);
+
+  useEffect(() => {
+    
+  },[filteredProducts])
 
   return (
     <div className="collection__container">
@@ -43,7 +49,7 @@ const FilteredItemList = ({ products }) => {
               type="radio"
               name="filter"
               id="check"
-              value=""
+              value= "ALL"
               onChange={handleChange}
             />
             ALL
@@ -131,27 +137,33 @@ const FilteredItemList = ({ products }) => {
           }
           key={Math.random()}
         >
-          {filteredProducts.length == 0
-            ? products.map((product) => (
-                <CarouselItem
-                  key={product._id}
-                  urlPhoto={product.URLPhoto}
-                  itemTitle={product.category}
-                  description={product.name}
-                  price={product.price}
-                />
-              ))
-            : filteredProducts.map((product) => (
-                <CarouselItem
-                  key={product._id}
-                  urlPhoto={product.URLPhoto}
-                  itemTitle={product.category}
-                  description={product.name}
-                  price={product.price}
-                />
-              ))}
+          {loading ? (
+            <h2>LOADING</h2>
+          ) : error ? (
+            <h2>Something went Wrong. Try again Later</h2>
+          ) : (filteredProducts && (newFilter != "ALL") ) ? (
+            filteredProducts.map((product) => (
+              <CarouselItem
+                key={product._id}
+                urlPhoto={product.URLPhoto}
+                itemTitle={product.category}
+                description={product.name}
+                price={product.price}
+              />
+            ))
+          ) : (
+            products?.map((product) => (
+              <CarouselItem
+                key={product._id}
+                urlPhoto={product.URLPhoto}
+                itemTitle={product.category}
+                description={product.name}
+                price={product.price}
+              />
+            ))
+          )}
         </div>
-        {filteredProducts.length == 0 ? (
+        {filteredProducts !== "ALL" ? (
           <div className="collection__filter-itemList-btn">
             <BtnGrey text={"SEE MORE"} increaseHeigth={increaseHeigth} />
           </div>
