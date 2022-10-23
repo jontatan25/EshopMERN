@@ -67,6 +67,7 @@ const Catalog = () => {
         const product = products[productIndex];
         const propertyToFilterFromItem = product[propertyToFilter];
         if (propertyToFilterFromItem === propertyToFilterFromActive) {
+          product.amount = 1;
           filteredProductsArray.push(product);
         }
       }
@@ -77,29 +78,36 @@ const Catalog = () => {
   const getActiveFilters = (allFilters) => {
     return allFilters.filter((filter) => filter.status === true);
   };
+  const updateAndFilter = (stateWithFilters,valueInLowerCase , itemProperty) => {
+    const objIndex = stateWithFilters.findIndex(
+      (filter) => filter.name === valueInLowerCase
+    );
+    const updatedBrandFilters = stateWithFilters;
+    updatedBrandFilters[objIndex].status =
+      !updatedBrandFilters[objIndex].status;
+    const brandFilterUpdate = getActiveFilters(updatedBrandFilters);
+    const newItems = getFilteredProducts(brandFilterUpdate, itemProperty);
+    return newItems;
+  };
 
   const toogleFilter = (value, itemProperty) => {
     const valueInLowerCase = value.toLowerCase();
-    
-    const brandActiveFilters = getActiveFilters(brandFilters)
-    const saleActiveFilters = getActiveFilters(saleFilters)
+    const FilteredProductsArray = null;
+
+    const brandActiveFilters = getActiveFilters(brandFilters);
+    const saleActiveFilters = getActiveFilters(saleFilters);
     if (itemProperty === "brand") {
-        const objIndex = brandFilters.findIndex(
-          (filter) => filter.name === valueInLowerCase
-        );
-      const updatedBrandFilters = brandFilters;
-      updatedBrandFilters[objIndex].status = !updatedBrandFilters[objIndex].status;
-      const brandFilterUpdate = getActiveFilters(updatedBrandFilters)
-      const newItems = getFilteredProducts(brandFilterUpdate, itemProperty);
-      console.log(newItems)
+      const res = updateAndFilter(brandFilters, valueInLowerCase, itemProperty);
+      console.log(res);
+    } else if (itemProperty === "promo") {
+      const res = updateAndFilter(saleFilters, valueInLowerCase, itemProperty);
+      console.log(res)
     }
-  //   const checkStatus = activeFilters
 
     // const check = filterGroupIsActive();
     // console.log(check);
   };
 
-  
   useEffect(() => {
     const filterItems = () => {
       if (products) {
@@ -252,7 +260,7 @@ const Catalog = () => {
                     type="checkbox"
                     name="filter"
                     id="off40"
-                    value="40%off"
+                    value="40%OFF"
                     onChange={(e) => toogleFilter(e.target.value, "promo")}
                   />
                   40% OFF
