@@ -67,7 +67,6 @@ const Catalog = () => {
         const product = products[productIndex];
         const propertyToFilterFromItem = product[propertyToFilter];
         if (propertyToFilterFromItem === propertyToFilterFromActive) {
-          product.amount = 1;
           filteredProductsArray.push(product);
         }
       }
@@ -78,7 +77,11 @@ const Catalog = () => {
   const getActiveFilters = (allFilters) => {
     return allFilters.filter((filter) => filter.status === true);
   };
-  const updateAndFilter = (stateWithFilters,valueInLowerCase , itemProperty) => {
+  const updateAndFilter = (
+    stateWithFilters,
+    valueInLowerCase,
+    itemProperty
+  ) => {
     const objIndex = stateWithFilters.findIndex(
       (filter) => filter.name === valueInLowerCase
     );
@@ -90,22 +93,47 @@ const Catalog = () => {
     return newItems;
   };
 
+  let filteredProductsBrand = [];
+  let filteredProductsSale = [];
+
   const toogleFilter = (value, itemProperty) => {
+    const productsWithFiltersApplied = [];
     const valueInLowerCase = value.toLowerCase();
-    const FilteredProductsArray = null;
 
     const brandActiveFilters = getActiveFilters(brandFilters);
     const saleActiveFilters = getActiveFilters(saleFilters);
+
     if (itemProperty === "brand") {
       const res = updateAndFilter(brandFilters, valueInLowerCase, itemProperty);
-      console.log(res);
+      filteredProductsBrand = res;
     } else if (itemProperty === "promo") {
       const res = updateAndFilter(saleFilters, valueInLowerCase, itemProperty);
-      console.log(res)
+      filteredProductsSale = res;
     }
 
-    // const check = filterGroupIsActive();
-    // console.log(check);
+    for (let i = 0; i < filteredProductsBrand.length; i++) {
+      const element = filteredProductsBrand[i];
+      const productAlreadyExists = productsWithFiltersApplied.findIndex( product => product.name === element.name)
+      if (productAlreadyExists === -1) {
+          productsWithFiltersApplied.push(element);
+      }
+    }
+
+    for (let i = 0; i < filteredProductsSale.length; i++) {
+      const element = filteredProductsSale[i];
+      const productAlreadyExists = productsWithFiltersApplied.findIndex( product => product.name === element.name)
+      if (productAlreadyExists === -1) {
+        productsWithFiltersApplied.push(element);
+    }
+    }
+
+
+    console.log("-----BRAND-----");
+    console.log(filteredProductsBrand);
+    console.log("-----PROMO-----");
+    console.log(filteredProductsSale);
+    console.log("-----FINAL-----");
+    console.log(productsWithFiltersApplied);
   };
 
   useEffect(() => {
