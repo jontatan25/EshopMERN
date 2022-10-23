@@ -100,7 +100,10 @@ label {
 #fendi,
 #versace,
 #gucci,
-#armani {
+#armani,
+#off30,
+#off40
+ {
   position: absolute;
   opacity: 0;
 }
@@ -110,7 +113,10 @@ label {
 #fendi + span,
 #versace + span,
 #gucci + span,
-#armani + span {
+#armani + span, 
+#off30 + span, 
+#off40 + span 
+{
   position: absolute;
   /*para que el span esté a la izquierda)*/
   top: 0;
@@ -127,7 +133,10 @@ label {
 #fendi + span:hover,
 #versace + span:hover,
 #gucci + span:hover,
-#armani + span:hover {
+#armani + span:hover,
+#off30 + span:hover,
+#off40 + span:hover
+ {
   background-image: url(../images/buttons/square-hover.svg);
 }
 #burberry:checked + span,
@@ -135,7 +144,10 @@ label {
 #fendi:checked + span,
 #versace:checked + span,
 #gucci:checked + span,
-#armani:checked + span {
+#armani:checked + span,
+#off30:checked + span,
+#off40:checked + span
+ {
   background-image: url(../images/buttons/square-selected.svg);
 }
 

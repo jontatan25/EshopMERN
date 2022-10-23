@@ -25,7 +25,6 @@ import BtnTransparent from "../../stateless/btn-transparent/BtnTransparent";
 import FilteredItemList from "../filteredItemList/FilteredItemList";
 import CarouselSingle from "../CarouselSingle/CarouselSingle";
 
-import axios from "axios";
 import Banner2 from "../Banner2.jsx/Banner2";
 
 import {getProducts} from "../../service/index"
@@ -43,7 +42,6 @@ const HomeContainer = () => {
         setProducts(data);
       } catch (error) {
         setError(error);
-        console.log(error)
       } finally {
         setLoading(false);
       }

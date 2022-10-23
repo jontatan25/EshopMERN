@@ -27,7 +27,7 @@ const FilteredItemList = ({ loading, products, error }) => {
     const filterItems = () => {
       if (products) {
         const filtered = products.filter(
-          (product) => product.category == newFilter
+          (product) => product.category === newFilter
         );
         setFilteredProducts(filtered);
       }
@@ -126,12 +126,12 @@ const FilteredItemList = ({ loading, products, error }) => {
       <div className="collection__filter-itemList-container">
         <div
           className={
-            boxHeigth == 932
+            boxHeigth === 932
               ? "collection__filter-itemList animate"
               : "collection__filter-itemList"
           }
           style={
-            filteredProducts.length == 0
+            filteredProducts.length === 0
               ? { height: `${boxHeigth}px` }
               : { height: `${466}px` }
           }
@@ -141,7 +141,7 @@ const FilteredItemList = ({ loading, products, error }) => {
             <h2>LOADING</h2>
           ) : error ? (
             <h2>Something went Wrong. Try again Later</h2>
-          ) : (filteredProducts && (newFilter != "ALL") ) ? (
+          ) : (filteredProducts && (newFilter !== "ALL") ) ? (
             filteredProducts.map((product) => (
               <CarouselItem
                 key={product._id}
