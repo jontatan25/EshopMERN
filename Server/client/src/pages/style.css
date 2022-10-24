@@ -31,8 +31,8 @@
   font-family: "Oswald";
   font-weight: 400;
   font-size: 20px;
-  height: 25px;
-  margin: 0 0 10px 0;
+  height: 35px;
+  margin: 0 0 7px 0;
   display: flex;
   align-items: center;
   position: relative;
@@ -73,7 +73,7 @@
 .productsContainer__listTitle-form {
   display: flex;
   flex-direction: column;
-  padding-left: 13px;
+  padding: 0 10px;
   overflow: hidden;
   max-height: 1000px;
   transition: max-height 1s ease-in-out;
@@ -215,4 +215,8 @@ input[type=range] {
   }
   input[type=range]:focus::-webkit-slider-runnable-track {
     background: #000000;
+  }
+
+  #priceRange {
+    padding: 0;
   }

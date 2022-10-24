@@ -329,7 +329,7 @@ const Catalog = () => {
                 Color
                 <button
                   className={
-                    showSale
+                    showColor
                       ? "productsContainer__btn -minus"
                       : "productsContainer__btn -plus"
                   }
@@ -405,7 +405,7 @@ const Catalog = () => {
                 Price Range
                 <button
                   className={
-                    showSale
+                    showPrice
                       ? "productsContainer__btn -minus"
                       : "productsContainer__btn -plus"
                   }
@@ -419,7 +419,7 @@ const Catalog = () => {
                 className="productsContainer__listTitle-form"
                 aria-expanded={!showPrice}
               >
-                <label htmlFor="priceRange">
+                <label htmlFor="priceRange" id="priceRange" >
                   <input
                     type="range"  
                     id="priceRange"
