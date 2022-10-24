@@ -13,6 +13,7 @@ const Catalog = () => {
 
   const [showBrand, setShowBrand] = useState(false);
   const [showSale, setShowSale] = useState(false);
+  const [showColor, setShowColor] = useState(false);
 
   const [filteredProducts, setFilteredProducts] = useState("");
   const [newFilter, setNewFilter] = useState("");
@@ -29,6 +30,13 @@ const Catalog = () => {
   const [saleFilters, setsaleFilters] = useState([
     { name: "30%off", status: false },
     { name: "40%off", status: false },
+  ]);
+  const [colorFilters, setColorFilters] = useState([
+    { name: "black", status: false },
+    { name: "white", status: false },
+    { name: "blue", status: false },
+    { name: "pink", status: false },
+    { name: "purple", status: false },
   ]);
 
   useEffect(() => {
@@ -95,13 +103,11 @@ const Catalog = () => {
 
   let filteredProductsBrand = [];
   let filteredProductsSale = [];
+  let filteredProductsColor = [];
 
   const toogleFilter = (value, itemProperty) => {
     const productsWithFiltersApplied = [];
     const valueInLowerCase = value.toLowerCase();
-
-    const brandActiveFilters = getActiveFilters(brandFilters);
-    const saleActiveFilters = getActiveFilters(saleFilters);
 
     if (itemProperty === "brand") {
       const res = updateAndFilter(brandFilters, valueInLowerCase, itemProperty);
@@ -109,7 +115,10 @@ const Catalog = () => {
     } else if (itemProperty === "promo") {
       const res = updateAndFilter(saleFilters, valueInLowerCase, itemProperty);
       filteredProductsSale = res;
-    }
+    }  else if (itemProperty === "color") {
+      const res = updateAndFilter(colorFilters, valueInLowerCase, itemProperty);
+      filteredProductsColor = res;
+    } 
 
     for (let i = 0; i < filteredProductsBrand.length; i++) {
       const element = filteredProductsBrand[i];
@@ -126,12 +135,20 @@ const Catalog = () => {
         productsWithFiltersApplied.push(element);
     }
     }
-
+    for (let i = 0; i < filteredProductsColor.length; i++) {
+      const element = filteredProductsColor[i];
+      const productAlreadyExists = productsWithFiltersApplied.findIndex( product => product.name === element.name)
+      if (productAlreadyExists === -1) {
+        productsWithFiltersApplied.push(element);
+    }
+    }
 
     console.log("-----BRAND-----");
     console.log(filteredProductsBrand);
     console.log("-----PROMO-----");
     console.log(filteredProductsSale);
+    console.log("-----COLOR-----");
+    console.log(filteredProductsColor);
     console.log("-----FINAL-----");
     console.log(productsWithFiltersApplied);
   };
@@ -292,6 +309,82 @@ const Catalog = () => {
                     onChange={(e) => toogleFilter(e.target.value, "promo")}
                   />
                   40% OFF
+                  <span></span>
+                </label>
+              </form>
+            </li>
+            <li className="productsContainer__listFilterName">
+              <h4 className="productsContainer__listTitle">
+                Color
+                <button
+                  className={
+                    showSale
+                      ? "productsContainer__btn -minus"
+                      : "productsContainer__btn -plus"
+                  }
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowColor(!showColor);
+                  }}
+                ></button>
+              </h4>
+              <form
+                className="productsContainer__listTitle-form"
+                aria-expanded={!showColor}
+              >
+                <label htmlFor="blackColor">
+                  <input
+                    type="checkbox"
+                    name="filter"
+                    id="blackColor"
+                    value="black"
+                    onChange={(e) => toogleFilter(e.target.value, "color")}
+                  />
+                  BLACK
+                  <span></span>
+                </label>
+                <label htmlFor="whiteColor">
+                  <input
+                    type="checkbox"
+                    name="filter"
+                    id="whiteColor"
+                    value="white"
+                    onChange={(e) => toogleFilter(e.target.value, "color")}
+                  />
+                  WHITE
+                  <span></span>
+                </label>
+                <label htmlFor="blueColor">
+                  <input
+                    type="checkbox"
+                    name="filter"
+                    id="blueColor"
+                    value="blue"
+                    onChange={(e) => toogleFilter(e.target.value, "color")}
+                  />
+                  BLUE
+                  <span></span>
+                </label>
+                <label htmlFor="pinkColor">
+                  <input
+                    type="checkbox"
+                    name="filter"
+                    id="pinkColor"
+                    value="pink"
+                    onChange={(e) => toogleFilter(e.target.value, "color")}
+                  />
+                  PINK
+                  <span></span>
+                </label>
+                <label htmlFor="purpleColor">
+                  <input
+                    type="checkbox"
+                    name="filter"
+                    id="purpleColor"
+                    value="purple"
+                    onChange={(e) => toogleFilter(e.target.value, "color")}
+                  />
+                  PURPLE
                   <span></span>
                 </label>
               </form>

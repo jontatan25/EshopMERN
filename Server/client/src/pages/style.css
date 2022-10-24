@@ -102,7 +102,12 @@ label {
 #gucci,
 #armani,
 #off30,
-#off40
+#off40,
+#blackColor,
+#whiteColor,
+#blueColor,
+#pinkColor,
+#purpleColor
  {
   position: absolute;
   opacity: 0;
@@ -115,7 +120,12 @@ label {
 #gucci + span,
 #armani + span, 
 #off30 + span, 
-#off40 + span 
+#off40 + span,
+#blackColor + span,
+#whiteColor + span,
+#blueColor + span,
+#pinkColor + span,
+#purpleColor + span
 {
   position: absolute;
   /*para que el span esté a la izquierda)*/
@@ -135,7 +145,12 @@ label {
 #gucci + span:hover,
 #armani + span:hover,
 #off30 + span:hover,
-#off40 + span:hover
+#off40 + span:hover,
+#blackColor + span:hover,
+#whiteColor + span:hover,
+#blueColor + span:hover,
+#pinkColor + span:hover,
+#purpleColor + span:hover
  {
   background-image: url(../images/buttons/square-hover.svg);
 }
@@ -146,7 +161,12 @@ label {
 #gucci:checked + span,
 #armani:checked + span,
 #off30:checked + span,
-#off40:checked + span
+#off40:checked + span,
+#blackColor:checked + span,
+#whiteColor:checked + span,
+#blueColor:checked + span,
+#pinkColor:checked + span,
+#purpleColor:checked + span
  {
   background-image: url(../images/buttons/square-selected.svg);
 }
