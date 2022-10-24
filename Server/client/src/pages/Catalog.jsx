@@ -14,6 +14,8 @@ const Catalog = () => {
   const [showBrand, setShowBrand] = useState(false);
   const [showSale, setShowSale] = useState(false);
   const [showColor, setShowColor] = useState(false);
+  const [showPrice, setShowPrice] = useState(false);
+  const [ price, setPrice ] = useState("150");
 
   const [filteredProducts, setFilteredProducts] = useState("");
   const [newFilter, setNewFilter] = useState("");
@@ -115,32 +117,38 @@ const Catalog = () => {
     } else if (itemProperty === "promo") {
       const res = updateAndFilter(saleFilters, valueInLowerCase, itemProperty);
       filteredProductsSale = res;
-    }  else if (itemProperty === "color") {
+    } else if (itemProperty === "color") {
       const res = updateAndFilter(colorFilters, valueInLowerCase, itemProperty);
       filteredProductsColor = res;
-    } 
+    }
 
     for (let i = 0; i < filteredProductsBrand.length; i++) {
       const element = filteredProductsBrand[i];
-      const productAlreadyExists = productsWithFiltersApplied.findIndex( product => product.name === element.name)
+      const productAlreadyExists = productsWithFiltersApplied.findIndex(
+        (product) => product.name === element.name
+      );
       if (productAlreadyExists === -1) {
-          productsWithFiltersApplied.push(element);
+        productsWithFiltersApplied.push(element);
       }
     }
 
     for (let i = 0; i < filteredProductsSale.length; i++) {
       const element = filteredProductsSale[i];
-      const productAlreadyExists = productsWithFiltersApplied.findIndex( product => product.name === element.name)
+      const productAlreadyExists = productsWithFiltersApplied.findIndex(
+        (product) => product.name === element.name
+      );
       if (productAlreadyExists === -1) {
         productsWithFiltersApplied.push(element);
-    }
+      }
     }
     for (let i = 0; i < filteredProductsColor.length; i++) {
       const element = filteredProductsColor[i];
-      const productAlreadyExists = productsWithFiltersApplied.findIndex( product => product.name === element.name)
+      const productAlreadyExists = productsWithFiltersApplied.findIndex(
+        (product) => product.name === element.name
+      );
       if (productAlreadyExists === -1) {
         productsWithFiltersApplied.push(element);
-    }
+      }
     }
 
     console.log("-----BRAND-----");
@@ -153,6 +161,9 @@ const Catalog = () => {
     console.log(productsWithFiltersApplied);
   };
 
+  const handlePriceInput = (e) => {
+    setPrice(e.target.value)
+  }
   useEffect(() => {
     const filterItems = () => {
       if (products) {
@@ -385,6 +396,40 @@ const Catalog = () => {
                     onChange={(e) => toogleFilter(e.target.value, "color")}
                   />
                   PURPLE
+                  <span></span>
+                </label>
+              </form>
+            </li>
+            <li className="productsContainer__listFilterName">
+              <h4 className="productsContainer__listTitle">
+                Price Range
+                <button
+                  className={
+                    showSale
+                      ? "productsContainer__btn -minus"
+                      : "productsContainer__btn -plus"
+                  }
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setShowPrice(!showPrice);
+                  }}
+                ></button>
+              </h4>
+              <form
+                className="productsContainer__listTitle-form"
+                aria-expanded={!showPrice}
+              >
+                <label htmlFor="priceRange">
+                  <input
+                    type="range"  
+                    id="priceRange"
+                    name="volume"
+                    min="0"
+                    max="300"
+                    value= {price}
+                    onInput={ handlePriceInput } 
+                  />
+                  {price}
                   <span></span>
                 </label>
               </form>
