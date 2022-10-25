@@ -58,3 +58,14 @@
   .-whiteText {
     color:white;
   }
+
+  .-whiteText::before {
+    content: "";
+    position: absolute;
+    width: 441px;
+    height: 78px;
+    right: 0;
+    top: 0;
+    border-right: 2px solid white;
+    border-top: 2px solid white;
+  }
