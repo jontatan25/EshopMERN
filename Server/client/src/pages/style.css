@@ -15,3 +15,21 @@
   display: flex;
 }
 
+.productsContainer__itemList {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.productsContainer_productsAndBanners{
+  flex: 4;
+}
+
+.bannerMargin {
+ border-left: 1px solid #c4c4c4;
+}
+
+.showTripleRow {
+  height: 1398px;
+  overflow: hidden;
+}

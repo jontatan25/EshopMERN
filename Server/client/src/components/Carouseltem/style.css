@@ -44,6 +44,8 @@
   font-size: 14px;
   line-height: 21px;
   margin: 0 0 7px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .collection__item-price {

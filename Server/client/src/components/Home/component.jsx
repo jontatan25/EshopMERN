@@ -287,7 +287,6 @@ const HomeContainer = () => {
           Secure Payment
         </li>
       </ul>
-      <Footer />
     </>
   );
 };

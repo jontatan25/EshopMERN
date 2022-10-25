@@ -16,6 +16,7 @@ import Logout from "../Logout/component";
 import CartContextProvider,{useCartContext} from "../CartContext/context";
 import ItemDetailContainer from "../ItemDetail/ItemDetailContainer";
 import Catalog from "../../pages/Catalog";
+import Footer from "../Footer/component";
 function App() {
   
   return (
@@ -48,6 +49,7 @@ function App() {
           element={user ? <ProfileDetails /> : <Navigate to="/login" />}
         ></Route> */}
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </CartContextProvider>
   );

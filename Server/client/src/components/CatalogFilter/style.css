@@ -171,13 +171,6 @@
     margin-bottom: 20px;
   }
   
-  .productsContainer__itemList {
-    flex: 4;
-    border-left: 1px solid #c4c4c4;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
   input[type=range] {
       -webkit-appearance: none;
       margin: 18px 0;

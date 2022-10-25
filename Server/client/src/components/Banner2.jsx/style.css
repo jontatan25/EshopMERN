@@ -48,3 +48,13 @@
     line-height: 148%;
     margin: 0 0 18px 0;
   }
+
+  .-whiteBanner{
+    background-size:  auto 100%;
+  }
+  .-whiteTitle{
+    color:white;
+  }
+  .-whiteText {
+    color:white;
+  }

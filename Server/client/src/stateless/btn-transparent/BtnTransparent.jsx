@@ -1,9 +1,10 @@
 import React from 'react'
 import "./style.css"
 
-const btnTransparent = ({text}) => {
+const btnTransparent = ({text,color}) => {
   return (
-    <button className="transparent__btn">{text}</button>
+    
+    <button className={(color === "white")?"transparent__btn -whiteBtn" : "transparent__btn"}>{text}</button>
   )
 }
 

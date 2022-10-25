@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Banner2 from "../components/Banner2.jsx/Banner2";
 import "./style.css";
 import catalogBackground from "../images/banner/catalog-banner1.jpg";
+import catalogBackgroundDark from "../images/banner/catalog-banner2.jpg";
+
 import CarouselItem from "../components/Carouseltem/CarouselItem";
 import { getProducts } from "../service/index";
 import CatalogFilter from "../components/CatalogFilter/CatalogFilter";
@@ -49,32 +51,62 @@ const Catalog = () => {
           setFilteredProducts={setFilteredProducts}
           products={products}
         />
-        <div className="productsContainer__itemList">
-          {loading ? (
-            <h2>LOADING</h2>
-          ) : error ? (
-            <h2>Something went Wrong. Try again Later</h2>
-          ) : filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
-              <CarouselItem
-                key={product._id}
-                urlPhoto={product.URLPhoto}
-                itemTitle={product.category}
-                description={product.name}
-                price={product.price}
-              />
-            ))
-          ) : (
-            products?.map((product) => (
-              <CarouselItem
-                key={product._id}
-                urlPhoto={product.URLPhoto}
-                itemTitle={product.category}
-                description={product.name}
-                price={product.price}
-              />
-            ))
-          )}
+        <div className="productsContainer_productsAndBanners">
+          <div className="productsContainer__itemList showTripleRow">
+            {loading ? (
+              <h2>LOADING</h2>
+            ) : error ? (
+              <h2>Something went Wrong. Try again Later</h2>
+            ) : filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
+                <CarouselItem
+                  key={product._id}
+                  urlPhoto={product.URLPhoto}
+                  itemTitle={product.category}
+                  description={product.name}
+                  price={product.price}
+                />
+              ))
+            ) : (
+              products?.map((product) => (
+                <CarouselItem
+                  key={product._id}
+                  urlPhoto={product.URLPhoto}
+                  itemTitle={product.category}
+                  description={product.name}
+                  price={product.price}
+                />
+              ))
+            )}
+          </div>
+          <div className="bannerMargin">
+            <Banner2
+              bannerImg={catalogBackgroundDark}
+              title={"SHOPING WITHOUT LIMITS"}
+              text={
+                "You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!"
+              }
+              btnText="SHOP NOW"
+              color={"white"}
+            />
+          </div>
+          <div className="productsContainer__itemList showTripleRow">
+            {loading ? (
+              <h2>LOADING</h2>
+            ) : error ? (
+              <h2>Something went Wrong. Try again Later</h2>
+            ) : (
+              products?.map((product) => (
+                <CarouselItem
+                  key={product._id}
+                  urlPhoto={product.URLPhoto}
+                  itemTitle={product.category}
+                  description={product.name}
+                  price={product.price}
+                />
+              ))
+            )}
+          </div>
         </div>
       </div>
     </div>
