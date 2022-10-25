@@ -297,8 +297,7 @@ const CatalogFilter = ({setFilteredProducts,products}) => {
                 id="blackColor"
                 value="black"
                 onChange={(e) => toogleFilter(e.target.value, "color")}
-              />
-              BLACK
+              />BLACK
               <span></span>
             </label>
             <label htmlFor="whiteColor">

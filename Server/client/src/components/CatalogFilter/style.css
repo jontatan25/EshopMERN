@@ -1,205 +1,293 @@
 .productsContainer__filter {
-    flex: 1;
-  }
-  
-  .productsContainer__list {
-    padding: 18px 39px 0 0;
-    list-style-type: none;
-    margin: 0;
-  }
-  
-  .productsContainer__listTitle {
-    font-family: "Oswald";
-    font-weight: 400;
-    font-size: 20px;
-    height: 35px;
-    margin: 0 0 7px 0;
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-  
-  .productsContainer__btn {
-    position: absolute;
-    right: 0;
-    height: 16px;
-    width: 16px;
-    margin: 5px 0;
-    border: none;
-    background-color: white;
-    background-size: auto 100%;
-  }
-  
-  .-minus {
-    background-image: url(../../images/buttons/minus.svg);
-    background-size: auto 100%;
-  }
-  
-  .-minus:hover {
-    cursor: pointer;
-    background-image: url(../../images/buttons/minus-hover.svg);
-    background-size: auto 100%;
-  }
-  
-  .-plus {
-    background-image: url(../../images/buttons/plus.svg);
-    background-size: auto 100%;
-  }
-  .-plus:hover {
-    cursor: pointer;
-    background-image: url(../../images/buttons/plus-hover.svg);
-    background-size: auto 100%;
-  }
-  
-  .productsContainer__listTitle-form {
-    display: flex;
-    flex-direction: column;
-    padding: 0 10px;
-    overflow: hidden;
-    max-height: 1000px;
-    transition: max-height 1s ease-in-out;
-    border-bottom: 1px solid #d9d9d9;
-    margin-bottom: 15px;
-  }
-  .productsContainer__listText{
-    
-  font-family: 'Roboto';
+  flex: 1;
+}
+
+.productsContainer__list {
+  padding: 18px 39px 0 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+.productsContainer__listTitle {
+  font-family: "Oswald";
+  font-weight: 400;
+  font-size: 20px;
+  height: 35px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.productsContainer__btn {
+  position: absolute;
+  right: 0;
+  height: 16px;
+  width: 16px;
+  margin: 5px 0;
+  border: none;
+  background-color: white;
+  background-size: auto 100%;
+}
+
+.-minus {
+  background-image: url(../../images/buttons/minus.svg);
+  background-size: auto 100%;
+}
+
+.-minus:hover {
+  cursor: pointer;
+  background-image: url(../../images/buttons/minus-hover.svg);
+  background-size: auto 100%;
+}
+
+.-plus {
+  background-image: url(../../images/buttons/plus.svg);
+  background-size: auto 100%;
+}
+.-plus:hover {
+  cursor: pointer;
+  background-image: url(../../images/buttons/plus-hover.svg);
+  background-size: auto 100%;
+}
+
+.productsContainer__listTitle-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  overflow: hidden;
+  max-height: 1000px;
+  transition: max-height 1s ease-in-out;
+  border-bottom: 1px solid #d9d9d9;
+  margin-bottom: 15px;
+}
+.productsContainer__listText {
+  font-family: "Roboto";
   font-weight: 300;
   font-size: 14px;
   line-height: 156%;
   letter-spacing: 0.01em;
-  }
-  .productsContainer__listTitle-form[aria-expanded="true"] {
-    max-height: 0px;
-    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
-  }
-  
-  label {
-    position: relative;
-    padding-left: 17px;
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    cursor: pointer;
-    margin-bottom: 14px;
-  }
-  
-  #burberry,
-  #dior,
-  #fendi,
-  #versace,
-  #gucci,
-  #armani,
-  #off30,
-  #off40,
-  #blackColor,
-  #whiteColor,
-  #blueColor,
-  #pinkColor,
-  #purpleColor {
-    position: absolute;
-    opacity: 0;
-  }
-  
-  #burberry + span,
-  #dior + span,
-  #fendi + span,
-  #versace + span,
-  #gucci + span,
-  #armani + span,
-  #off30 + span,
-  #off40 + span,
-  #blackColor + span,
-  #whiteColor + span,
-  #blueColor + span,
-  #pinkColor + span,
-  #purpleColor + span {
-    position: absolute;
-    /*para que el span esté a la izquierda)*/
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    text-align: center;
-    background-image: url(../../images/buttons/square-regular.svg);
-    background-size: 100% auto;
-  }
-  
-  #burberry + span:hover,
-  #dior + span:hover,
-  #fendi + span:hover,
-  #versace + span:hover,
-  #gucci + span:hover,
-  #armani + span:hover,
-  #off30 + span:hover,
-  #off40 + span:hover,
-  #blackColor + span:hover,
-  #whiteColor + span:hover,
-  #blueColor + span:hover,
-  #pinkColor + span:hover,
-  #purpleColor + span:hover {
-    background-image: url(../../images/buttons/square-hover.svg);
-  }
-  #burberry:checked + span,
-  #dior:checked + span,
-  #fendi:checked + span,
-  #versace:checked + span,
-  #gucci:checked + span,
-  #armani:checked + span,
-  #off30:checked + span,
-  #off40:checked + span,
-  #blackColor:checked + span,
-  #whiteColor:checked + span,
-  #blueColor:checked + span,
-  #pinkColor:checked + span,
-  #purpleColor:checked + span {
-    background-image: url(../../images/buttons/square-selected.svg);
-  }
-  
-  /* 
+}
+.productsContainer__listTitle-form[aria-expanded="true"] {
+  max-height: 0px;
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+label {
+  position: relative;
+  padding-left: 17px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+
+#burberry,
+#dior,
+#fendi,
+#versace,
+#gucci,
+#armani,
+#off30,
+#off40,
+#blackColor,
+#whiteColor,
+#blueColor,
+#pinkColor,
+#purpleColor {
+  position: absolute;
+  opacity: 0;
+}
+
+#burberry + span,
+#dior + span,
+#fendi + span,
+#versace + span,
+#gucci + span,
+#armani + span,
+#off30 + span,
+#off40 + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  text-align: center;
+  background-image: url(../../images/buttons/square-regular.svg);
+  background-size: 100% auto;
+}
+#blackColor + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  text-align: center;
+  background-size: 100% auto;
+  background-image: url(../../images/colors/color-black.svg);
+   transition: all 0.3s ease;
+}
+
+#whiteColor + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  text-align: center;
+  background-size: 100% auto;
+  background-image: url(../../images/colors/color-white.svg);
+   transition: all 0.3s ease;
+}
+#blueColor + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  text-align: center;
+  background-size: 100% auto;
+  background-image: url(../../images/colors/color-blue.svg);
+   transition: all 0.3s ease;
+}
+#pinkColor + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  text-align: center;
+  background-size: 100% auto;
+  background-image: url(../../images/colors/color-pink.svg);
+   transition: all 0.3s ease;
+}
+#purpleColor + span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  text-align: center;
+  background-size: 100% auto;
+  background-image: url(../../images/colors/color-purple.svg);
+   transition: all 0.3s ease;
+}
+
+#burberry + span:hover,
+#dior + span:hover,
+#fendi + span:hover,
+#versace + span:hover,
+#gucci + span:hover,
+#armani + span:hover,
+#off30 + span:hover,
+#off40 + span:hover {
+  background-image: url(../../images/buttons/square-hover.svg);
+}
+
+#blackColor + span:hover,
+#whiteColor + span:hover,
+#blueColor + span:hover,
+#pinkColor + span:hover,
+#purpleColor + span:hover {
+  border: 1px solid black;
+  scale: 1.1;
+  transition: all 0.5s ease;
+}
+
+#burberry:checked + span,
+#dior:checked + span,
+#fendi:checked + span,
+#versace:checked + span,
+#gucci:checked + span,
+#armani:checked + span,
+#off30:checked + span,
+#off40:checked + span
+{
+  background-image: url(../../images/buttons/square-selected.svg);
+}
+
+#blackColor:checked + span,
+#whiteColor:checked + span,
+#blueColor:checked + span,
+#pinkColor:checked + span,
+#purpleColor:checked + span {
+  border-radius: 50%;
+  scale: 0.7
+}
+
+#blackColor + span::before,
+#whiteColor + span::before,
+#blueColor + span::before,
+#pinkColor + span::before,
+#purpleColor + span::before
+ {
+  content: '';
+	position: absolute;
+	top: 0; 
+	right: 0;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+  background-color: white;
+	transition: opacity .3s ease-in-out;
+}
+
+#blackColor:checked + span::before,
+#whiteColor:checked + span::before,
+#blueColor:checked + span::before,
+#pinkColor:checked + span::before,
+#purpleColor:checked + span::before
+{
+  opacity: 1;
+  background-color: transparent;
+  scale: 1.8;
+  border: 1px solid black;
+}
+/* 
   ITEM LI */
-  .productsContainer__listTitle-sublist-filterName {
-    list-style-type: none;
-  
-    font-family: "Roboto";
-    font-weight: 400;
-    font-size: 11px;
-    height: 17px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  input[type=range] {
-      -webkit-appearance: none;
-      margin: 18px 0;
-      width: 100%;
-    }
-    input[type=range]:focus {
-      outline: none;
-    }
-    input[type=range]::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 2px;
-      cursor: pointer;
-      background: #000000;
-      border-radius: 1.3px;
-    }
-    input[type=range]::-webkit-slider-thumb {
-      border: 1px solid #000000;
-      height: 16px;
-      width: 4px;
-      border-radius: 2px;
-      background: #000000;
-      cursor: pointer;
-      -webkit-appearance: none;
-      margin-top: -7px;
-    }
-    input[type=range]:focus::-webkit-slider-runnable-track {
-      background: #000000;
-    }
-  
-    #priceRange {
-      padding: 0;
-    }
+.productsContainer__listTitle-sublist-filterName {
+  list-style-type: none;
+
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 11px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+}
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: #000000;
+  border-radius: 1.3px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  border: 1px solid #000000;
+  height: 16px;
+  width: 4px;
+  border-radius: 2px;
+  background: #000000;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #000000;
+}
+
+#priceRange {
+  padding: 0;
+}
