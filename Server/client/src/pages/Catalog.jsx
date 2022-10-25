@@ -12,6 +12,8 @@ const Catalog = () => {
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
 
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
   useEffect(() => {
     const initProducts = async () => {
       try {
