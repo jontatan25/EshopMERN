@@ -106,6 +106,7 @@ const Catalog = () => {
   let filteredProductsBrand = [];
   let filteredProductsSale = [];
   let filteredProductsColor = [];
+  let filteredProductsPrice = [];
 
   const toogleFilter = (value, itemProperty) => {
     const productsWithFiltersApplied = [];
@@ -120,6 +121,11 @@ const Catalog = () => {
     } else if (itemProperty === "color") {
       const res = updateAndFilter(colorFilters, valueInLowerCase, itemProperty);
       filteredProductsColor = res;
+    }
+     else if (itemProperty === "price") {  
+      const res = products.filter((product) => product.price <= value)
+      filteredProductsPrice = res;
+      console.log(value)
     }
 
     for (let i = 0; i < filteredProductsBrand.length; i++) {
@@ -150,15 +156,26 @@ const Catalog = () => {
         productsWithFiltersApplied.push(element);
       }
     }
+    for (let i = 0; i < filteredProductsPrice.length; i++) {
+      const element = filteredProductsPrice[i];
+      const productAlreadyExists = productsWithFiltersApplied.findIndex(
+        (product) => product.name === element.name
+      );
+      if (productAlreadyExists === -1) {
+        productsWithFiltersApplied.push(element);
+      }
+    }
 
-    console.log("-----BRAND-----");
-    console.log(filteredProductsBrand);
-    console.log("-----PROMO-----");
-    console.log(filteredProductsSale);
-    console.log("-----COLOR-----");
-    console.log(filteredProductsColor);
-    console.log("-----FINAL-----");
-    console.log(productsWithFiltersApplied);
+    // console.log("-----BRAND-----");
+    // console.log(filteredProductsBrand);
+    // console.log("-----PROMO-----");
+    // console.log(filteredProductsSale);
+    // console.log("-----COLOR-----");
+    // console.log(filteredProductsColor);
+    console.log("-----PRICE-----");
+    console.log(filteredProductsPrice);
+    // console.log("-----FINAL-----");
+    // console.log(productsWithFiltersApplied);
   };
 
   const handlePriceInput = (e) => {
@@ -427,7 +444,8 @@ const Catalog = () => {
                     min="0"
                     max="300"
                     value= {price}
-                    onInput={ handlePriceInput } 
+                    onInput={(e) => {setPrice(e.target.value)}}
+                    onMouseUp = {(e) => {toogleFilter(e.target.value, "price")}}
                   />
                   {price}
                   <span></span>
