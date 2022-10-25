@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./style.css"
 
 const CatalogFilter = ({setFilteredProducts,products}) => {
   const [showBrand, setShowBrand] = useState(false);
@@ -140,7 +141,7 @@ const CatalogFilter = ({setFilteredProducts,products}) => {
   return (
     <div className="productsContainer__filter">
       <ul className="productsContainer__list">
-        <li className="productsContainer__listFilterName">
+        <li>
           <h4 className="productsContainer__listTitle">
             Brand
             <button
@@ -384,6 +385,12 @@ const CatalogFilter = ({setFilteredProducts,products}) => {
               <span></span>
             </label>
           </form>
+        </li>
+        <li className="productsContainer__listFilterName">
+          <h4 className="productsContainer__listTitle">
+            About our Dresses
+          </h4>
+          <p className="productsContainer__listText">Every day we’re gonna be dropping the latest trends to help you nail every Summer sitch. Whether it’s a graduation, your mate's wedding, or just a cute day at the races with the gals, our occasion dresses have got you covered. Not looking for something fancy? No stress. We’ve got day dresses for days (aka bodycon dresses, t-shirt dresses, oversized shirt dresses).</p>
         </li>
       </ul>
     </div>
