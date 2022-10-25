@@ -15,11 +15,10 @@ const Catalog = () => {
   const [showSale, setShowSale] = useState(false);
   const [showColor, setShowColor] = useState(false);
   const [showPrice, setShowPrice] = useState(false);
-  const [ price, setPrice ] = useState("150");
+  const [price, setPrice] = useState("150");
 
-  const [filteredProducts, setFilteredProducts] = useState("");
-  const [newFilter, setNewFilter] = useState("");
-  //   const [activeFilters, setActiveFilters] = useState(null);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
   const [brandFilters, setBrandFilters] = useState([
     { name: "burberry", status: false },
     { name: "dior", status: false },
@@ -121,13 +120,13 @@ const Catalog = () => {
     } else if (itemProperty === "color") {
       const res = updateAndFilter(colorFilters, valueInLowerCase, itemProperty);
       filteredProductsColor = res;
-    }
-     else if (itemProperty === "price") {  
-      const res = products.filter((product) => product.price <= value)
+    } else if (itemProperty === "price") {
+      const res = products.filter((product) => product.price <= value);
       filteredProductsPrice = res;
-      console.log(value)
+      console.log(value);
     }
 
+    // PUSHING FILTERED PRODUCTS FROM CATEGORY TO ARRAY
     for (let i = 0; i < filteredProductsBrand.length; i++) {
       const element = filteredProductsBrand[i];
       const productAlreadyExists = productsWithFiltersApplied.findIndex(
@@ -165,34 +164,10 @@ const Catalog = () => {
         productsWithFiltersApplied.push(element);
       }
     }
-
-    // console.log("-----BRAND-----");
-    // console.log(filteredProductsBrand);
-    // console.log("-----PROMO-----");
-    // console.log(filteredProductsSale);
-    // console.log("-----COLOR-----");
-    // console.log(filteredProductsColor);
-    console.log("-----PRICE-----");
-    console.log(filteredProductsPrice);
+    setFilteredProducts(productsWithFiltersApplied);
     // console.log("-----FINAL-----");
     // console.log(productsWithFiltersApplied);
   };
-
-  const handlePriceInput = (e) => {
-    setPrice(e.target.value)
-  }
-  useEffect(() => {
-    const filterItems = () => {
-      if (products) {
-        const filtered = products.filter(
-          (product) => product.brand === newFilter
-        );
-        return filtered;
-      }
-    };
-    const res = filterItems();
-    setFilteredProducts(res);
-  }, [newFilter]);
 
   return (
     <div>
@@ -436,16 +411,20 @@ const Catalog = () => {
                 className="productsContainer__listTitle-form"
                 aria-expanded={!showPrice}
               >
-                <label htmlFor="priceRange" id="priceRange" >
+                <label htmlFor="priceRange" id="priceRange">
                   <input
-                    type="range"  
+                    type="range"
                     id="priceRange"
                     name="volume"
-                    min="0"
+                    min="49"
                     max="300"
-                    value= {price}
-                    onInput={(e) => {setPrice(e.target.value)}}
-                    onMouseUp = {(e) => {toogleFilter(e.target.value, "price")}}
+                    value={price}
+                    onInput={(e) => {
+                      setPrice(e.target.value);
+                    }}
+                    onMouseUp={(e) => {
+                      toogleFilter(e.target.value, "price");
+                    }}
                   />
                   {price}
                   <span></span>
@@ -459,7 +438,7 @@ const Catalog = () => {
             <h2>LOADING</h2>
           ) : error ? (
             <h2>Something went Wrong. Try again Later</h2>
-          ) : filteredProducts ? (
+          ) : filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
               <CarouselItem
                 key={product._id}
