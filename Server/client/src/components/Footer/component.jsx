@@ -4,11 +4,56 @@ import logo from "../../images/logo/logo-white.svg";
 import fbLogo from "../../images/logo/fblogo.svg";
 import twtLogo from "../../images/logo/twtlogo.svg";
 import itLogo from "../../images/logo/itlogo.svg";
+import btnCheck from "../../images/btn/check.svg"
 
 const Footer = () => {
   return (
     <footer>
       <div className="home__footer-container">
+      <ul className="advantages__list">
+        <li className="advantages__list-item">
+          <img
+            className="advantages__check"
+            src={btnCheck}
+            alt="Duties and
+          Taxes Guaranteed"
+          ></img>{" "}
+          Duties and Taxes Guaranteed
+        </li>
+        <li className="advantages__list-item">
+          <img
+            className="advantages__check"
+            src={btnCheck}
+            alt="Free Express
+          Shipping"
+          ></img>
+          Free Express Shipping
+        </li>
+        <li className="advantages__list-item">
+          <img
+            className="advantages__check"
+            src={btnCheck}
+            alt="Customer Love"
+          ></img>
+          Customer Love
+        </li>
+        <li className="advantages__list-item">
+          <img
+            className="advantages__check"
+            src={btnCheck}
+            alt="Easy Returns"
+          ></img>
+          Easy Returns
+        </li>
+        <li className="advantages__list-item">
+          <img
+            className="advantages__check"
+            src={btnCheck}
+            alt="Secure Payment"
+          ></img>
+          Secure Payment
+        </li>
+      </ul>
         <ul className="footer__list">
           <li className="footer__list-item">
             <img src={logo} alt="" />

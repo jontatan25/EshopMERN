@@ -18,8 +18,6 @@ import frame6 from "../../images/brandBanner/Frame-6.png";
 import banner2 from "../../images/banner/banner2-background.jpg";
 import banner3 from "../../images/banner/banner3-background.jpg";
 
-import btnCheck from "../../images/btn/check.svg";
-import Footer from "../Footer/component.jsx";
 import BtnTransparent from "../../stateless/btn-transparent/BtnTransparent";
 
 import FilteredItemList from "../filteredItemList/FilteredItemList";
@@ -243,50 +241,6 @@ const HomeContainer = () => {
           </div>
         </div>
       </div>
-      <ul className="advantages__list">
-        <li className="advantages__list-item">
-          <img
-            className="advantages__check"
-            src={btnCheck}
-            alt="Duties and
-          Taxes Guaranteed"
-          ></img>{" "}
-          Duties and Taxes Guaranteed
-        </li>
-        <li className="advantages__list-item">
-          <img
-            className="advantages__check"
-            src={btnCheck}
-            alt="Free Express
-          Shipping"
-          ></img>
-          Free Express Shipping
-        </li>
-        <li className="advantages__list-item">
-          <img
-            className="advantages__check"
-            src={btnCheck}
-            alt="Customer Love"
-          ></img>
-          Customer Love
-        </li>
-        <li className="advantages__list-item">
-          <img
-            className="advantages__check"
-            src={btnCheck}
-            alt="Easy Returns"
-          ></img>
-          Easy Returns
-        </li>
-        <li className="advantages__list-item">
-          <img
-            className="advantages__check"
-            src={btnCheck}
-            alt="Secure Payment"
-          ></img>
-          Secure Payment
-        </li>
-      </ul>
     </>
   );
 };

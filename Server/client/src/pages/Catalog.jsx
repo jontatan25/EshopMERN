@@ -79,17 +79,15 @@ const Catalog = () => {
               ))
             )}
           </div>
-          <div className="bannerMargin">
-            <Banner2
-              bannerImg={catalogBackgroundDark}
-              title={"SHOPING WITHOUT LIMITS"}
-              text={
-                "You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!"
-              }
-              btnText="SHOP NOW"
-              color={"white"}
-            />
-          </div>
+          <Banner2
+            bannerImg={catalogBackgroundDark}
+            title={"SHOPING WITHOUT LIMITS"}
+            text={
+              "You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!"
+            }
+            btnText="SHOP NOW"
+            color={"white"}
+          />
           <div className="productsContainer__itemList showTripleRow">
             {loading ? (
               <h2>LOADING</h2>

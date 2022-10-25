@@ -23,6 +23,8 @@
 
 .productsContainer_productsAndBanners{
   flex: 4;
+  border-left: 1px solid #C4C4C4;
+  margin-bottom: 35px;
 }
 
 .bannerMargin {
