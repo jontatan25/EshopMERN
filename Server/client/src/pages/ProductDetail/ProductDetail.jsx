@@ -17,6 +17,7 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
   const [activeColor, setActiveColor] = useState(null);
+  const [activeSize, setActiveSize] = useState(null);
 
   const token = JSON.parse(localStorage.getItem("user"));
   const { id } = useParams();
@@ -39,8 +40,12 @@ const ProductDetail = () => {
   }, []);
 
   const selectColor = (color) => {
-    setActiveColor(color)
-  }
+    setActiveColor(color);
+  };
+  const selectSize = (size) => {
+    // setActiveSize(size);\
+    console.log(size)
+  };
 
   return (
     <>
@@ -89,20 +94,59 @@ const ProductDetail = () => {
               <h3 className="detailsContainerTwo__title">
                 Women Black Checked Fit and Flare Dress
               </h3>
-              <h5 className="detailsContainerTwo__selectColor">SELECT COLOR</h5>
+              <h5 className="detailsContainerTwo__selectTitle">SELECT COLOR</h5>
               <ul className="selectColor__list">
-                <li className={activeColor === "blue" ? "selectColor__list-color -colorIsActive" : "selectColor__list-color"}>
+                <li
+                  className={
+                    activeColor === "blue"
+                      ? "selectColor__list-color -colorIsActive"
+                      : "selectColor__list-color"
+                  }
+                >
                   <button
                     className="selectColor__list-btn -colorOne"
                     onClick={() => selectColor("blue")}
                   ></button>
                 </li>
-                <li className={activeColor === "white" ? "selectColor__list-color -colorIsActive" : "selectColor__list-color"}>
-                  <button className="selectColor__list-btn -colorTwo" onClick={() => selectColor("white")}></button>
+                <li
+                  className={
+                    activeColor === "white"
+                      ? "selectColor__list-color -colorIsActive"
+                      : "selectColor__list-color"
+                  }
+                >
+                  <button
+                    className="selectColor__list-btn -colorTwo"
+                    onClick={() => selectColor("white")}
+                  ></button>
                 </li>
-                <li className={activeColor === "purple" ? "selectColor__list-color -colorIsActive" : "selectColor__list-color"}>
-                  <button className="selectColor__list-btn -colorThree" onClick={() => selectColor("purple")}></button>
+                <li
+                  className={
+                    activeColor === "purple"
+                      ? "selectColor__list-color -colorIsActive"
+                      : "selectColor__list-color"
+                  }
+                >
+                  <button
+                    className="selectColor__list-btn -colorThree"
+                    onClick={() => selectColor("purple")}
+                  ></button>
                 </li>
+              </ul>
+              <h5 className="detailsContainerTwo__selectTitle">
+                SELECT SIZE (INCHES)
+              </h5>
+              <ul className="selectSize__list">
+                <li className="selectSize__listItem"><button className="selectSize__listItem-btn" value="ZIZE" onClick={() => selectSize("OSFA")} ><h5 className="selectSize__listItem-text">OSFA</h5></button> </li>
+                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W26</h5></button></li>
+                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W27</h5></button></li>
+                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W28</h5></button></li>
+                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W29</h5></button></li>
+                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W30</h5></button></li>
+                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W31</h5></button></li>
+                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W32</h5></button></li>
+                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W33</h5></button></li>
+                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W34</h5></button></li>
               </ul>
             </div>
           </div>
