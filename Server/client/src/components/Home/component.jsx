@@ -7,13 +7,13 @@ import smallPromo1 from "../../images/promo/small1.jpg";
 import smallPromo2 from "../../images/promo/small2.jpg";
 import bigPromo1 from "../../images/promo/big1.jpg";
 
-import frame from "../../images/brandBanner/Frame.png";
-import frame1 from "../../images/brandBanner/Frame-1.png";
-import frame2 from "../../images/brandBanner/Frame-2.png";
-import frame3 from "../../images/brandBanner/Frame-3.png";
-import frame4 from "../../images/brandBanner/Frame-4.png";
-import frame5 from "../../images/brandBanner/Frame-5.png";
-import frame6 from "../../images/brandBanner/Frame-6.png";
+import frame from "../../images/brandBanner/CHANEL.png";
+import frame1 from "../../images/brandBanner/BURBERRY.png";
+import frame2 from "../../images/brandBanner/DIOR.png";
+import frame3 from "../../images/brandBanner/FENDI.png";
+import frame4 from "../../images/brandBanner/VERSACE.png";
+import frame5 from "../../images/brandBanner/GUCCI.png";
+import frame6 from "../../images/brandBanner/ARMANI.png";
 
 import banner2 from "../../images/banner/banner2-background.jpg";
 import banner3 from "../../images/banner/banner3-background.jpg";

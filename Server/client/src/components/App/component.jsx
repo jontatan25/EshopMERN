@@ -14,9 +14,11 @@ import Cart from "../Cart/component";
 import Logout from "../Logout/component";
 
 import CartContextProvider,{useCartContext} from "../CartContext/context";
-import ItemDetailContainer from "../ItemDetail/ItemDetailContainer";
+// import ItemDetailContainer from "../ItemDetail/ItemDetailContainer";
+
 import Catalog from "../../pages/Catalog";
 import Footer from "../Footer/component";
+import ProductDetail from "../../pages/ProductDetail/ProductDetail";
 function App() {
   
   return (
@@ -36,7 +38,7 @@ function App() {
             element={<Chat/>}
           ></Route>     
           <Route path="/products" element={<Catalog/>}></Route>
-          <Route path="/product/:id" element={<ItemDetailContainer/>}></Route>
+          <Route path="/products/:id" element={<ProductDetail/>}></Route>
           <Route
             path="/products/category/:category"
             element={<Products/>}

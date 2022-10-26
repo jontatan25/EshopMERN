@@ -34,7 +34,6 @@ const Catalog = () => {
 
   return (
     <div>
-      {" "}
       <Banner2
         bannerImg={catalogBackground}
         title={"SHOPING WITHOUT LIMITS"}

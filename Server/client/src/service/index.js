@@ -15,4 +15,14 @@ import axios from "axios";
   );
   return res.data.products;
 };
- export {getProducts};
+ async function getProductByID(productID) {
+  const res = await axios.get(
+    // `https://mern-eshop-espitia-jonathans.herokuapp.com/products/id/${id}`,
+    // {
+    //   headers: { Authorization: `Bearer ${token}` },
+    // }
+  `http://192.168.0.105:8080/products/id/${productID}`,
+  );
+  return res.data.product;
+};
+ export {getProducts,getProductByID};
