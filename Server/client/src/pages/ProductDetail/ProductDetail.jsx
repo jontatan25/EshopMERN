@@ -11,6 +11,7 @@ import DIOR from "../../images/brandBanner/DIOR.png";
 import FENDI from "../../images/brandBanner/FENDI.png";
 import GUCCI from "../../images/brandBanner/GUCCI.png";
 import VERSACE from "../../images/brandBanner/VERSACE.png";
+import ColorListItem from "../../components/ColorListItem/ColorListItem";
 
 const ProductDetail = () => {
   const [loading, setLoading] = useState(false);
@@ -43,8 +44,8 @@ const ProductDetail = () => {
     setActiveColor(color);
   };
   const selectSize = (size) => {
-    // setActiveSize(size);\
-    console.log(size)
+    setActiveSize(size);
+    console.log(activeSize)
   };
 
   return (
@@ -137,16 +138,28 @@ const ProductDetail = () => {
                 SELECT SIZE (INCHES)
               </h5>
               <ul className="selectSize__list">
-                <li className="selectSize__listItem"><button className="selectSize__listItem-btn" value="ZIZE" onClick={() => selectSize("OSFA")} ><h5 className="selectSize__listItem-text">OSFA</h5></button> </li>
-                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W26</h5></button></li>
-                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W27</h5></button></li>
-                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W28</h5></button></li>
-                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W29</h5></button></li>
-                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W30</h5></button></li>
-                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W31</h5></button></li>
-                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W32</h5></button></li>
-                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W33</h5></button></li>
-                <li className="selectSize__listItem"><button className="selectSize__listItem-btn"><h5 className="selectSize__listItem-text">W34</h5></button></li>
+                <ColorListItem size = {"OSFA"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+                <ColorListItem size = {"W26"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+                <ColorListItem size = {"W27"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+                <ColorListItem size = {"W28"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+                <ColorListItem size = {"W29"} activeSize = {activeSize} setActiveSize = {setActiveSize} isDisabled = {true}/>
+                <ColorListItem size = {"W30"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+                <ColorListItem size = {"W31"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+                <ColorListItem size = {"W32"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+                <ColorListItem size = {"W33"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+                <ColorListItem size = {"W34"} activeSize = {activeSize} setActiveSize = {setActiveSize} isDisabled = {true}/>
+              </ul>
+              <ul className="selectSize__list">
+              <ColorListItem size = {"W35"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+              <ColorListItem size = {"W36"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+              <ColorListItem size = {"W38"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+              <ColorListItem size = {"W40"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+              <ColorListItem size = {"W42"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+              <ColorListItem size = {"W44"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+              <ColorListItem size = {"W46"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+              <ColorListItem size = {"W48"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
+              <ColorListItem size = {"W50"} activeSize = {activeSize} setActiveSize = {setActiveSize} isDisabled = {true}/>
+              <ColorListItem size = {"W52"} activeSize = {activeSize} setActiveSize = {setActiveSize}/>
               </ul>
             </div>
           </div>

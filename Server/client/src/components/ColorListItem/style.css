@@ -1,0 +1,66 @@
+.selectSize__listItem {
+  width: 36px;
+  height: 36px;
+  font-family: "Oswald";
+  font-size: 11px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #828282;
+}
+.selectSize__listItem-btn {
+  width: 100%;
+  height: 36px;
+  padding: 8px;
+  border: #c4c4c4 1px solid;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectSize__listItem-text {
+  font-family: "Oswald";
+  font-size: 11px;
+  font-weight: 400;
+  color: #828282;
+}
+.selectSize__listItem-btn:hover {
+  border: #c4c4c4 2px solid;
+  scale: 1.05;
+  transition: all 0.2s ease;
+}
+.selectSize__listItem-btn:active {
+  border: black 2px solid;
+  scale: 1.05;
+}
+
+.-activeSizeBtn {
+  border: black 2px solid;
+  scale: 1.05;
+}
+.-activeSizeBtn:hover {
+  border: black 2px solid;
+}
+
+.-activeSizeText {
+  color: black;
+}
+
+.-disabledBtn {
+  background: linear-gradient(
+    to top right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) calc(50% - 0.8px),
+    rgba(196, 196, 196, 1) 50%,
+    rgba(0, 0, 0, 0) calc(50% + 0.8px),
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+.-disabledBtn:hover {
+ scale: none;
+ border: #c4c4c4 1px solid;
+ cursor: default;
+}
