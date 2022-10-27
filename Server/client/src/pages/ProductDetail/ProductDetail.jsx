@@ -285,11 +285,38 @@ const ProductDetail = () => {
                       stroke-width="0.2"
                     />
                   </svg>
-
                   <span className="addOrSave-text" id="btnWhite-text">
                     SAVE
                   </span>
                 </button>
+              </div>
+              <div className="infoContainer">
+                <div className="infoContainer__item">
+                  <svg
+                    width="14"
+                    height="10"
+                    viewBox="0 0 14 10"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 3L6 8L13 1"
+                      stroke="#828282"
+                      stroke-width="2.4"
+                    />
+                  </svg>
+                  <h6 className="codeText" id="codeTitle-shipping">
+                    FREE SHIPPING
+                  </h6>
+                </div>
+                <div className="infoContainer__item">
+                  <h5 className="codeTitle">PRODUCT CODE: </h5>
+                  <h6 className="codeText">RFKK1024</h6>
+                </div>
+                <div className="infoContainer__item">
+                  <h5 className="codeTitle">TAGS: </h5>
+                  <h6 className="codeText">NEW ARRIVALS, TOP WOMEN</h6>
+                </div>
               </div>
             </div>
           </div>
