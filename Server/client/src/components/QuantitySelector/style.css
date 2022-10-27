@@ -1,0 +1,37 @@
+.quantitySelectorContainer {
+  height: 33.61px;
+  width: 102px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #c4c4c4;
+}
+
+.quantitySelectorBtn {
+  height: 32px;
+  width: 32px;
+  padding: 11px;
+  border: none;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  cursor: pointer;
+}
+.quantitySelectorBtn:hover {
+  filter: brightness(95%);
+}
+.quantitySelectorBtn:active {
+  filter: brightness(90%);
+}
+
+.quantitySelectorText {
+  height: 33px;
+  width: 40px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Oswald;
+  font-size: 14px;
+  font-weight: 400;
+}
