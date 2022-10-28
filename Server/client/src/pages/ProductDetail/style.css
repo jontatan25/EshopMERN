@@ -162,6 +162,7 @@
   width: 172.7px;
   border: 2px solid black;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .addOrSave-text {
@@ -175,15 +176,33 @@
   background-color: black;
   margin-right: 14.52px;
 }
+#addOrSave-btnBlack:hover {
+  background-color: #eb5757;
+  border: #eb5757;
+}
+#addOrSave-btnBlack:active {
+  filter: brightness(95%);
+  scale: 0.97;
+}
+
 #btnBlack-text {
   color: white;
 }
+
 #addOrSave-btnWhite {
   border: 2px solid #c4c4c4;
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#addOrSave-btnWhite:hover {
+  border: 2px solid #828282;
+}
+#addOrSave-btnWhite:active {
+  filter: brightness(95%);
+  scale: 0.97;
 }
 
 #btnWhite-text {
