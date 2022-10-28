@@ -247,23 +247,26 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  background-color: #f8f9fb;
+
+  background-color: white;
 }
 
 .aboutContainer__aboutList {
   margin: 0 auto;
-  padding: 0;
   list-style-type: none;
-  width: 95%;
+  width: 100%;
 }
-
+.aboutList__item {
+    background-color: #f8f9fb;
+    margin-bottom: 10px;
+}
 .aboutList__headLineContainer {
   height: 57px;
   width: 100%;
+  padding: 0 2%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #c4c4c4;
 }
 
 .headLineContainer__title {
@@ -295,16 +298,20 @@
 }
 
 .aboutList__detailsContainer {
+  border-top: 1px solid #c4c4c4;
   display: flex;
-  padding-top: 5px;
+  padding: 5px 2% 0 2%;
   overflow: hidden;
   max-height: 1000px;
   transition: max-height 1.5s ease-in-out;
+  transition: border-top 1s ease;
 }
 .aboutList__detailsContainer[aria-expanded="true"]  {
   max-height: 0px;
   transition: max-height 1s cubic-bezier(0, 1, 0, 1);
-  padding-top: 2px;
+  padding-top: 0px;
+  border-top: 1px solid transparent;
+  transition: border-top 1s ease;
 }
 
 .detailsContainer__list {
