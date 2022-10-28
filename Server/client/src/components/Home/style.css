@@ -233,6 +233,7 @@
   width: 98%;
   height: 285px;
   margin: 0 auto 64px auto;
+  padding-top: 20px;
   display: flex;
   justify-content: flex-end;
   padding-right: 55px;

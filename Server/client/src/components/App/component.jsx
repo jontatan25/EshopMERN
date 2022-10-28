@@ -19,6 +19,7 @@ import CartContextProvider,{useCartContext} from "../CartContext/context";
 import Catalog from "../../pages/Catalog";
 import Footer from "../Footer/component";
 import ProductDetail from "../../pages/ProductDetail/ProductDetail";
+import ShoppingCart from "../../pages/ShoppingCart/ShoppingCart";
 function App() {
   
   return (
@@ -43,7 +44,7 @@ function App() {
             path="/products/category/:category"
             element={<Products/>}
           ></Route>
-          <Route path="/cart" element={<Cart />}></Route>
+          <Route path="/cart" element={<ShoppingCart />}></Route>
           <Route path="/logout" element={<Logout />}></Route>
           {/* <Route path="/loginfb" element={<LoginFacebook />}></Route>
         <Route

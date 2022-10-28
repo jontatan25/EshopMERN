@@ -1,0 +1,110 @@
+.shoppingCart__url {
+  height: 36px;
+  margin: 0 auto;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #828282;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shoppingCart__title {
+  font-family: "Oswald";
+  font-size: 41px;
+  font-weight: 400;
+  line-height: 142%;
+  text-align: center;
+  margin: 0 auto 40px auto;
+}
+
+.cart__container {
+  width: 1246px;
+  margin: 0 auto;
+}
+.cart__products {
+  max-width: 883px;
+}
+
+.cart__list {
+  width: 100%;
+
+  list-style: none;
+  border-bottom: 1px #c4c4c4 solid;
+  padding: 0;
+}
+
+.cart__list-item {
+  display: flex;
+  align-items: center;
+}
+
+.cart__title {
+  font-family: "Oswald";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  text-transform: uppercase;
+  color: #828282;
+  flex: 1;
+  margin: 0;
+}
+
+.cart__title__product {
+  flex: 1.1;
+  margin-right: 30px;
+  display: flex;
+}
+.cart__title__price {
+  flex: 0.28;
+  margin-right: 34.29px;
+}
+.cart__title__size {
+  flex: 0.2;
+  margin-right: 34.29px;
+}
+.cart__title__quantity {
+  flex: 0.45;
+  margin-right: 34.29px;
+}
+.cart__title__total {
+  flex: 1;
+}
+
+.cart__product-info {
+  display: flex;
+}
+
+.cart__product-img {
+  flex: 0.45;
+  margin-right: 14px;
+  height: 100% auto;
+}
+
+.cart__product-det {
+  flex: 1;
+}
+
+.cart__product-title {
+  margin: 0 0 13px 0;
+  font-family: "Oswald";
+  font-size: 15.4px;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: 0.4px;
+}
+
+.cart__list-product {
+  height: 88.5px;
+}
+
+.cart__product-text {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+}
