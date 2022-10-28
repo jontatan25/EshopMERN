@@ -3,13 +3,13 @@ import CarouselItem from "../Carouseltem/CarouselItem";
 
 import "./style.css";
 
-const CarouselSingle = ({ title, products, filterName }) => {
+const CarouselSingle = ({ title, products, category }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const updateIndex = (newIndex) => {
     // FILTERING PRODUCTS
     const filtered = products.filter(
-      (product) => product.category === filterName
+      (product) => product.category === category
     );
     // GETTING THE AMOUNT OF MOVEMENTS BASE ON # OF PRODUCTS
     const getMovements = filtered.length - 5;
@@ -74,7 +74,7 @@ const CarouselSingle = ({ title, products, filterName }) => {
       >
         {products &&
           products
-            .filter((product) => product.category === filterName)
+            .filter((product) => product.category === category)
             .map((product) => (
               <CarouselItem
                 key={product._id}

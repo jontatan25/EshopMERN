@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductByID } from "../../service/index";
+import { getProductByID, getProducts } from "../../service/index";
 import "./style.css";
 
 import ARMANI from "../../images/brandBanner/ARMANI.png";
@@ -13,10 +13,12 @@ import GUCCI from "../../images/brandBanner/GUCCI.png";
 import VERSACE from "../../images/brandBanner/VERSACE.png";
 import ColorListItem from "../../components/ColorListItem/ColorListItem";
 import QuantitySelector from "../../components/QuantitySelector/QuantitySelector";
+import CarouselSingle from "../../components/CarouselSingle/CarouselSingle";
 
 const ProductDetail = () => {
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState(null);
+  const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
   const [activeColor, setActiveColor] = useState(null);
   const [activeSize, setActiveSize] = useState(null);
@@ -32,9 +34,11 @@ const ProductDetail = () => {
     const initProducts = async () => {
       try {
         setLoading(true);
-        const data = await getProductByID(id);
-        setProduct(data[0]);
-        // console.log(data)
+        const data = await getProducts();
+        const productToShow = data.filter((product) => product._id === id)
+        setProducts(data);
+        setProduct(productToShow[0])
+        
       } catch (error) {
         setError(error);
         console.log(error);
@@ -47,10 +51,6 @@ const ProductDetail = () => {
 
   const selectColor = (color) => {
     setActiveColor(color);
-  };
-  const selectSize = (size) => {
-    setActiveSize(size);
-    console.log(activeSize);
   };
 
   return (
@@ -728,11 +728,10 @@ const ProductDetail = () => {
                       </li>
                     </ul>
                   </div>
-                </div>
-               
-               
+                </div>    
               </div>
             </div>
+            <CarouselSingle title= "You May Also Like" products= {products} category= "NEW-ARRIVALS"/>
           </>
         )
       )}

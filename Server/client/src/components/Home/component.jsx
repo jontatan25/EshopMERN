@@ -160,12 +160,12 @@ const HomeContainer = () => {
       <CarouselSingle
         products={products}
         title="Featured Items"
-        filterName={"NEW-ARRIVALS"}
+        category={"NEW-ARRIVALS"}
       />
       <CarouselSingle
         products={products}
         title="Most Popular"
-        filterName={"TRENDING"}
+        category={"TRENDING"}
       />
       <div
         className="banner3__container"
