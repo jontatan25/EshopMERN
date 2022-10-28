@@ -399,7 +399,6 @@ const ProductDetail = () => {
                       onClick={(e) => {
                         e.preventDefault();
                         setShowDetails(!showDetails);
-                        console.log(showDetails);
                       }}
                     >
                       {showDetails ? (
@@ -617,7 +616,6 @@ const ProductDetail = () => {
                       onClick={(e) => {
                         e.preventDefault();
                         setShowOtherInfo(!showOtherInfo);
-                        console.log(showOtherInfo);
                       }}
                     >
                       {showOtherInfo ? (
