@@ -254,7 +254,11 @@ const ShoppingCart = () => {
                   Estimate Shipping and Tax
                 </h5>
                 <button
-                  className={showShipping ? "cart__payment-shipping-btn cart__payment-shipping-btn-minus" : "cart__payment-shipping-btn"}
+                  className={
+                    showShipping
+                      ? "cart__payment-shipping-btn cart__payment-shipping-btn-minus"
+                      : "cart__payment-shipping-btn"
+                  }
                   onClick={toogleShipping}
                 ></button>
               </div>
@@ -274,7 +278,7 @@ const ShoppingCart = () => {
                     onChange={useCountry}
                   >
                     <option className="shipping__information-opt" value="">
-                      --Please choose your Country--
+                      -Please choose your Country
                     </option>
                     {loading ? (
                       <h5>Loading . . .</h5>
@@ -302,11 +306,11 @@ const ShoppingCart = () => {
                   >
                     {!activeCountry ? (
                       <option className="shipping__information-opt" value="">
-                        --Please choose your Contry First--
+                        -Please choose your Country First
                       </option>
                     ) : (
                       <option className="shipping__information-opt" value="">
-                        --Please choose your state--
+                        -Please choose your state
                       </option>
                     )}
                     {loading ? (
@@ -333,6 +337,20 @@ const ShoppingCart = () => {
                     className="shipping__information-name"
                   ></input>
                 </div>
+                <span className="cart__shipping-title2">Flat Rate</span>
+                <span className="cart__shipping-rate-container">
+                <input type="radio" name="rate" value="flat" id="flat-rate" />
+                  <label className="cart__shipping-rate-lb" htmlFor="flat-rate">
+                    Fixed 5.00 EUR
+                  </label>
+                </span>
+                <span className="cart__shipping-title2">Best way</span>
+                <span className="cart__shipping-rate-container">
+                <input type="radio" name="rate" value="table" id="table-rate" />
+                  <label className="cart__shipping-rate-lb" htmlFor="table-rate">
+                    Fixed 5.00 EUR
+                  </label>
+                </span>
               </div>
             </div>
           </div>

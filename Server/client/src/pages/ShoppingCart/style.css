@@ -325,9 +325,28 @@
   width: 230px;
   border: 1px solid #c4c4c4;
 }
-option .shipping__information-opt {
-  font-family: "Roboto";
-  font-size: 14px;
-  font-weight: 400;
-  padding-left: 15px;
+
+.cart__shipping-rate-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+#flat-rate,#table-rate {
+  margin: 0;
+}
+
+.cart__shipping-title2 {
+font-family: "Oswald";
+font-size: 16px;
+font-weight: 500;
+display:block;
+margin-bottom: 13px;
+}
+
+.cart__shipping-rate-lb{
+font-family: "Roboto";
+font-size: 12px;
+font-weight: 400;
+padding-left: 10px;
+margin: 0;
 }
