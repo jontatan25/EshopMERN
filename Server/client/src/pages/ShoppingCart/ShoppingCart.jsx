@@ -1,14 +1,50 @@
 import React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import CartCountries from "../../components/CartCountries/CartCountries";
+
 import QuantitySelector from "../../components/QuantitySelector/QuantitySelector";
+import { getCountriesInfo } from "../../service";
 import "./style.css";
 
 const ShoppingCart = () => {
   const [showShipping, setShowShipping] = useState(false);
+  const [countriesInfo, setCountriesInfo] = useState(null);
+  const [activeCountry, setActiveCountry] = useState(null);
+  const [countryStates, setCountryStates] = useState(null);
+  const [loading, setLoading] = useState(null);
+  const [error, setError] = useState(null);
+
+  const getInfo = async () => {
+    try {
+      const res = await getCountriesInfo();
+      setCountriesInfo(res);
+    } catch (error) {
+      setError(error);
+    }
+  };
   const toogleShipping = () => {
     setShowShipping(!showShipping);
-    console.log(showShipping);
   };
+
+  useEffect(() => {
+    getInfo();
+    setLoading(false);
+  }, []);
+
+  const useCountry = (e) => {
+    setActiveCountry(e.target.value);
+  };
+
+  useEffect(() => {
+    if (activeCountry) {
+      const getCurrentStates = countriesInfo.filter(
+        (country) => country.name === activeCountry
+      );
+      const updatedStates = getCurrentStates[0].states;
+      setCountryStates(updatedStates);
+    }
+  }, [activeCountry]);
+
   return (
     <>
       <h5 className="shoppingCart__url">Home / ShoppingCart</h5>
@@ -218,7 +254,7 @@ const ShoppingCart = () => {
                   Estimate Shipping and Tax
                 </h5>
                 <button
-                  className="cart__payment-shipping-btn"
+                  className={showShipping ? "cart__payment-shipping-btn cart__payment-shipping-btn-minus" : "cart__payment-shipping-btn"}
                   onClick={toogleShipping}
                 ></button>
               </div>
@@ -235,16 +271,26 @@ const ShoppingCart = () => {
                     name="shipping-countr"
                     id="countr"
                     className="shipping__information-name"
+                    onChange={useCountry}
                   >
                     <option className="shipping__information-opt" value="">
-                      --Please choose an option--
+                      --Please choose your Country--
                     </option>
-                    <option className="shipping__information-opt" value="dog">
-                      Dog
-                    </option>
+                    {loading ? (
+                      <h5>Loading . . .</h5>
+                    ) : error ? (
+                      <h5>Something went wrong</h5>
+                    ) : (
+                      countriesInfo &&
+                      countriesInfo.map((country) => (
+                        <CartCountries
+                          key={country.iso3}
+                          countryName={country.name}
+                        />
+                      ))
+                    )}
                   </select>
                 </div>
-
                 <div className="cart__shipping-information-container">
                   <span className="shipping__information-title">
                     State/Province
@@ -254,12 +300,28 @@ const ShoppingCart = () => {
                     id="state"
                     className="shipping__information-name"
                   >
-                    <option className="shipping__information-opt" value="">
-                      --Please choose an option--
-                    </option>
-                    <option className="shipping__information-opt" value="dog">
-                      DogState
-                    </option>
+                    {!activeCountry ? (
+                      <option className="shipping__information-opt" value="">
+                        --Please choose your Contry First--
+                      </option>
+                    ) : (
+                      <option className="shipping__information-opt" value="">
+                        --Please choose your state--
+                      </option>
+                    )}
+                    {loading ? (
+                      <h5>Loading . . .</h5>
+                    ) : error ? (
+                      <h5>Something went wrong</h5>
+                    ) : (
+                      countryStates &&
+                      countryStates.map((state) => (
+                        <CartCountries
+                          key={state.state_code}
+                          countryName={state.name}
+                        />
+                      ))
+                    )}
                   </select>
                 </div>
                 <div className="cart__shipping-information-container">

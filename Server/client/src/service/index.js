@@ -25,4 +25,11 @@ import axios from "axios";
   );
   return res.data.product;
 };
- export {getProducts,getProductByID};
+ async function getCountriesInfo() {
+  const res = await axios.get(
+   " https://countriesnow.space/api/v0.1/countries/states"
+  );
+  return res.data.data;
+};
+ export {getProducts,getProductByID,getCountriesInfo};
+

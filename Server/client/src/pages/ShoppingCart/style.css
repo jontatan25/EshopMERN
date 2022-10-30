@@ -262,6 +262,14 @@
   background-image: url("../../images/buttons/plus-hover.svg");
 }
 
+.cart__payment-shipping-btn-minus {
+  background-image: url("../../images/buttons/minus.svg");
+}
+
+.cart__payment-shipping-btn-minus:hover {
+  cursor: pointer;
+  background-image: url("../../images/buttons/minus-hover.svg");
+}
 .cart__shipping {
   width: 100%;
 }
