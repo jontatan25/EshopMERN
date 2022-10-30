@@ -34,13 +34,18 @@
   width: 100%;
 
   list-style: none;
-  border-bottom: 1px #c4c4c4 solid;
   padding: 0;
 }
 
 .cart__list-item {
   display: flex;
   align-items: center;
+}
+.cart__list-item-categories {
+
+  border-bottom: 1px #c4c4c4 solid;
+  padding-bottom: 15.4px;
+  margin-bottom: 20.6px;
 }
 
 .cart__title {
@@ -58,9 +63,10 @@
   flex: 1.1;
   margin-right: 30px;
   display: flex;
+  height: 100%;
 }
 .cart__title__price {
-  flex: 0.28;
+  flex: 0.3;
   margin-right: 34.29px;
 }
 .cart__title__size {
@@ -82,26 +88,38 @@
 .cart__product-img {
   flex: 0.45;
   margin-right: 14px;
-  height: 100% auto;
+  height: 100%;
+  width: auto;
+}
+
+.cart__product-title {
+  margin: 0 0 7px 0;
+  font-family: "Oswald";
+  font-size: 15.4px;
+  font-weight: 500;
+  line-height: 23px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
 }
 
 .cart__product-det {
   flex: 1;
 }
 
-.cart__product-title {
-  margin: 0 0 13px 0;
-  font-family: "Oswald";
-  font-size: 15.4px;
-  font-weight: 500;
-  line-height: 23px;
-  letter-spacing: 0.4px;
-}
-
 .cart__list-product {
-  height: 88.5px;
+  height: auto;
+  margin-bottom: 15.6px;
+  display: flex;
+  flex-direction: column;
 }
 
+.cart__product-container {
+  height: 88.5px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15.26px;
+}
 .cart__product-text {
   font-family: "Roboto";
   font-weight: 500;
