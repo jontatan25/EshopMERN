@@ -33,8 +33,9 @@
   transition: all 0.2s ease;
 }
 .selectSize__listItem-btn:active {
-  border: black 2px solid;
+  filter: brightness(93%);
   scale: 1.05;
+
 }
 
 .-activeSizeBtn {

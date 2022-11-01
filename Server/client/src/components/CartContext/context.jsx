@@ -6,13 +6,14 @@ const CartContext = createContext([]);
 // avoiding to import Usecontext everywhere
 export const useCartContext =  ()  => useContext(CartContext);
 
-
 const CartContextProvider = ({children}) => {
 
-    const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
     const [data, setData] = useState([]);
     
+    const addOneProduct = (product) =>{
+        
+    }
     // const deleteItem = (id) => {
     //     Swal.fire({
     //         title: "Are you sure?",
@@ -50,7 +51,6 @@ const CartContextProvider = ({children}) => {
         <CartContext.Provider value={{
             cart,setCart,
             data,setData,
-            products,setProducts,
             // deleteItem,deleteAll
         }}>
             {children}

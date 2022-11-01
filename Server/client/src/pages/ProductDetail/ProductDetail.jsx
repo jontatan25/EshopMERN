@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProductByID, getProducts } from "../../service/index";
+import { getProducts } from "../../service/index";
 import "./style.css";
 
 import ARMANI from "../../images/brandBanner/ARMANI.png";
@@ -14,14 +14,17 @@ import VERSACE from "../../images/brandBanner/VERSACE.png";
 import ColorListItem from "../../components/ColorListItem/ColorListItem";
 import QuantitySelector from "../../components/QuantitySelector/QuantitySelector";
 import CarouselSingle from "../../components/CarouselSingle/CarouselSingle";
+import { useCartContext } from "../../components/CartContext/context";
+
 
 const ProductDetail = () => {
+ const{cart} = useCartContext();
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState(null);
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
-  const [activeColor, setActiveColor] = useState(null);
-  const [activeSize, setActiveSize] = useState(null);
+  const [activeColor, setActiveColor] = useState("blue");
+  const [activeSize, setActiveSize] = useState("OSFA");
 
   const [showDetails, setShowDetails] = useState(false);
   const [showOtherInfo, setShowOtherInfo] = useState(false);
