@@ -1,5 +1,7 @@
 import { React, useEffect, useState } from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
+
 import carrouselBackground from "../../images/carrousel/carrousel-background.jpg";
 import smallImage from "../../images/carrousel/smallImg.jpg";
 import bigImage from "../../images/carrousel/bigImage.jpg";
@@ -183,7 +185,7 @@ const HomeContainer = () => {
       <div className="blog__container">
         <h3 className="blog__title">Blog</h3>
         <div className="blog__container-flex">
-          <div className="blog__article-item">
+          <Link to="/blog" className="blog__article-item">
             <h4 className="blog__article-type">ARTICLE</h4>
             <h5 className="article__title">
               Exactly What To Wear To Every Type Of Wedding This Summer
@@ -196,8 +198,8 @@ const HomeContainer = () => {
               and additionally, it costs money.
             </p>
             <span className="article__details">21 January 2018 by guido</span>
-          </div>
-          <div className="blog__article-item">
+          </Link>
+          <Link to="/blog" className="blog__article-item">
             <h4 className="blog__article-type">ARTICLE</h4>
             <h5 className="article__title">
               Exactly What To Wear To Every Type Of Wedding This Summer
@@ -210,8 +212,8 @@ const HomeContainer = () => {
               and additionally, it costs money.
             </p>
             <span className="article__details">21 January 2018 by guido</span>
-          </div>
-          <div className="blog__article-item">
+          </Link>
+          <Link to="/blog" className="blog__article-item">
             <h4 className="blog__article-type">ARTICLE</h4>
             <h5 className="article__title">
               Exactly What To Wear To Every Type Of Wedding This Summer
@@ -224,8 +226,8 @@ const HomeContainer = () => {
               and additionally, it costs money.
             </p>
             <span className="article__details">21 January 2018 by guido</span>
-          </div>
-          <div className="blog__article-item">
+          </Link>
+          <Link to="/blog" className="blog__article-item">
             <h4 className="blog__article-type">ARTICLE</h4>
             <h5 className="article__title">
               Exactly What To Wear To Every Type Of Wedding This Summer
@@ -238,7 +240,7 @@ const HomeContainer = () => {
               and additionally, it costs money.
             </p>
             <span className="article__details">21 January 2018 by guido</span>
-          </div>
+          </Link>
         </div>
       </div>
     </>

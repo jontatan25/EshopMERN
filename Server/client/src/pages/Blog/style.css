@@ -74,8 +74,8 @@
   line-height: 167%;
   color: #3f3f3f;
 
-  margin-bottom: 40px;
-  
+  margin-bottom: 30px;
+  white-space: pre-line;
 }
 
 .banner__ads-1 {
@@ -84,7 +84,16 @@
  background-image: url(../../images/blog/image3.jpg);
  background-size:  100% auto;
  margin-bottom: 19.7px;
+ transition: all 0.3s ease
 }
+.banner__ads-1:hover {
+    cursor: pointer;
+    scale: 1.02;
+   }
+.banner__ads-1:active {
+    cursor: pointer;
+    scale: 1;
+   }
 .banner__ads-2 {
  background-image: url(../../images/blog/image4.jpg);
  margin-bottom: 0;
