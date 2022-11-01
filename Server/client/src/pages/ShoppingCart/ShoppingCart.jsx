@@ -47,7 +47,7 @@ const ShoppingCart = () => {
 
   return (
     <>
-      <h5 className="shoppingCart__url">Home / ShoppingCart</h5>
+      <h5 className="shoppingCart__url">Home / Blog</h5>
       <h3 className="shoppingCart__title">Shopping Cart</h3>
       <div className="cart__container">
         <div className="cart__products">
@@ -332,29 +332,58 @@ const ShoppingCart = () => {
                   <span className="shipping__information-title">
                     Zip/Postal Code
                   </span>
-                  <input
-                    type="text"
-                    className="shipping__information-name"
-                  ></input>
+                  <input type="text" className="shipping__information-name" />
                 </div>
                 <span className="cart__shipping-title2">Flat Rate</span>
-                <span className="cart__shipping-rate-container">
-                <input type="radio" name="rate" value="flat" id="flat-rate" />
-                  <label className="cart__shipping-rate-lb" htmlFor="flat-rate">
+                <div className="cart__shipping-rate-container">
+                  <label
+                    className="cart__shipping-rate-lb"
+                    htmlFor="flat-rate"
+                  >
+                    <input
+                      type="radio"
+                      name="rate"
+                      value="flat"
+                      id="flat-rate"
+                    />
+                    <span></span>
                     Fixed 5.00 EUR
                   </label>
-                </span>
+                </div>
                 <span className="cart__shipping-title2">Best way</span>
                 <span className="cart__shipping-rate-container">
-                <input type="radio" name="rate" value="table" id="table-rate" />
-                  <label className="cart__shipping-rate-lb" htmlFor="table-rate">
+                  <label
+                    className="cart__shipping-rate-lb"
+                    htmlFor="table-rate"
+                  >
+                  <input
+                    type="radio"
+                    name="rate"
+                    value="table"
+                    id="table-rate"
+                  />
+                  <span></span>
                     Fixed 5.00 EUR
                   </label>
                 </span>
               </div>
             </div>
           </div>
-          <div className="cart__payment-checkout"></div>
+          <div className="cart__payment-checkout">
+            <div className="cart__subtotal">
+          <span className="cart__subtotal-title">Subtotal </span>
+          <span className="cart__subtotal-title">120.00 EUR</span>
+            </div>
+            <div className="cart__subtotal">
+          <span className="cart__subtotal-title cart__subtotal-title-grey">Tax </span>
+          <span className="cart__subtotal-title cart__subtotal-title-grey">00.00 EUR</span>
+            </div>
+            <div className="cart__subtotal ">
+          <span className="cart__subtotal-title cart__total-title">Order Total </span>
+          <span className="cart__subtotal-title cart__total-title">120.00 EUR</span>
+            </div>
+         <button className="cart__total-btn">proceed to checkout</button>
+          </div>
         </div>
       </div>
     </>

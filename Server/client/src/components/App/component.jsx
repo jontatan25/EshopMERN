@@ -20,6 +20,7 @@ import Catalog from "../../pages/Catalog";
 import Footer from "../Footer/component";
 import ProductDetail from "../../pages/ProductDetail/ProductDetail";
 import ShoppingCart from "../../pages/ShoppingCart/ShoppingCart";
+import Blog from "../../pages/Blog/Blog";
 function App() {
   
   return (
@@ -30,20 +31,21 @@ function App() {
           <Route path="/" element={<HomeContainer/>}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
-          <Route
+          <Route path="/blog" element={<Blog/>}></Route>
+          {/* <Route
             path="/chat"
             element={<Chat/>}
-          ></Route>
+          ></Route> */}
           <Route
             path="/chat/:email"
             element={<Chat/>}
           ></Route>     
           <Route path="/products" element={<Catalog/>}></Route>
           <Route path="/products/:id" element={<ProductDetail/>}></Route>
-          <Route
+          {/* <Route
             path="/products/category/:category"
             element={<Products/>}
-          ></Route>
+          ></Route> */}
           <Route path="/cart" element={<ShoppingCart />}></Route>
           <Route path="/logout" element={<Logout />}></Route>
           {/* <Route path="/loginfb" element={<LoginFacebook />}></Route>
