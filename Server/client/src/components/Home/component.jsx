@@ -64,7 +64,9 @@ const HomeContainer = () => {
                 ON ALL DRESS.
               </h2>
             </div>
+            <Link to="/products?filterProducts=30%off">
             <BtnTransparent text={"SHOP NOW"} />
+            </Link>
           </div>
           <div className="carousel__images">
             <div
@@ -120,7 +122,9 @@ const HomeContainer = () => {
                 CHOOSE <br></br> YOUR LOOK
               </h3>
               <p className="promo__text">See our clothing collections</p>
+              <Link to="/products">
               <BtnTransparent text={"SEE OFFERS"} />
+              </Link>
             </div>
           </div>
           <div
@@ -141,7 +145,9 @@ const HomeContainer = () => {
           <div className="promotion__promo-three-container">
             <h3 className="promo__title-three">UP TO 40% OFF</h3>
             <p className="promo__text-three">Special offers and great deals</p>
+            <Link to="/products?filterProducts=40%off">
             <BtnTransparent text={"SHOP NOW"} />
+            </Link>
           </div>
         </div>
       </div>

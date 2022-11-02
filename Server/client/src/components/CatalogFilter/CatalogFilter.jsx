@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css"
 
-const CatalogFilter = ({setFilteredProducts,products}) => {
+const CatalogFilter = ({setFilteredProducts, products, queryFilter}) => {
   const [showBrand, setShowBrand] = useState(false);
   const [showSale, setShowSale] = useState(false);
   const [showColor, setShowColor] = useState(false);
@@ -138,6 +138,13 @@ const CatalogFilter = ({setFilteredProducts,products}) => {
     }
     setFilteredProducts(productsWithFiltersApplied);
   };
+  useEffect(() => {
+    if (((queryFilter === "40%off")|| (queryFilter === "30%off"))&& products) {
+      const transformedQuery = queryFilter.toUpperCase()
+     toogleFilter(transformedQuery,"promo")
+    } 
+
+  },[products])
   return (
     <div className="productsContainer__filter">
       <ul className="productsContainer__list">
