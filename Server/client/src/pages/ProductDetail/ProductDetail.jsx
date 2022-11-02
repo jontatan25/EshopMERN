@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getProducts } from "../../service/index";
 import "./style.css";
 
@@ -24,12 +24,13 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
-  const [activeColor, setActiveColor] = useState("blue");
+  const [activeColor, setActiveColor] = useState("#24426a");
   const [activeSize, setActiveSize] = useState("OSFA");
 
   const [showDetails, setShowDetails] = useState(false);
   const [showOtherInfo, setShowOtherInfo] = useState(false);
   const [showOtherTab, setShowOtherTab] = useState(false);
+  let navigate = useNavigate();
 
   const token = JSON.parse(localStorage.getItem("user"));
   const { id } = useParams();
@@ -73,6 +74,7 @@ const ProductDetail = () => {
       productWithSelectedOptions.size = activeSize;
       productWithSelectedOptions.quantity = quantity;
       addProduct(productWithSelectedOptions)
+      navigate("/cart")
   }
 
   return (
@@ -200,38 +202,38 @@ const ProductDetail = () => {
                 <ul className="selectColor__list">
                   <li
                     className={
-                      activeColor === "blue"
+                      activeColor === "#24426a"
                         ? "selectColor__list-color -colorIsActive"
                         : "selectColor__list-color"
                     }
                   >
                     <button
                       className="selectColor__list-btn -colorOne"
-                      onClick={() => selectColor("blue")}
+                      onClick={() => selectColor("#24426a")}
                     ></button>
                   </li>
                   <li
                     className={
-                      activeColor === "white"
+                      activeColor === "#f3ece2"
                         ? "selectColor__list-color -colorIsActive"
                         : "selectColor__list-color"
                     }
                   >
                     <button
                       className="selectColor__list-btn -colorTwo"
-                      onClick={() => selectColor("white")}
+                      onClick={() => selectColor("#f3ece2")}
                     ></button>
                   </li>
                   <li
                     className={
-                      activeColor === "purple"
+                      activeColor === "#C35C71"
                         ? "selectColor__list-color -colorIsActive"
                         : "selectColor__list-color"
                     }
                   >
                     <button
                       className="selectColor__list-btn -colorThree"
-                      onClick={() => selectColor("purple")}
+                      onClick={() => selectColor("#C35C71")}
                     ></button>
                   </li>
                 </ul>

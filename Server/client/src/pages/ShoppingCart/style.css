@@ -30,6 +30,8 @@
 }
 .cart__products {
   max-width: 883px;
+  width: 100%;
+  margin-right: 20px;
 }
 
 .cart__list {
@@ -97,6 +99,8 @@
 }
 
 .cart__product-title {
+  height: 46px;
+  overflow: hidden;
   margin: 0 0 7px 0;
   font-family: "Oswald";
   font-size: 15.4px;
@@ -459,4 +463,12 @@
 
 .cart__total-btn:active {
   scale: 0.96;
+}
+
+.cart__list-empty {
+  padding: 50px 0;
+}
+
+.cart__product-title-empty {
+  font-size: 25px;
 }
