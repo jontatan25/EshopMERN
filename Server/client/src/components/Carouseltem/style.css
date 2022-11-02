@@ -20,11 +20,78 @@
   margin-right: 29px;
 }
 
+.collection__item:hover .collection__item-photo-container > div {
+  opacity: 1;
+}
+
 .collection__item-photo-container {
   width: 100%;
   height: 352px;
   background-size: 100% auto;
   margin-bottom: 10px;
+  position: relative;
+}
+
+.collection__item-photo-container-options {
+  position: absolute;
+  bottom: 0;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  background-color: #ffffff;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.collection__item-photo-container-options-btn {
+  width: 120px;
+  height: 42px;
+  background-color: black;
+  color: #ffffff;
+
+  font-family: "Oswald";
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  text-align: center;
+  border: 2px solid black;
+
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.collection__item-photo-container-options-btn:hover {
+  cursor: pointer;
+  background-color: #eb5757;
+  border: 2px solid #eb5757;
+}
+
+.-options-btn-white {
+  background-color: white;
+  color: #828282;
+  border: 2px solid #c4c4c4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.-options-btn-white:hover {
+  color: #3f3f3f;
+  border: 2px solid #828282;
+  background-color: white;
+}
+.collection__item-addOrSave-icon {
+  margin-right: 4px;
+}
+.collection__item-addOrSave-icon path {
+  transition: all 0.3s ease-in-out;
+}
+.collection__item-photo-container-options-btn:hover .collection__item-addOrSave-icon path{
+  fill: #3f3f3f;
+  stroke: #3f3f3f;
 }
 
 .collection__item-title {
