@@ -9,11 +9,9 @@ import Signup from "../Signup/component";
 
 import "./style.css";
 import Chat from "../Chat/component";
-import Products from "../Products/component";
-import Cart from "../Cart/component";
 import Logout from "../Logout/component";
 
-import CartContextProvider,{useCartContext} from "../CartContext/context";
+import CartContextProvider from "../CartContext/context";
 // import ItemDetailContainer from "../ItemDetail/ItemDetailContainer";
 
 import Catalog from "../../pages/Catalog";

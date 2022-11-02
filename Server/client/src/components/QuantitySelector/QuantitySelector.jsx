@@ -1,13 +1,17 @@
 import React from "react";
-import { useState } from "react";
+import { useEffect } from "react";
 import "./style.css";
 
-const QuantitySelector = () => {
-  const [quantity, setQuantity] = useState(1);
+const QuantitySelector = ({ quantity, setQuantity }) => {
+  const updateQuantity = (number) => {
+    if ((quantity >= 0 && number === 1)|| (quantity > 0 && number === -1))
+    setQuantity(quantity + number);
+  };
+
   return (
     <div className="quantitySelectorContainer">
-      <button className="quantitySelectorBtn">
-        <svg 
+      <button className="quantitySelectorBtn" onClick={() => updateQuantity(-1)}>
+        <svg
           width="20"
           height="2"
           viewBox="0 0 10 2"
@@ -18,8 +22,8 @@ const QuantitySelector = () => {
         </svg>
       </button>
       <h5 className="quantitySelectorText">{quantity}</h5>
-      <button className="quantitySelectorBtn">
-        <svg 
+      <button className="quantitySelectorBtn" onClick={()=> updateQuantity(1)}>
+        <svg
           width="12"
           height="12"
           viewBox="0 0 12 12"

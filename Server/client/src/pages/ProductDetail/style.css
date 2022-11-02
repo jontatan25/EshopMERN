@@ -126,7 +126,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.2s ease;
 }
 .selectColor__list-color:hover {
  scale: 1.1;
@@ -151,6 +150,9 @@
 
 .-colorIsActive {
   border: 2px solid black;
+}
+.-colorIsActive:hover {
+ scale: 1;
 }
 
 .selectSize__list {
