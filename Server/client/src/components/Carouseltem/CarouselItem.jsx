@@ -1,7 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
-const CarouselItem = ({ urlPhoto, itemTitle, description, price }) => {
+const CarouselItem = ({ urlPhoto, itemTitle, description, price, productID,linkForFilter}) => {
+
+  // Changing url depending on the actual position of the component
+  let linkToProduct = `products/${productID}`
+  if (linkForFilter) {
+    linkToProduct = productID
+  }
+
   return (
     <div className="collection__item">
       <div
@@ -9,9 +17,11 @@ const CarouselItem = ({ urlPhoto, itemTitle, description, price }) => {
         style={{ backgroundImage: `url(${urlPhoto})` }}
       >
         <div className="collection__item-photo-container-options">
+          <Link to={linkToProduct}>
           <button className="collection__item-photo-container-options-btn">
             ADD TO BAG
           </button>
+          </Link>
           <button className="collection__item-photo-container-options-btn -options-btn-white">
             <svg
               className="collection__item-addOrSave-icon"

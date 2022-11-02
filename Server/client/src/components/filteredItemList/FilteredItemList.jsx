@@ -145,6 +145,7 @@ const FilteredItemList = ({ loading, products, error }) => {
             filteredProducts.map((product) => (
               <CarouselItem
                 key={product._id}
+                productID = {product._id}
                 urlPhoto={product.URLPhoto}
                 itemTitle={product.category}
                 description={product.name}
@@ -155,6 +156,7 @@ const FilteredItemList = ({ loading, products, error }) => {
             products?.map((product) => (
               <CarouselItem
                 key={product._id}
+                productID = {product._id}
                 urlPhoto={product.URLPhoto}
                 itemTitle={product.category}
                 description={product.name}

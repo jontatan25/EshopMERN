@@ -60,20 +60,24 @@ const Catalog = () => {
               filteredProducts.map((product) => (
                 <CarouselItem
                   key={product._id}
+                  productID = {product._id}
                   urlPhoto={product.URLPhoto}
                   itemTitle={product.category}
                   description={product.name}
                   price={product.price}
+                  linkForFilter= {true}
                 />
               ))
             ) : (
               products?.map((product) => (
                 <CarouselItem
                   key={product._id}
+                  productID = {product._id}
                   urlPhoto={product.URLPhoto}
                   itemTitle={product.category}
                   description={product.name}
                   price={product.price}
+                  linkForFilter= {true}
                 />
               ))
             )}
@@ -96,10 +100,12 @@ const Catalog = () => {
               products?.map((product) => (
                 <CarouselItem
                   key={product._id}
+                  productID = {product._id}
                   urlPhoto={product.URLPhoto}
                   itemTitle={product.category}
                   description={product.name}
                   price={product.price}
+                  linkForFilter= {true}
                 />
               ))
             )}

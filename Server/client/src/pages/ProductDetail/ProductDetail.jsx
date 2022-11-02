@@ -63,10 +63,6 @@ const ProductDetail = () => {
       setTotalPrice(product.price*quantity)
     }
   }, [quantity]);
-  
-  useEffect(() => {
-    console.log(cart)
-  }, [cart]);
 
   const saveProduct = () => {
       const productWithSelectedOptions = {...product}
