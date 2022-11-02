@@ -1,7 +1,12 @@
 import React from 'react'
+import { useCartContext } from '../CartContext/context'
 import QuantitySelector from '../QuantitySelector/QuantitySelector'
 
+
+
 const CartProduct = ({product}) => {
+
+    const {deleteItemByID} = useCartContext();
   return (
     <div className="cart__product-container">
     <div className="cart__title__product">
@@ -40,7 +45,7 @@ const CartProduct = ({product}) => {
       {product.size}
     </span>
     <span className="cart__title__quantity cart__product-text">
-      <QuantitySelector />
+      <QuantitySelector cartMode ={true}  id ={product._id} quantityInCart = {product.quantity}/>
     </span>
     <div className="cart__title__total">
       <span className="cart__product-price"> {product.price*product.quantity},00 EUR</span>
@@ -61,7 +66,7 @@ const CartProduct = ({product}) => {
           />
         </svg>
       </button>
-      <button className="cart__product-btn-del">
+      <button className="cart__product-btn-del" onClick={() => deleteItemByID(product._id)}>
         <svg
           width="24"
           height="24"

@@ -4,7 +4,6 @@ import { useCartContext } from "../../components/CartContext/context";
 import CartCountries from "../../components/CartCountries/CartCountries";
 import CartProduct from "../../components/CartProduct/CartProduct";
 
-import QuantitySelector from "../../components/QuantitySelector/QuantitySelector";
 import { getCountriesInfo } from "../../service";
 import "./style.css";
 
@@ -16,7 +15,7 @@ const ShoppingCart = () => {
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
-  const {cart,addProduct} = useCartContext();
+  const {cart,deleteAllFromCart} = useCartContext();
 
   const getInfo = async () => {
     try {
@@ -48,10 +47,7 @@ const ShoppingCart = () => {
       setCountryStates(updatedStates);
     }
   }, [activeCountry]);
-
-  useEffect(() => {
-    console.log(cart)
-  },[cart])
+  
   return (
     <>
       <h5 className="shoppingCart__url">Home / Blog</h5>
@@ -76,7 +72,9 @@ const ShoppingCart = () => {
             </li>
             <li className="cart__list-item cart__list-options">
               <button className="cart__options-btn">CONTINUE SHOPPING</button>
-              <button className="cart__options-btn options-btn-clear">
+              <button className="cart__options-btn options-btn-clear"
+                onClick={() =>{deleteAllFromCart()}}
+               >
                 CLEAR SHOPPING CART
               </button>
             </li>

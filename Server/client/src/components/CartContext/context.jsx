@@ -10,18 +10,38 @@ const CartContextProvider = ({ children }) => {
   const [data, setData] = useState([]);
 
   const addProduct = (productWithOptions) => {
-    const productIndex = cart.findIndex((product) => product._id === productWithOptions._id);
+    const productIndex = cart.findIndex(
+      (product) => product._id === productWithOptions._id
+    );
 
     if (productIndex === -1) {
       const updatedCart = [...cart];
       updatedCart.push(productWithOptions);
       setCart(updatedCart);
     } else {
-        const updatedCart = [...cart];
-        updatedCart[productIndex] = productWithOptions
-        setCart(updatedCart);
+      const updatedCart = [...cart];
+      updatedCart[productIndex] = productWithOptions;
+      setCart(updatedCart);
     }
   };
+
+  const updateItemQuantity = (productID, newquantity) => {
+    const productIndex = cart.findIndex(
+      (product) => product._id === productID
+    );
+    const updatedCart = [...cart];
+    updatedCart[productIndex].quantity = newquantity;
+    setCart(updatedCart);
+  };
+
+  const deleteItemByID = (productID) => {
+      const updatedCart = cart.filter(product => product._id != productID)
+      setCart(updatedCart);
+  }
+  const deleteAllFromCart = () => {
+      const updatedCart = []
+      setCart(updatedCart);
+  }
   // const deleteItem = (id) => {
   //     Swal.fire({
   //         title: "Are you sure?",
@@ -63,7 +83,9 @@ const CartContextProvider = ({ children }) => {
         data,
         setData,
         addProduct,
-        // deleteItem,deleteAll
+        updateItemQuantity,
+        deleteItemByID,
+        deleteAllFromCart,
       }}
     >
       {children}
