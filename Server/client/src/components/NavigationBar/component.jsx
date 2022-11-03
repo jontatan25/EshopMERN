@@ -2,8 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./style.css";
 import logo from "../../images/logo/logo.svg";
+import { useCartContext } from "../CartContext/context";
 
 const NavigationBar = () => {
+  const {showLogin, setShowLogin} = useCartContext()
   return (
     <>
       <div className="header__Container">
@@ -45,10 +47,10 @@ const NavigationBar = () => {
         </nav>
         <div className="nav__login-container">
           <ul className="nav__login-list">
-            <li className="nav__listItem">
-              <NavLink className="nav-link" to="/login">
-                SIGN&nbsp;IN
-              </NavLink>
+            <li className="nav__listItem">            
+                <button className="nav__link-login" onClick={() =>{
+                  setShowLogin(!showLogin)
+                }}>SIGN&nbsp;IN</button>
             </li>
             <li className="nav__listItem">
               <NavLink className="nav-link" to="/signup">

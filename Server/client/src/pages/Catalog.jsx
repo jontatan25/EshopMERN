@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useEffect, useState } from "react";
 import Banner2 from "../components/Banner2.jsx/Banner2";
 import "./style.css";
@@ -56,6 +56,7 @@ const Catalog = () => {
           "You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!"
         }
         btnText="SHOP NOW"
+        scroll = {true}
       />
       <span className="catalog__location">
         Home / Womens Dress / Best Chose

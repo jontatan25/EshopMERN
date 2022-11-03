@@ -1,0 +1,117 @@
+.login__container {
+  width: 350px;
+  height: 100%;
+  padding: 32px 27px;
+
+  background-color: #ffffff;
+  position: fixed;
+  right: 0;
+
+  border: 1px solid #c4c4c4;
+  transform: translateX(360px);
+  transition: all 0.5s ease-in-out;
+  z-index: 2;
+}
+.login__container-active {
+    transform: none;
+}
+.login__btn-close {
+  border: none;
+  padding: 0;
+  height: 24px;
+  width: 24px;
+  background-color: white;
+  transition: all 0.1s ease-in-out;
+}
+
+.login__btn-close:hover {
+  cursor: pointer;
+}
+.login__btn-close:active {
+  scale: 0.95;
+}
+.login__btn-close:hover svg path {
+  stroke: #828282;
+}
+.login__btn-close:active svg path {
+  stroke: #3f3f3f;
+}
+
+.login__title {
+  font-family: "Oswald";
+  font-size: 20.6px;
+  font-weight: 400;
+  margin: 20px 0 ;
+}
+.login__field {
+  border: 1px solid #c4c4c4;
+  width: 100%;
+  height: 37.7px;
+  margin-bottom: 15.4px;
+  padding-left: 14px;
+
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+  color: #3f3f3f;
+}
+.login__field::placeholder {
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.login__ag-text {
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  color: #828282;
+  padding-left: 5px;
+  width: 90%;
+  line-height: 17px;
+}
+
+.login__ag-container {
+  display: flex;
+  align-items: top;
+  margin-bottom: 50px;
+}
+
+#login__ag {
+  display: flex;
+  align-items: center;
+  height: 13px;
+}
+.login__btn{
+  width: 100%;
+  height: 42.8px;
+  border: 2px solid #c4c4c4;
+  color: #3f3f3f;
+
+  font-family: "Oswald";
+  font-weight: 500;
+  font-size: 12px;
+  background-color: white;
+
+  margin-bottom: 13px;
+  transition: all 0.3s ease;
+}
+.login__btn:hover {
+    border: 2px solid #3f3f3f;
+    cursor: pointer;
+}
+.login__btn:active {
+    filter: brightness(93%)
+}
+
+.login__btn-createAcc {
+    border: 2px solid black;
+    background-color: black;
+
+    color: white;
+}
+
+.login__btn-createAcc:hover {
+    border: 2px solid #EB5757;
+    background-color: #EB5757;
+}

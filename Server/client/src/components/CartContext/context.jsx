@@ -8,6 +8,7 @@ export const useCartContext = () => useContext(CartContext);
 const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [data, setData] = useState([]);
+  const [showLogin, setShowLogin] = useState(true);
 
   const addProduct = (productWithOptions) => {
     const productIndex = cart.findIndex(
@@ -86,6 +87,7 @@ const CartContextProvider = ({ children }) => {
         updateItemQuantity,
         deleteItemByID,
         deleteAllFromCart,
+        showLogin,setShowLogin
       }}
     >
       {children}

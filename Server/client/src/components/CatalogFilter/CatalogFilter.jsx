@@ -267,7 +267,7 @@ const CatalogFilter = ({ setFilteredProducts, products, queryFilter }) => {
                   id="off30"
                   value="30%OFF"
                   onChange={(e) => toogleFilter(e.target.value, "promo")}
-                  checked
+                  defaultChecked={true}
                 />
               ) : (
                 <input

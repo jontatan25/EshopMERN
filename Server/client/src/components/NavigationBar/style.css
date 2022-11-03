@@ -1,5 +1,8 @@
 .active {
   color: #ff8811;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .header__Container {
@@ -10,10 +13,6 @@
   padding: 0 15px;
   height: 90px;
   width: 100%;
-  font-family: "Oswald", sans-serif;
-  font-weight: 600;
-  font-size: 13px;
-  line-height: 20px;
   margin-bottom: 20px;
 }
 
@@ -53,10 +52,30 @@
   border-bottom: 1px solid black;
 }
 
+.nav-link {
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
 .nav-link:visited {
   color: black;
 }
 
+.nav__link-login {
+  width: 100%;
+  height: 20.48px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  font-family: "Oswald", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nav__link-login:hover {
+ cursor: pointer;
+}
 .nav__login-container {
   flex: 1;
 }
@@ -66,6 +85,4 @@
   justify-content: right;
   list-style-type: none;
 }
-.nav__login-list li :last-child {
-  margin: 0 5px;
-}
+

@@ -4,7 +4,6 @@ import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
 
 import NavigationBar from "../NavigationBar/component";
 import HomeContainer from "../Home/component";
-import Login from "../Login/component";
 import Signup from "../Signup/component";
 
 import "./style.css";
@@ -12,6 +11,7 @@ import Chat from "../Chat/component";
 import Logout from "../Logout/component";
 
 import CartContextProvider from "../CartContext/context";
+// import Login from "../Login/component";
 // import ItemDetailContainer from "../ItemDetail/ItemDetailContainer";
 
 import Catalog from "../../pages/Catalog";
@@ -19,15 +19,17 @@ import Footer from "../Footer/component";
 import ProductDetail from "../../pages/ProductDetail/ProductDetail";
 import ShoppingCart from "../../pages/ShoppingCart/ShoppingCart";
 import Blog from "../../pages/Blog/Blog";
+import UserLogin from "../UserLogin/UserLogin";
+
 function App() {
   
   return (
     <CartContextProvider>
       <BrowserRouter>
         <NavigationBar />
+        <UserLogin />
         <Routes>
           <Route path="/" element={<HomeContainer/>}></Route>
-          <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/blog" element={<Blog/>}></Route>
           {/* <Route
