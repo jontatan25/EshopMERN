@@ -316,6 +316,9 @@
   cursor: pointer;
   scale: 1.02;
 }
+.blog__article-item:active {
+  scale: 1;
+}
 
 .blog__article-type {
   font-family: "Oswald";
