@@ -134,7 +134,9 @@ const HomeContainer = () => {
             <div className="promotion__promo-two-container">
               <h3 className="promo__title-two">BRAND NEW STYLE</h3>
               <p className="promo__text-two">Popular clothing brands</p>
+             <Link to="/products?filterProducts=showbrands">
               <BtnTransparent text={"SEE OFFERS"} />
+              </Link>
             </div>
           </div>
         </div>
@@ -185,7 +187,9 @@ const HomeContainer = () => {
             You can choose the best option for you, and it does not matter
             whether you are in Prague or San Francisco.
           </p>
+          <Link to = "/products?filterProducts=showcolors">
           <BtnTransparent text = "SHOP NOW"/>
+          </Link>
         </div>
       </div>
       <div className="blog__container">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useEffect, useState } from "react";
 import Banner2 from "../components/Banner2.jsx/Banner2";
 import "./style.css";
@@ -8,19 +8,19 @@ import catalogBackgroundDark from "../images/banner/catalog-banner2.jpg";
 import CarouselItem from "../components/Carouseltem/CarouselItem";
 import { getProducts } from "../service/index";
 import CatalogFilter from "../components/CatalogFilter/CatalogFilter";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 
 const Catalog = () => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
-  
+
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   const useQuery = () => new URLSearchParams(useLocation().search);
   let query = useQuery();
-  const queryFilter= query.get('filterProducts')
-
+  const queryFilter = query.get("filterProducts");
+  
   useEffect(() => {
     const initProducts = async () => {
       try {
@@ -36,12 +36,16 @@ const Catalog = () => {
     };
     initProducts();
   }, []);
-// useEffect(() =>{
-//   console.log(queryFilter)
-// },[])
+
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    if (queryFilter) {
+      window.scrollTo({
+        top: 470,
+        behavior: 'smooth',
+      });
+    } else
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
@@ -57,22 +61,20 @@ const Catalog = () => {
         Home / Womens Dress / Best Chose
       </span>
       <div className="productsContainer">
-        {
-           loading ? (
-            <h2></h2>
-          ) : error ? (
-            <h2>Something went Wrong. Try again Later</h2>
-          ) :
+        {loading ? (
+          <h2></h2>
+        ) : error ? (
+          <h2>Something went Wrong. Try again Later</h2>
+        ) : (
           <CatalogFilter
-          setFilteredProducts={setFilteredProducts}
-          products={products}
-          queryFilter = {queryFilter}
+            setFilteredProducts={setFilteredProducts}
+            products={products}
+            queryFilter={queryFilter}
           />
-        }
+        )}
         <div className="productsContainer_productsAndBanners">
           <div className="productsContainer__itemList showTripleRow">
-            {
-            loading ? (
+            {loading ? (
               <h2>LOADING</h2>
             ) : error ? (
               <h2>Something went Wrong. Try again Later</h2>
@@ -80,24 +82,24 @@ const Catalog = () => {
               filteredProducts.map((product) => (
                 <CarouselItem
                   key={product._id}
-                  productID = {product._id}
+                  productID={product._id}
                   urlPhoto={product.URLPhoto}
                   itemTitle={product.category}
                   description={product.name}
                   price={product.price}
-                  linkForFilter= {true}
+                  linkForFilter={true}
                 />
               ))
             ) : (
               products?.map((product) => (
                 <CarouselItem
                   key={product._id}
-                  productID = {product._id}
+                  productID={product._id}
                   urlPhoto={product.URLPhoto}
                   itemTitle={product.category}
                   description={product.name}
                   price={product.price}
-                  linkForFilter= {true}
+                  linkForFilter={true}
                 />
               ))
             )}
@@ -120,12 +122,12 @@ const Catalog = () => {
               products?.map((product) => (
                 <CarouselItem
                   key={product._id}
-                  productID = {product._id}
+                  productID={product._id}
                   urlPhoto={product.URLPhoto}
                   itemTitle={product.category}
                   description={product.name}
                   price={product.price}
-                  linkForFilter= {true}
+                  linkForFilter={true}
                 />
               ))
             )}

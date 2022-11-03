@@ -1,8 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import BtnTransparent from "../../stateless/btn-transparent/BtnTransparent";
 import "./style.css";
 
 const Banner2 = ({ bannerImg, title, text, color }) => {
+
+  const scrollToProducts = () => {
+    window.scrollTo({
+      top: 470,
+      behavior: 'smooth',
+    })
+  }
   return (
     <>
       {color === "white" ? (
@@ -13,7 +21,9 @@ const Banner2 = ({ bannerImg, title, text, color }) => {
           <div className="banner2__content">
             <h3 className="banner2__title -whiteTitle">{title}</h3>
             <p className="banner2__text -whiteText">{text}</p>
+            <Link to="/products">
             <BtnTransparent text={"SHOP NOW"} color={color} />
+              </Link>
           </div>
         </div>
       ) : (
@@ -24,7 +34,7 @@ const Banner2 = ({ bannerImg, title, text, color }) => {
           <div className="banner2__content">
             <h3 className="banner2__title">{title}</h3>
             <p className="banner2__text">{text}</p>
-            <BtnTransparent text={"SHOP NOW"} />
+            <BtnTransparent text={"SHOP NOW"} clickFunction={scrollToProducts}/>
           </div>
         </div>
       )}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./style.css"
+import "./style.css";
 
-const CatalogFilter = ({setFilteredProducts, products, queryFilter}) => {
+const CatalogFilter = ({ setFilteredProducts, products, queryFilter }) => {
   const [showBrand, setShowBrand] = useState(false);
   const [showSale, setShowSale] = useState(false);
   const [showColor, setShowColor] = useState(false);
@@ -139,12 +139,17 @@ const CatalogFilter = ({setFilteredProducts, products, queryFilter}) => {
     setFilteredProducts(productsWithFiltersApplied);
   };
   useEffect(() => {
-    if (((queryFilter === "40%off")|| (queryFilter === "30%off"))&& products) {
-      const transformedQuery = queryFilter.toUpperCase()
-     toogleFilter(transformedQuery,"promo")
-    } 
+    if ((queryFilter === "40%off" || queryFilter === "30%off") && products) {
+      const transformedQuery = queryFilter.toUpperCase();
+      toogleFilter(transformedQuery, "promo");
+      setShowSale(true);
+    } else if ((queryFilter === "showbrands")) {
+      setShowBrand(true);
+    } else if ((queryFilter === "showcolors")) {
+      setShowColor(true);
+    }
+  }, [products]);
 
-  },[products])
   return (
     <div className="productsContainer__filter">
       <ul className="productsContainer__list">
@@ -255,24 +260,46 @@ const CatalogFilter = ({setFilteredProducts, products, queryFilter}) => {
             aria-expanded={!showSale}
           >
             <label htmlFor="off30">
-              <input
-                type="checkbox"
-                name="filter"
-                id="off30"
-                value="30%OFF"
-                onChange={(e) => toogleFilter(e.target.value, "promo")}
-              />
+              {queryFilter === "30%off" ? (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="off30"
+                  value="30%OFF"
+                  onChange={(e) => toogleFilter(e.target.value, "promo")}
+                  checked
+                />
+              ) : (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="off30"
+                  value="30%OFF"
+                  onChange={(e) => toogleFilter(e.target.value, "promo")}
+                />
+              )}
               30% OFF
               <span></span>
             </label>
             <label htmlFor="off40">
-              <input
-                type="checkbox"
-                name="filter"
-                id="off40"
-                value="40%OFF"
-                onChange={(e) => toogleFilter(e.target.value, "promo")}
-              />
+              {queryFilter === "40%off" ? (
+                <input
+                  type="checkbox"
+                  defaultChecked={true}
+                  name="filter"
+                  id="off40"
+                  value="40%OFF"
+                  onChange={(e) => toogleFilter(e.target.value, "promo")}
+                />
+              ) : (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="off40"
+                  value="40%OFF"
+                  onChange={(e) => toogleFilter(e.target.value, "promo")}
+                />
+              )}
               40% OFF
               <span></span>
             </label>
@@ -304,7 +331,8 @@ const CatalogFilter = ({setFilteredProducts, products, queryFilter}) => {
                 id="blackColor"
                 value="black"
                 onChange={(e) => toogleFilter(e.target.value, "color")}
-              />BLACK
+              />
+              BLACK
               <span></span>
             </label>
             <label htmlFor="whiteColor">
@@ -393,10 +421,15 @@ const CatalogFilter = ({setFilteredProducts, products, queryFilter}) => {
           </form>
         </li>
         <li className="productsContainer__listFilterName">
-          <h4 className="productsContainer__listTitle">
-            About our Dresses
-          </h4>
-          <p className="productsContainer__listText">Every day we’re gonna be dropping the latest trends to help you nail every Summer sitch. Whether it’s a graduation, your mate's wedding, or just a cute day at the races with the gals, our occasion dresses have got you covered. Not looking for something fancy? No stress. We’ve got day dresses for days (aka bodycon dresses, t-shirt dresses, oversized shirt dresses).</p>
+          <h4 className="productsContainer__listTitle">About our Dresses</h4>
+          <p className="productsContainer__listText">
+            Every day we’re gonna be dropping the latest trends to help you nail
+            every Summer sitch. Whether it’s a graduation, your mate's wedding,
+            or just a cute day at the races with the gals, our occasion dresses
+            have got you covered. Not looking for something fancy? No stress.
+            We’ve got day dresses for days (aka bodycon dresses, t-shirt
+            dresses, oversized shirt dresses).
+          </p>
         </li>
       </ul>
     </div>
