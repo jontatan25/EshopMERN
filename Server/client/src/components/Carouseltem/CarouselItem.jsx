@@ -1,20 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useCartContext } from "../CartContext/context";
 import "./style.css";
 
-const CarouselItem = ({ urlPhoto, itemTitle, description, price, productID,linkForFilter}) => {
+const CarouselItem = ({ product,linkForFilter,wishlistMode}) => {
+const {addToWishlist,deleteItemByIDWishlist} = useCartContext()
+  let navigate = useNavigate();
+
+  const saveToBag = () => {
+    addToWishlist(product);
+    navigate("/wishlist");
+  }
 
   // Changing url depending on the actual position of the component
-  let linkToProduct = `products/${productID}`
+  let linkToProduct = `products/${product._id}`
   if (linkForFilter) {
-    linkToProduct = productID
+    linkToProduct = `../products/${product._id}`
   }
 
   return (
     <div className="collection__item">
       <div
         className="collection__item-photo-container"
-        style={{ backgroundImage: `url(${urlPhoto})` }}
+        style={{ backgroundImage: `url(${product.URLPhoto})` }}
       >
         <div className="collection__item-photo-container-options">
           <Link to={linkToProduct}>
@@ -22,7 +30,10 @@ const CarouselItem = ({ urlPhoto, itemTitle, description, price, productID,linkF
             ADD TO BAG
           </button>
           </Link>
-          <button className="collection__item-photo-container-options-btn -options-btn-white">
+          {!wishlistMode 
+          ? 
+          <Link to ="/wishlist">
+          <button className="collection__item-photo-container-options-btn -options-btn-white" onClick={() =>{saveToBag()}}>
             <svg
               className="collection__item-addOrSave-icon"
               width="16"
@@ -40,12 +51,18 @@ const CarouselItem = ({ urlPhoto, itemTitle, description, price, productID,linkF
             </svg>
             SAVE
           </button>
+          </Link> :
+          <button className="collection__item-photo-container-options-btn -options-btn-white" onClick={() =>{deleteItemByIDWishlist(product._id)}}>
+          DELETE
+        </button>
+          }
+          
         </div>
       </div>
 
-      <h4 className="collection__item-title">{itemTitle}</h4>
-      <p className="collection__item-name">{description}</p>
-      <p className="collection__item-price">{price} USD</p>
+      <h4 className="collection__item-title">{product.category}</h4>
+      <p className="collection__item-name">{product.name}</p>
+      <p className="collection__item-price">{product.price} USD</p>
     </div>
   );
 };

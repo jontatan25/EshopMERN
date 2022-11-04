@@ -17,6 +17,8 @@ import CarouselSingle from "../../components/CarouselSingle/CarouselSingle";
 import { useCartContext } from "../../components/CartContext/context";
 
 const ProductDetail = () => {
+
+ const {addToWishlist} = useCartContext();
   const { cart,addProduct } = useCartContext();
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(null)
@@ -31,6 +33,11 @@ const ProductDetail = () => {
   const [showOtherInfo, setShowOtherInfo] = useState(false);
   const [showOtherTab, setShowOtherTab] = useState(false);
   let navigate = useNavigate();
+
+  const addAndRedirect = () => {
+    addToWishlist(product)
+    navigate("/wishlist")
+  }
 
   const token = JSON.parse(localStorage.getItem("user"));
   const { id } = useParams();
@@ -381,7 +388,7 @@ const ProductDetail = () => {
                       ADD TO BAG
                     </span>
                   </button>
-                  <button className="addOrSave-btn" id="addOrSave-btnWhite">
+                  <button className="addOrSave-btn" id="addOrSave-btnWhite" onClick={() =>{addAndRedirect()}} >
                     <svg
                       className="addOrSave-icon"
                       width="16"

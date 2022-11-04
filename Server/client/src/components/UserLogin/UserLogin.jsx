@@ -18,7 +18,7 @@ const UserLogin = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M1 1L22 22M22 1L1 22" stroke="#C4C4C4" stroke-width="2" />
+          <path d="M1 1L22 22M22 1L1 22" stroke="#C4C4C4" strokeWidth="2" />
         </svg>
       </button>
       <h4 className="login__title">LOGIN YOUR ACCOUNT</h4>

@@ -7,6 +7,7 @@ export const useCartContext = () => useContext(CartContext);
 
 const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const [wishlist, setWishlist] = useState([])
   const [data, setData] = useState([]);
   const [showLogin, setShowLogin] = useState(true);
 
@@ -43,6 +44,32 @@ const CartContextProvider = ({ children }) => {
       const updatedCart = []
       setCart(updatedCart);
   }
+
+  const addToWishlist = (productWithOptions) => {
+    const productIndex = wishlist.findIndex(
+      (product) => product._id === productWithOptions._id
+    );
+
+    if (productIndex === -1) {
+      const updatedWishlist = [...wishlist];
+      updatedWishlist.push(productWithOptions);
+      setWishlist(updatedWishlist);
+    } else {
+      const updatedWishlist = [...wishlist];
+      updatedWishlist[productIndex] = productWithOptions;
+      setWishlist(updatedWishlist);
+    }
+  };
+
+  const deleteItemByIDWishlist = (productID) => {
+    const updatedWishlist = wishlist.filter(product => product._id != productID)
+    setWishlist(updatedWishlist);
+}
+
+const deleteAllFromWishlist = () => {
+  const updatedWishlist = []
+  setWishlist(updatedWishlist);
+}
   // const deleteItem = (id) => {
   //     Swal.fire({
   //         title: "Are you sure?",
@@ -87,7 +114,11 @@ const CartContextProvider = ({ children }) => {
         updateItemQuantity,
         deleteItemByID,
         deleteAllFromCart,
-        showLogin,setShowLogin
+        showLogin,setShowLogin,
+        wishlist,setWishlist,
+        addToWishlist,
+        deleteItemByIDWishlist,
+        deleteAllFromWishlist,
       }}
     >
       {children}

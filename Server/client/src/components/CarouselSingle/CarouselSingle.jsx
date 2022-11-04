@@ -78,11 +78,7 @@ const CarouselSingle = ({ title, products, category }) => {
             .map((product) => (
               <CarouselItem
                 key={product._id}
-                productID = {product._id}
-                urlPhoto={product.URLPhoto}
-                itemTitle={product.category}
-                description={product.name}
-                price={product.price}
+                product={product}
               />
             ))}
       </div>

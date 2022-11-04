@@ -1,0 +1,81 @@
+.wishlist__url {
+  height: 36px;
+  margin: 0 auto;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #828282;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wishlist__title {
+  font-family: "Oswald";
+  font-size: 41px;
+  font-weight: 400;
+  line-height: 142%;
+  text-align: center;
+  margin: 0 auto 45px auto;
+}
+.wishlist__title-empty {
+  margin: 50px auto;
+}
+.wishlist__container {
+  width: 910px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.wishlist__products {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wishlist__btn-container {
+  display: flex;
+  height: 50px;
+  width: 70%;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+
+.wishlist__btn {
+  width: 140px;
+  height: 34.3px;
+
+  border: 2px solid #c4c4c4;
+  background-color: #f0f2f2;
+
+  color: #828282;
+  font-family: "Oswald";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0.4px;
+
+  transition: all 0.3s ease;
+}
+
+.wishlist__btn:hover {
+  border: 2px solid #828282;
+  cursor: pointer;
+}
+
+.wishlist__btn:active {
+  scale: 0.96;
+}
+
+.wishlist__btn-hidden {
+  display: none;
+}
+
+.wishlist__btn-delAll {
+  width: 180px;
+}

@@ -8,7 +8,7 @@ import catalogBackgroundDark from "../images/banner/catalog-banner2.jpg";
 import CarouselItem from "../components/Carouseltem/CarouselItem";
 import { getProducts } from "../service/index";
 import CatalogFilter from "../components/CatalogFilter/CatalogFilter";
-import { useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Catalog = () => {
   const [loading, setLoading] = useState(false);
@@ -20,7 +20,7 @@ const Catalog = () => {
   const useQuery = () => new URLSearchParams(useLocation().search);
   let query = useQuery();
   const queryFilter = query.get("filterProducts");
-  
+
   useEffect(() => {
     const initProducts = async () => {
       try {
@@ -41,10 +41,9 @@ const Catalog = () => {
     if (queryFilter) {
       window.scrollTo({
         top: 470,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
-    } else
-    window.scrollTo(0, 0);
+    } else window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -56,7 +55,7 @@ const Catalog = () => {
           "You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!"
         }
         btnText="SHOP NOW"
-        scroll = {true}
+        scroll={true}
       />
       <span className="catalog__location">
         Home / Womens Dress / Best Chose
@@ -83,11 +82,7 @@ const Catalog = () => {
               filteredProducts.map((product) => (
                 <CarouselItem
                   key={product._id}
-                  productID={product._id}
-                  urlPhoto={product.URLPhoto}
-                  itemTitle={product.category}
-                  description={product.name}
-                  price={product.price}
+                  product={product}
                   linkForFilter={true}
                 />
               ))
@@ -95,11 +90,7 @@ const Catalog = () => {
               products?.map((product) => (
                 <CarouselItem
                   key={product._id}
-                  productID={product._id}
-                  urlPhoto={product.URLPhoto}
-                  itemTitle={product.category}
-                  description={product.name}
-                  price={product.price}
+                  product={product}
                   linkForFilter={true}
                 />
               ))
@@ -123,11 +114,7 @@ const Catalog = () => {
               products?.map((product) => (
                 <CarouselItem
                   key={product._id}
-                  productID={product._id}
-                  urlPhoto={product.URLPhoto}
-                  itemTitle={product.category}
-                  description={product.name}
-                  price={product.price}
+                  product={product}
                   linkForFilter={true}
                 />
               ))

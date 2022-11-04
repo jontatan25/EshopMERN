@@ -20,6 +20,7 @@ import ProductDetail from "../../pages/ProductDetail/ProductDetail";
 import ShoppingCart from "../../pages/ShoppingCart/ShoppingCart";
 import Blog from "../../pages/Blog/Blog";
 import UserLogin from "../UserLogin/UserLogin";
+import Wishlist from "../Wishlist/Wishlist";
 
 function App() {
   
@@ -47,6 +48,7 @@ function App() {
             element={<Products/>}
           ></Route> */}
           <Route path="/cart" element={<ShoppingCart />}></Route>
+          <Route path="/wishlist" element={<Wishlist />}></Route>
           <Route path="/logout" element={<Logout />}></Route>
           {/* <Route path="/loginfb" element={<LoginFacebook />}></Route>
         <Route
