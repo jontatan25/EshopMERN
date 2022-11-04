@@ -60,7 +60,7 @@
 .nav-link {
   font-family: "Oswald", sans-serif;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
 }
 .nav-link:visited {
   color: black;
@@ -75,7 +75,7 @@
   border: none;
   font-family: "Oswald", sans-serif;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .nav__link-login:hover {
@@ -100,4 +100,12 @@
 }
 .nav__wishlist:hover {
  cursor: pointer;
+}
+
+#nav-heart {
+  margin-right: 0;
+}
+
+#nav-cart {
+  margin-left: 0;
 }
