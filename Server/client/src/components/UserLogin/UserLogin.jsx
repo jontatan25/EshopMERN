@@ -1,16 +1,30 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useCartContext } from "../CartContext/context";
 import "./style.css";
 
-
 const UserLogin = () => {
+  const { showLogin, setShowLogin } = useCartContext();
+  const navigate = useNavigate();
 
-  const {showLogin, setShowLogin} = useCartContext()
+  const closeAndRedirect = () => {
+    setShowLogin(!showLogin);
+    navigate("/register");
+  };
   return (
-    <div className={!showLogin ? "login__container" : "login__container login__container-active"}>
-      <button className="login__btn-close" onClick={() => {
-        setShowLogin(!showLogin)
-      }}>
+    <div
+      className={
+        !showLogin
+          ? "login__container"
+          : "login__container login__container-active"
+      }
+    >
+      <button
+        className="login__btn-close"
+        onClick={() => {
+          setShowLogin(!showLogin);
+        }}
+      >
         <svg
           width="23"
           height="23"
@@ -43,7 +57,16 @@ const UserLogin = () => {
           </label>
         </span>
         <button className="login__btn ">SIGN IN</button>
-        <button className="login__btn login__btn-createAcc">CREATE AN ACCOUNT</button>
+        <Link to="/register">
+          <button
+            className="login__btn login__btn-createAcc"
+            onClick={() => {
+              closeAndRedirect();
+            }}
+          >
+            CREATE AN ACCOUNT
+          </button>
+        </Link>
       </form>
     </div>
   );

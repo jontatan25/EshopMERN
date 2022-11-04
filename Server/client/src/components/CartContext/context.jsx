@@ -9,7 +9,7 @@ const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([])
   const [data, setData] = useState([]);
-  const [showLogin, setShowLogin] = useState(true);
+  const [showLogin, setShowLogin] = useState(false);
 
   const addProduct = (productWithOptions) => {
     const productIndex = cart.findIndex(

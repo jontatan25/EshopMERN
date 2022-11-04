@@ -53,7 +53,7 @@ const NavigationBar = () => {
                 }}>SIGN&nbsp;IN</button>
             </li>
             <li className="nav__listItem">
-              <NavLink className="nav-link" to="/signup">
+              <NavLink className="nav-link" to="/register">
                 CREATE&nbsp;AN&nbsp;ACCOUNT
               </NavLink>
             </li>

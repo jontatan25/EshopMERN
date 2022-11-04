@@ -1,0 +1,130 @@
+.register__url {
+  height: 36px;
+  margin: 0 auto;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #828282;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register__title {
+  font-family: "Oswald";
+  font-size: 41px;
+  font-weight: 400;
+  line-height: 142%;
+  text-align: center;
+  margin: 0 auto 20px auto;
+}
+
+.register__container {
+  width: 1250px;
+  height: 600px;
+  border: 1px solid #c4c4c4;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register__info-container {
+  width: 600px;
+  height: 530px;
+}
+
+.register__form-title {
+  font-family: "Oswald";
+  font-size: 21px;
+  font-weight: 400;
+  margin: 30px 0 45px;
+}
+
+.register__lb {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.register__lb span {
+  padding-left: 7px;
+  color: red;
+}
+
+.register__in {
+  border: 1px solid #c4c4c4;
+  width: 400px;
+  height: 38px;
+  padding-left: 10px;
+  position: relative;
+}
+.register__in:hover {
+  border: 1px solid #828282;
+}
+
+.register__field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.register__btn-create {
+  width: 270px;
+  height: 50px;
+  border: none;
+  background-color: black;
+
+  color: white;
+  font-family: "Oswald";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  letter-spacing: 0.5px;
+  text-align: center;
+
+  margin: 0 auto;
+  transition: all 0.2s ease-in-out;
+}
+
+#password {
+    width: 374px;
+    border: none;
+}
+#confirm-password {
+    width: 374px;
+    border: none;
+}
+
+.register__btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 42px;
+}
+
+.register__btn-create:hover {
+    background-color: #EB5757;
+    cursor: pointer;
+}
+
+.signup__formContainer-fa-eye{
+    padding-right: 2px;
+  }
+.signup__formContainer-fa-eye:hover {
+    cursor: pointer;
+  }
+
+  .register__vision-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #c4c4c4;
+  }
