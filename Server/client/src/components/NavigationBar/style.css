@@ -45,11 +45,16 @@
   margin: 0 0.7em;
   transition: all 0.3s ease;
   border-bottom: 1px solid transparent;
+  display:flex;
+  align-items: center;
 }
 
 .nav__listItem:hover {
   scale: 1.05;
   border-bottom: 1px solid black;
+}
+.nav__listItem:active {
+  scale: 1;
 }
 
 .nav-link {
@@ -86,3 +91,13 @@
   list-style-type: none;
 }
 
+.nav__wishlist {
+  width: 35px;
+  height: 35px;
+  border: none;
+  padding: 0;
+  background-color: #f4d06f
+}
+.nav__wishlist:hover {
+ cursor: pointer;
+}

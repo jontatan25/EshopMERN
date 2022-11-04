@@ -14,7 +14,7 @@ const Wishlist = () => {
       <h3 className="wishlist__title">My Wishlist</h3>
       <div className="wishlist__container">
         <div className="wishlist__products">
-            {(wishlist.length === 0) ? <h5 className="wishlist__title wishlist__title-empty">Your Wishlist is Empty</h5> 
+            {(wishlist.length === 0) ? <h5 className="wishlist__title wishlist__title-empty">YOUR WISHLIST IS EMPTY</h5> 
                 : 
                     wishlist && wishlist.map((product)=> ( 
                         <CarouselItem

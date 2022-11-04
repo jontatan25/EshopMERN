@@ -24,19 +24,19 @@
 
 .register__container {
   width: 1250px;
-  height: 600px;
+  height: 500px;
   border: 1px solid #c4c4c4;
+  padding-top: 20px;
 
-  margin: 0 auto;
+  margin: 0 auto 15px auto;
 
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
 .register__info-container {
   width: 600px;
-  height: 530px;
+  height: 400px;
 }
 
 .register__form-title {

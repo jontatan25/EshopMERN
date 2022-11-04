@@ -47,14 +47,14 @@ const Register = () => {
                   <AiOutlineEye
                     onClick={handleTogglePassword}
                     size="24px"
-                    color="#808080"
+                    fill="#3F3F3F"
                     className="signup__formContainer-fa-eye"
                   />
                 ) : (
                   <AiOutlineEyeInvisible
                     onClick={handleTogglePassword}
                     size="24px"
-                    color="#808080"
+                    fill="#3F3F3F"
                     className="signup__formContainer-fa-eye"
                   />
                 )}
@@ -74,14 +74,14 @@ const Register = () => {
                   <AiOutlineEye
                     onClick={handleToggleConfirm}
                     size="24px"
-                    color="#808080"
+                    fill="#3F3F3F"
                     className="signup__formContainer-fa-eye"
                   />
                 ) : (
                   <AiOutlineEyeInvisible
                     onClick={handleToggleConfirm}
                     size="24px"
-                    color="#808080"
+                    fill="#3F3F3F"
                     className="signup__formContainer-fa-eye"
                   />
                 )}
