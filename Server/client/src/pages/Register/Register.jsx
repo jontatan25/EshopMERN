@@ -56,39 +56,39 @@ const Register = () => {
           const res = await axios.post(`${API_ENDPOINT}/users/signup`, data);
           if (res.data.success === true) {
             Swal.close();
-            Swal.fire({icon: "success", title: "Account Created", text:"You can now Sign in!"})
-            .then(() => {
+            Swal.fire({
+              icon: "success",
+              title: "Account Created",
+              text: "You can now Sign in!",
+            }).then(() => {
               Swal.close();
               Swal.fire({
-                title: 'You are being redirected.',
+                title: "You are being redirected.",
                 text: "Please wait ...",
                 showConfirmButton: false,
                 timer: 3000,
-              })
-              .then(() => navigate("/"));
-            }
-            )
-            
-            
+                timerProgressBar: true,
+              }).then(() => navigate("/"));
+            });
           } else {
-            const rejectReason = res.data.reason
+            const rejectReason = res.data.reason;
             Swal.close();
             Swal.fire({
-              icon: 'error',
-              title: 'ERROR',
+              icon: "error",
+              title: "ERROR",
               text: `${rejectReason}`,
-              footer: 'Please try again'
-            })
+              footer: "Please try again",
+            });
           }
         } catch (error) {
           console.log(error);
           Swal.close();
           Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong!',
-            footer: '<a href="">Why do I have this issue?</a>'
-          })
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+            footer: '<a href="">Why do I have this issue?</a>',
+          });
         }
       }
       createAccount();
