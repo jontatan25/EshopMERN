@@ -70,6 +70,10 @@
 .register__in:hover {
   border: 1px solid #828282;
 }
+.register__in:focus {
+  outline: none !important;
+  border: 2px solid #c4c4c4;
+}
 
 .register__field {
   display: flex;
@@ -96,35 +100,60 @@
 }
 
 #password {
-    width: 374px;
-    border: none;
+  width: 374px;
+  border: none;
 }
+
 #confirm-password {
-    width: 374px;
-    border: none;
+  width: 374px;
+  border: none;
 }
 
 .register__btn-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
 }
 
 .register__btn-create:hover {
-    background-color: #EB5757;
-    cursor: pointer;
+  background-color: #eb5757;
+  cursor: pointer;
 }
 
-.signup__formContainer-fa-eye{
-    padding-right: 2px;
-  }
+.signup__formContainer-fa-eye {
+  padding-right: 2px;
+}
 .signup__formContainer-fa-eye:hover {
-    cursor: pointer;
-  }
+  cursor: pointer;
+}
 
-  .register__vision-container {
-    display: flex;
-    align-items: center;
-    border: 1px solid #c4c4c4;
-  }
+.register__vision-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #c4c4c4;
+}
+.register__vision-container:hover {
+  border: 1px solid #848484;
+}
+
+.register__vision-container:has(> input:focus) {
+  outline: 2px solid #c4c4c4;
+}
+.register__vision-container:has(> input:focus):hover {
+  border: 1px solid #c4c4c4;
+}
+.register__vision-container-red {
+  border: 1px solid red;
+}
+
+.register__vision-container-red:hover {
+  border: 1px solid  red;
+}
+
+.register__vision-container-red:has(> input:focus) {
+  outline: 1px solid red;
+}
+.register__vision-container-red:has(> input:focus):hover {
+  border: 1px solid red;
+}
