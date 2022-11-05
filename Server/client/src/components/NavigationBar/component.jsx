@@ -5,7 +5,7 @@ import logo from "../../images/logo/logo.svg";
 import { useCartContext } from "../CartContext/context";
 
 const NavigationBar = () => {
-  const { showLogin, setShowLogin } = useCartContext();
+  const { showLogin, setShowLogin, cart } = useCartContext();
   return (
     <>
       <div className="header__Container">
@@ -83,7 +83,7 @@ const NavigationBar = () => {
             <li className="nav__listItem" id="nav-heart">
               <NavLink to="/wishlist">
                 <button className="nav__wishlist">
-                  <svg  
+                  <svg
                     width="35"
                     height="35"
                     viewBox="0 0 24 24"
@@ -101,29 +101,15 @@ const NavigationBar = () => {
                 </button>
               </NavLink>
             </li>
-            <li className="nav__listItem" id="nav-cart">
+            <li className="nav__listItem">
               <NavLink to="/cart">
-                <button className="nav__wishlist">
-                  <svg
-                    width="18"
-                    height="22"
-                    viewBox="0 0 18 22"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M1.27266 20.8L2.13149 6.2H15.8685L16.7273 20.8H1.27266Z"
-                      stroke="black"
-                      stroke-width="2.4"
-                    />
-                    <path
-                      d="M5 5V3C5 2.44772 5.44772 2 6 2H12C12.5523 2 13 2.44772 13 3V5"
-                      stroke="black"
-                      stroke-width="2.4"
-                    />
-                  </svg>
-                </button>
+                <button id="nav-cart" className="nav__wishlist"></button>
               </NavLink>
+              {cart.length > 0 ? (
+                <span className="nav__cart-counter"> {cart.length} </span>
+              ) : (
+                ""
+              )}
             </li>
           </ul>
         </div>

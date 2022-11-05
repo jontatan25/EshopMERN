@@ -115,3 +115,17 @@
     border: 2px solid #EB5757;
     background-color: #EB5757;
 }
+
+.userLogin__vision-container {
+  height: 37.7px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #c4c4c4;
+  margin-bottom: 15.4px;
+}
+
+#login-pa {
+  margin:0;
+  border: none;
+  height:100%;
+}

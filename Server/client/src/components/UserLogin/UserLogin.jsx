@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCartContext } from "../CartContext/context";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import "./style.css";
 
 const UserLogin = () => {
   const { showLogin, setShowLogin } = useCartContext();
+  const [visible, setVisible] = useState(false);
   const navigate = useNavigate();
 
   const closeAndRedirect = () => {
     setShowLogin(!showLogin);
     navigate("/register");
   };
+  const handleTogglePassword = () => {
+    setVisible(!visible);
+  };
+
   return (
     <div
       className={
@@ -43,12 +49,29 @@ const UserLogin = () => {
           placeholder="Email"
           id="login-em"
         />
+        <div className="userLogin__vision-container">
         <input
-          type="text"
+          type={visible?"text":"password"}
           className="login__field"
           placeholder="Password"
           id="login-pa"
-        />
+          />
+           {visible ? (
+                  <AiOutlineEye
+                    onClick={handleTogglePassword}
+                    size="24px"
+                    fill="#3F3F3F"
+                    className="signup__formContainer-fa-eye"
+                  />
+                ) : (
+                  <AiOutlineEyeInvisible
+                    onClick={handleTogglePassword}
+                    size="24px"
+                    fill="#3F3F3F"
+                    className="signup__formContainer-fa-eye"
+                  />
+                )}
+          </div>
         <span className="login__ag-container">
           <input type="checkbox" className="login__agreement" id="login__ag" />
           <label htmlFor="login__ag" className="login__ag-text">
