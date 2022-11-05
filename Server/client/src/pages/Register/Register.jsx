@@ -60,7 +60,7 @@ const Register = () => {
             .then(() => {
               Swal.close();
               Swal.fire({
-                title: 'You are being redirected...',
+                title: 'You are being redirected.',
                 text: "Please wait ...",
                 showConfirmButton: false,
                 timer: 3000,
