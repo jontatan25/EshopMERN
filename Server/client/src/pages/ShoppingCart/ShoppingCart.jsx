@@ -5,6 +5,7 @@ import CartCountries from "../../components/CartCountries/CartCountries";
 import CartProduct from "../../components/CartProduct/CartProduct";
 
 import { getCountriesInfo } from "../../service";
+import Swal from "sweetalert2";
 import "./style.css";
 
 const ShoppingCart = () => {
@@ -15,7 +16,7 @@ const ShoppingCart = () => {
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
 
-  const {cart,deleteAllFromCart} = useCartContext();
+  const { cart, deleteAllFromCart } = useCartContext();
 
   const getInfo = async () => {
     try {
@@ -47,7 +48,33 @@ const ShoppingCart = () => {
       setCountryStates(updatedStates);
     }
   }, [activeCountry]);
-  
+
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      if (cart.length === 0) {
+        Swal.fire({
+          title: "Your cart is empty.",
+          text: "Add some products to your cart and try again.",
+          icon: "info",
+        })
+      } else {
+        // const makeOrder = async() => {
+        //   try {
+        //     const res = await axios.post("https://mern-eshop-espitia-jonathans.herokuapp.com/orders/create",{}, {
+        //       headers: { Authorization: `Bearer ${token}` },
+        //     });
+        //     if (res.data.success === true){
+        //       alert("success!! you will receive an email with your order information!")
+        //     return navigate("/")
+        //   } 
+        //     return alert("error: "+ res.data.message)
+        //   } catch (error) {
+        //     console.log(error)
+        //   }
+        // }
+      }
+  }
+
   return (
     <>
       <h5 className="shoppingCart__url">Home / Blog</h5>
@@ -63,172 +90,189 @@ const ShoppingCart = () => {
               <h4 className="cart__title cart__title__total">Total</h4>
             </li>
             <li className="cart__list-item cart__list-product">
-              {cart.length === 0 ? <div className="cart__list-empty">   <h5 className="cart__product-title cart__product-title-empty">
-                      Your cart is empty
-                    </h5></div> : cart.map(product => (
-                      <CartProduct product= {product}/>
-                    ))
-                    }
+              {cart.length === 0 ? (
+                <div className="cart__list-empty">
+                  {" "}
+                  <h5 className="cart__product-title cart__product-title-empty">
+                    Your cart is empty
+                  </h5>
+                </div>
+              ) : (
+                cart.map((product) => <CartProduct product={product} />)
+              )}
             </li>
             <li className="cart__list-item cart__list-options">
               <button className="cart__options-btn">CONTINUE SHOPPING</button>
-              <button className="cart__options-btn options-btn-clear"
-                onClick={() =>{deleteAllFromCart()}}
-               >
+              <button
+                className="cart__options-btn options-btn-clear"
+                onClick={() => {
+                  deleteAllFromCart();
+                }}
+              >
                 CLEAR SHOPPING CART
               </button>
             </li>
           </ul>
         </div>
         <div className="cart__payment">
-          <div className="cart__payment-info">
-            <div className="cart__discount">
-              <h5 className="cart__payment-title">Apply discount Code</h5>
-              <div className="cart__discount-container">
-                <input
-                  className="cart__discount-code"
-                  type="text"
-                  placeholder="Enter Discount Code"
-                />
-                <button className="cart__discount-btn">APPLY DISCOUNT</button>
+          <form onSubmit = {(e) => {handleSubmit(e);}}>
+            <div className="cart__payment-info">
+              <div className="cart__discount">
+                <h5 className="cart__payment-title">Apply discount Code</h5>
+                <div className="cart__discount-container">
+                  <input
+                    className="cart__discount-code"
+                    type="text"
+                    placeholder="Enter Discount Code"
+                  />
+                  <button className="cart__discount-btn">APPLY DISCOUNT</button>
+                </div>
+              </div>
+              <div className="cart__shipping">
+                <div className="cart__shipping-title-container">
+                  <h5 className="cart__payment-title " id="shipping__title">
+                    Estimate Shipping and Tax
+                  </h5>
+                  <button
+                    className={
+                      showShipping
+                        ? "cart__payment-shipping-btn cart__payment-shipping-btn-minus"
+                        : "cart__payment-shipping-btn"
+                    }
+                    onClick={toogleShipping}
+                  ></button>
+                </div>
+                <div
+                  className="cart__shipping-content-container"
+                  aria-expanded={!showShipping}
+                >
+                  <div className="cart__shipping-destination">
+                    Enter your destination to get a shipping estimate.
+                  </div>
+                  <div className="cart__shipping-information-container">
+                    <span className="shipping__information-title">Country</span>
+                    <select
+                      name="shipping-countr"
+                      id="countr"
+                      className="shipping__information-name"
+                      onChange={useCountry}
+                    >
+                      <option className="shipping__information-opt" value="">
+                        -Please choose your Country
+                      </option>
+                      {loading ? (
+                        <h5>Loading . . .</h5>
+                      ) : error ? (
+                        <h5>Something went wrong</h5>
+                      ) : (
+                        countriesInfo &&
+                        countriesInfo.map((country) => (
+                          <CartCountries
+                            key={country.iso3}
+                            countryName={country.name}
+                          />
+                        ))
+                      )}
+                    </select>
+                  </div>
+                  <div className="cart__shipping-information-container">
+                    <span className="shipping__information-title">
+                      State/Province
+                    </span>
+                    <select
+                      name="shipping-state"
+                      id="state"
+                      className="shipping__information-name"
+                    >
+                      {!activeCountry ? (
+                        <option className="shipping__information-opt" value="">
+                          -Please choose your Country First
+                        </option>
+                      ) : (
+                        <option className="shipping__information-opt" value="">
+                          -Please choose your state
+                        </option>
+                      )}
+                      {loading ? (
+                        <h5>Loading . . .</h5>
+                      ) : error ? (
+                        <h5>Something went wrong</h5>
+                      ) : (
+                        countryStates &&
+                        countryStates.map((state) => (
+                          <CartCountries
+                            key={state.state_code}
+                            countryName={state.name}
+                          />
+                        ))
+                      )}
+                    </select>
+                  </div>
+                  <div className="cart__shipping-information-container">
+                    <span className="shipping__information-title">
+                      Zip/Postal Code
+                    </span>
+                    <input type="text" className="shipping__information-name" />
+                  </div>
+                  <span className="cart__shipping-title2">Flat Rate</span>
+                  <div className="cart__shipping-rate-container">
+                    <label
+                      className="cart__shipping-rate-lb"
+                      htmlFor="flat-rate"
+                    >
+                      <input
+                        type="radio"
+                        name="rate"
+                        value="flat"
+                        id="flat-rate"
+                      />
+                      <span></span>
+                      Fixed 5.00 EUR
+                    </label>
+                  </div>
+                  <span className="cart__shipping-title2">Best way</span>
+                  <span className="cart__shipping-rate-container">
+                    <label
+                      className="cart__shipping-rate-lb"
+                      htmlFor="table-rate"
+                    >
+                      <input
+                        type="radio"
+                        name="rate"
+                        value="table"
+                        id="table-rate"
+                      />
+                      <span></span>
+                      Fixed 5.00 EUR
+                    </label>
+                  </span>
+                </div>
               </div>
             </div>
-            <div className="cart__shipping">
-              <div className="cart__shipping-title-container">
-                <h5 className="cart__payment-title " id="shipping__title">
-                  Estimate Shipping and Tax
-                </h5>
-                <button
-                  className={
-                    showShipping
-                      ? "cart__payment-shipping-btn cart__payment-shipping-btn-minus"
-                      : "cart__payment-shipping-btn"
-                  }
-                  onClick={toogleShipping}
-                ></button>
+            <div className="cart__payment-checkout">
+              <div className="cart__subtotal">
+                <span className="cart__subtotal-title">Subtotal </span>
+                <span className="cart__subtotal-title">120.00 EUR</span>
               </div>
-              <div
-                className="cart__shipping-content-container"
-                aria-expanded={!showShipping}
-              >
-                <div className="cart__shipping-destination">
-                  Enter your destination to get a shipping estimate.
-                </div>
-                <div className="cart__shipping-information-container">
-                  <span className="shipping__information-title">Country</span>
-                  <select
-                    name="shipping-countr"
-                    id="countr"
-                    className="shipping__information-name"
-                    onChange={useCountry}
-                  >
-                    <option className="shipping__information-opt" value="">
-                      -Please choose your Country
-                    </option>
-                    {loading ? (
-                      <h5>Loading . . .</h5>
-                    ) : error ? (
-                      <h5>Something went wrong</h5>
-                    ) : (
-                      countriesInfo &&
-                      countriesInfo.map((country) => (
-                        <CartCountries
-                          key={country.iso3}
-                          countryName={country.name}
-                        />
-                      ))
-                    )}
-                  </select>
-                </div>
-                <div className="cart__shipping-information-container">
-                  <span className="shipping__information-title">
-                    State/Province
-                  </span>
-                  <select
-                    name="shipping-state"
-                    id="state"
-                    className="shipping__information-name"
-                  >
-                    {!activeCountry ? (
-                      <option className="shipping__information-opt" value="">
-                        -Please choose your Country First
-                      </option>
-                    ) : (
-                      <option className="shipping__information-opt" value="">
-                        -Please choose your state
-                      </option>
-                    )}
-                    {loading ? (
-                      <h5>Loading . . .</h5>
-                    ) : error ? (
-                      <h5>Something went wrong</h5>
-                    ) : (
-                      countryStates &&
-                      countryStates.map((state) => (
-                        <CartCountries
-                          key={state.state_code}
-                          countryName={state.name}
-                        />
-                      ))
-                    )}
-                  </select>
-                </div>
-                <div className="cart__shipping-information-container">
-                  <span className="shipping__information-title">
-                    Zip/Postal Code
-                  </span>
-                  <input type="text" className="shipping__information-name" />
-                </div>
-                <span className="cart__shipping-title2">Flat Rate</span>
-                <div className="cart__shipping-rate-container">
-                  <label
-                    className="cart__shipping-rate-lb"
-                    htmlFor="flat-rate"
-                  >
-                    <input
-                      type="radio"
-                      name="rate"
-                      value="flat"
-                      id="flat-rate"
-                    />
-                    <span></span>
-                    Fixed 5.00 EUR
-                  </label>
-                </div>
-                <span className="cart__shipping-title2">Best way</span>
-                <span className="cart__shipping-rate-container">
-                  <label
-                    className="cart__shipping-rate-lb"
-                    htmlFor="table-rate"
-                  >
-                  <input
-                    type="radio"
-                    name="rate"
-                    value="table"
-                    id="table-rate"
-                  />
-                  <span></span>
-                    Fixed 5.00 EUR
-                  </label>
+              <div className="cart__subtotal">
+                <span className="cart__subtotal-title cart__subtotal-title-grey">
+                  Tax{" "}
+                </span>
+                <span className="cart__subtotal-title cart__subtotal-title-grey">
+                  00.00 EUR
                 </span>
               </div>
+              <div className="cart__subtotal ">
+                <span className="cart__subtotal-title cart__total-title">
+                  Order Total{" "}
+                </span>
+                <span className="cart__subtotal-title cart__total-title">
+                  120.00 EUR
+                </span>
+              </div>
+              <button type ="submit" className="cart__total-btn">proceed to checkout</button>
             </div>
-          </div>
-          <div className="cart__payment-checkout">
-            <div className="cart__subtotal">
-          <span className="cart__subtotal-title">Subtotal </span>
-          <span className="cart__subtotal-title">120.00 EUR</span>
-            </div>
-            <div className="cart__subtotal">
-          <span className="cart__subtotal-title cart__subtotal-title-grey">Tax </span>
-          <span className="cart__subtotal-title cart__subtotal-title-grey">00.00 EUR</span>
-            </div>
-            <div className="cart__subtotal ">
-          <span className="cart__subtotal-title cart__total-title">Order Total </span>
-          <span className="cart__subtotal-title cart__total-title">120.00 EUR</span>
-            </div>
-         <button className="cart__total-btn">proceed to checkout</button>
-          </div>
+          </form>
         </div>
       </div>
     </>
