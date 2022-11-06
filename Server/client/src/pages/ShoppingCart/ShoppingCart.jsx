@@ -13,12 +13,28 @@ const ShoppingCart = () => {
   const [showShipping, setShowShipping] = useState(false);
   const [countriesInfo, setCountriesInfo] = useState(null);
   const [activeCountry, setActiveCountry] = useState(null);
+  const [activeCountryState, setActiveCountryState] = useState(null);
   const [countryStates, setCountryStates] = useState(null);
   const [loading, setLoading] = useState(null);
   const [error, setError] = useState(null);
+  const [total, setTotal] = useState(0);
 
-  const { cart, deleteAllFromCart } = useCartContext();
-  const navigate = useNavigate()
+  const { cart, deleteAllFromCart, loggedIn, setShowLogin } = useCartContext();
+  const navigate = useNavigate();
+
+  const calculateTotal = () => {
+    let sum = null;
+    if (cart.length === 0) {
+      return 0;
+    } else {
+      for (let i = 0; i < cart.length; i++) {
+        const product = cart[i];
+        const totalProduct = product.price * product.quantity;
+        sum += totalProduct;
+      }
+      setTotal(sum);
+    }
+  };
 
   const getInfo = async () => {
     try {
@@ -37,8 +53,15 @@ const ShoppingCart = () => {
     setLoading(false);
   }, []);
 
+  useEffect(() => {
+    calculateTotal();
+  }, [cart]);
+
   const useCountry = (e) => {
     setActiveCountry(e.target.value);
+  };
+  const useCountryState = (e) => {
+    setActiveCountryState(e.target.value);
   };
 
   useEffect(() => {
@@ -53,39 +76,63 @@ const ShoppingCart = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (cart.length === 0) {
-      Swal.fire({
-        title: "Your cart is empty.",
-        text: "Add some products to your cart and try again.",
-        icon: "info",
-      });
-    } else {
-      Swal.fire({
-        title: "Creating your order",
-        text: "please wait...",
-        timer: 2000,
-        timerProgressBar: true,
-        didOpen: () => {
-          Swal.showLoading();
-        },
-        allowOutsideClick: false,
-        allowEscapeKey: false,
-        allowEnterKey: false,
-      }).then(() => {
+    // HANDLING EMPTY COUNTRY AND STATE
+    if (loggedIn) {
+      if (!activeCountry) {
         Swal.fire({
-          title: "Your Order has been placed.",
-          text: "Thank you for your purchase!",
-          icon: "success",
-          timer: 2400,
-          showConfirmButton: false,
+          title: "Information missing!",
+          text: "Please select your Country",
+          icon: "info",
+        });
+      } else if (!activeCountryState) {
+        Swal.fire({
+          title: "Information missing!",
+          text: "Please select your State",
+          icon: "info",
+        });
+      }
+      // HANDLING EMPTY CART
+      if (cart.length === 0) {
+        Swal.fire({
+          title: "Your cart is empty.",
+          text: "Add some products to your cart and try again.",
+          icon: "info",
+        });
+      } else {
+        Swal.fire({
+          title: "Creating your order",
+          text: "please wait...",
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+          },
           allowOutsideClick: false,
           allowEscapeKey: false,
           allowEnterKey: false,
         }).then(() => {
-          deleteAllFromCart()
-          navigate("/")
-        })
-
+          Swal.fire({
+            title: "Your Order has been placed.",
+            text: "Thank you for your purchase!",
+            icon: "success",
+            timer: 2400,
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
+          }).then(() => {
+            deleteAllFromCart();
+            navigate("/");
+          });
+        });
+      }
+    } else {
+      Swal.fire({
+        title: "Please log in before creating your order.",
+        text: "Please log in before proceeding with your purchase.",
+        icon: "info",
+      }).then(() => {
+        setShowLogin(true);
       });
     }
   };
@@ -144,7 +191,9 @@ const ShoppingCart = () => {
                     type="text"
                     placeholder="Enter Discount Code"
                   />
-                  <button className="cart__discount-btn">APPLY DISCOUNT</button>
+                  <button type="button" className="cart__discount-btn">
+                    APPLY DISCOUNT
+                  </button>
                 </div>
               </div>
               <div className="cart__shipping">
@@ -153,6 +202,7 @@ const ShoppingCart = () => {
                     Estimate Shipping and Tax
                   </h5>
                   <button
+                    type="button"
                     className={
                       showShipping
                         ? "cart__payment-shipping-btn cart__payment-shipping-btn-minus"
@@ -202,6 +252,7 @@ const ShoppingCart = () => {
                       name="shipping-state"
                       id="state"
                       className="shipping__information-name"
+                      onChange={useCountryState}
                     >
                       {!activeCountry ? (
                         <option className="shipping__information-opt" value="">
@@ -231,7 +282,11 @@ const ShoppingCart = () => {
                     <span className="shipping__information-title">
                       Zip/Postal Code
                     </span>
-                    <input type="text" className="shipping__information-name" />
+                    <input
+                      type="text"
+                      className="shipping__information-name"
+                      required
+                    />
                   </div>
                   <span className="cart__shipping-title2">Flat Rate</span>
                   <div className="cart__shipping-rate-container">
@@ -244,6 +299,7 @@ const ShoppingCart = () => {
                         name="rate"
                         value="flat"
                         id="flat-rate"
+                        required
                       />
                       <span></span>
                       Fixed 5.00 EUR
@@ -271,11 +327,11 @@ const ShoppingCart = () => {
             <div className="cart__payment-checkout">
               <div className="cart__subtotal">
                 <span className="cart__subtotal-title">Subtotal </span>
-                <span className="cart__subtotal-title">120.00 EUR</span>
+                <span className="cart__subtotal-title">{total},00 EUR</span>
               </div>
               <div className="cart__subtotal">
                 <span className="cart__subtotal-title cart__subtotal-title-grey">
-                  Tax{" "}
+                  Tax
                 </span>
                 <span className="cart__subtotal-title cart__subtotal-title-grey">
                   00.00 EUR
@@ -283,10 +339,10 @@ const ShoppingCart = () => {
               </div>
               <div className="cart__subtotal ">
                 <span className="cart__subtotal-title cart__total-title">
-                  Order Total{" "}
+                  Order Total
                 </span>
                 <span className="cart__subtotal-title cart__total-title">
-                  120.00 EUR
+                  {total},00 EUR
                 </span>
               </div>
               <button type="submit" className="cart__total-btn">

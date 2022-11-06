@@ -38,7 +38,21 @@ const ProductDetail = () => {
 
   const addAndRedirect = () => {
     addToWishlist(product)
-    navigate("/wishlist")
+    Swal.fire({
+      title: "Your product has been added!",
+      text: "Do you want to add more products?",
+      confirmButtonText: 'Stay here',
+      showDenyButton: true,
+      denyButtonText:"Go To Wishlist", 
+      confirmButtonColor: '#1E92F4',
+      denyButtonColor: '#32CD32',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.close();
+      } else if (result.isDenied) {
+        navigate("/WishList")
+      }
+    })
   }
 
   const token = JSON.parse(localStorage.getItem("user"));
@@ -95,7 +109,6 @@ const ProductDetail = () => {
           navigate("/cart")
         }
       })
-      // navigate("/cart")
   }
 
   return (

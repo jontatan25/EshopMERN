@@ -34,7 +34,7 @@ const NavigationBar = () => {
             title: "You are being redirected.",
             text: "Please wait ...",
             showConfirmButton: false,
-            timer: 3000,
+            timer: 2000,
             timerProgressBar: true,
             allowOutsideClick: false,
             allowEscapeKey: false,
