@@ -326,7 +326,7 @@ const ShoppingCart = () => {
             </div>
             <div className="cart__payment-checkout">
               <div className="cart__subtotal">
-                <span className="cart__subtotal-title">Subtotal </span>
+                <span className="cart__subtotal-title">Subtotal</span>
                 <span className="cart__subtotal-title">{total},00 EUR</span>
               </div>
               <div className="cart__subtotal">
