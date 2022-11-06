@@ -5,7 +5,7 @@ import logo from "../../images/logo/logo.svg";
 import { useCartContext } from "../CartContext/context";
 
 const NavigationBar = () => {
-  const { showLogin, setShowLogin, cart } = useCartContext();
+  const { showLogin, setShowLogin, cart, loggedIn } = useCartContext();
   return (
     <>
       <div className="header__Container">
@@ -60,26 +60,31 @@ const NavigationBar = () => {
         </nav>
         <div className="nav__login-container">
           <ul className="nav__login-list">
-            <li className="nav__listItem">
-              <button
-                className="nav__link-login"
-                onClick={() => {
-                  setShowLogin(!showLogin);
-                }}
-              >
-                SIGN&nbsp;IN
-              </button>
-            </li>
-            <li className="nav__listItem">
-              <NavLink
-                className={(navData) =>
-                  navData.isActive ? "active" : "nav-link"
-                }
-                to="/register"
-              >
-                CREATE&nbsp;AN&nbsp;ACCOUNT
-              </NavLink>
-            </li>
+            {!loggedIn && (
+              <>
+                <li className="nav__listItem">
+                  <button
+                    className="nav__link-login"
+                    onClick={() => {
+                      setShowLogin(!showLogin);
+                    }}
+                  >
+                    SIGN&nbsp;IN
+                  </button>
+                </li>
+                <li className="nav__listItem">
+                  <NavLink
+                    className={(navData) =>
+                      navData.isActive ? "active" : "nav-link"
+                    }
+                    to="/register"
+                  >
+                    CREATE&nbsp;AN&nbsp;ACCOUNT
+                  </NavLink>
+                </li>
+              </>
+            )}
+
             <li className="nav__listItem" id="nav-heart">
               <NavLink to="/wishlist">
                 <button className="nav__wishlist">
@@ -111,6 +116,18 @@ const NavigationBar = () => {
                 ""
               )}
             </li>
+            {loggedIn && (
+              <li className="nav__listItem nav__listItem-logout">
+                <button
+                  className="nav__link-login"
+                  // onClick={() => {
+                  //   setShowLogin(!showLogin);
+                  // }}
+                >
+                  LOG&nbsp;OUT
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </div>

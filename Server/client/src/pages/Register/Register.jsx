@@ -76,7 +76,7 @@ const Register = () => {
             Swal.fire({
               icon: "error",
               title: "ERROR",
-              text: `${rejectReason}`,
+              text: rejectReason,
               footer: "Please try again",
             });
           }

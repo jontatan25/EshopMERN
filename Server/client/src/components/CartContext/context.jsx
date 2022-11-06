@@ -10,6 +10,7 @@ const CartContextProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([])
   const [data, setData] = useState([]);
   const [showLogin, setShowLogin] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false)
 
   const addProduct = (productWithOptions) => {
     const productIndex = cart.findIndex(
@@ -119,6 +120,7 @@ const deleteAllFromWishlist = () => {
         addToWishlist,
         deleteItemByIDWishlist,
         deleteAllFromWishlist,
+        loggedIn,setLoggedIn,
       }}
     >
       {children}
