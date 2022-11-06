@@ -1,11 +1,43 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./style.css";
 import logo from "../../images/logo/logo.svg";
 import { useCartContext } from "../CartContext/context";
 
+import Swal from "sweetalert2";
+
 const NavigationBar = () => {
-  const { showLogin, setShowLogin, cart, loggedIn } = useCartContext();
+  const { showLogin, setShowLogin, cart, loggedIn, setLoggedIn } =
+    useCartContext();
+
+  const navigate = useNavigate();
+  const confirmLogout = () => {
+    Swal.fire({
+      title: "Do you want to Log Out?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Log Out",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("user");
+        setLoggedIn(false);
+        Swal.fire({
+          icon: "success",
+          title: "Log Out Successfull",
+          showConfirmButton: false,
+          timer: 2000,
+        }).then(() => {
+          Swal.fire({
+            title: "You are being redirected.",
+            text: "Please wait ...",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+          }).then(() => navigate("/"));
+        });
+      }
+    });
+  };
   return (
     <>
       <div className="header__Container">
@@ -120,9 +152,9 @@ const NavigationBar = () => {
               <li className="nav__listItem nav__listItem-logout">
                 <button
                   className="nav__link-login"
-                  // onClick={() => {
-                  //   setShowLogin(!showLogin);
-                  // }}
+                  onClick={() => {
+                    confirmLogout();
+                  }}
                 >
                   LOG&nbsp;OUT
                 </button>
