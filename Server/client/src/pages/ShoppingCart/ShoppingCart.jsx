@@ -7,6 +7,7 @@ import CartProduct from "../../components/CartProduct/CartProduct";
 import { getCountriesInfo } from "../../service";
 import Swal from "sweetalert2";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 const ShoppingCart = () => {
   const [showShipping, setShowShipping] = useState(false);
@@ -17,6 +18,7 @@ const ShoppingCart = () => {
   const [error, setError] = useState(null);
 
   const { cart, deleteAllFromCart } = useCartContext();
+  const navigate = useNavigate()
 
   const getInfo = async () => {
     try {
@@ -50,30 +52,43 @@ const ShoppingCart = () => {
   }, [activeCountry]);
 
   const handleSubmit = (e) => {
-      e.preventDefault();
-      if (cart.length === 0) {
+    e.preventDefault();
+    if (cart.length === 0) {
+      Swal.fire({
+        title: "Your cart is empty.",
+        text: "Add some products to your cart and try again.",
+        icon: "info",
+      });
+    } else {
+      Swal.fire({
+        title: "Creating your order",
+        text: "please wait...",
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        allowEnterKey: false,
+      }).then(() => {
         Swal.fire({
-          title: "Your cart is empty.",
-          text: "Add some products to your cart and try again.",
-          icon: "info",
+          title: "Your Order has been placed.",
+          text: "Thank you for your purchase!",
+          icon: "success",
+          timer: 2400,
+          showConfirmButton: false,
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          allowEnterKey: false,
+        }).then(() => {
+          deleteAllFromCart()
+          navigate("/")
         })
-      } else {
-        // const makeOrder = async() => {
-        //   try {
-        //     const res = await axios.post("https://mern-eshop-espitia-jonathans.herokuapp.com/orders/create",{}, {
-        //       headers: { Authorization: `Bearer ${token}` },
-        //     });
-        //     if (res.data.success === true){
-        //       alert("success!! you will receive an email with your order information!")
-        //     return navigate("/")
-        //   } 
-        //     return alert("error: "+ res.data.message)
-        //   } catch (error) {
-        //     console.log(error)
-        //   }
-        // }
-      }
-  }
+
+      });
+    }
+  };
 
   return (
     <>
@@ -115,7 +130,11 @@ const ShoppingCart = () => {
           </ul>
         </div>
         <div className="cart__payment">
-          <form onSubmit = {(e) => {handleSubmit(e);}}>
+          <form
+            onSubmit={(e) => {
+              handleSubmit(e);
+            }}
+          >
             <div className="cart__payment-info">
               <div className="cart__discount">
                 <h5 className="cart__payment-title">Apply discount Code</h5>
@@ -270,7 +289,9 @@ const ShoppingCart = () => {
                   120.00 EUR
                 </span>
               </div>
-              <button type ="submit" className="cart__total-btn">proceed to checkout</button>
+              <button type="submit" className="cart__total-btn">
+                proceed to checkout
+              </button>
             </div>
           </form>
         </div>

@@ -16,6 +16,8 @@ import QuantitySelector from "../../components/QuantitySelector/QuantitySelector
 import CarouselSingle from "../../components/CarouselSingle/CarouselSingle";
 import { useCartContext } from "../../components/CartContext/context";
 
+import Swal from "sweetalert2";
+
 const ProductDetail = () => {
 
  const {addToWishlist} = useCartContext();
@@ -44,6 +46,7 @@ const ProductDetail = () => {
 
   useEffect(() => {
     const initProducts = async () => {
+      window.scrollTo(0, 0)
       try {
         setLoading(true);
         const data = await getProducts();
@@ -77,7 +80,22 @@ const ProductDetail = () => {
       productWithSelectedOptions.size = activeSize;
       productWithSelectedOptions.quantity = quantity;
       addProduct(productWithSelectedOptions)
-      navigate("/cart")
+      Swal.fire({
+        title: "Your product has been added!",
+        text: "Do you want to add more products?",
+        confirmButtonText: 'Add more',
+        showDenyButton: true,
+        denyButtonText:"Go To Cart", 
+        confirmButtonColor: '#1E92F4',
+        denyButtonColor: '#32CD32',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/products")
+        } else if (result.isDenied) {
+          navigate("/cart")
+        }
+      })
+      // navigate("/cart")
   }
 
   return (
