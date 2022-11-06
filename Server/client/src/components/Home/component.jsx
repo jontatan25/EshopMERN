@@ -27,12 +27,15 @@ import CarouselSingle from "../CarouselSingle/CarouselSingle";
 
 import Banner2 from "../Banner2.jsx/Banner2";
 
-import {getProducts} from "../../service/index"
+import { getProducts } from "../../service/index";
+import { useCartContext } from "../CartContext/context";
 
 const HomeContainer = () => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
+
+  const {setLoggedIn} = useCartContext();
 
   useEffect(() => {
     const initProducts = async () => {
@@ -48,10 +51,20 @@ const HomeContainer = () => {
     };
     initProducts();
   }, []);
+
+  const getUser = async () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      setLoggedIn(true)
+    }
+  };
+  useEffect(() => {
+    getUser();
+  }, []);
   
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
@@ -69,7 +82,7 @@ const HomeContainer = () => {
               </h2>
             </div>
             <Link to="/products?filterProducts=30%off">
-            <BtnTransparent text={"SHOP NOW"} />
+              <BtnTransparent text={"SHOP NOW"} />
             </Link>
           </div>
           <div className="carousel__images">
@@ -127,7 +140,7 @@ const HomeContainer = () => {
               </h3>
               <p className="promo__text">See our clothing collections</p>
               <Link to="/products">
-              <BtnTransparent text={"SEE OFFERS"} />
+                <BtnTransparent text={"SEE OFFERS"} />
               </Link>
             </div>
           </div>
@@ -138,8 +151,8 @@ const HomeContainer = () => {
             <div className="promotion__promo-two-container">
               <h3 className="promo__title-two">BRAND NEW STYLE</h3>
               <p className="promo__text-two">Popular clothing brands</p>
-             <Link to="/products?filterProducts=showbrands">
-              <BtnTransparent text={"SEE OFFERS"} />
+              <Link to="/products?filterProducts=showbrands">
+                <BtnTransparent text={"SEE OFFERS"} />
               </Link>
             </div>
           </div>
@@ -152,16 +165,15 @@ const HomeContainer = () => {
             <h3 className="promo__title-three">UP TO 40% OFF</h3>
             <p className="promo__text-three">Special offers and great deals</p>
             <Link to="/products?filterProducts=40%off">
-            <BtnTransparent text={"SHOP NOW"} />
+              <BtnTransparent text={"SHOP NOW"} />
             </Link>
           </div>
         </div>
       </div>
-      {loading ? 
-      (
+      {loading ? (
         <span>Loading data...</span>
-        ) : (
-        <FilteredItemList loading={loading} products={products} error = {error}/>
+      ) : (
+        <FilteredItemList loading={loading} products={products} error={error} />
       )}
       <Banner2
         bannerImg={banner2}
@@ -169,7 +181,7 @@ const HomeContainer = () => {
         text={
           "You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!"
         }
-        btnText = "SHOP NOW"
+        btnText="SHOP NOW"
       />
       <CarouselSingle
         products={products}
@@ -191,8 +203,8 @@ const HomeContainer = () => {
             You can choose the best option for you, and it does not matter
             whether you are in Prague or San Francisco.
           </p>
-          <Link to = "/products?filterProducts=showcolors">
-          <BtnTransparent text = "SHOP NOW"/>
+          <Link to="/products?filterProducts=showcolors">
+            <BtnTransparent text="SHOP NOW" />
           </Link>
         </div>
       </div>

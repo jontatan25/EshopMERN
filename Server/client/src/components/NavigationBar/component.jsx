@@ -26,6 +26,9 @@ const NavigationBar = () => {
           title: "Log Out Successfull",
           showConfirmButton: false,
           timer: 2000,
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          allowEnterKey: false,
         }).then(() => {
           Swal.fire({
             title: "You are being redirected.",
@@ -33,7 +36,10 @@ const NavigationBar = () => {
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
-          }).then(() => navigate("/"));
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
+          }).then(() =>  window.location.reload(false));
         });
       }
     });

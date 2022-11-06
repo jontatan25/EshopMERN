@@ -35,6 +35,14 @@ const UserLogin = () => {
     newInfo[0][nameOfProperty] = newValue;
     setInfo(newInfo);
   };
+  const resetInfo = (e) => {
+    const resetEmail = "";
+    const resetPassword = "";
+    const newInfo = [...info];
+    newInfo[0].email = resetEmail;
+    newInfo[0].password = resetPassword;
+    setInfo(newInfo);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,11 +60,15 @@ const UserLogin = () => {
        const res = await axios.post(`${API_ENDPOINT}/users/login`,data)
        console.log(res.data)
       if (res.data.success === true) {
+        resetInfo()
         Swal.fire({
           icon: "success",
           title: "Log In Successfull",
           showConfirmButton: false,
-          timer: 2000
+          timer: 2000,
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          allowEnterKey: false,
         }).then(() => {
           Swal.close();
           Swal.fire({
@@ -65,6 +77,9 @@ const UserLogin = () => {
             showConfirmButton: false,
             timer: 3000,
             timerProgressBar: true,
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
           }).then(() => navigate("/"));
         })
         localStorage.setItem("user", JSON.stringify(res.data.token))
