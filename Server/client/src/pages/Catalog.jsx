@@ -16,7 +16,7 @@ const Catalog = () => {
   const [error, setError] = useState(null);
 
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [queryIsActive,setQueryIsActive] = useState(true)
+  const [queryIsActive, setQueryIsActive] = useState(false);
 
   const useQuery = () => new URLSearchParams(useLocation().search);
   let query = useQuery();
@@ -40,19 +40,21 @@ const Catalog = () => {
 
   useEffect(() => {
     if (queryFilter) {
+      setQueryIsActive(true)
       window.scrollTo({
         top: 470,
         behavior: "smooth",
       });
-    } else window.scrollTo(0, 0);
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   useEffect(() => {
-
-    if (filteredProducts.length> 0){
-      setQueryIsActive(false)
+    if (filteredProducts.length > 0) {
+      setQueryIsActive(false);
     }
-  },[filteredProducts])
+  }, [filteredProducts]);
 
   return (
     <div>

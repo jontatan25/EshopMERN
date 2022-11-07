@@ -4,82 +4,107 @@ import logo from "../../images/logo/logo-white.svg";
 import fbLogo from "../../images/logo/fblogo.svg";
 import twtLogo from "../../images/logo/twtlogo.svg";
 import itLogo from "../../images/logo/itlogo.svg";
-import btnCheck from "../../images/btn/check.svg"
+import btnCheck from "../../images/btn/check.svg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer>
       <div className="home__footer-container">
-      <ul className="advantages__list">
-        <li className="advantages__list-item">
-          <img
-            className="advantages__check"
-            src={btnCheck}
-            alt="Duties and
+        <ul className="advantages__list">
+          <li className="advantages__list-item">
+            <img
+              className="advantages__check"
+              src={btnCheck}
+              alt="Duties and
           Taxes Guaranteed"
-          ></img>{" "}
-          Duties and Taxes Guaranteed
-        </li>
-        <li className="advantages__list-item">
-          <img
-            className="advantages__check"
-            src={btnCheck}
-            alt="Free Express
+            ></img>{" "}
+            Duties and Taxes Guaranteed
+          </li>
+          <li className="advantages__list-item">
+            <img
+              className="advantages__check"
+              src={btnCheck}
+              alt="Free Express
           Shipping"
-          ></img>
-          Free Express Shipping
-        </li>
-        <li className="advantages__list-item">
-          <img
-            className="advantages__check"
-            src={btnCheck}
-            alt="Customer Love"
-          ></img>
-          Customer Love
-        </li>
-        <li className="advantages__list-item">
-          <img
-            className="advantages__check"
-            src={btnCheck}
-            alt="Easy Returns"
-          ></img>
-          Easy Returns
-        </li>
-        <li className="advantages__list-item">
-          <img
-            className="advantages__check"
-            src={btnCheck}
-            alt="Secure Payment"
-          ></img>
-          Secure Payment
-        </li>
-      </ul>
+            ></img>
+            Free Express Shipping
+          </li>
+          <li className="advantages__list-item">
+            <img
+              className="advantages__check"
+              src={btnCheck}
+              alt="Customer Love"
+            ></img>
+            Customer Love
+          </li>
+          <li className="advantages__list-item">
+            <img
+              className="advantages__check"
+              src={btnCheck}
+              alt="Easy Returns"
+            ></img>
+            Easy Returns
+          </li>
+          <li className="advantages__list-item">
+            <img
+              className="advantages__check"
+              src={btnCheck}
+              alt="Secure Payment"
+            ></img>
+            Secure Payment
+          </li>
+        </ul>
         <ul className="footer__list">
           <li className="footer__list-item">
-            <img src={logo} alt="" />
+            <Link to="/">
+              <img src={logo} alt="" />
+            </Link>
           </li>
           <li className="footer__list-item">
-            <h4 className="footer__list-item-title">FEATURES</h4>
+            <h4 className="footer__list-item-title">BRANDS</h4>
             <ul className="item__sublist">
-              <li className="sublist__item">NEW ARRIVALS</li>
-              <li className="sublist__item">TOP WOMEN</li>
-              <li className="sublist__item">BEST SELLERS</li>
-              <li className="sublist__item">SUMMER</li>
-              <li className="sublist__item">SPRING</li>
-              <li className="sublist__item">TRENDING</li>
-              <li className="sublist__item">BLOG</li>
+              <Link to="/products?filterProducts=chanel">
+                <li className="sublist__item">CHANEL</li>
+              </Link>
+              <Link to="/products?filterProducts=burberry">
+                <li className="sublist__item">BURBERRY</li>
+              </Link>
+              <Link to="/products?filterProducts=dior">
+                <li className="sublist__item">DIOR</li>
+              </Link>
+              <Link to="/products?filterProducts=fendi">
+                <li className="sublist__item">FENDI</li>
+              </Link>
+              <Link to="/products?filterProducts=versace">
+                <li className="sublist__item">VERSACE</li>
+              </Link>
+              <Link to="/products?filterProducts=gucci">
+                <li className="sublist__item">GUCCI</li>
+              </Link>
+              <Link to="/products?filterProducts=armani">
+                <li className="sublist__item">ARMANI</li>
+              </Link>
             </ul>
           </li>
           <li className="footer__list-item">
             <h4 className="footer__list-item-title">MENU</h4>
             <ul className="item__sublist">
-              <li className="sublist__item">ABOUT US</li>
-              <li className="sublist__item">CONTACT US</li>
-              <li className="sublist__item">MY ACCOUNT</li>
-              <li className="sublist__item">ORDER HISTORY</li>
-              <li className="sublist__item">MY WISHLIST</li>
-              <li className="sublist__item">BLOG</li>
-              <li className="sublist__item">LOGIN</li>
+              <Link to="/">
+                <li className="sublist__item">HOME</li>
+              </Link>
+              <Link to="/products">
+                <li className="sublist__item">SHOP</li>
+              </Link>
+              <Link to="/blog">
+                <li className="sublist__item">BLOG</li>
+              </Link>
+              <Link to="/cart">
+                <li className="sublist__item">MY BAG</li>
+              </Link>
+              <Link to="/wishlist">
+                <li className="sublist__item">MY WISHLIST</li>
+              </Link>
             </ul>
           </li>
           <li className="footer__list-item">
@@ -110,49 +135,61 @@ const Footer = () => {
           <li className="footer__list-item">
             <h4 className="footer__list-item-title">FOLLOW US</h4>
             <ul className="item__sublist">
-              <li className="sublist__item sublist__item-follow">
-                <img
-                  className="sublist__logo"
-                  src={fbLogo}
-                  alt="facebook logo"
-                />
-                <span className="sublist__item-text">FACEBOOK</span>
-              </li>
-              <li className="sublist__item sublist__item-follow">
-                <img
-                  className="sublist__logo"
-                  src={twtLogo}
-                  alt="twitter logo"
-                />
-                <span className="sublist__item-text">TWITTER</span>
-              </li>
-              <li className="sublist__item sublist__item-follow">
-                <img
-                  className="sublist__logo"
-                  src={itLogo}
-                  alt="instagram logo"
-                />
-                <span className="sublist__item-text">INSTAGRAM</span>
-              </li>
+              <Link to="">
+                <li className="sublist__item sublist__item-follow">
+                  <img
+                    className="sublist__logo"
+                    src={fbLogo}
+                    alt="facebook logo"
+                  />
+                  <span className="sublist__item-text sublist__item-text-social">FACEBOOK</span>
+                </li>
+              </Link>
+              <Link to="">
+                <li className="sublist__item sublist__item-follow">
+                  <img
+                    className="sublist__logo"
+                    src={twtLogo}
+                    alt="twitter logo"
+                  />
+                  <span className="sublist__item-text sublist__item-text-social">TWITTER</span>
+                </li>
+              </Link>
+              <Link to="">
+                <li className="sublist__item sublist__item-follow">
+                  <img
+                    className="sublist__logo"
+                    src={itLogo}
+                    alt="instagram logo"
+                  />
+                  <span className="sublist__item-text sublist__item-text-social">INSTAGRAM</span>
+                </li>
+              </Link>
             </ul>
           </li>
           <li className="footer__list-item">
             <h4 className="footer__list-item-title">JOIN US</h4>
             <ul className="item__sublist">
               <li className="sublist__item sublist__item-join">
-                <span className="sublist__item-text">SUBSCRIBE TO OUR NEWSLETTER</span>
+                <span className="sublist__item-text">
+                  SUBSCRIBE TO OUR NEWSLETTER
+                </span>
               </li>
               <li className="sublist__item">
-                <input className="sublist__item-email" placeholder="Email Adress" type="email"/>
+                <input
+                  className="sublist__item-email"
+                  placeholder="Email Adress"
+                  type="email"
+                />
                 <button className="sublist__item-btn">SUBSCRIBE!</button>
               </li>
-              
             </ul>
           </li>
         </ul>
         <div className="home__footer-credits">
-          <h5 className="footer__credits-info">© 2019. Crisp theme Developed by Belvg</h5>
-          
+          <h5 className="footer__credits-info">
+            © 2019. Crisp theme Developed by Belvg
+          </h5>
         </div>
       </div>
     </footer>
