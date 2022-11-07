@@ -122,7 +122,7 @@ const FilteredItemList = ({ loading, products, error }) => {
       <div className="collection__filter-itemList-container">
         <div
           className={
-            boxHeigth === 932
+            ((newFilter !== "ALL")|| boxHeigth === 932)
               ? "collection__filter-itemList animate"
               : "collection__filter-itemList"
           }
@@ -153,7 +153,7 @@ const FilteredItemList = ({ loading, products, error }) => {
             ))
           )}
         </div>
-        {filteredProducts !== "ALL" ? (
+        {((newFilter === "ALL") && (boxHeigth !== 3262) )? (
           <div className="collection__filter-itemList-btn">
             <BtnGrey text={"SEE MORE"} increaseHeigth={increaseHeigth} />
           </div>
