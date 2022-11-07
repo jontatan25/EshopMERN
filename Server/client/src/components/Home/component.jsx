@@ -35,7 +35,7 @@ const HomeContainer = () => {
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
 
-  const {setLoggedIn} = useCartContext();
+  const { setLoggedIn } = useCartContext();
 
   useEffect(() => {
     const initProducts = async () => {
@@ -55,13 +55,13 @@ const HomeContainer = () => {
   const getUser = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
-      setLoggedIn(true)
+      setLoggedIn(true);
     }
   };
   useEffect(() => {
     getUser();
   }, []);
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -99,34 +99,26 @@ const HomeContainer = () => {
       </div>
       <div className="banner__container">
         <p className="banner__text">CHOOSE YOUR BRAND</p>
-        <div
-          className="banner__icon"
-          style={{ backgroundImage: `url(${frame})` }}
-        ></div>
-        <div
-          className="banner__icon"
-          style={{ backgroundImage: `url(${frame1})` }}
-        ></div>
-        <div
-          className="banner__icon"
-          style={{ backgroundImage: `url(${frame2})` }}
-        ></div>
-        <div
-          className="banner__icon"
-          style={{ backgroundImage: `url(${frame3})` }}
-        ></div>
-        <div
-          className="banner__icon"
-          style={{ backgroundImage: `url(${frame4})` }}
-        ></div>
-        <div
-          className="banner__icon"
-          style={{ backgroundImage: `url(${frame5})` }}
-        ></div>
-        <div
-          className="banner__icon"
-          style={{ backgroundImage: `url(${frame6})` }}
-        ></div>
+        <Link
+          to="/products"
+          className="banner__icon banner__icon-chanel"
+        ></Link>
+        <Link
+          to="/products"
+          className="banner__icon banner__icon-burberry"
+        ></Link>
+        <Link to="/products" className="banner__icon banner__icon-dior"></Link>
+        <Link to="/products" className="banner__icon banner__icon-fendi"></Link>
+        <Link
+          to="/products"
+          className="banner__icon banner__icon-versace"
+        ></Link>
+        <Link to="/products" className="banner__icon banner__icon-gucci"></Link>
+        <Link
+          to="/products"
+          // <Link to="/products?filterProducts="
+          className="banner__icon banner__icon-armani"
+        ></Link>
       </div>
       <div className="promotions__container">
         <div className="promotions__small-container">

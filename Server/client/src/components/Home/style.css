@@ -103,9 +103,38 @@
 .banner__icon {
   width: 184px;
   height: 110px;
+
   background-size: auto 100%;
+
+  transition: all 0.3s ease-in-out;
 }
 
+.banner__icon:hover {
+ filter:brightness(92%);
+ scale: 1.05;
+}
+
+.banner__icon-chanel {
+  background-image: url(../../images/brandBanner/CHANEL.png);
+}
+.banner__icon-burberry {
+  background-image: url(../../images/brandBanner/BURBERRY.png);
+}
+.banner__icon-dior {
+  background-image: url(../../images/brandBanner/DIOR.png);
+}
+.banner__icon-fendi {
+  background-image: url(../../images/brandBanner/FENDI.png);
+}
+.banner__icon-versace {
+  background-image: url(../../images/brandBanner/VERSACE.png);
+}
+.banner__icon-gucci {
+  background-image: url(../../images/brandBanner/GUCCI.png);
+}
+.banner__icon-armani {
+  background-image: url(../../images/brandBanner/ARMANI.png);
+}
 .promotions__container {
   height: 702px;
   width: 98%;
