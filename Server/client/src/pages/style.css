@@ -19,6 +19,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  height: auto;
 }
 
 .productsContainer_productsAndBanners{
@@ -32,6 +33,6 @@
 }
 
 .showTripleRow {
-  height: 1398px;
+  max-height: 1398px;
   overflow: hidden;
 }
