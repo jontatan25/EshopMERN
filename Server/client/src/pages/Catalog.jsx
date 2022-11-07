@@ -78,6 +78,8 @@ const Catalog = () => {
               <h2>LOADING</h2>
             ) : error ? (
               <h2>Something went Wrong. Try again Later</h2>
+            ) : query && filteredProducts.length === 0 ? (
+              <h2>LOADING FILTER...</h2>
             ) : filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
                 <CarouselItem

@@ -9,14 +9,6 @@ import smallPromo1 from "../../images/promo/small1.jpg";
 import smallPromo2 from "../../images/promo/small2.jpg";
 import bigPromo1 from "../../images/promo/big1.jpg";
 
-import frame from "../../images/brandBanner/CHANEL.png";
-import frame1 from "../../images/brandBanner/BURBERRY.png";
-import frame2 from "../../images/brandBanner/DIOR.png";
-import frame3 from "../../images/brandBanner/FENDI.png";
-import frame4 from "../../images/brandBanner/VERSACE.png";
-import frame5 from "../../images/brandBanner/GUCCI.png";
-import frame6 from "../../images/brandBanner/ARMANI.png";
-
 import banner2 from "../../images/banner/banner2-background.jpg";
 import banner3 from "../../images/banner/banner3-background.jpg";
 
@@ -100,23 +92,31 @@ const HomeContainer = () => {
       <div className="banner__container">
         <p className="banner__text">CHOOSE YOUR BRAND</p>
         <Link
-          to="/products"
+          to="/products?filterProducts=chanel"
           className="banner__icon banner__icon-chanel"
         ></Link>
         <Link
-          to="/products"
+          to="/products?filterProducts=burberry"
           className="banner__icon banner__icon-burberry"
         ></Link>
-        <Link to="/products" className="banner__icon banner__icon-dior"></Link>
-        <Link to="/products" className="banner__icon banner__icon-fendi"></Link>
         <Link
-          to="/products"
+          to="/products?filterProducts=dior"
+          className="banner__icon banner__icon-dior"
+        ></Link>
+        <Link
+          to="/products?filterProducts=fendi"
+          className="banner__icon banner__icon-fendi"
+        ></Link>
+        <Link
+          to="/products?filterProducts=versace"
           className="banner__icon banner__icon-versace"
         ></Link>
-        <Link to="/products" className="banner__icon banner__icon-gucci"></Link>
         <Link
-          to="/products"
-          // <Link to="/products?filterProducts="
+          to="/products?filterProducts=gucci"
+          className="banner__icon banner__icon-gucci"
+        ></Link>
+        <Link
+          to="/products?filterProducts=armani"
           className="banner__icon banner__icon-armani"
         ></Link>
       </div>

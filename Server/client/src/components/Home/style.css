@@ -106,12 +106,16 @@
 
   background-size: auto 100%;
 
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .banner__icon:hover {
  filter:brightness(92%);
  scale: 1.05;
+}
+.banner__icon:active {
+ filter:brightness(83%);
+ scale: 1.03;
 }
 
 .banner__icon-chanel {

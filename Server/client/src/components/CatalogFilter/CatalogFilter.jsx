@@ -9,6 +9,7 @@ const CatalogFilter = ({ setFilteredProducts, products, queryFilter }) => {
   const [price, setPrice] = useState("150");
 
   const [brandFilters, setBrandFilters] = useState([
+    { name: "chanel", status: false },
     { name: "burberry", status: false },
     { name: "dior", status: false },
     { name: "fendi", status: false },
@@ -83,7 +84,6 @@ const CatalogFilter = ({ setFilteredProducts, products, queryFilter }) => {
   const toogleFilter = (value, itemProperty) => {
     const productsWithFiltersApplied = [];
     const valueInLowerCase = value.toLowerCase();
-
     if (itemProperty === "brand") {
       const res = updateAndFilter(brandFilters, valueInLowerCase, itemProperty);
       filteredProductsBrand = res;
@@ -139,14 +139,24 @@ const CatalogFilter = ({ setFilteredProducts, products, queryFilter }) => {
     setFilteredProducts(productsWithFiltersApplied);
   };
   useEffect(() => {
-    if ((queryFilter === "40%off" || queryFilter === "30%off") && products) {
-      const transformedQuery = queryFilter.toUpperCase();
-      toogleFilter(transformedQuery, "promo");
-      setShowSale(true);
-    } else if ((queryFilter === "showbrands")) {
+    const activateandShowBrand = (brandQuery) => {
       setShowBrand(true);
-    } else if ((queryFilter === "showcolors")) {
-      setShowColor(true);
+      const transformedQuery = brandQuery.toUpperCase();
+      toogleFilter(transformedQuery, "brand");
+    };
+    if (products) {
+      if (queryFilter === "40%off" || queryFilter === "30%off") {
+        const transformedQuery = queryFilter.toUpperCase();
+        toogleFilter(transformedQuery, "promo");
+        setShowSale(true);
+      } else if (["chanel","burberry","dior","fendi","versace", "gucci", "armani"].includes(queryFilter)){
+        activateandShowBrand(queryFilter);
+      } else if (queryFilter === "showbrands") {
+        setShowBrand(true);
+      } else if (queryFilter === "showcolors") {
+        setShowColor(true);
+      } else if (queryFilter === "showbrands") {
+      }
     }
   }, [products]);
 
@@ -172,69 +182,157 @@ const CatalogFilter = ({ setFilteredProducts, products, queryFilter }) => {
             className="productsContainer__listTitle-form"
             aria-expanded={!showBrand}
           >
+            <label htmlFor="chanel">
+              {queryFilter === "chanel" ? (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="chanel"
+                  value="CHANEL"
+                  onChange={(e) => toogleFilter(e.target.value, "brand")}
+                  defaultChecked={true}
+                />
+              ) : (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="chanel"
+                  value="CHANEL"
+                  onChange={(e) => toogleFilter(e.target.value, "brand")}
+                />
+              )}
+              CHANEL
+              <span></span>
+            </label>
             <label htmlFor="burberry">
-              <input
-                type="checkbox"
-                name="filter"
-                id="burberry"
-                value="BURBERRY"
-                onChange={(e) => toogleFilter(e.target.value, "brand")}
-              />
+              {queryFilter === "burberry" ? (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="burberry"
+                  value="BURBERRY"
+                  onChange={(e) => toogleFilter(e.target.value, "brand")}
+                  defaultChecked={true}
+                />
+              ) : (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="burberry"
+                  value="BURBERRY"
+                  onChange={(e) => toogleFilter(e.target.value, "brand")}
+                />
+              )}
               BURBERRY
               <span></span>
             </label>
             <label htmlFor="dior">
-              <input
-                type="checkbox"
-                name="filter"
-                id="dior"
-                value="DIOR"
-                onChange={(e) => toogleFilter(e.target.value, "brand")}
-              />
+              {queryFilter === "dior" ? (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="dior"
+                  value="DIOR"
+                  onChange={(e) => toogleFilter(e.target.value, "brand")}
+                  defaultChecked={true}
+                />
+              ) : (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="dior"
+                  value="DIOR"
+                  onChange={(e) => toogleFilter(e.target.value, "brand")}
+                />
+              )}
               DIOR
               <span></span>
             </label>
             <label htmlFor="fendi">
-              <input
-                type="checkbox"
-                name="filter"
-                id="fendi"
-                value="FENDI"
-                onChange={(e) => toogleFilter(e.target.value, "brand")}
-              />
+              {queryFilter === "fendi" ? (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="fendi"
+                  value="FENDI"
+                  onChange={(e) => toogleFilter(e.target.value, "brand")}
+                  defaultChecked={true}
+                />
+              ) : (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="fendi"
+                  value="FENDI"
+                  onChange={(e) => toogleFilter(e.target.value, "brand")}
+                />
+              )}
               FENDI
               <span></span>
             </label>
             <label htmlFor="versace">
-              <input
-                type="checkbox"
-                name="filter"
-                id="versace"
-                value="VERSACE"
-                onChange={(e) => toogleFilter(e.target.value, "brand")}
-              />
+              {queryFilter === "versace" ? (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="versace"
+                  value="VERSACE"
+                  onChange={(e) => toogleFilter(e.target.value, "brand")}
+                  defaultChecked={true}
+                />
+              ) : (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="versace"
+                  value="VERSACE"
+                  onChange={(e) => toogleFilter(e.target.value, "brand")}
+                />
+              )}
               VERSACE
               <span></span>
             </label>
             <label htmlFor="gucci">
-              <input
-                type="checkbox"
-                name="filter"
-                id="gucci"
-                value="GUCCI"
-                onChange={(e) => toogleFilter(e.target.value, "brand")}
-              />
+              {queryFilter === "gucci" ? (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="gucci"
+                  value="GUCCI"
+                  onChange={(e) => toogleFilter(e.target.value, "brand")}
+                  defaultChecked={true}
+                />
+              ) : (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="gucci"
+                  value="GUCCI"
+                  onChange={(e) => toogleFilter(e.target.value, "brand")}
+                />
+              )}
               GUCCI
               <span></span>
             </label>
             <label htmlFor="armani">
-              <input
-                type="checkbox"
-                name="filter"
-                id="armani"
-                value="ARMANI"
-                onChange={(e) => toogleFilter(e.target.value, "brand")}
-              />
+              {queryFilter === "armani" ? (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="armani"
+                  value="ARMANI"
+                  onChange={(e) => toogleFilter(e.target.value, "brand")}
+                  defaultChecked={true}
+                />
+              ) : (
+                <input
+                  type="checkbox"
+                  name="filter"
+                  id="armani"
+                  value="ARMANI"
+                  onChange={(e) => toogleFilter(e.target.value, "brand")}
+                />
+              )}
               ARMANI
               <span></span>
             </label>

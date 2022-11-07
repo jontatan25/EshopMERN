@@ -83,7 +83,7 @@ label {
   cursor: pointer;
   margin-bottom: 14px;
 }
-
+#chanel,
 #burberry,
 #dior,
 #fendi,
@@ -101,6 +101,7 @@ label {
   opacity: 0;
 }
 
+#chanel + span,
 #burberry + span,
 #dior + span,
 #fendi + span,
@@ -175,6 +176,7 @@ label {
    transition: all 0.3s ease;
 }
 
+#chanel + span:hover,
 #burberry + span:hover,
 #dior + span:hover,
 #fendi + span:hover,
@@ -196,6 +198,7 @@ label {
   transition: all 0.5s ease;
 }
 
+#chanel:checked + span,
 #burberry:checked + span,
 #dior:checked + span,
 #fendi:checked + span,
