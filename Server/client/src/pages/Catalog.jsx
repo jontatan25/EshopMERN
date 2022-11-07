@@ -16,6 +16,7 @@ const Catalog = () => {
   const [error, setError] = useState(null);
 
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [queryIsActive,setQueryIsActive] = useState(true)
 
   const useQuery = () => new URLSearchParams(useLocation().search);
   let query = useQuery();
@@ -45,6 +46,13 @@ const Catalog = () => {
       });
     } else window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+
+    if (filteredProducts.length> 0){
+      setQueryIsActive(false)
+    }
+  },[filteredProducts])
 
   return (
     <div>
@@ -78,7 +86,7 @@ const Catalog = () => {
               <h2>LOADING</h2>
             ) : error ? (
               <h2>Something went Wrong. Try again Later</h2>
-            ) : query && filteredProducts.length === 0 ? (
+            ) : queryIsActive && filteredProducts.length === 0 ? (
               <h2>LOADING FILTER...</h2>
             ) : filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (

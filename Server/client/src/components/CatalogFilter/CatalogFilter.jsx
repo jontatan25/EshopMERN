@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 
-const CatalogFilter = ({ setFilteredProducts, products, queryFilter }) => {
+const CatalogFilter = ({ setFilteredProducts, products, queryFilter}) => {
   const [showBrand, setShowBrand] = useState(false);
   const [showSale, setShowSale] = useState(false);
   const [showColor, setShowColor] = useState(false);
