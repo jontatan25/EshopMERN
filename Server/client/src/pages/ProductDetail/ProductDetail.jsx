@@ -19,11 +19,10 @@ import { useCartContext } from "../../components/CartContext/context";
 import Swal from "sweetalert2";
 
 const ProductDetail = () => {
-
- const {addToWishlist} = useCartContext();
+  const { addToWishlist } = useCartContext();
   const { addProduct } = useCartContext();
   const [quantity, setQuantity] = useState(1);
-  const [totalPrice, setTotalPrice] = useState(null)
+  const [totalPrice, setTotalPrice] = useState(null);
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState(null);
   const [products, setProducts] = useState(null);
@@ -37,37 +36,37 @@ const ProductDetail = () => {
   let navigate = useNavigate();
 
   const addAndRedirect = () => {
-    addToWishlist(product)
+    addToWishlist(product);
     Swal.fire({
       title: "Your product has been added!",
       text: "Do you want to add more products?",
-      confirmButtonText: 'Stay here',
+      confirmButtonText: "Stay here",
       showDenyButton: true,
-      denyButtonText:"Go To Wishlist", 
-      confirmButtonColor: '#1E92F4',
-      denyButtonColor: '#32CD32',
+      denyButtonText: "Go To Wishlist",
+      confirmButtonColor: "#1E92F4",
+      denyButtonColor: "#32CD32",
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.close();
       } else if (result.isDenied) {
-        navigate("/WishList")
+        navigate("/WishList");
       }
-    })
-  }
+    });
+  };
 
   // const token = JSON.parse(localStorage.getItem("user"));
   const { id } = useParams();
 
   useEffect(() => {
     const initProducts = async () => {
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
       try {
         setLoading(true);
         const data = await getProducts();
         const productToShow = data.filter((product) => product._id === id);
         setProducts(data);
         setProduct(productToShow[0]);
-        setTotalPrice(productToShow[0].price)
+        setTotalPrice(productToShow[0].price);
       } catch (error) {
         setError(error);
         console.log(error);
@@ -84,32 +83,32 @@ const ProductDetail = () => {
 
   useEffect(() => {
     if (product) {
-      setTotalPrice(product.price*quantity)
+      setTotalPrice(product.price * quantity);
     }
   }, [quantity]);
 
   const saveProduct = () => {
-      const productWithSelectedOptions = {...product}
-      productWithSelectedOptions.color = activeColor;
-      productWithSelectedOptions.size = activeSize;
-      productWithSelectedOptions.quantity = quantity;
-      addProduct(productWithSelectedOptions)
-      Swal.fire({
-        title: "Your product has been added!",
-        text: "Do you want to add more products?",
-        confirmButtonText: 'Add more',
-        showDenyButton: true,
-        denyButtonText:"Go To Cart", 
-        confirmButtonColor: '#1E92F4',
-        denyButtonColor: '#32CD32',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate("/products")
-        } else if (result.isDenied) {
-          navigate("/cart")
-        }
-      })
-  }
+    const productWithSelectedOptions = { ...product };
+    productWithSelectedOptions.color = activeColor;
+    productWithSelectedOptions.size = activeSize;
+    productWithSelectedOptions.quantity = quantity;
+    addProduct(productWithSelectedOptions);
+    Swal.fire({
+      title: "Your product has been added!",
+      text: "Do you want to add more products?",
+      confirmButtonText: "Add more",
+      showDenyButton: true,
+      denyButtonText: "Go To Cart",
+      confirmButtonColor: "#1E92F4",
+      denyButtonColor: "#32CD32",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate("/products");
+      } else if (result.isDenied) {
+        navigate("/cart");
+      }
+    });
+  };
 
   return (
     <>
@@ -121,12 +120,15 @@ const ProductDetail = () => {
         product && (
           <>
             <div className="ItemDetailContainer">
+              <h5 className="detailsContainerTwo__url detailsContainerTwo__url-mobile">
+                Home / Womens Dress / Details
+              </h5>
               <div className="detailsContainerOne">
                 <div className="detailsContainerOne__imageContainer">
                   <img
                     className="detailsContainerOne__image"
                     src={product.URLPhoto}
-                    alt = "Product"
+                    alt="Product"
                   ></img>
                 </div>
 
@@ -207,32 +209,31 @@ const ProductDetail = () => {
               </div>
 
               <div className="detailsContainerTwo">
-             
                 <h5 className="detailsContainerTwo__url">
                   Home / Womens Dress / Details
                 </h5>
                 <div className="detailsContainerTwo__container-title">
-                <div
-                  className="detailsContainerTwo__brandPhoto"
-                  style={
-                    product.brand === "ARMANI"
-                      ? { backgroundImage: `url(${ARMANI})` }
-                      : product.brand === "BURBERRY"
-                      ? { backgroundImage: `url(${BURBERRY})` }
-                      : product.brand === "CHANEL"
-                      ? { backgroundImage: `url(${CHANEL})` }
-                      : product.brand === "DIOR"
-                      ? { backgroundImage: `url(${DIOR})` }
-                      : product.brand === "FENDI"
-                      ? { backgroundImage: `url(${FENDI})` }
-                      : product.brand === "GUCCI"
-                      ? { backgroundImage: `url(${GUCCI})` }
-                      : { backgroundImage: `url(${VERSACE})` }
-                  }
-                ></div>
-                <h3 className="detailsContainerTwo__title">
-                  Women Black Checked Fit and Flare Dress
-                </h3>
+                  <div
+                    className="detailsContainerTwo__brandPhoto"
+                    style={
+                      product.brand === "ARMANI"
+                        ? { backgroundImage: `url(${ARMANI})` }
+                        : product.brand === "BURBERRY"
+                        ? { backgroundImage: `url(${BURBERRY})` }
+                        : product.brand === "CHANEL"
+                        ? { backgroundImage: `url(${CHANEL})` }
+                        : product.brand === "DIOR"
+                        ? { backgroundImage: `url(${DIOR})` }
+                        : product.brand === "FENDI"
+                        ? { backgroundImage: `url(${FENDI})` }
+                        : product.brand === "GUCCI"
+                        ? { backgroundImage: `url(${GUCCI})` }
+                        : { backgroundImage: `url(${VERSACE})` }
+                    }
+                  ></div>
+                  <h3 className="detailsContainerTwo__title">
+                    Women Black Checked Fit and Flare Dress
+                  </h3>
                 </div>
                 <h5 className="detailsContainerTwo__selectTitle">
                   SELECT COLOR
@@ -387,7 +388,7 @@ const ProductDetail = () => {
                 </ul>
                 <div className="preCheckContainer">
                   <div className="preCheckContainer__quantityContainer">
-                    <h5 className="detailsContainerTwo__selectTitle">
+                    <h5 className=" detailsContainerTwo__selectTitle detailsContainerTwo__selectTitle-showInMobile">
                       QUANTITY
                     </h5>
                     <div className="quantityContainer__selectAmountContainer">
@@ -401,29 +402,108 @@ const ProductDetail = () => {
                     <h5 className="detailsContainerTwo__selectTitle">
                       PRICE TOTAL
                     </h5>
-                      {product ? 
-                    <h5
-                      className="detailsContainerTwo__selectTitle"
-                      id="quantitySelectorTotal"
-                    > {totalPrice}.00 EUR
-                      
-                      </h5> : 
-                        <h5
+                    {product ? (
+                      <h5
                         className="detailsContainerTwo__selectTitle"
                         id="quantitySelectorTotal"
-                      > 0
-                        
+                      >
+                        {" "}
+                        {totalPrice}.00 EUR
+                      </h5>
+                    ) : (
+                      <h5
+                        className="detailsContainerTwo__selectTitle"
+                        id="quantitySelectorTotal"
+                      >
+                        {" "}
+                        0
+                      </h5>
+                    )}
+                  </div>
+                  <div className="preCheckContainer__priceContainer-mobile">
+                    {product ? (
+                      <>
+                        <h5 className="detailsContainerTwo__selectTitle detailsContainerTwo__selectTitle-mobile-big">
+                          {" "}
+                          {totalPrice},00 EUR
                         </h5>
-                    }
+                        <h5 className="detailsContainerTwo__selectTitle detailsContainerTwo__selectTitle-mobile">
+                          SELECT COLOR
+                        </h5>
+                        <ul className="selectColor__list-mobile">
+                          <li
+                            className={
+                              activeColor === "#24426a"
+                                ? "selectColor__list-color -colorIsActive"
+                                : "selectColor__list-color"
+                            }
+                          >
+                            <button
+                              className="selectColor__list-btn -colorOne"
+                              onClick={() => selectColor("#24426a")}
+                            ></button>
+                          </li>
+                          <li
+                            className={
+                              activeColor === "#f3ece2"
+                                ? "selectColor__list-color -colorIsActive"
+                                : "selectColor__list-color"
+                            }
+                          >
+                            <button
+                              className="selectColor__list-btn -colorTwo"
+                              onClick={() => selectColor("#f3ece2")}
+                            ></button>
+                          </li>
+                          <li
+                            className={
+                              activeColor === "#C35C71"
+                                ? "selectColor__list-color -colorIsActive"
+                                : "selectColor__list-color"
+                            }
+                          >
+                            <button
+                              className="selectColor__list-btn -colorThree"
+                              onClick={() => selectColor("#C35C71")}
+                            ></button>
+                          </li>
+                        </ul>
+                      </>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
+                <h5 class="detailsContainerTwo__selectTitle detailsContainerTwo__selectTitle-mobile">
+                  SELECT SIZE (INCHES)
+                </h5>
+                <form action="" className="details__size-mobile">
+                  <select name="sizeMobile" id="size-Mobile">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                  </select>
+                </form>
                 <div className="addOrSaveContainer">
-                  <button className="addOrSave-btn" id="addOrSave-btnBlack" onClick={() =>{saveProduct(product)}}>
+                  <button
+                    className="addOrSave-btn"
+                    id="addOrSave-btnBlack"
+                    onClick={() => {
+                      saveProduct(product);
+                    }}
+                  >
                     <span className="addOrSave-text" id="btnBlack-text">
                       ADD TO BAG
                     </span>
                   </button>
-                  <button className="addOrSave-btn" id="addOrSave-btnWhite" onClick={() =>{addAndRedirect()}} >
+                  <button
+                    className="addOrSave-btn"
+                    id="addOrSave-btnWhite"
+                    onClick={() => {
+                      addAndRedirect();
+                    }}
+                  >
                     <svg
                       className="addOrSave-icon"
                       width="16"
