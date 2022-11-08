@@ -7,7 +7,6 @@ import smallImage from "../../images/carrousel/smallImg.jpg";
 import bigImage from "../../images/carrousel/bigImage.jpg";
 import smallPromo1 from "../../images/promo/small1.jpg";
 import smallPromo2 from "../../images/promo/small2.jpg";
-import bigPromo1 from "../../images/promo/big1.jpg";
 
 import banner2 from "../../images/banner/banner2-background.jpg";
 import banner3 from "../../images/banner/banner3-background.jpg";
@@ -151,7 +150,6 @@ const HomeContainer = () => {
         </div>
         <div
           className="promotion__promo-three"
-          style={{ backgroundImage: `url(${bigPromo1})` }}
         >
           <div className="promotion__promo-three-container">
             <h3 className="promo__title-three">UP TO 40% OFF</h3>

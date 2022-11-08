@@ -69,3 +69,11 @@
     border-right: 2px solid white;
     border-top: 2px solid white;
   }
+
+  @media screen and (max-width: 1024px) {
+  .banner2__container {
+    padding-left: 50px;
+    background-size: cover;
+    background-position: right -75px center;
+  }
+  }

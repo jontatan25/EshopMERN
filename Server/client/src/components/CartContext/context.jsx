@@ -38,7 +38,7 @@ const CartContextProvider = ({ children }) => {
   };
 
   const deleteItemByID = (productID) => {
-      const updatedCart = cart.filter(product => product._id != productID)
+      const updatedCart = cart.filter(product => product._id !== productID)
       setCart(updatedCart);
   }
   const deleteAllFromCart = () => {
@@ -63,7 +63,7 @@ const CartContextProvider = ({ children }) => {
   };
 
   const deleteItemByIDWishlist = (productID) => {
-    const updatedWishlist = wishlist.filter(product => product._id != productID)
+    const updatedWishlist = wishlist.filter(product => product._id !== productID)
     setWishlist(updatedWishlist);
 }
 

@@ -13,7 +13,7 @@ const CartProduct = ({product}) => {
       <img
         className="cart__product-img"
         src={product.URLPhoto}
-        alt="product image"
+        alt="product"
       />
       <div className="cart__product-det">
         <h5 className="cart__product-title">
@@ -38,13 +38,13 @@ const CartProduct = ({product}) => {
         </svg>
       </div>
     </div>
-    <span className="cart__title__price cart__product-text">
+    <span className="cart__title__price">
       {product.price},00 EUR
     </span>
-    <span className="cart__title__size cart__product-text">
+    <span className="cart__title__size">
       {product.size}
     </span>
-    <span className="cart__title__quantity cart__product-text">
+    <span className="cart__title__quantity">
       <QuantitySelector cartMode ={true}  id ={product._id} quantityInCart = {product.quantity}/>
     </span>
     <div className="cart__title__total">

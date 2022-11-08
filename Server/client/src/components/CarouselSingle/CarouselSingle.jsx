@@ -1,18 +1,19 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import CarouselItem from "../Carouseltem/CarouselItem";
 
 import "./style.css";
 
 const CarouselSingle = ({ title, products, category }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [carouselMoves, setCarouselMoves] = useState(5);
 
   const updateIndex = (newIndex) => {
     // FILTERING PRODUCTS
     const filtered = products.filter(
       (product) => product.category === category
     );
-    // GETTING THE AMOUNT OF MOVEMENTS BASE ON # OF PRODUCTS
-    const getMovements = filtered.length - 5;
+    // GETTING THE AMOUNT OF MOVEMENTS BASE ON # OF PRODUCTS (5 by defect)
+    const getMovements = filtered.length - carouselMoves;
 
     if (newIndex < 0) {
       newIndex = 0;
@@ -21,6 +22,17 @@ const CarouselSingle = ({ title, products, category }) => {
     }
     setActiveIndex(newIndex);
   };
+
+  useEffect(() => {
+    if (window.innerWidth > 1024) {
+      setCarouselMoves(5);
+      console.log(true);
+    } else if (window.innerWidth <= 1024 && window.innerWidth > 769) {
+      console.log("tablet");
+      setCarouselMoves(3);
+    }
+  }, []);
+
   return (
     <div className="single-container">
       <h3 className="single-container__title">{title}</h3>
@@ -76,10 +88,7 @@ const CarouselSingle = ({ title, products, category }) => {
           products
             .filter((product) => product.category === category)
             .map((product) => (
-              <CarouselItem
-                key={product._id}
-                product={product}
-              />
+              <CarouselItem key={product._id} product={product} />
             ))}
       </div>
     </div>

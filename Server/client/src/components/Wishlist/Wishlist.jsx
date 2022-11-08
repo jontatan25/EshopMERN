@@ -1,5 +1,4 @@
-import React, { useEffect,useState } from "react";
-import { getProducts } from "../../service";
+import React from "react";
 import CarouselItem from "../Carouseltem/CarouselItem";
 import { useCartContext } from "../CartContext/context";
 import "./style.css";

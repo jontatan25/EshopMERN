@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import "./style.css";
 import logo from "../../images/logo/logo.svg";
 import { useCartContext } from "../CartContext/context";
@@ -10,7 +10,6 @@ const NavigationBar = () => {
   const { showLogin, setShowLogin, cart, loggedIn, setLoggedIn } =
     useCartContext();
 
-  const navigate = useNavigate();
   const confirmLogout = () => {
     Swal.fire({
       title: "Do you want to Log Out?",

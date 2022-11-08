@@ -21,7 +21,7 @@ import Swal from "sweetalert2";
 const ProductDetail = () => {
 
  const {addToWishlist} = useCartContext();
-  const { cart,addProduct } = useCartContext();
+  const { addProduct } = useCartContext();
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(null)
   const [loading, setLoading] = useState(false);
@@ -55,7 +55,7 @@ const ProductDetail = () => {
     })
   }
 
-  const token = JSON.parse(localStorage.getItem("user"));
+  // const token = JSON.parse(localStorage.getItem("user"));
   const { id } = useParams();
 
   useEffect(() => {
@@ -126,6 +126,7 @@ const ProductDetail = () => {
                   <img
                     className="detailsContainerOne__image"
                     src={product.URLPhoto}
+                    alt = "Product"
                   ></img>
                 </div>
 

@@ -23,7 +23,7 @@
 }
 
 .cart__container {
-  width: 87%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -65,21 +65,21 @@
 
 .cart__title__product {
   flex: 1.1;
-  margin-right: 30px;
+  margin-right: 8px;
   display: flex;
   height: 100%;
 }
 .cart__title__price {
   flex: 0.35;
-  margin-right: 34.29px;
+  margin-right: 8px;
 }
 .cart__title__size {
   flex: 0.2;
-  margin-right: 34.29px;
+  margin-right: 8px;
 }
 .cart__title__quantity {
   flex: 0.45;
-  margin-right: 34.29px;
+  margin-right: 8px;
 }
 .cart__title__total {
   flex: 0.9;
@@ -103,7 +103,7 @@
   overflow: hidden;
   margin: 0 0 7px 0;
   font-family: "Oswald";
-  font-size: 15.4px;
+  font-size: 1.1em;
   font-weight: 500;
   line-height: 23px;
   letter-spacing: 0.4px;
@@ -135,7 +135,7 @@
 }
 
 .cart__product-price {
-  margin-right: 55px;
+  margin-right: auto;
 }
 
 .cart__product-btn-del {
@@ -236,7 +236,7 @@
 }
 
 .cart__discount-btn {
-  width: 30%;
+  width: 35%;
   height: 100%;
   background-color: white;
   border: none;
@@ -471,4 +471,22 @@
 
 .cart__product-title-empty {
   font-size: 25px;
+}
+
+@media screen and (max-width: 1024px) {
+  .cart__product-title {
+    
+  }
+  .cart__container {
+    width: 96%;
+  }
+  .cart__title__quantity {
+    flex: 0.7;
+    margin-right: 8px;
+  }
+  .cart__title__total {
+    flex: 0.8;
+    display: flex;
+    align-items: center;
+  }
 }
