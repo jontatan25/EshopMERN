@@ -28,8 +28,11 @@ const CarouselSingle = ({ title, products, category }) => {
       setCarouselMoves(5);
       console.log(true);
     } else if (window.innerWidth <= 1024 && window.innerWidth > 769) {
-      console.log("tablet");
+      console.log("Small Scren");
       setCarouselMoves(3);
+    } else if (window.innerWidth <= 769 && window.innerWidth > 481) {
+      console.log("tablet");
+      setCarouselMoves(2);
     }
   }, []);
 

@@ -77,3 +77,46 @@
     background-position: right -75px center;
   }
   }
+
+  @media screen and (max-width: 768px) {
+    .banner2__container {
+      padding-left: 40px;
+      background-size: cover;
+      background-position: right -255px center;
+    }
+    .banner2__content::before {
+      content: "";
+      width: 391px;
+      height:70px;
+    }
+    .banner2__content {
+      padding-top: 25px;
+      width: 450px;
+      height: 244px;
+      position: relative;
+    }
+    .banner2__title {
+      font-size: 2em;
+      line-height: 129%;
+      margin: 0 0 13px 0;
+    }
+    .banner2__text {
+      font-size: 1.2em;
+      margin: 0 0 33px 0;
+    }
+    
+    .-whiteText {
+      font-size: 1.1em;
+    }
+  
+    .-whiteText::before {
+      content: "";
+      position: absolute;
+      width: 401px;
+      height: 72px;
+      right: 0;
+      top: 0;
+      border-right: 2px solid white;
+      border-top: 2px solid white;
+    }
+  }

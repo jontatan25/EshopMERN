@@ -27,7 +27,7 @@
 }
 
 .blog__banner-text {
-  width: 1065px;
+  width: 72%;
   height: 85.7px;
   margin: 0;
   background-color: white;
@@ -36,7 +36,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Oswald";
-  font-size: 41px;
+  font-size: 2.56em;
   font-weight: 400;
 }
 
@@ -107,4 +107,32 @@
     background-size:  auto 100%;
     background-repeat: no-repeat;
     margin-bottom: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .blog__banner-text {
+    width: 82%;
+    font-size: 1.9em;
+  }
+  .banner__content {
+    width: 92%;
+    height: auto;
+  
+    margin: 0 auto;
+    display:flex;
+  }
+  .banner__article {
+    width: 70%;
+    height: auto;
+    margin-right: 30px;
+  }
+  .banner__ads-1 {
+    height: 458.86px;
+   }
+   .banner__article-img {
+    width: 100%;
+    height: 322.86px;
+    background-size:   100% auto;
+    margin-bottom: 30px;
+}
 }

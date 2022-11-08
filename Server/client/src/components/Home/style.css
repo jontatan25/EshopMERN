@@ -326,8 +326,10 @@
 
 .blog__container-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
+  flex-wrap: wrap;
+  height: auto;
 }
 
 .blog__title {
@@ -464,16 +466,121 @@
   .promo__text-three {
     margin-bottom: 25px;
   }
+  .banner__container {
+    height:auto;
+  }
   .banner__icon {
     width: 104px;
     height: 110px;
     background-size:  100% auto;
     background-repeat: no-repeat;
-    transition: all 0.2s ease-in-out;
     background-position: center center;
   }
   .banner3__container {
-    background-size:  150%;
-    background-position: left -530px top ;
+    background-size:  160%;
+    background-position: left -430px top ;
+  }
+  .blog__article-item {
+    width: 365px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carousel__images {
+    width: 400px;
+  }
+  .carousel__sign {
+    width: 320px;
+  }
+  
+  .carousel__sign-text-container {
+    width: 300px;
+    padding: 22px 0 0 0;
+    margin-bottom: 25px;
+  }
+  .carousel__sign-text {
+    font-size: 48px;
+    line-height: 65px;
+  }
+  
+  .highlight {
+    color: rgba(0, 0, 0, 0);
+    -webkit-text-stroke: 2px black;
+  }
+  .carousel__sign-text-container::before {
+    content: "";
+    width: 258px;
+    height: 78px;
+  }
+  .promotion__promo-one {
+    background-position: left -95px center;
+  }
+  .promo__title {
+    font-size: 30.5px;
+    line-height: 38.5px;
+    margin: 0 0 5.5px 0;
+  }
+  .promotion__promo-one-container {
+    width: 150px;
+    height: auto;
+    margin-right: 6px;
+  }
+  .promo__text{
+    margin-bottom: 15px;
+  }
+  
+  .promotion__promo-two {
+    background-position: left -180px center;
+  }
+  .promo__title-two {
+  
+    font-size: 30.5px;
+    line-height: 38.5px;
+    margin: 0 0 5.5px 0;
+  }
+  .promotion__promo-two-container {
+    margin-left: 15px;
+  }
+  .promo__text-two {
+    margin-bottom: 25px;
+  }
+  .promotion__promo-three {
+    background-position: left -150px center;
+  }
+  .promotion__promo-three-container {
+    margin: 356px 0 0 22px;
+  }
+  .promo__title-three {
+    font-size: 2em;
+    width: 200px;
+    Line-height: 130%;
+  }
+  .promo__text-three {
+    margin-bottom: 22px;
+  }
+  .banner3__container{
+    padding-right: 20px ;
+  }
+  .banner3__content-container {
+    width: 381px;
+    height: 227px;
+    padding-top: 19.5px;
+  }
+  .content__title {
+    font-size: 34px;
+    margin-bottom: 0;
+  }
+  .content__text{
+    margin: 15px 0 20px 0;
+    font-size: 1.23em;
+    width: 88%
+  }
+  .banner3__content-container::before {
+    content: "";
+    width: 328px;
+    height: 75px;
+  }
+  .blog__article-item {
+    width: 320px;
   }
 }
