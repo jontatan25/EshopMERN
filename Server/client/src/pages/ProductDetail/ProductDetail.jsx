@@ -207,9 +207,11 @@ const ProductDetail = () => {
               </div>
 
               <div className="detailsContainerTwo">
+             
                 <h5 className="detailsContainerTwo__url">
                   Home / Womens Dress / Details
                 </h5>
+                <div className="detailsContainerTwo__container-title">
                 <div
                   className="detailsContainerTwo__brandPhoto"
                   style={
@@ -231,6 +233,7 @@ const ProductDetail = () => {
                 <h3 className="detailsContainerTwo__title">
                   Women Black Checked Fit and Flare Dress
                 </h3>
+                </div>
                 <h5 className="detailsContainerTwo__selectTitle">
                   SELECT COLOR
                 </h5>
