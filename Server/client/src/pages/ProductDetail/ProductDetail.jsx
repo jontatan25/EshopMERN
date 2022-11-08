@@ -120,7 +120,7 @@ const ProductDetail = () => {
         product && (
           <>
             <div className="ItemDetailContainer">
-              <h5 className="detailsContainerTwo__url detailsContainerTwo__url-mobile">
+              <h5 className="detailsContainerTwo__url-mobile">
                 Home / Womens Dress / Details
               </h5>
               <div className="detailsContainerOne">

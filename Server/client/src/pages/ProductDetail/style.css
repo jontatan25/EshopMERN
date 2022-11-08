@@ -87,9 +87,12 @@
   color: #828282;
 }
 .detailsContainerTwo__url-mobile {
+  font-family: "Roboto";
+  font-weight: 400;
   font-size: 16px;
+  color: #828282;
   display: none;
-  margin-bottom: 10px;
+  margin: 0 0 15px 0;
 }
 
 .detailsContainerTwo__brandPhoto {
@@ -444,7 +447,7 @@
     width: 100%;
   }
   .detailsContainerTwo__url-mobile {
-    display: block;
+    display: inline-block;
   }
 
   .detailsContainerTwo__url,
