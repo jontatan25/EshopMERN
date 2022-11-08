@@ -23,14 +23,13 @@
 }
 
 .cart__container {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
 .cart__products {
-  max-width: 883px;
-  width: 100%;
+  width: 70%;
   margin-right: 20px;
 }
 
@@ -187,7 +186,7 @@
 }
 
 .cart__payment {
-  width: 31.4%;
+  width: 30%;
   height: auto;
 }
 
@@ -242,7 +241,7 @@
   border: none;
 
   font-family: "Oswald";
-  font-size: 12.3px;
+  font-size: 0.8em;
   font-weight: 500;
   line-height: 21px;
   letter-spacing: 0.4px;
@@ -278,6 +277,7 @@
 }
 .cart__shipping {
   width: 100%;
+  height: auto;
 }
 #shipping__title {
   margin: 0;
@@ -290,10 +290,9 @@
 
 .cart__shipping-content-container {
   overflow: hidden;
-  height: 354px;
-  max-height: 354px;
+  height: auto;
   transition: all 0.5s ease-in-out;
-  padding: 10px 0;
+  padding: 10px 0 0 0;
   opacity: 1;
 }
 .cart__shipping-content-container[aria-expanded="true"] {
@@ -439,7 +438,6 @@
   font-weight: 400;
 }
 
-
 .cart__total-btn {
   height: 47px;
   width: 100%;
@@ -474,20 +472,37 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .cart__product-title {
-    
-  }
   .cart__container {
     width: 96%;
   }
   .cart__title__quantity {
-    flex: 0.7;
+    flex: 0.6;
     margin-right: 8px;
   }
   .cart__title__total {
     flex: 0.8;
     display: flex;
     align-items: center;
+  }
+  .cart__payment {
+    width: 35%;
+  }
+
+  .shipping__information-title {
+    width: 93px;
+  }
+  .shipping__information-name {
+    height: 100%;
+    width: 160px;
+    border: 1px solid #c4c4c4;
+  }
+  .cart__discount-btn {
+    width: 40%;
+    font-size: 0.7em;
+    color: #3f3f3f;
+  }
+  .cart__payment-info{
+    padding: 25px 21px
   }
 }
 

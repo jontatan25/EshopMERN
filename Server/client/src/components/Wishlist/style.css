@@ -33,6 +33,7 @@
 }
 
 .wishlist__products {
+  padding: 22px 0;
   width: 100%;
   height: auto;
   display: flex;

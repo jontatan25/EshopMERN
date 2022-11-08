@@ -108,7 +108,33 @@
     background-repeat: no-repeat;
     margin-bottom: 30px;
 }
+@media screen and (max-width: 1024px) {
+  .blog__banner-text {
+    width: 82%;
+    font-size: 1.9em;
+  }
+  .banner__content {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    display:flex;
+  }
+  .banner__article {
+    width: 65%;
+    height: auto;
+    margin-right: 30px;
+  }
+  .banner__ads-1 {
+    height: 505px;
+   }
+   .banner__article-img {
+    width: 100%;
+    height: 452.86px;
+    background-size:   100% auto;
+    margin-bottom: 30px;
+}
 
+}
 @media screen and (max-width: 768px) {
   .blog__banner-text {
     width: 82%;
