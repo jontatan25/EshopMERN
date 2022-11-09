@@ -345,7 +345,7 @@ const ProductDetail = () => {
                         className="detailsContainerTwo__selectTitle"
                         id="quantitySelectorTotal"
                       >
-                        {totalPrice}.00 EUR
+                        {totalPrice}.00 USD
                       </h5>
                     ) : (
                       <h5
@@ -360,7 +360,7 @@ const ProductDetail = () => {
                     {product ? (
                       <>
                         <h5 className="detailsContainerTwo__selectTitle detailsContainerTwo__selectTitle-mobile-big">
-                          {totalPrice},00 EUR
+                          {totalPrice},00 USD
                         </h5>
                         <h5 className="detailsContainerTwo__selectTitle detailsContainerTwo__selectTitle-mobile">
                           SELECT COLOR
