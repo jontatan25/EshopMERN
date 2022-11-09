@@ -33,6 +33,29 @@ const ProductDetail = () => {
   const [showDetails, setShowDetails] = useState(false);
   const [showOtherInfo, setShowOtherInfo] = useState(false);
   const [showOtherTab, setShowOtherTab] = useState(false);
+
+  const sizes = [
+    { name: "OSFA" },
+    { name: "W26" },
+    { name: "W27" },
+    { name: "W28" },
+    { name: "W29",disabled:true },
+    { name: "W30" },
+    { name: "W31" },
+    { name: "W32" },
+    { name: "W33" },
+    { name: "W34",disabled:true },
+    { name: "W35" },
+    { name: "W36" },
+    { name: "W38" },
+    { name: "W40" },
+    { name: "W42" },
+    { name: "W44" },
+    { name: "W46" },
+    { name: "W48" },
+    { name: "W50",disabled:true },
+    { name: "W52" },
+  ];
   let navigate = useNavigate();
 
   const addAndRedirect = () => {
@@ -280,111 +303,24 @@ const ProductDetail = () => {
                   SELECT SIZE (INCHES)
                 </h5>
                 <ul className="selectSize__list">
-                  <ColorListItem
-                    size={"OSFA"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W26"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W27"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W28"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W29"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                    isDisabled={true}
-                  />
-                  <ColorListItem
-                    size={"W30"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W31"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W32"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W33"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W34"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                    isDisabled={true}
-                  />
+                  {sizes.slice(0,10).map((size) => 
+                    <ColorListItem
+                      size={size.name}
+                      activeSize={activeSize}
+                      setActiveSize={setActiveSize}
+                      isDisabled= { size.disabled === true ? true : false }
+                    />
+                  )}
                 </ul>
                 <ul className="selectSize__list" id="selectSizeLast">
+                 {sizes.slice(10,20).map((size) => 
                   <ColorListItem
-                    size={"W35"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W36"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W38"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W40"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W42"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W44"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W46"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W48"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
-                  <ColorListItem
-                    size={"W50"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                    isDisabled={true}
-                  />
-                  <ColorListItem
-                    size={"W52"}
-                    activeSize={activeSize}
-                    setActiveSize={setActiveSize}
-                  />
+                  size={size.name}
+                  activeSize={activeSize}
+                  setActiveSize={setActiveSize}
+                  isDisabled= { size.disabled === true ? true : false }
+                />
+                 )}
                 </ul>
                 <div className="preCheckContainer">
                   <div className="preCheckContainer__quantityContainer">
@@ -407,7 +343,6 @@ const ProductDetail = () => {
                         className="detailsContainerTwo__selectTitle"
                         id="quantitySelectorTotal"
                       >
-                        {" "}
                         {totalPrice}.00 EUR
                       </h5>
                     ) : (
@@ -415,7 +350,6 @@ const ProductDetail = () => {
                         className="detailsContainerTwo__selectTitle"
                         id="quantitySelectorTotal"
                       >
-                        {" "}
                         0
                       </h5>
                     )}
@@ -424,7 +358,6 @@ const ProductDetail = () => {
                     {product ? (
                       <>
                         <h5 className="detailsContainerTwo__selectTitle detailsContainerTwo__selectTitle-mobile-big">
-                          {" "}
                           {totalPrice},00 EUR
                         </h5>
                         <h5 className="detailsContainerTwo__selectTitle detailsContainerTwo__selectTitle-mobile">
@@ -474,12 +407,12 @@ const ProductDetail = () => {
                     )}
                   </div>
                 </div>
-                <h5 class="detailsContainerTwo__selectTitle detailsContainerTwo__selectTitle-mobile">
+                <h5 className="detailsContainerTwo__selectTitle detailsContainerTwo__selectTitle-mobile">
                   SELECT SIZE (INCHES)
                 </h5>
                 <form action="" className="details__size-mobile">
                   <select name="sizeMobile" id="size-Mobile">
-                    <option value="volvo">Volvo</option>
+                    <option value="OSFA">OSFA</option>
                     <option value="saab">Saab</option>
                     <option value="mercedes">Mercedes</option>
                     <option value="audi">Audi</option>
