@@ -302,7 +302,7 @@ const ShoppingCart = () => {
                         required
                       />
                       <span></span>
-                      Fixed 5.00 EUR
+                      Fixed 5.00 USD
                     </label>
                   </div>
                   <span className="cart__shipping-title2">Best way</span>
@@ -318,7 +318,7 @@ const ShoppingCart = () => {
                         id="table-rate"
                       />
                       <span></span>
-                      Fixed 5.00 EUR
+                      Fixed 5.00 USD
                     </label>
                   </span>
                 </div>
@@ -327,14 +327,14 @@ const ShoppingCart = () => {
             <div className="cart__payment-checkout">
               <div className="cart__subtotal">
                 <span className="cart__subtotal-title">Subtotal</span>
-                <span className="cart__subtotal-title">{total},00 EUR</span>
+                <span className="cart__subtotal-title">{total},00 USD</span>
               </div>
               <div className="cart__subtotal">
                 <span className="cart__subtotal-title cart__subtotal-title-grey">
                   Tax
                 </span>
                 <span className="cart__subtotal-title cart__subtotal-title-grey">
-                  00.00 EUR
+                  00.00 USD
                 </span>
               </div>
               <div className="cart__subtotal ">
@@ -342,7 +342,7 @@ const ShoppingCart = () => {
                   Order Total
                 </span>
                 <span className="cart__subtotal-title cart__total-title">
-                  {total},00 EUR
+                  {total},00 USD
                 </span>
               </div>
               <button type="submit" className="cart__total-btn">

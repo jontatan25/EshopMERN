@@ -35,26 +35,26 @@ const ProductDetail = () => {
   const [showOtherTab, setShowOtherTab] = useState(false);
 
   const sizes = [
-    { name: "OSFA" },
-    { name: "W26" },
-    { name: "W27" },
-    { name: "W28" },
-    { name: "W29",disabled:true },
-    { name: "W30" },
-    { name: "W31" },
-    { name: "W32" },
-    { name: "W33" },
-    { name: "W34",disabled:true },
-    { name: "W35" },
-    { name: "W36" },
-    { name: "W38" },
-    { name: "W40" },
-    { name: "W42" },
-    { name: "W44" },
-    { name: "W46" },
-    { name: "W48" },
-    { name: "W50",disabled:true },
-    { name: "W52" },
+    { name: "OSFA" ,id:1 },
+    { name: "W26" ,id:2 },
+    { name: "W27" ,id:3 },
+    { name: "W28" ,id:4 },
+    { name: "W29", disabled: true ,id:5 },
+    { name: "W30" ,id:6 },
+    { name: "W31" ,id:7 },
+    { name: "W32" ,id:8 },
+    { name: "W33" ,id:9 },
+    { name: "W34", disabled: true ,id:10 },
+    { name: "W35" ,id: 11 },
+    { name: "W36" ,id: 12},
+    { name: "W38" ,id:13 },
+    { name: "W40" ,id: 14},
+    { name: "W42" ,id: 15},
+    { name: "W44" ,id: 16},
+    { name: "W46" ,id: 17},
+    { name: "W48" ,id: 18},
+    { name: "W50", disabled: true ,id: 19},
+    { name: "W52" ,id: 20},
   ];
   let navigate = useNavigate();
 
@@ -303,24 +303,26 @@ const ProductDetail = () => {
                   SELECT SIZE (INCHES)
                 </h5>
                 <ul className="selectSize__list">
-                  {sizes.slice(0,10).map((size) => 
+                  {sizes.slice(0, 10).map((size) => (
                     <ColorListItem
+                      key={size.id}
                       size={size.name}
                       activeSize={activeSize}
                       setActiveSize={setActiveSize}
-                      isDisabled= { size.disabled === true ? true : false }
+                      isDisabled={size.disabled === true ? true : false}
                     />
-                  )}
+                  ))}
                 </ul>
                 <ul className="selectSize__list" id="selectSizeLast">
-                 {sizes.slice(10,20).map((size) => 
-                  <ColorListItem
-                  size={size.name}
-                  activeSize={activeSize}
-                  setActiveSize={setActiveSize}
-                  isDisabled= { size.disabled === true ? true : false }
-                />
-                 )}
+                  {sizes.slice(10, 20).map((size) => (
+                    <ColorListItem
+                      key={size.id}
+                      size={size.name}
+                      activeSize={activeSize}
+                      setActiveSize={setActiveSize}
+                      isDisabled={size.disabled === true ? true : false}
+                    />
+                  ))}
                 </ul>
                 <div className="preCheckContainer">
                   <div className="preCheckContainer__quantityContainer">
@@ -411,11 +413,15 @@ const ProductDetail = () => {
                   SELECT SIZE (INCHES)
                 </h5>
                 <form action="" className="details__size-mobile">
-                  <select name="sizeMobile" id="size-Mobile">
-                    <option value="OSFA">OSFA</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                  <select
+                    name="sizeMobile"
+                    id="size-Mobile"
+                  >
+                    {sizes
+                      .filter((size) => size.disabled !== true)
+                      .map((size) => (
+                        <option key={size.id} value={size.name}>{size.name}</option>
+                      ))}
                   </select>
                 </form>
                 <div className="addOrSaveContainer">

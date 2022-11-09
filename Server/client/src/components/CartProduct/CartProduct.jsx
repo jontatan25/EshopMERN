@@ -39,7 +39,7 @@ const CartProduct = ({product}) => {
       </div>
     </div>
     <span className="cart__title__price">
-      {product.price},00 EUR
+      {product.price},00 USD
     </span>
     <span className="cart__title__size">
       {product.size}
@@ -48,7 +48,7 @@ const CartProduct = ({product}) => {
       <QuantitySelector cartMode ={true}  id ={product._id} quantityInCart = {product.quantity}/>
     </span>
     <div className="cart__title__total">
-      <span className="cart__product-price"> {product.price*product.quantity},00 EUR</span>
+      <span className="cart__product-price"> {product.price*product.quantity},00 USD</span>
       <button className="cart__product-btn-del cart__product-btn-del-heart">
         <svg
           width="24"

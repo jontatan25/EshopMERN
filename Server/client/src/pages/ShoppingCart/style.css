@@ -492,24 +492,21 @@
     width: 93px;
   }
   .shipping__information-name {
-    height: 100%;
     width: 160px;
-    border: 1px solid #c4c4c4;
   }
   .cart__discount-btn {
     width: 40%;
     font-size: 0.7em;
     color: #3f3f3f;
   }
-  .cart__payment-info{
-    padding: 25px 21px
+  .cart__payment-info {
+    padding: 25px 21px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .cart__products {
     margin: 0 auto;
-
   }
   .cart__container {
     width: 90%;
@@ -518,11 +515,20 @@
     justify-content: space-between;
   }
   .cart__payment {
-    width: 80.4%;
+    width: 70%;
     height: auto;
     margin: 0 auto;
   }
   .cart__list-options {
+    margin-bottom: 45px;
+  }
+  .shipping__information-name {
+    width: 230px;
+  }
+  .cart__payment-info {
+    padding: 25px 26px;
+  }
+  .cart__payment-checkout {
     margin-bottom: 45px;
   }
 }
