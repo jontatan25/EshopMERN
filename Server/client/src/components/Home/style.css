@@ -589,15 +589,8 @@
   
   .homeContainer {
     height: auto;
-    width: 97%;
-    margin-left: 0;
-    margin-bottom: 32px;
-    background-size: cover;
-    display: flex;
-    justify-content: none;
-    align-items: none;
-
-    flex-direction: column
+    width: 100%;
+    margin: 0;
   }
   .carousel__container {
     height: auto;
@@ -667,10 +660,10 @@
     justify-content: space-around;
     align-items: center;
     height: auto;
-    width: 98%;
+    width: 100%;
     margin: 0 auto 23.5px auto;
     flex-wrap: wrap;
-
-    padding: 5px 0;
+    padding: 10px 0;
+    border: none;
   }
 }
