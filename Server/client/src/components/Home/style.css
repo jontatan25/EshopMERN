@@ -680,12 +680,12 @@
     width: 100%;
     height: 205px;
     background-position: center;
-    background-size: 100% auto ;
+    background-size: 100% auto;
     margin-bottom: 15px;
   }
   .promotion__promo-one-container {
     margin-right: 35px;
-    width: auto
+    width: auto;
   }
   .promotion__promo-three {
     display: none;
@@ -704,7 +704,7 @@
   }
   .promo__title {
     font-size: 24px;
-    line-height: 119%
+    line-height: 119%;
   }
   .promotion__promo-three-container {
     margin: 190.5px 0 0 40.5px;
@@ -718,12 +718,12 @@
   .promo__text-three {
     font-size: 15px;
     line-height: 370%;
-    margin:0;
+    margin: 0;
   }
   .promotion__promo-two {
     height: 205px;
     background-position: center;
-    background-size: 100% auto ;
+    background-size: 100% auto;
   }
   .promo__title-two {
     padding-top: 13px;
@@ -732,6 +732,60 @@
   .promo__text-two {
     font-size: 15px;
     line-height: 120%;
-    margin:0 0 25px 0;
+    margin: 0 0 25px 0;
+  }
+  .banner3__container {
+    width: 91.5%;
+    height: 370px;
+    background-size: auto 100%;
+    background-position: center;
+    padding: 0;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .banner3__content-container {
+    width: 390px;
+    height: 180px;
+    margin-bottom: 17px;
+    padding-top: 11px;
+    background: rgba(255,255,255,0.888);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #c4c4c4;
+  }
+  .banner3__content-container::before {
+    display: none;
+  }
+
+  .content__title {
+    font-size: 21px;
+    line-height: 19px;
+  }
+  .content__text {
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .blog__container{
+    padding: 20px 22px
+  }
+  .blog__article-item {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .blog__article-type {
+    margin-bottom: 10px;
+  }
+  .article__title {
+    margin-bottom: 20px ;
+  }
+  .article__text {
+    font-size: 15px;
   }
 }
