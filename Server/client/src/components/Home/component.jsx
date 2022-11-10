@@ -136,6 +136,19 @@ const HomeContainer = () => {
             </div>
           </div>
           <div
+          className="promotion__promo-three promo-three-mobileOnly"
+        >
+          <div className="promotion__promo-three-container">
+            <h3 className="promo__title-three">UP TO 40% OFF</h3>
+            <p className="promo__text-three">Special offers and great deals</p>
+            <Link to="/products?filterProducts=40%off">
+              <BtnTransparent text={"SHOP NOW"} />
+            </Link>
+          </div>
+        </div>
+          
+     
+          <div
             className="promotion__promo-two"
             style={{ backgroundImage: `url(${smallPromo2})` }}
           >

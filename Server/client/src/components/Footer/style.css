@@ -33,7 +33,6 @@
   margin: 0 0 23.5 0;
 }
 
-
 .item__sublist {
   list-style-type: none;
 }
@@ -148,4 +147,10 @@
   font-size: 12px;
   color: white;
   margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .home__footer-container {
+    display: none;
+  }
 }
