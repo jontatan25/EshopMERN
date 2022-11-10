@@ -120,3 +120,32 @@
       border-top: 2px solid white;
     }
   }
+
+  @media screen and (max-width: 480px) {
+    .banner2__container {
+      padding-left: 35px;
+      background-size: auto 100% ;
+      background-position: right -95px center;
+      height: 189px;
+      width: 91.5%;
+    }
+   
+    .banner2__content{
+      height: 100%;
+      padding: 0;
+    }
+    .banner2__content::before {
+      display: none;
+    }
+
+    .banner2__title {
+      font-size: 21px;
+      line-height: 129%;
+      margin: 28px 0 8px 0;
+    }
+    .banner2__text {
+      width: 257.12px;
+      font-size: 15px;
+      margin: 0 0 14px 0;
+    }
+    }

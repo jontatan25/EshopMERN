@@ -25,6 +25,7 @@ const HomeContainer = () => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
+  const [isMobile,setIsMobile] = useState(false)
 
   const { setLoggedIn } = useCartContext();
 
@@ -56,6 +57,13 @@ const HomeContainer = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
+  useEffect(() => {
+    if (window.innerWidth <= 480){
+      setIsMobile(true)
+    }
+  }, []);
+
 
   return (
     <>
@@ -178,11 +186,14 @@ const HomeContainer = () => {
       ) : (
         <FilteredItemList loading={loading} products={products} error={error}/>
       )}
-      <Banner2
+      
+      <Banner2 className="promo__banner"
         bannerImg={banner2}
         title={"SHOPING WITHOUT LIMITS"}
-        text={
+        text={ !isMobile ? 
           "You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!"
+        :
+        "Choose the best option for you, and it does not matter whether you are."
         }
         btnText="SHOP NOW"
       />

@@ -57,3 +57,20 @@
   transition: all 0.5s ease;
 }
 
+@media screen and (max-width: 480px) {
+  .single-container {
+    width: 91.5%;
+    margin: 0 auto 20px auto;
+    overflow: hidden;
+  }
+  .single-container__itemList div:first-child {
+    margin-left: 0;
+  }
+  .single-container__itemList {
+    display: flex;
+    height: 403px;
+    width: fit-content;
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+}

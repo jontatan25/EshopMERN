@@ -103,6 +103,7 @@ label {
   flex-wrap: wrap;
   display: flex;
   overflow: hidden;
+  justify-content: space-between;
   transition: height 1s ease;
 }
 
@@ -139,5 +140,7 @@ label {
     max-width: 100%;
     justify-content:center
   }
-
+  .collection__filter-itemList div{
+    margin-left: 0
+  }
 }

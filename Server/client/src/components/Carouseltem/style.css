@@ -169,4 +169,7 @@
   .collection__item-price {
     font-size: 21px;
   }
+  .collection__item {
+    margin: 0 0 0 23.5px;
+  }
 }

@@ -34,7 +34,7 @@ const CarouselItem = ({ product, linkForFilter, wishlistMode }) => {
   }
 
   return (
-    <div className={!wishlistMode ? "collection__item" : "collection__item collection__item-wishlist"}>
+    <div className={wishlistMode ? "collection__item collection__item-wishlist" : "collection__item"}>
       <div
         className="collection__item-photo-container"
         style={{ backgroundImage: `url(${product.URLPhoto})` }}

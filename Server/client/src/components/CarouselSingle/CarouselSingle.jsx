@@ -6,6 +6,7 @@ import "./style.css";
 const CarouselSingle = ({ title, products, category }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselMoves, setCarouselMoves] = useState(5);
+  const [itemWidth , setItemWidth] = useState(-303)
 
   const updateIndex = (newIndex) => {
     // FILTERING PRODUCTS
@@ -33,6 +34,10 @@ const CarouselSingle = ({ title, products, category }) => {
     } else if (window.innerWidth <= 769 && window.innerWidth > 481) {
       console.log("tablet");
       setCarouselMoves(2);
+    } else if (window.innerWidth <= 480 && window.innerWidth > 320) {
+      console.log("mobile");
+      setCarouselMoves(2);
+      setItemWidth(-233.5)
     }
   }, []);
 
@@ -85,13 +90,13 @@ const CarouselSingle = ({ title, products, category }) => {
       </div>
       <div
         className="single-container__itemList"
-        style={{ transform: `translate(${activeIndex * -303}px)` }}
+        style={{ transform: `translate(${activeIndex * itemWidth}px)` }}
       >
         {products &&
           products
             .filter((product) => product.category === category)
             .map((product) => (
-              <CarouselItem key={product._id} product={product} />
+              <CarouselItem key={product._id} product={product}/>
             ))}
       </div>
     </div>
