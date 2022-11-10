@@ -176,7 +176,7 @@ const HomeContainer = () => {
       {loading ? (
         <span>Loading data...</span>
       ) : (
-        <FilteredItemList loading={loading} products={products} error={error} />
+        <FilteredItemList loading={loading} products={products} error={error}/>
       )}
       <Banner2
         bannerImg={banner2}

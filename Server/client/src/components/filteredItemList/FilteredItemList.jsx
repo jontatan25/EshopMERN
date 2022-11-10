@@ -6,8 +6,9 @@ import CarouselItem from "../Carouseltem/CarouselItem";
 import { useState, useEffect } from "react";
 
 const FilteredItemList = ({ loading, products, error }) => {
-  const [boxHeigth, setBoxHeigth] = useState(932);
-  const [boxHeigthCounter, setBoxHeigthCounter] = useState(2);
+  const [boxHeight, setBoxHeight] = useState(932);
+  const [unitHeight, setUnitHeight] = useState(466);
+  const [boxHeightCounter, setBoxHeightCounter] = useState(2);
   const [filteredProducts, setFilteredProducts] = useState("");
   const [newFilter, setNewFilter] = useState("ALL");
 
@@ -17,9 +18,9 @@ const FilteredItemList = ({ loading, products, error }) => {
 
   const increaseHeigth = () => {
     // box heigth will expand based of the amount of items
-    if (boxHeigthCounter < products.length / 4) {
-      setBoxHeigth((boxHeigth) => (boxHeigth += 466));
-      setBoxHeigthCounter((boxHeigthCounter) => boxHeigthCounter + 1);
+    if (boxHeightCounter < products.length / 4) {
+      setBoxHeight((boxHeight) => (boxHeight += unitHeight));
+      setBoxHeightCounter((boxHeightCounter) => boxHeightCounter + 1);
     }
   };
 
@@ -35,6 +36,13 @@ const FilteredItemList = ({ loading, products, error }) => {
     filterItems();
   }, [newFilter]);
 
+  useEffect(() => {
+    if (window.innerWidth < 841) {
+      setBoxHeight(399);
+      setUnitHeight(399);
+    }
+  }, []);
+
   return (
     <div className="collection__container">
       <div className="collection__filter-container">
@@ -45,7 +53,7 @@ const FilteredItemList = ({ loading, products, error }) => {
               type="radio"
               name="filter"
               id="check"
-              value= "ALL"
+              value="ALL"
               onChange={handleChange}
             />
             ALL
@@ -122,14 +130,14 @@ const FilteredItemList = ({ loading, products, error }) => {
       <div className="collection__filter-itemList-container">
         <div
           className={
-            ((newFilter !== "ALL")|| boxHeigth === 932)
+            newFilter !== "ALL" || boxHeight === 932
               ? "collection__filter-itemList animate"
               : "collection__filter-itemList"
           }
           style={
             filteredProducts.length === 0
-              ? { height: `${boxHeigth}px` }
-              : { height: `${466}px` }
+              ? { height: `${boxHeight}px` }
+              : { height: `${unitHeight}px` }
           }
           key={Math.random()}
         >
@@ -137,23 +145,17 @@ const FilteredItemList = ({ loading, products, error }) => {
             <h2>LOADING</h2>
           ) : error ? (
             <h2>Something went Wrong. Try again Later</h2>
-          ) : (filteredProducts && (newFilter !== "ALL") ) ? (
+          ) : filteredProducts && newFilter !== "ALL" ? (
             filteredProducts.map((product) => (
-              <CarouselItem
-                key={product._id}
-                product={product}
-              />
+              <CarouselItem key={product._id} product={product} />
             ))
           ) : (
             products?.map((product) => (
-              <CarouselItem
-                key={product._id}
-                product={product}
-              />
+              <CarouselItem key={product._id} product={product} />
             ))
           )}
         </div>
-        {((newFilter === "ALL") && (boxHeigth !== 3262) )? (
+        {newFilter === "ALL" && boxHeight !== 3262 ? (
           <div className="collection__filter-itemList-btn">
             <BtnGrey text={"SEE MORE"} increaseHeigth={increaseHeigth} />
           </div>

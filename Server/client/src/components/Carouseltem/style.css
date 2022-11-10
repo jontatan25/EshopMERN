@@ -133,3 +133,40 @@
     margin: 0 auto;
   }
 }
+@media screen and (max-width: 480px) {
+ 
+  .collection__item {
+    width: 210px;
+    height: auto;
+    padding-bottom: 20px;
+    margin: 0;
+  }
+  .animate {
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .collection__item-photo-container {
+    height: 273px;
+    margin-bottom: 4px;
+  }
+  .collection__item-title {
+   font-size: 15px;
+   line-height: 30px;
+  }
+  .collection__item-name {
+    font-family: 'Oswald';
+    width: 100%;
+    height: 42px;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 300;
+    margin: 0 0 4px 0;
+    white-space: initial;
+    display:flex;
+    align-items: center;
+  }
+  .collection__item-price {
+    font-size: 21px;
+  }
+}

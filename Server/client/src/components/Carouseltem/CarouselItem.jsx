@@ -84,7 +84,7 @@ const CarouselItem = ({ product, linkForFilter, wishlistMode }) => {
 
       <h4 className="collection__item-title">{product.category}</h4>
       <p className="collection__item-name">{product.name}</p>
-      <p className="collection__item-price">{product.price} USD</p>
+      <p className="collection__item-price">{product.price},00 USD</p>
     </div>
   );
 };

@@ -26,11 +26,10 @@
 #check,
 #filter__newArrivals,
 #filter__topWomen,
-#filter__bestSeller, 
+#filter__bestSeller,
 #filter__summer,
 #filter__trending,
-#filter__spring
-{
+#filter__spring {
   position: absolute;
   opacity: 0;
 }
@@ -51,8 +50,7 @@ label {
 #filter__bestSeller + span,
 #filter__summer + span,
 #filter__trending + span,
-#filter__spring + span
-{
+#filter__spring + span {
   position: absolute;
   /*para que el span esté a la izquierda)*/
   top: 0;
@@ -70,18 +68,16 @@ label {
 #filter__bestSeller + span:hover,
 #filter__summer + span:hover,
 #filter__trending + span:hover,
-#filter__spring + span:hover
- {
+#filter__spring + span:hover {
   background-image: url(../../images/buttons/radio-hover.svg);
 }
 #check:checked + span,
 #filter__newArrivals:checked + span,
 #filter__topWomen:checked + span,
 #filter__bestSeller:checked + span,
-#filter__summer:checked + span, 
+#filter__summer:checked + span,
 #filter__trending:checked + span,
-#filter__spring:checked + span
-{
+#filter__spring:checked + span {
   background-image: url(../../images/buttons/radio-selected.svg);
 }
 
@@ -114,4 +110,34 @@ label {
   margin-bottom: 30px;
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 480px) {
+  .filter__form {
+    display: none;
+  }
+
+  .collection__container {
+    width: 91.5%;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+  .collection__filter-container {
+    margin: 0 ;
+  }
+
+  .filter__title {
+    width: 100%;
+    font-size: 27px;
+    line-height: 112%
+  }
+
+  .collection__filter-itemList-container {
+    border: none;
+    width: 100%;
+    flex: none;
+    max-width: 100%;
+    justify-content:center
+  }
+
 }
