@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import logo from "../../images/logo/logo-white.svg";
 import fbLogo from "../../images/logo/fblogo.svg";
 import twtLogo from "../../images/logo/twtlogo.svg";
 import itLogo from "../../images/logo/itlogo.svg";
 import btnCheck from "../../images/btn/check.svg";
+
+import plusIcon from "../../images/buttons/plus-black.svg"
+import minusIcon from "../../images/buttons/minus-hover.svg"
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const [showBrands, setShowBrands] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const [showContact, setShowContact] = useState(false);
+  const [showFollow, setShowFollow] = useState(false);
+  const handleToogle = (state, setState) => {
+    setState(!state);
+  };
   return (
     <footer>
       <div className="home__footer-container">
@@ -56,14 +66,23 @@ const Footer = () => {
           </li>
         </ul>
         <ul className="footer__list">
-          <li className="footer__list-item">
+          <li className="footer__list-item" id="footer__logo">
             <Link to="/">
               <img src={logo} alt="" />
             </Link>
           </li>
           <li className="footer__list-item">
             <h4 className="footer__list-item-title">BRANDS</h4>
-            <ul className="item__sublist">
+            <button
+              className="footerlist__title-btn"
+              onClick={() => {
+                handleToogle(showBrands, setShowBrands);
+              }}
+            >
+              <h4 className="footerlist__title-btn-text">BRANDS</h4>{" "}
+              <span style={!showBrands ?{ backgroundImage: `url(${plusIcon})` }:{ backgroundImage: `url(${minusIcon})` }} ></span>
+            </button>
+            <ul className="item__sublist" aria-expanded={showBrands}>
               <Link to="/products?filterProducts=chanel">
                 <li className="sublist__item">CHANEL</li>
               </Link>
@@ -89,7 +108,16 @@ const Footer = () => {
           </li>
           <li className="footer__list-item">
             <h4 className="footer__list-item-title">MENU</h4>
-            <ul className="item__sublist">
+            <button
+              className="footerlist__title-btn"
+              onClick={() => {
+                handleToogle(showMenu, setShowMenu);
+              }}
+            >
+              <h4 className="footerlist__title-btn-text">MENU</h4>
+              <span style={!showMenu ?{ backgroundImage: `url(${plusIcon})` }:{ backgroundImage: `url(${minusIcon})` }} ></span>
+            </button>
+            <ul className="item__sublist" aria-expanded={showMenu}>
               <Link to="/">
                 <li className="sublist__item">HOME</li>
               </Link>
@@ -109,7 +137,16 @@ const Footer = () => {
           </li>
           <li className="footer__list-item">
             <h4 className="footer__list-item-title">CONTACT US</h4>
-            <ul className="item__sublist">
+            <button
+              className="footerlist__title-btn"
+              onClick={() => {
+                handleToogle(showContact, setShowContact);
+              }}
+            >
+              <h4 className="footerlist__title-btn-text">CONTACT US</h4>{" "}
+              <span style={!showContact ? { backgroundImage: `url(${plusIcon})` }:{ backgroundImage: `url(${minusIcon})` }} ></span>
+            </button>
+            <ul className="item__sublist" aria-expanded={showContact}>
               <li className="sublist__item sublist__item-contact">
                 <h5 className="sublist__item-title">ADDRESS:</h5>
                 <span className="sublist__item-text">
@@ -134,7 +171,16 @@ const Footer = () => {
           </li>
           <li className="footer__list-item">
             <h4 className="footer__list-item-title">FOLLOW US</h4>
-            <ul className="item__sublist">
+            <button
+              className="footerlist__title-btn"
+              onClick={() => {
+                handleToogle(showFollow, setShowFollow);
+              }}
+            >
+              <h4 className="footerlist__title-btn-text">FOLLOW US</h4>
+              <span style={!showFollow ? { backgroundImage: `url(${plusIcon})` }:{ backgroundImage: `url(${minusIcon})` }} ></span>
+            </button>
+            <ul className="item__sublist" aria-expanded={showFollow}>
               <Link to="">
                 <li className="sublist__item sublist__item-follow">
                   <img
@@ -142,7 +188,9 @@ const Footer = () => {
                     src={fbLogo}
                     alt="facebook logo"
                   />
-                  <span className="sublist__item-text sublist__item-text-social">FACEBOOK</span>
+                  <span className="sublist__item-text sublist__item-text-social">
+                    FACEBOOK
+                  </span>
                 </li>
               </Link>
               <Link to="">
@@ -152,7 +200,9 @@ const Footer = () => {
                     src={twtLogo}
                     alt="twitter logo"
                   />
-                  <span className="sublist__item-text sublist__item-text-social">TWITTER</span>
+                  <span className="sublist__item-text sublist__item-text-social">
+                    TWITTER
+                  </span>
                 </li>
               </Link>
               <Link to="">
@@ -162,13 +212,16 @@ const Footer = () => {
                     src={itLogo}
                     alt="instagram logo"
                   />
-                  <span className="sublist__item-text sublist__item-text-social">INSTAGRAM</span>
+                  <span className="sublist__item-text sublist__item-text-social">
+                    INSTAGRAM
+                  </span>
                 </li>
               </Link>
             </ul>
           </li>
-          <li className="footer__list-item">
+          <li className="footer__list-item footer__list-join">
             <h4 className="footer__list-item-title">JOIN US</h4>
+            <h4 className="footerlist__title-btn-text">JOIN US</h4>
             <ul className="item__sublist">
               <li className="sublist__item sublist__item-join">
                 <span className="sublist__item-text">

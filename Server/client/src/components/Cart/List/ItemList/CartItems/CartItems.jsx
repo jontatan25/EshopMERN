@@ -100,7 +100,6 @@ const CartItems = () => {
                   <li className="CartItem__Container-Photo">
                     <div
                       className="CartItem__Photo"
-                      // style={{ backgroundImage: `url(${item.image})` }}
                     ></div>
                     <p className="CartItem__title">{item.name}</p>
                   </li>
