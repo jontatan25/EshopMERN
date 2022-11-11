@@ -149,8 +149,54 @@
   margin: 0;
 }
 
+.advantages__list {
+  height: 80px;
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 27.5px 0;
+  margin: 0;
+  background-color: #e6f1fa;
+}
+
+.advantages__list-item {
+  font-family: "Oswald";
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16.5px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  width: 173px;
+}
+
+.advantages__check {
+  margin-right: 6px;
+}
+
 @media screen and (max-width: 480px) {
-  .home__footer-container {
+  .footer__list {
     display: none;
   }
+  .advantages__list{
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
+  }
+  .advantages__list-item{
+    font-size: 21px;
+    width: 265.11px;
+    margin: 0 auto 10px auto;
+  }
+
+  .advantages__list li:last-child{
+ margin: 0 auto;
+  }
+
+  .advantages__check {
+    margin-right: 15px;
+  }
+  
 }
