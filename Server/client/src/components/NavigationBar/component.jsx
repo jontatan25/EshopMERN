@@ -8,8 +8,7 @@ import Swal from "sweetalert2";
 
 const NavigationBar = () => {
 
-  const [showMenu,setShowMenu] = useState(false)
-  const { showLogin, setShowLogin, cart, loggedIn, setLoggedIn } =
+  const { showLogin, setShowLogin, cart, loggedIn, setLoggedIn, showMenu, setShowMenu } =
     useCartContext();
 
   const confirmLogout = () => {
@@ -185,35 +184,35 @@ const NavigationBar = () => {
             <ul className="nav__list">
               <li className="nav__list-listItem">
                 <Link to="/">
-                  <button className="listItem__btn">
+                  <button className="listItem__btn" onClick={() => toogleMenu()}>
                     <span>HOME</span>
                   </button>
                 </Link>
               </li>
               <li className="nav__list-listItem">
                 <Link to="/products">
-                  <button className="listItem__btn">
+                  <button className="listItem__btn" onClick={() => toogleMenu()}>
                     <span>SHOP</span>
                   </button>
                 </Link>
               </li>
               <li className="nav__list-listItem">
               <Link to="/blog">
-                  <button className="listItem__btn">
+                  <button className="listItem__btn" onClick={() => toogleMenu()}>
                     <span>BLOG</span>
                   </button>
                 </Link>
               </li>
               <li className="nav__list-listItem">
               <Link to="/cart">
-                  <button className="listItem__btn">
+                  <button className="listItem__btn" onClick={() => toogleMenu()}>
                     <span>MY BAG</span>
                   </button>
                 </Link>
               </li>
               <li className="nav__list-listItem">
               <Link to="/wishlist">
-                  <button className="listItem__btn">
+                  <button className="listItem__btn" onClick={() => toogleMenu()}>
                     <span>MY WISHLIST</span>
                   </button>
                 </Link>

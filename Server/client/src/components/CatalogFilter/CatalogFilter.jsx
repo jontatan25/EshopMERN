@@ -171,6 +171,9 @@ const CatalogFilter = ({ setFilteredProducts, products, queryFilter}) => {
   const singleFilter = (selectedFilter) => {
 
     const searchBrand = brandFilters.findIndex(filter => filter.name === selectedFilter)
+    if (selectedFilter === "all"){
+      setFilteredProducts(products)
+    }
     if (searchBrand !== -1) {
       const filteredArray = products.filter(product => product.brand === selectedFilter.toUpperCase())
       setFilteredProducts(filteredArray)
@@ -555,9 +558,10 @@ const CatalogFilter = ({ setFilteredProducts, products, queryFilter}) => {
        <div className="catalogFilter__container">
         <form action="">
           <select name="catalogFilter__filter" id="cat-filter"  onChange={(e) => {
-            console.log(e.target.value);
             singleFilter(e.target.value);
             }}>
+            <option value="all"
+            >FILTER</option>
             <option value="chanel"
             >BRAND: Chanel</option>
             <option value="burberry"
