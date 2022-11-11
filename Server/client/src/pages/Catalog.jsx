@@ -122,8 +122,10 @@ const Catalog = () => {
           <Banner2
             bannerImg={catalogBackgroundDark}
             title={"SHOPING WITHOUT LIMITS"}
-            text={
-              "You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!"
+            text={!isMobile 
+              ?
+                "You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!"
+              : "Choose the best option for you, and it does not matter whether you are."
             }
             btnText="SHOP NOW"
             color={"white"}
