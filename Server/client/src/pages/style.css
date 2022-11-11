@@ -36,3 +36,13 @@
   max-height: 1398px;
   overflow: hidden;
 }
+
+@media screen and (max-width: 480px) {
+  .catalog__location {
+    width: 91.5%;
+    margin: 0 auto 15px auto ;
+  }
+  .catalog__bannerContainer {
+    padding-top: 20px
+  }
+}

@@ -14,6 +14,7 @@ const Catalog = () => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState(null);
   const [error, setError] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [queryIsActive, setQueryIsActive] = useState(false);
@@ -40,7 +41,7 @@ const Catalog = () => {
 
   useEffect(() => {
     if (queryFilter) {
-      setQueryIsActive(true)
+      setQueryIsActive(true);
       window.scrollTo({
         top: 470,
         behavior: "smooth",
@@ -56,17 +57,27 @@ const Catalog = () => {
     }
   }, [filteredProducts]);
 
+  useEffect(() => {
+    if (window.screen.width < 481) {
+      setIsMobile(true);
+    }
+  }, []);
+
   return (
-    <div>
-      <Banner2
-        bannerImg={catalogBackground}
-        title={"SHOPING WITHOUT LIMITS"}
-        text={
-          "You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!"
-        }
-        btnText="SHOP NOW"
-        scroll={true}
-      />
+    <>
+      <div className="catalog__bannerContainer">
+        <Banner2
+          bannerImg={catalogBackground}
+          title={"SHOPING WITHOUT LIMITS"}
+          text={
+            !isMobile
+              ? "You can choose the best option for you, and it does not matter whether you are in Prague or San Francisco. We will deliver your purchase anywhere!"
+              : "Choose the best option for you, and it does not matter whether you are."
+          }
+          btnText="SHOP NOW"
+          scroll={true}
+        />
+      </div>
       <span className="catalog__location">
         Home / Womens Dress / Best Chose
       </span>
@@ -134,7 +145,7 @@ const Catalog = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

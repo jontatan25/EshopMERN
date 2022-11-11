@@ -6,6 +6,8 @@ const CatalogFilter = ({ setFilteredProducts, products, queryFilter}) => {
   const [showSale, setShowSale] = useState(false);
   const [showColor, setShowColor] = useState(false);
   const [showPrice, setShowPrice] = useState(false);
+  const [isMobile,setIsMobile] = useState(false);
+  const [mobileFilter,setMobileFilter] = useState([])
   const [price, setPrice] = useState("150");
 
   const [brandFilters, setBrandFilters] = useState([
@@ -160,8 +162,28 @@ const CatalogFilter = ({ setFilteredProducts, products, queryFilter}) => {
     }
   }, [products]);
 
+  useEffect(() => {
+    if (window.screen.width < 481) {
+      setIsMobile(true);
+    }
+  }, []);
+
+  const singleFilter = (selectedFilter) => {
+
+    const searchBrand = brandFilters.findIndex(filter => filter.name === selectedFilter)
+    if (searchBrand !== -1) {
+      const filteredArray = products.filter(product => product.brand === selectedFilter.toUpperCase())
+      setFilteredProducts(filteredArray)
+    } else {
+      const filteredArray = products.filter(product => product.promo === selectedFilter)
+      setFilteredProducts(filteredArray)
+    }
+  }
+
   return (
     <div className="productsContainer__filter">
+      {
+      !isMobile ?
       <ul className="productsContainer__list">
         <li>
           <h4 className="productsContainer__listTitle">
@@ -529,7 +551,35 @@ const CatalogFilter = ({ setFilteredProducts, products, queryFilter}) => {
             dresses, oversized shirt dresses).
           </p>
         </li>
-      </ul>
+      </ul> :
+       <div className="catalogFilter__container">
+        <form action="">
+          <select name="catalogFilter__filter" id="cat-filter"  onChange={(e) => {
+            console.log(e.target.value);
+            singleFilter(e.target.value);
+            }}>
+            <option value="chanel"
+            >BRAND: Chanel</option>
+            <option value="burberry"
+            >BRAND: Burberry</option>
+            <option value="dior"
+            >BRAND: Dior</option>
+            <option value="fendi"
+            >BRAND: Fendi</option>
+            <option value="versace"
+            >BRAND: Versace</option>
+            <option value="gucci"
+            >BRAND: Gucci</option>
+            <option value="armani"
+            >BRAND: Armani</option>
+            <option value="30%off"
+            >PROMO: 30%OFF</option>
+            <option value="40%off"
+            >PROMO: 40%OFF</option>
+          </select>
+        </form>
+       </div>
+      }
     </div>
   );
 };
