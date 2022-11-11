@@ -86,14 +86,6 @@
   line-height: 300%;
   color: #828282;
 }
-.detailsContainerTwo__url-mobile {
-  font-family: "Roboto";
-  font-weight: 400;
-  font-size: 16px;
-  color: #828282;
-  display: none;
-  margin: 0 0 15px 0;
-}
 
 .detailsContainerTwo__brandPhoto {
   width: 73px;
@@ -421,11 +413,13 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 481px) {
   .ItemDetailContainer {
+    width: 91.5%;
     flex-direction: column;
     height: auto;
     padding: 0;
+    margin-bottom: 20px;
   }
   .detailsContainerOne {
     width: 100%;
@@ -435,12 +429,11 @@
     flex-direction: row-reverse;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
     border-bottom: 1px solid #c4c4c4;
   }
   .detailsContainerTwo {
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
   }
   .detailsContainerTwo__title {
     width: 80%;
@@ -450,7 +443,13 @@
     width: 100%;
   }
   .detailsContainerTwo__url-mobile {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 16px;
+    color: #828282;
+    display: none;
     display: inline-block;
+    margin: 15px 0;
   }
 
   .detailsContainerTwo__url,
@@ -502,13 +501,13 @@
   }
   .details__size-mobile {
     display: inline-block;
-    
+    width: 100%;
   }
 
   #size-Mobile {
     border: 1px solid #c4c4c4;
     height: 40px;
-    width: 460px;
+    width: 100%;
     padding-left: 10px;
 
     font-family: "Oswald";
@@ -517,28 +516,14 @@
     font-size: 12px;
     line-height: 68px;
   }
-  .addOrSaveContainer {
-    margin-left: 50px;
+  .aboutContainer {
+    width: 91.5%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  
+    background-color: white;
   }
-  .infoContainer {
-    margin-left: 67px;
-  }
+
 }
-
-/* @media screen and (max-width: 768px) {
-  .ItemDetailContainer {
-    display: grid;
-    grid-template-areas: 
-
-    "first  first  first  first"
-    "second second second second"
-    "third  third  third  third"
-    "fourth fourth fourth fourth"
-    "fifth  fifth  fifth  fifth"
-    "sixth  sixth  sixth  sixth"
-    "seventh seventh seventh seventh"
-    "eighth eighth  eighth eighth"
-    "nineth nineth  nineth nineth"
-    "tenth  tenth   tenth  tenth"
-  }
-} */
