@@ -3,7 +3,7 @@ import CarouselItem from "../Carouseltem/CarouselItem";
 
 import "./style.css";
 
-const CarouselSingle = ({ title, products, category }) => {
+const CarouselSingle = ({ title, products, category, origin }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselMoves, setCarouselMoves] = useState(5);
   const [itemWidth , setItemWidth] = useState(-303)
@@ -96,7 +96,7 @@ const CarouselSingle = ({ title, products, category }) => {
           products
             .filter((product) => product.category === category)
             .map((product) => (
-              <CarouselItem key={product._id} product={product}/>
+              <CarouselItem key={product._id} product={product} origin={origin}/>
             ))}
       </div>
     </div>

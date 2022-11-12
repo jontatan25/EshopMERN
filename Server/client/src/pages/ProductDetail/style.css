@@ -417,7 +417,7 @@
   }
 }
 
-@media screen and (max-width: 481px) {
+@media screen and (max-width: 480px) {
   .ItemDetailContainer {
     width: 91.5%;
     flex-direction: column;
@@ -528,6 +528,19 @@
     justify-content: space-between;
   
     background-color: white;
+  }
+  .addOrSaveContainer {
+    display: flex;
+    justify-content: space-between
+  }
+  .addOrSave-btn {
+    margin: 0;
+    width: 47%;
+    padding: 0;
+  }
+
+  #addOrSave-btnBlack{
+    margin:0;
   }
 
 }

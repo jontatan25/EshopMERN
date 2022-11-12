@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { getProducts } from "../../service/index";
 import "./style.css";
 
@@ -33,6 +33,8 @@ const ProductDetail = () => {
   const [showDetails, setShowDetails] = useState(false);
   const [showOtherInfo, setShowOtherInfo] = useState(false);
   const [showOtherTab, setShowOtherTab] = useState(false);
+
+  const location = useLocation();
 
   const sizes = [
     { name: "OSFA" ,id:1 },
@@ -98,7 +100,7 @@ const ProductDetail = () => {
       }
     };
     initProducts();
-  }, []);
+  }, [location]);
 
   const selectColor = (color) => {
     setActiveColor(color);
@@ -861,6 +863,7 @@ const ProductDetail = () => {
               title="You May Also Like"
               products={products}
               category="NEW-ARRIVALS"
+              origin="ProductDetail"
             />
           </>
         )

@@ -160,7 +160,7 @@ const ShoppingCart = () => {
                   </h5>
                 </div>
               ) : (
-                cart.map((product) => <CartProduct product={product} />)
+                cart.map((product) => <CartProduct key= {product._id}product={product}/>)
               )}
             </li>
             <li className="cart__list-item cart__list-options">
