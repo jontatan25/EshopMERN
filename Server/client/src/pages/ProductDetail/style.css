@@ -404,6 +404,10 @@
   display: none;
 }
 
+.detailsContainerTwo__url-mobile{ 
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .ItemDetailContainer {
     width: 75%;

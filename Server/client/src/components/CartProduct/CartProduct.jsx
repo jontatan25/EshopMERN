@@ -2,6 +2,7 @@ import React from 'react'
 import { useCartContext } from '../CartContext/context'
 import QuantitySelector from '../QuantitySelector/QuantitySelector'
 
+import "./style.css"
 
 
 const CartProduct = ({product}) => {
@@ -10,11 +11,10 @@ const CartProduct = ({product}) => {
   return (
     <div className="cart__product-container">
     <div className="cart__title__product">
-      <img
+      <div
         className="cart__product-img"
-        src={product.URLPhoto}
-        alt="product"
-      />
+        style={{backgroundImage:`url(${product.URLPhoto})`}}
+      div/>
       <div className="cart__product-det">
         <h5 className="cart__product-title">
           {product.name}
@@ -89,6 +89,9 @@ const CartProduct = ({product}) => {
           />
         </svg>
       </button>
+    </div>
+    <div className="product__container-mobile">
+      
     </div>
   </div>
   )
