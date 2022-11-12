@@ -21,14 +21,16 @@
   margin-right: 14px;
   height: 100%;
   width: auto;
-  background-size:  auto 100%;
+  background-size: auto 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
 .cart__product-det {
   flex: 1;
 }
-
+.cart__product-price {
+  margin-right: auto;
+}
 .cart__product-title {
   height: 46px;
   overflow: hidden;
@@ -41,6 +43,24 @@
   text-transform: uppercase;
 }
 
+.cart__product-btn-del {
+  height: 24px;
+  width: 24px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.cart__product-btn-del:hover {
+  filter: brightness(92%);
+}
+.cart__product-btn-del:active {
+  scale: 0.89;
+}
+
+.cart__product-btn-del-heart {
+  margin-right: 10px;
+}
 .cart__title__price {
   flex: 0.35;
   margin-right: 8px;
@@ -88,5 +108,115 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 143%;
+  }
+  .cart__product-container {
+    display: none;
+  }
+  .product__container-mobile {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .mobile__top {
+    height: 170px;
+    width: 100%;
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  .mobile__top-photo {
+    height: 100%;
+    width: 126px;
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .mobile__top-info {
+    width: 100%;
+    height: 100%;
+    padding: 5px 0 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: relative;
+  }
+  .cart__product-title {
+    height: auto;
+    overflow: hidden;
+    margin: 0;
+    font-family: "Oswald";
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+  }
+  .mobile__subtitle {
+    font-family: "Oswald";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1em;
+
+    margin: 0;
+    display: inline-block;
+    margin-right: 8px;
+    color: #bdbdbd;
+  }
+  .cart__title__size {
+    font-family: "Oswald";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1em;
+  }
+  .mobile__color-container {
+    height: 28.8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile__bottom {
+    height: auto;
+    width: 100%;
+    border-bottom: 2px solid #F0F2F2;
+  }
+  #mobiletext {
+    margin: 0 0 10px 0;
+  }
+  .mobile__bottom-price-container {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  .mobile__top-price {
+    font-family: "Oswald";
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 27px;
+  }
+
+  .mobile__top-price .mobile__subtitle {
+    font-size: 0.7em;
+  }
+  .cart__title__quantity {
+    display: flex;
+    height: 100%;
+    width: 250px;
+  }
+
+  .cart__product-btn-del {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    height: 28px;
+    width: 28px;
+  }
+  .cart__product-btn-del-heart {
+    margin: 0;
+    top: 41px;
   }
 }
