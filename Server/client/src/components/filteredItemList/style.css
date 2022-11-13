@@ -144,3 +144,9 @@ label {
     margin-left: 0
   }
 }
+
+@media screen and (max-width: 320px) {
+  .collection__filter-itemList {
+    justify-content: center;
+  }
+}

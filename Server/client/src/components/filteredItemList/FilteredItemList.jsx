@@ -38,8 +38,8 @@ const FilteredItemList = ({ loading, products, error }) => {
 
   useEffect(() => {
     if (window.innerWidth < 841) {
-      setBoxHeight(399);
-      setUnitHeight(399);
+      setBoxHeight(414);
+      setUnitHeight(414);
     }
   }, []);
 

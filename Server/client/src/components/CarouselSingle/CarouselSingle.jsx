@@ -6,7 +6,7 @@ import "./style.css";
 const CarouselSingle = ({ title, products, category, origin }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselMoves, setCarouselMoves] = useState(5);
-  const [itemWidth , setItemWidth] = useState(-303)
+  const [itemWidth , setItemWidth] = useState(-295.5)
 
   const updateIndex = (newIndex) => {
     // FILTERING PRODUCTS
@@ -37,6 +37,10 @@ const CarouselSingle = ({ title, products, category, origin }) => {
     } else if (window.innerWidth <= 480 && window.innerWidth > 320) {
       console.log("mobile");
       setCarouselMoves(2);
+      setItemWidth(-233.5)
+    } else if (window.innerWidth <= 320) {
+      console.log("mobile 320px");
+      setCarouselMoves(1);
       setItemWidth(-233.5)
     }
   }, []);

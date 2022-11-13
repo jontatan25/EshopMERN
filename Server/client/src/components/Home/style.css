@@ -767,3 +767,56 @@
     font-size: 15px;
   }
 }
+
+@media screen and (max-width: 320px){
+  .carousel__sign-text {
+    font-size: 28px;
+    line-height: 120%;
+    width: 300px;
+    text-align: center;
+  }
+  .banner__container {
+    justify-content: center;
+  }
+  .promotion__promo-one {
+    background-position: right -50px center;
+    background-size: auto 100% ;
+  }
+  .promotion__promo-one-container{
+    margin-right: 13px;
+  }
+  .promotion__promo-three-container {
+    margin:0;   
+    height: 290px; 
+    width: 100%;
+    padding: 90px 0 0 10px;
+  }
+ .promo__title-three {
+  font-size: 32px;
+  width: 120px;
+  margin-bottom: 5px;
+ }
+ .promo__text-three{
+  font-size: 14px;
+  width: 120px;
+  line-height: 150%;
+  margin-bottom: 5px;
+ }
+ .promo__text {
+  font-size: 14px;
+  width: auto;
+}
+.promo-three-mobileOnly {
+  height: auto;
+}
+.promotion__promo-two {
+  
+    height: 205px;
+    background-position: center;
+    background-size:  auto 100%;
+}
+.promotion__promo-two-container {
+  margin: 0;
+  padding-left: 10px;
+}
+}
