@@ -131,12 +131,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  #root {
-    position: relative;
-  }
+ 
   .login__container {
-    position: absolute;
-    top: 75px;
+    display: inline;
+    position: fixed;
+    top: 90px;
     right: 0;
     height: calc(100vh - 75px);
     width: 100%;

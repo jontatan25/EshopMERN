@@ -99,12 +99,7 @@
   transition: all 0.2s ease-in-out;
 }
 
-#password {
-  width: 374px;
-  border: none;
-}
-
-#confirm-password {
+#password,#confirm-password {
   width: 374px;
   border: none;
 }
@@ -157,3 +152,32 @@
 .register__vision-container-red:has(> input:focus):hover {
   border: 1px solid red;
 }
+
+@media screen and (max-width: 768px) {
+  .register__container {
+    width: 91.5%;
+    padding: 0;
+  }
+  .register__info-container{
+    width: 100%;
+    padding:  10px 8%;
+  }
+ 
+}
+ @media screen and (max-width: 480px) {
+  
+  .register__in {
+
+    width: 250px;
+    /* height: 38px; */
+  }
+  .register__lb {
+    width: 76.6px;
+  }
+  #password,#confirm-password {
+    width: 226px;
+  }
+  .register__lb span {
+    padding-left: 5px;
+  }
+ }
