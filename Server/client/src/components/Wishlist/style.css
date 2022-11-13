@@ -112,4 +112,18 @@
     height: 38px;
     margin-bottom: 15px;
   }
+  .wishlist__title-empty {
+    font-size: 1.6em;
+    font-weight: 400;
+  }
+  .wishlist__products:has(> .wishlist__title-empty){
+    border: 1px solid #c4c4c4;
+  }
+  
+}
+
+@media screen and (max-width:320px) {
+  .wishlist__products {
+    justify-content: center;
+  }
 }
