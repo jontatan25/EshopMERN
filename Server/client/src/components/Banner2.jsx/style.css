@@ -149,3 +149,22 @@
       margin: 0 0 14px 0;
     }
     }
+@media screen and (max-width: 320px){
+  .banner2__container {
+    padding-left: 15px;
+    background-size: auto 100% ;
+    background-position: right -120px center;
+    height: 189px;
+    width: 91.5%;
+  }
+  .banner2__title {
+    font-size: 18px;
+    line-height: 129%;
+    margin: 18px 0 8px 0;
+  }
+  .banner2__text {
+    width: 200px;
+    font-size: 14px;
+    margin: 0 0 14px 0;
+  }
+}

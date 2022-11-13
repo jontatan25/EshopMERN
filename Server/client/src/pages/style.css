@@ -82,3 +82,8 @@
     max-height: 1596px;
   }
 }
+
+.productsContainer__itemList {
+justify-content: center;
+
+}
