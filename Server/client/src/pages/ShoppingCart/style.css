@@ -457,7 +457,9 @@
   }
   .cart__options-btn {
     padding: 0;
+    width: 45%
   }
+  
   .cart__list-options{
     width: 100%;
   }
@@ -466,9 +468,18 @@
     border-bottom: none;
   }
   .cart__payment {
-    width: 98%;
+    width: 100%;
     height: auto;
     margin: 0;
   }
 }
 
+@media screen and (max-width: 320px) {
+  .cart__payment-info {
+    padding: 20px 17px;
+  }
+  .cart__payment-checkout {
+    padding: 20px 21px;
+    margin-bottom: 35px;
+  }
+}
