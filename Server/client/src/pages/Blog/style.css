@@ -45,7 +45,7 @@
   height: auto;
 
   margin: 0 auto;
-  display:flex;
+  display: flex;
 }
 
 .banner__article {
@@ -56,7 +56,7 @@
 
 .banner__ads {
   width: 263px;
-  height:auto;
+  height: auto;
 }
 
 .banner__article-title {
@@ -79,34 +79,37 @@
 }
 
 .banner__ads-1 {
- width: 100%;
- height: 528.86px;
- background-image: url(../../images/blog/image3.jpg);
- background-size:  100% auto;
- margin-bottom: 19.7px;
- transition: all 0.3s ease
+  width: 100%;
+  height: 528.86px;
+  background-image: url(../../images/blog/image3.jpg);
+  background-size: 100% auto;
+  margin-bottom: 19.7px;
+  transition: all 0.3s ease;
 }
 .banner__ads-1:hover {
-    cursor: pointer;
-    scale: 1.02;
-   }
+  cursor: pointer;
+  scale: 1.02;
+}
 .banner__ads-1:active {
-    cursor: pointer;
-    scale: 1;
-   }
+  cursor: pointer;
+  scale: 1;
+}
 .banner__ads-2 {
- background-image: url(../../images/blog/image4.jpg);
- margin-bottom: 0;
- background-repeat: no-repeat;
+  background-image: url(../../images/blog/image4.jpg);
+  margin-bottom: 0;
+  background-repeat: no-repeat;
 }
 
 .banner__article-img {
-    width: 100%;
-    height: 522.86px;
-    background-image: url(../../images/blog/image2.jpg);
-    background-size:  auto 100%;
-    background-repeat: no-repeat;
-    margin-bottom: 30px;
+  width: 100%;
+  height: 522.86px;
+  background-image: url(../../images/blog/image2.jpg);
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  margin-bottom: 30px;
+}
+.banner-mobile {
+  display:none;
 }
 @media screen and (max-width: 1024px) {
   .blog__banner-text {
@@ -117,7 +120,7 @@
     width: 90%;
     height: auto;
     margin: 0 auto;
-    display:flex;
+    display: flex;
   }
   .banner__article {
     width: 65%;
@@ -126,14 +129,13 @@
   }
   .banner__ads-1 {
     height: 505px;
-   }
-   .banner__article-img {
+  }
+  .banner__article-img {
     width: 100%;
     height: 452.86px;
-    background-size:   100% auto;
+    background-size: 100% auto;
     margin-bottom: 30px;
-}
-
+  }
 }
 @media screen and (max-width: 768px) {
   .blog__banner-text {
@@ -143,9 +145,9 @@
   .banner__content {
     width: 92%;
     height: auto;
-  
+
     margin: 0 auto;
-    display:flex;
+    display: flex;
   }
   .banner__article {
     width: 70%;
@@ -154,11 +156,40 @@
   }
   .banner__ads-1 {
     height: 458.86px;
-   }
-   .banner__article-img {
+  }
+  .banner__article-img {
     width: 100%;
     height: 322.86px;
-    background-size:   100% auto;
+    background-size: 100% auto;
     margin-bottom: 30px;
+  }
 }
+
+@media screen and (max-width: 480px) {
+  .blog__banner-text {
+    text-align: center;
+    height: 105.7px;
+    width: 100%;
+    font-size: 1.9em;
+  }
+  .banner__ads {
+    display: none;
+  }
+  .banner__article {
+    width: 100%;
+    margin: 0;
+  }
+  .banner__content{
+    width: 85%;
+  }
+  .banner__article-img{
+    margin-bottom: 15px;
+  }
+  .banner-mobile {
+    display: inline-block;
+    background-size:  auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 15px;
+  }
 }

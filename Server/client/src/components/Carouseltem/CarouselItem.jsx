@@ -31,9 +31,9 @@ const CarouselItem = ({ product, linkForFilter, wishlistMode, origin }) => {
   let linkToProduct = `products/${product._id}`;
   if (linkForFilter) {
     linkToProduct = `../products/${product._id}`;
-  } else if (origin === "ProductDetail") {
+  } else if (origin) {
     linkToProduct = `/products/${product._id}`;
-  }
+  } 
 
   return (
     <div

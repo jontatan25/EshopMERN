@@ -29,14 +29,14 @@ const Blog = () => {
   
   return (
     <>
-      <h5 className="shoppingCart__url">Home / ShoppingCart</h5>
+      <h5 className="shoppingCart__url">Home / Blog</h5>
       <div className="blog__banner">
         <h3 className="blog__banner-text">
           WHAT TO WEAR TO A SUMMER WEDDING THIS YEAR?
         </h3>
       </div>
       <section>
-        <div className="banner__content">
+        <div className="banner__content"> 
           <div className="banner__article">
             <h4 className="banner__article-title">The Dress</h4>
             <p className="banner__article-text">
@@ -48,7 +48,9 @@ const Blog = () => {
               obvious musts – avoiding white is always a good idea – and others
               that are only acknowledged by serial wedding-goers, such as
               steering clear of stilettos unless you enjoy the feeling of
-              numbness in your feet.<br/><br/> In the summer, things get even more
+              numbness in your feet.<br/><br/>
+              <div className="banner__ads-1 banner-mobile"></div>
+              In the summer, things get even more
               complicated. Not only do you have to find a sweat-free way to
               “dress to the nines”, but you have to strike the right balance
               between playful sunshine garb and formal occasionwear. This forces
@@ -70,7 +72,9 @@ const Blog = () => {
               obvious musts – avoiding white is always a good idea – and others
               that are only acknowledged by serial wedding-goers, such as
               steering clear of stilettos unless you enjoy the feeling of
-              numbness in your feet.<br/><br/> In the summer, things get even more
+              numbness in your feet.<br/><br/>
+              <div className="banner__ads-1 banner__ads-2 banner-mobile"></div>
+              In the summer, things get even more
               complicated. Not only do you have to find a sweat-free way to
               “dress to the nines”, but you have to strike the right balance
               between playful sunshine garb and formal occasionwear. This forces
@@ -98,6 +102,7 @@ const Blog = () => {
             products={products}
             title="Featured Items"
             category={"NEW-ARRIVALS"}
+            origin="blog"
           />
         )
       )}
