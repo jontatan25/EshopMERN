@@ -167,9 +167,7 @@
  @media screen and (max-width: 480px) {
   
   .register__in {
-
     width: 250px;
-    /* height: 38px; */
   }
   .register__lb {
     width: 76.6px;
@@ -179,5 +177,13 @@
   }
   .register__lb span {
     padding-left: 5px;
+  }
+ }
+ @media screen and (max-width: 320px) {
+  .register__in {
+    width: 160px;
+  }
+  #password,#confirm-password {
+    width: 134px;
   }
  }
