@@ -168,7 +168,7 @@
 @media screen and (max-width: 480px) {
   .blog__banner-text {
     text-align: center;
-    height: 105.7px;
+    height: auto;
     width: 100%;
     font-size: 1.9em;
   }
@@ -192,4 +192,10 @@
     background-repeat: no-repeat;
     margin-bottom: 15px;
   }
+}
+
+@media screen and (max-width: 320px) {
+ .banner__article-img {
+  height: 225px;
+ }
 }
