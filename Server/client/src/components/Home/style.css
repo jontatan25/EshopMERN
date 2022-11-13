@@ -107,6 +107,9 @@
   height: 110px;
   background-size: auto 100%;
   transition: all 0.2s ease-in-out;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .banner__icon:hover {
@@ -120,9 +123,6 @@
 
 .banner__icon-chanel {
   background-image: url(../../images/brandBanner/CHANEL.png);
-}
-.banner__icon-burberry {
-  background-image: url(../../images/brandBanner/burberry2.svg);
 }
 .banner__icon-dior {
   background-image: url(../../images/brandBanner/DIOR.png);
@@ -461,6 +461,9 @@
   }
   .blog__article-item {
     width: 365px;
+  }
+  .banner__icon-burberry svg{
+    width: 80%;
   }
 }
 

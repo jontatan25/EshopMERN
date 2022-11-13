@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink,Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./style.css";
 import logo from "../../images/logo/logo.svg";
 import { useCartContext } from "../CartContext/context";
@@ -7,9 +7,15 @@ import { useCartContext } from "../CartContext/context";
 import Swal from "sweetalert2";
 
 const NavigationBar = () => {
-
-  const { showLogin, setShowLogin, cart, loggedIn, setLoggedIn, showMenu, setShowMenu } =
-    useCartContext();
+  const {
+    showLogin,
+    setShowLogin,
+    cart,
+    loggedIn,
+    setLoggedIn,
+    showMenu,
+    setShowMenu,
+  } = useCartContext();
 
   const confirmLogout = () => {
     Swal.fire({
@@ -44,9 +50,9 @@ const NavigationBar = () => {
       }
     });
   };
- const toogleMenu = () => {
-   setShowMenu(!showMenu)
- }
+  const toogleMenu = () => {
+    setShowMenu(!showMenu);
+  };
   return (
     <>
       <div className="header__Container">
@@ -176,43 +182,80 @@ const NavigationBar = () => {
       <div className="header__Container-responsive">
         <nav className="nav">
           <div className="nav__item">
-            <button className={!showMenu ? "nav__burguer":"nav__burguer burguer-active" } onClick={() => toogleMenu()}>
+            <button
+              className={
+                !showMenu ? "nav__burguer" : "nav__burguer burguer-active"
+              }
+              onClick={() => toogleMenu()}
+            >
               <span></span>
             </button>
           </div>
           <div className={!showMenu ? "nav__menu" : "nav__menu nav__active"}>
             <ul className="nav__list">
-              <li className="nav__list-listItem">
-                <Link to="/">
-                  <button className="listItem__btn" onClick={() => toogleMenu()}>
-                    <span>HOME</span>
-                  </button>
-                </Link>
-              </li>
+              {loggedIn ? (
+                <li className="nav__list-listItem">
+                  <Link to="/">
+                    <button
+                      className="listItem__btn"
+                      onClick={() => toogleMenu()}
+                    >
+                      <span>HOME</span>
+                    </button>
+                  </Link>
+                </li>
+              ) : (
+                <li className="nav__list-listItem">
+                  <Link to="/">
+                    <button
+                      className="listItem__btn"
+                      onClick={() => {
+                        toogleMenu();
+                        setShowLogin(!showLogin);
+                      }}
+                    >
+                      <span>LOGIN</span>
+                    </button>
+                  </Link>
+                </li>
+              )}
+
               <li className="nav__list-listItem">
                 <Link to="/products">
-                  <button className="listItem__btn" onClick={() => toogleMenu()}>
+                  <button
+                    className="listItem__btn"
+                    onClick={() => toogleMenu()}
+                  >
                     <span>SHOP</span>
                   </button>
                 </Link>
               </li>
               <li className="nav__list-listItem">
-              <Link to="/blog">
-                  <button className="listItem__btn" onClick={() => toogleMenu()}>
+                <Link to="/blog">
+                  <button
+                    className="listItem__btn"
+                    onClick={() => toogleMenu()}
+                  >
                     <span>BLOG</span>
                   </button>
                 </Link>
               </li>
               <li className="nav__list-listItem">
-              <Link to="/cart">
-                  <button className="listItem__btn" onClick={() => toogleMenu()}>
+                <Link to="/cart">
+                  <button
+                    className="listItem__btn"
+                    onClick={() => toogleMenu()}
+                  >
                     <span>MY BAG</span>
                   </button>
                 </Link>
               </li>
               <li className="nav__list-listItem">
-              <Link to="/wishlist">
-                  <button className="listItem__btn" onClick={() => toogleMenu()}>
+                <Link to="/wishlist">
+                  <button
+                    className="listItem__btn"
+                    onClick={() => toogleMenu()}
+                  >
                     <span>MY WISHLIST</span>
                   </button>
                 </Link>

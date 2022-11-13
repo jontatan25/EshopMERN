@@ -217,6 +217,7 @@
     background-color: black;
     transform: translatex(-100%);
     transition: all 0.3s ease-in-out;
+    z-index: 1;
   }
   .nav__active {
     transform: none;
