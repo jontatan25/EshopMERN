@@ -544,3 +544,9 @@
   }
 
 }
+
+@media screen and (max-width: 320px){
+  .detailsContainerTwo__title {
+    font-size: 1.5em;
+  }
+}
