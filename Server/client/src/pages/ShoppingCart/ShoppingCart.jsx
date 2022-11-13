@@ -160,7 +160,9 @@ const ShoppingCart = () => {
                   </h5>
                 </div>
               ) : (
-                cart.map((product) => <CartProduct key= {product._id}product={product}/>)
+                cart.map((product) => (
+                  <CartProduct key={product._id} product={product} />
+                ))
               )}
             </li>
             <li className="cart__list-item cart__list-options">
@@ -246,7 +248,7 @@ const ShoppingCart = () => {
                   </div>
                   <div className="cart__shipping-information-container">
                     <span className="shipping__information-title">
-                      State/Province
+                      State/ Province
                     </span>
                     <select
                       name="shipping-state"
@@ -280,7 +282,7 @@ const ShoppingCart = () => {
                   </div>
                   <div className="cart__shipping-information-container">
                     <span className="shipping__information-title">
-                      Zip/Postal Code
+                      Zip/ Postal Code
                     </span>
                     <input
                       type="text"

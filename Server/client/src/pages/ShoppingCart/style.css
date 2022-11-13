@@ -472,6 +472,9 @@
     height: auto;
     margin: 0;
   }
+  .shipping__information-title {
+    width: 105px;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -481,5 +484,12 @@
   .cart__payment-checkout {
     padding: 20px 21px;
     margin-bottom: 35px;
+  }
+  .shipping__information-title {
+    width: 73px;
+    font-size: 13.8px;
+  }
+  .shipping__information-name {
+    width: 182px;
   }
 }
