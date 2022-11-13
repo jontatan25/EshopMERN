@@ -131,14 +131,24 @@
 }
 
 @media screen and (max-width: 768px) {
- 
   .login__container {
     display: inline;
     position: fixed;
     top: 90px;
     right: 0;
-    height: calc(100vh - 75px);
+    height: calc(100vh - 90px);
     width: 100%;
     padding: 32px 40px;
+  }
+  .login__ag-container {
+    margin-bottom: 25px;
+  }
+}
+
+@media screen and (max-width: 320px){
+  .login__container {
+ 
+    padding: 20px 20px;
+  
   }
 }
