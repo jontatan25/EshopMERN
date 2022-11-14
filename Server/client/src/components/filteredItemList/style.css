@@ -105,6 +105,7 @@ label {
   overflow: hidden;
   justify-content: space-between;
   transition: height 1s ease;
+  margin-bottom: 25px;
 }
 
 .collection__filter-itemList-btn {

@@ -66,7 +66,7 @@ const CarouselItem = ({ product, linkForFilter, wishlistMode, origin }) => {
         style={{ backgroundImage: `url(${product.URLPhoto})` }}
       >
         <div className="collection__item-photo-container-options">
-          <Link to={linkToProduct}>
+          <Link to={linkToProduct} className="collection__item-link-container">
             <button className="collection__item-photo-container-options-btn">
               ADD TO BAG
             </button>
