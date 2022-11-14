@@ -114,8 +114,13 @@
 
 .banner__icon:hover {
   filter: brightness(92%);
-  scale: 1.05;
 }
+.banner__icon-burberry {
+  background-color: white;
+}
+
+
+
 .banner__icon:active {
   filter: brightness(83%);
   scale: 1.03;

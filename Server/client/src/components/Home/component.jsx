@@ -101,8 +101,10 @@ const HomeContainer = () => {
           to="/products?filterProducts=chanel"
           className="banner__icon banner__icon-chanel"
         ></Link>
-        <Link to="/products?filterProducts=burberry">
-        <div className="banner__icon banner__icon-burberry">
+        <Link
+          to="/products?filterProducts=burberry"
+          className="banner__icon banner__icon-burberry"
+        >
           <svg
             width="125"
             height="25"
@@ -123,8 +125,7 @@ const HomeContainer = () => {
               fill="#3F3F3F"
             />
           </svg>
-        </div>
-      </Link>
+        </Link>
         <Link
           to="/products?filterProducts=dior"
           className="banner__icon banner__icon-dior"
