@@ -269,7 +269,7 @@ const NavigationBar = () => {
           </div>
           <div className="nav__item nav__bagsContainer">
             <NavLink to="/wishlist">
-              <button className="bagsContainer__btn">
+              <button className="bagsContainer__btn" onClick= {() => setShowMenu(false)} >
                 <svg
                   width="28"
                   height="30"
@@ -287,7 +287,7 @@ const NavigationBar = () => {
               </button>
             </NavLink>
             <NavLink to="/cart">
-              <button className="bagsContainer__btn">
+              <button className="bagsContainer__btn" onClick= {() => setShowMenu(false)}>
                 <svg
                   width="28"
                   height="30"
