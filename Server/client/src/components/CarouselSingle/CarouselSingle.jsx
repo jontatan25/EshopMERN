@@ -27,7 +27,6 @@ const CarouselSingle = ({ title, products, category, origin }) => {
   useEffect(() => {
     if (window.innerWidth > 1024) {
       setCarouselMoves(5);
-      console.log(true);
     } else if (window.innerWidth <= 1024 && window.innerWidth > 769) {
       console.log("Small Scren");
       setCarouselMoves(3);

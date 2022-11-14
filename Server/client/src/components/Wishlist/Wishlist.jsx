@@ -12,9 +12,9 @@ const Wishlist = () => {
       <h5 className="wishlist__url">Home / My Wishlist</h5>
       <h3 className="wishlist__title">My Wishlist</h3>
       <div className="wishlist__container">
-        <div className="wishlist__products">
+        <div className= {(wishlist.length === 1 ) ? "wishlist__products wishlist__single" : "wishlist__products"}>
             {(wishlist.length === 0) ? <h5 className="wishlist__title wishlist__title-empty">YOUR WISHLIST IS EMPTY</h5> 
-                : 
+                :  
                     wishlist && wishlist.map((product)=> ( 
                         <CarouselItem
                             key={product._id}

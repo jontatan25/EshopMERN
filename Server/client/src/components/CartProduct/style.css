@@ -128,13 +128,13 @@
 
   .mobile__top-photo {
     height: 100%;
-    width: 126px;
+    flex: 1;
     background-size: auto 100%;
     background-position: center;
     background-repeat: no-repeat;
   }
   .mobile__top-info {
-    width: 100%;
+   flex: 2;
     height: 100%;
     padding: 5px 0 0 15px;
     display: flex;
@@ -145,8 +145,10 @@
   }
   .cart__product-title {
     height: auto;
+    width: 100%;
+    white-space: initial;
     overflow: hidden;
-    margin: 0;
+    margin: 0 28px 0 0;
     font-family: "Oswald";
     font-size: 1.2em;
     font-weight: 400;
@@ -180,7 +182,7 @@
   .mobile__bottom {
     height: auto;
     width: 100%;
-    border-bottom: 2px solid #F0F2F2;
+    border-bottom: 2px solid #f0f2f2;
   }
   #mobiletext {
     margin: 0 0 10px 0;
@@ -219,4 +221,14 @@
     margin: 0;
     top: 41px;
   }
+}
+@media (max-width: 320px) {
+  .mobile__top-photo {
+    flex: 1.1
+  }
+  .cart__product-title {
+    font-size: 1em;
+    width: 145px;
+  }
+
 }

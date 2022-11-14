@@ -306,7 +306,13 @@ const NavigationBar = () => {
                     strokeWidth="2.4"
                   />
                 </svg>
+                {cart.length > 0 ? (
+                <span className="nav__cart-counter"> {cart.length} </span>
+              ) : (
+                ""
+              )}
               </button>
+             
             </NavLink>
           </div>
         </nav>

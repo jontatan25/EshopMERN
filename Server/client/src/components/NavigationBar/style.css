@@ -206,6 +206,23 @@
     border: 0;
     background-color: #f4d06f;
     padding: 0;
+    position: relative;
+  }
+  .nav__cart-counter {
+    position: absolute;
+    top: -4px;
+    right: -7px;
+    height: 22px;
+    width: 22px;
+    line-height: 100%;
+    padding: 0;
+    background-color: #eb5757;
+    display: flex;
+    justify-content: center;
+    border-radius: 2px;
+    font-weight: 400;
+    font-size: 15px;
+    color: white
   }
   .nav__menu {
     position: absolute;
@@ -236,7 +253,7 @@
   .burguer-active span:after {
     content: "";
     top: 0;
-   
+
     visibility: visible;
     transform: rotate(-45deg);
   }

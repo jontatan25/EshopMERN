@@ -94,6 +94,9 @@
     padding: 0;
     justify-content: space-between;
   }
+  .wishlist__single {
+    justify-content: center;
+  }
   .wishlist__products .collection__item {
     margin: 0;
   }

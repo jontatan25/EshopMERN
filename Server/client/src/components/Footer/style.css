@@ -186,7 +186,7 @@
     height: auto;
     flex-direction: column;
     align-items: center;
-    padding: 35.5px 0;
+    padding: 30.5px 0;
   }
   .footer__list:first-child {
     margin-bottom: 35.5px;
@@ -219,6 +219,7 @@
 
   #footer__logo {
     height: 66px;
+    margin-bottom: 5px;
   }
   .footer__list-item-title {
     display: none;
