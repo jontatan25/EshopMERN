@@ -105,7 +105,6 @@ label {
   overflow: hidden;
   justify-content: space-between;
   transition: height 1s ease;
-  margin-bottom: 25px;
 }
 
 .collection__filter-itemList-btn {
@@ -140,6 +139,9 @@ label {
     flex: none;
     max-width: 100%;
     justify-content:center
+  }
+  .collection__filter-itemList {
+    margin-bottom: 0;
   }
   .collection__filter-itemList div{
     margin-left: 0

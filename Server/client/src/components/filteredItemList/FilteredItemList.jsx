@@ -6,8 +6,8 @@ import CarouselItem from "../Carouseltem/CarouselItem";
 import { useState, useEffect } from "react";
 
 const FilteredItemList = ({ loading, products, error }) => {
-  const [boxHeight, setBoxHeight] = useState(858);
-  const [unitHeight, setUnitHeight] = useState(466);
+  const [boxHeight, setBoxHeight] = useState(918);
+  const [unitHeight, setUnitHeight] = useState(459);
   const [boxHeightCounter, setBoxHeightCounter] = useState(2);
   const [filteredProducts, setFilteredProducts] = useState("");
   const [newFilter, setNewFilter] = useState("ALL");
@@ -37,8 +37,8 @@ const FilteredItemList = ({ loading, products, error }) => {
   }, [newFilter]);
 
   useEffect(() => {
-    if (window.innerWidth < 841) {
-      setBoxHeight(414);
+    if (window.innerWidth < 481) {
+      setBoxHeight(828);
       setUnitHeight(414);
     }
   }, []);
@@ -130,7 +130,7 @@ const FilteredItemList = ({ loading, products, error }) => {
       <div className="collection__filter-itemList-container">
         <div
           className={
-            newFilter !== "ALL" || boxHeight === 858
+            ((newFilter !== "ALL") || (boxHeight === 918) || (boxHeight === 858))
               ? "collection__filter-itemList animate"
               : "collection__filter-itemList"
           }
