@@ -153,7 +153,7 @@
 }
 
 .cart__discount-btn {
-  width: 35%;
+  width: 40%;
   height: 100%;
   background-color: white;
   border: none;
@@ -406,7 +406,6 @@
     width: 160px;
   }
   .cart__discount-btn {
-    width: 40%;
     font-size: 0.7em;
     color: #3f3f3f;
   }

@@ -116,6 +116,7 @@ const ProductDetail = () => {
       setProductIsInWishlist(false);
     }
   }, [wishlist]);
+  
   const selectColor = (color) => {
     setActiveColor(color);
   };

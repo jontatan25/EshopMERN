@@ -114,6 +114,9 @@
   line-height: 15px;
   margin-bottom: 12px;
 }
+.preCheckContainer__priceContainer > .detailsContainerTwo__selectTitle  {
+  padding-left: 15px;
+}
 
 .detailsContainerTwo__selectTitle-mobile {
   display: none;
@@ -211,24 +214,6 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.addOrSave-btn .addOrSave-icon {
-  fill: rgb(130, 130, 130);
-  fill-opacity: 1;
-  fill-rule: nonzero;
-  stroke: rgb(130, 130, 130);
-  stroke-dasharray: none;
-  stroke-dashoffset: 0px;
-  stroke-linecap: butt;
-  stroke-linejoin: miter;
-  stroke-miterlimit: 4;
-  stroke-opacity: 1;
-  stroke-width: 0.2px;
-  paint-order: normal;
-  vector-effect: none;
-  opacity: 1;
-  mix-blend-mode: normal;
-  isolation: auto;
-}
 
 .addOrSave-text {
   font-family: "Oswald";
@@ -236,7 +221,9 @@
   font-weight: 500;
   letter-spacing: 0.5px;
 }
+.quantityContainer__selectAmountContainer {
 
+}
 #addOrSave-btnBlack {
   background-color: black;
   margin-right: 14.52px;
@@ -433,6 +420,8 @@
   .selectSize__list {
     width: 100%;
   }
+ 
+
 }
 
 @media screen and (max-width: 480px) {

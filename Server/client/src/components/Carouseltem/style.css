@@ -71,7 +71,7 @@
 }
 
 .collection__item-photo-container-options-btn:active {
-  filter: brightness(92%)
+  filter: brightness(92%);
 }
 .-options-btn-white {
   background-color: white;
@@ -93,7 +93,12 @@
 .collection__item-addOrSave-icon path {
   transition: all 0.3s ease-in-out;
 }
-.collection__item-photo-container-options-btn:hover .collection__item-addOrSave-icon path{
+.collection__item-addOrSave-icon-inCart{
+  margin-right: 4px;
+}
+.collection__item-photo-container-options-btn:hover
+  .collection__item-addOrSave-icon
+  path {
   fill: #3f3f3f;
   stroke: #3f3f3f;
 }
@@ -128,20 +133,20 @@
   display: flex;
   margin: 0;
 }
-.collection__link-container{
-  display:none;
+.collection__link-container {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
-  .collection__item-wishlist{
+  .collection__item-wishlist {
     margin: 0 auto;
   }
 }
 @media screen and (max-width: 480px) {
-  .collection__item-wishlist{
+  .collection__item-wishlist {
     position: relative;
   }
- 
+
   .collection__item {
     width: 210px;
     height: auto;
@@ -149,7 +154,7 @@
     margin: 0;
   }
   .animate {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     width: 100%;
   }
@@ -158,11 +163,11 @@
     margin-bottom: 4px;
   }
   .collection__item-title {
-   font-size: 15px;
-   line-height: 30px;
+    font-size: 15px;
+    line-height: 30px;
   }
   .collection__item-name {
-    font-family: 'Oswald';
+    font-family: "Oswald";
     width: 100%;
     height: 42px;
     font-size: 16px;
@@ -170,7 +175,7 @@
     font-weight: 300;
     margin: 0 0 4px 0;
     white-space: initial;
-    display:flex;
+    display: flex;
     align-items: center;
   }
   .collection__item-price {
@@ -196,18 +201,18 @@
     height: 100%;
   }
 
-  .collection__btn{
+  .collection__btn {
     position: absolute;
     top: 0px;
     right: 0;
     width: 30px;
     height: 30px;
-    border:none;
+    border: none;
     background-color: transparent;
     transition: all 0.1s ease-in;
     padding: 0;
   }
-  .collection__btn:active{
+  .collection__btn:active {
     scale: 0.8;
   }
 
@@ -215,5 +220,4 @@
     width: 29px;
     top: 45px;
   }
-
 }
