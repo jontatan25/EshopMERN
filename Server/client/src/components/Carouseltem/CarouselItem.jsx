@@ -96,7 +96,7 @@ const CarouselItem = ({ product, linkForFilter, wishlistMode, origin }) => {
                 </svg>
               ) : (
                 <svg
-                 className="collection__item-addOrSave-icon-inCart"
+                  className="collection__item-addOrSave-icon-inCart"
                   viewBox="195.183 170.941 14.6 12.832"
                   width="14.6"
                   height="12.832"
@@ -110,7 +110,7 @@ const CarouselItem = ({ product, linkForFilter, wishlistMode, origin }) => {
                   ></path>
                 </svg>
               )}
-              {!productIsInWishlist? "SAVE": "SAVED"}
+              {!productIsInWishlist ? "SAVE" : "SAVED"}
             </button>
           ) : (
             <button
@@ -179,15 +179,27 @@ const CarouselItem = ({ product, linkForFilter, wishlistMode, origin }) => {
       <h4 className="collection__item-title">{product.category}</h4>
       <p className="collection__item-name">{product.name}</p>
       <p className="collection__item-price">{product.price},00 USD</p>
-      <Link to={linkToProduct}>
-        {wishlistMode ? (
-          <button className="collection__item-photo-container-options-btn">
-            ADD TO CART
-          </button>
-        ) : (
-          ""
-        )}
-      </Link>
+      {wishlistMode ? (
+        <div className="collection__item-btn-container">
+            <Link to={linkToProduct} className="collection__item-link-container">
+            <button className="collection__item-photo-container-options-btn">
+              ADD TO CART
+            </button>
+            </Link>
+            <button
+              onClick={() => {
+                deleteItemByIDWishlist(product._id);
+              }}
+              className="collection__item-photo-container-options-btn -options-btn-white"
+            >
+              DELETE
+            </button>
+          </div>
+
+      ) : (
+        ""
+      )}
+
       {!wishlistMode ? (
         <Link to={linkToProduct} className="collection__link-container">
           <div className="collection__link-container"></div>

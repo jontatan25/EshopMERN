@@ -40,7 +40,7 @@
   .quantitySelectorContainer {
     display:flex;
     height: 100%;
-    width: 150px;
+    width: 135px;
   }
   .quantitySelectorBtn {
     width: 33.3%;

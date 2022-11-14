@@ -197,7 +197,7 @@
   font-size: 20px;
   margin: 0;
   height: 33.61px;
-  width: 105px;
+  width: 150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -221,9 +221,7 @@
   font-weight: 500;
   letter-spacing: 0.5px;
 }
-.quantityContainer__selectAmountContainer {
 
-}
 #addOrSave-btnBlack {
   background-color: black;
   margin-right: 14.52px;
@@ -501,7 +499,7 @@
     font-family: "Oswald";
     font-style: normal;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 1.6rem;
     color: black;
   }
   .detailsContainerTwo__selectTitle-mobile {
@@ -554,5 +552,8 @@
 @media screen and (max-width: 320px) {
   .detailsContainerTwo__title {
     font-size: 1.5em;
+  }
+  .quantityContainer__selectAmountContainer {
+    width: 100px;
   }
 }
