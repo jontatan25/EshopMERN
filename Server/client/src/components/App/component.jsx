@@ -19,42 +19,36 @@ import Blog from "../../pages/Blog/Blog";
 import UserLogin from "../UserLogin/UserLogin";
 import Wishlist from "../Wishlist/Wishlist";
 import Register from "../../pages/Register/Register";
+import Search from "../../pages/Search/Search";
 
 function App() {
-  
   return (
     <CartContextProvider>
       <BrowserRouter>
         <NavigationBar />
         <UserLogin />
         <Routes>
-          <Route path="/" element={<HomeContainer/>}></Route>
+          <Route path="/" element={<HomeContainer />}></Route>
           <Route path="/register" element={<Register />}></Route>
-          <Route path="/blog" element={<Blog/>}></Route>
+          <Route path="/blog" element={<Blog />}></Route>
+          <Route path="/products" element={<Catalog />}></Route>
+          <Route path="/products/:id" element={<ProductDetail />}></Route>
+          <Route path="/cart" element={<ShoppingCart />}></Route>
+          <Route path="/wishlist" element={<Wishlist />}></Route>
+          <Route path="/logout" element={<Logout />}></Route>
+          <Route path="/search" element={<Search />}></Route>
+        
           {/* <Route
             path="/chat"
             element={<Chat/>}
           ></Route> */}
-          <Route
-            path="/chat/:email"
-            element={<Chat/>}
-          ></Route>     
-          <Route path="/products" element={<Catalog/>}></Route>
-          <Route path="/products/:id" element={<ProductDetail/>}></Route>
-          {/* <Route
-            path="/products/category/:category"
-            element={<Products/>}
-          ></Route> */}
-          <Route path="/cart" element={<ShoppingCart />}></Route>
-          <Route path="/wishlist" element={<Wishlist />}></Route>
-          <Route path="/logout" element={<Logout />}></Route>
           {/* <Route path="/loginfb" element={<LoginFacebook />}></Route>
         <Route
           path="/datos"
           element={user ? <ProfileDetails /> : <Navigate to="/login" />}
         ></Route> */}
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
     </CartContextProvider>
   );

@@ -1,0 +1,43 @@
+.search__itemContainer {
+    width: 80.5%;
+    margin: 0 auto;
+    height: Auto;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.search__itemContainer.collection__item{
+    margin: 0 0 15px 0;
+}
+
+.search__url {
+    height: 36px;
+    margin: 0 auto;
+    font-family: "Roboto";
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 58px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #828282;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search__title {
+    font-family: "Oswald";
+    font-size: 41px;
+    font-weight: 400;
+    line-height: 142%;
+    text-align: center;
+    margin: 0 auto 30px auto;
+  }
+.search__title-results {
+    width: 80.5%;
+    margin: 0 auto 30px auto;
+    font-family: "Oswald";
+    font-size: 20.6px;
+    font-weight: 400;
+}
+  

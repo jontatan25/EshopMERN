@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import logo from "../../images/logo/logo.svg";
 import { useCartContext } from "../CartContext/context";
@@ -7,6 +7,11 @@ import { useCartContext } from "../CartContext/context";
 import Swal from "sweetalert2";
 
 const NavigationBar = () => {
+  const [searchActive, setSearchActive] = useState(false);
+  const [productQuery, setProductQuery] = useState("");
+
+  const navigate = useNavigate()
+
   const {
     showLogin,
     setShowLogin,
@@ -53,6 +58,13 @@ const NavigationBar = () => {
   const toogleMenu = () => {
     setShowMenu(!showMenu);
   };
+
+  const handleProductChange = (e) => {
+    setProductQuery(e.target.value);
+  };
+const searchProduct = () => {
+  navigate("/search",{state:productQuery})
+}
   return (
     <>
       <div className="header__Container">
@@ -93,15 +105,62 @@ const NavigationBar = () => {
                 BLOG
               </NavLink>
             </li>
-            <li className="nav__listItem">
-              <NavLink
-                className={(navData) =>
-                  navData.isActive ? "active" : "nav-link"
+            <li className="nav__listItem nav__listItem-search">
+              <button
+                onClick={() => {
+                  setSearchActive(true);
+                }}
+                className={
+                  searchActive ? "nav-link__hide" : "nav__listItem-queryBtn"
                 }
-                to="/chat"
               >
                 SEARCH
-              </NavLink>
+              </button>
+              <div
+                className={searchActive ? "nav-link" : "nav-link__hide"}
+                to="/chat"
+                // state={}
+              >
+                <form className="nav__form" onSubmit={(e) => {e.preventDefault();}}>
+                  <input
+                    onChange={(e) => {
+                      handleProductChange(e);
+                    }}
+                    className="nav__search"
+                    type="text"
+                    placeholder="Search"
+                    value={productQuery}
+                  />
+                  <button
+                  type="submit"
+                    className="nav__listItem-queryBtn nav__listItem-search-btn"
+                    onClick={() => {
+                      searchProduct();
+                    }}
+                  >
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 15 10"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="4.61538"
+                        cy="4.61538"
+                        r="3.91538"
+                        stroke="black"
+                        strokeWidth="1.4"
+                      />
+                      <path
+                        d="M8.61548 8.61523L12.0001 11.9998"
+                        stroke="black"
+                        strokeWidth="1.4"
+                      />
+                    </svg>
+                  </button>
+                </form>
+              </div>
             </li>
           </ul>
         </nav>
@@ -269,7 +328,10 @@ const NavigationBar = () => {
           </div>
           <div className="nav__item nav__bagsContainer">
             <NavLink to="/wishlist">
-              <button className="bagsContainer__btn" onClick= {() => setShowMenu(false)} >
+              <button
+                className="bagsContainer__btn"
+                onClick={() => setShowMenu(false)}
+              >
                 <svg
                   width="28"
                   height="30"
@@ -287,7 +349,10 @@ const NavigationBar = () => {
               </button>
             </NavLink>
             <NavLink to="/cart">
-              <button className="bagsContainer__btn" onClick= {() => setShowMenu(false)}>
+              <button
+                className="bagsContainer__btn"
+                onClick={() => setShowMenu(false)}
+              >
                 <svg
                   width="28"
                   height="30"
@@ -307,12 +372,11 @@ const NavigationBar = () => {
                   />
                 </svg>
                 {cart.length > 0 ? (
-                <span className="nav__cart-counter"> {cart.length} </span>
-              ) : (
-                ""
-              )}
+                  <span className="nav__cart-counter"> {cart.length} </span>
+                ) : (
+                  ""
+                )}
               </button>
-             
             </NavLink>
           </div>
         </nav>
