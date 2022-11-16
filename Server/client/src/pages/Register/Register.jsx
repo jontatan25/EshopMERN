@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 const API_ENDPOINT =
   process.env.REACT_APP_API_ENDPOINT ||
-  "https://mern-eshop-espitia-jonathans.herokuapp.com";
+  "https://jhonndevelopershop.herokuapp.com/";
 
 const Register = () => {
   const [info, setInfo] = useState([

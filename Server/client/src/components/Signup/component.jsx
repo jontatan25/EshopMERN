@@ -3,7 +3,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import axios from "axios";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://mern-eshop-espitia-jonathans.herokuapp.com'
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://jhonndevelopershop.herokuapp.com/'
 
 const Signup = () => {
   const [email, setEmail] = useState("");

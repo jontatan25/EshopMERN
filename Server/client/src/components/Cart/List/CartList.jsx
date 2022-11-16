@@ -11,7 +11,7 @@ const CartList = () => {
   const [cart, setCart] = useState([]);
 
   const getInfo = async () => {
-    const res = await axios.get("https://mern-eshop-espitia-jonathans.herokuapp.com/cart/myCart", {
+    const res = await axios.get("https://jhonndevelopershop.herokuapp.com//cart/myCart", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const itemsFromCart = res.data.cart[0].items;
