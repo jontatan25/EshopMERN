@@ -63,7 +63,7 @@
 }
 
 .carousel__images-smallImage {
-  width: 325px;
+  width: 50%;
   height: 88%;
   background-size: cover;
   box-shadow: 6px 8px 22px -1px rgba(0, 0, 0, 0.34);
@@ -72,7 +72,7 @@
 }
 
 .carousel__images-bigImage {
-  width: 450px;
+  width: 70%;
   height: 100%;
   background-size: cover;
   box-shadow: 6px 8px 22px -1px rgba(0, 0, 0, 0.34);
@@ -227,6 +227,7 @@
   min-width: 200px;
   height: 285.6px;
   margin: 336.5px 0 0 67.5px;
+  /* display:none; */
 }
 
 .promo__title {
@@ -414,9 +415,7 @@
     padding-left: 3%;
     margin-left: 0;
   }
-  .carousel__images {
-    width: 482px;
-  }
+ 
   .carousel__container{
     width: 90%;
   }
@@ -447,6 +446,8 @@
   }
   .promotion__promo-three-container {
     margin: 336.5px 0 0 28px;
+    width: 189px;
+    min-width: 200px;
   }
   .promo__title-three {
     font-size: 65px;
@@ -483,6 +484,7 @@
   }
   .carousel__container {
     width: 100%;
+    justify-content: space-around;
   }
   
   .carousel__sign-text-container {
@@ -492,7 +494,16 @@
   .carousel__sign-text {
     line-height: 62px;
   }
-
+.carousel__images {
+  flex-direction: column;
+  width:20%;
+  min-width: 250px;
+}.carousel__images-smallImage{
+  width: 70%
+}
+.carousel__images-bigImage {
+  width: 100%;
+}
   .highlight {
     color: rgba(0, 0, 0, 0);
     -webkit-text-stroke: 2px black;
@@ -587,8 +598,8 @@
     flex-direction: column-reverse;
     align-items: center;
   }
-
   .carousel__images {
+    flex-direction: row;
     width: 307.86px;
     height: 310.5px;
     margin-bottom: 28.5px;
@@ -638,7 +649,7 @@
     background-position: center center;
 
     border: 2px solid #c4c4c4;
-    margin: 10px 0;
+    margin: 10px auto;
   }
 
   .banner__container {
