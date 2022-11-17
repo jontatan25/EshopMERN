@@ -186,7 +186,7 @@
   margin-left: 50px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   .header__Container {
     display: none;
   }

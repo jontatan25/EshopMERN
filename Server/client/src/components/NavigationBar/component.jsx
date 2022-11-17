@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
 import "./style.css";
 import logo from "../../images/logo/logo.svg";
@@ -8,10 +8,11 @@ import Swal from "sweetalert2";
 
 const NavigationBar = () => {
   const [searchActive, setSearchActive] = useState(false);
-  const [productQuery, setProductQuery] = useState("");
 
-  const navigate = useNavigate()
+  const { productQuery, setProductQuery } = useCartContext();
 
+  const navigate = useNavigate();
+  const queryRef = useRef(null);
   const {
     showLogin,
     setShowLogin,
@@ -59,12 +60,12 @@ const NavigationBar = () => {
     setShowMenu(!showMenu);
   };
 
-  const handleProductChange = (e) => {
-    setProductQuery(e.target.value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setProductQuery(productQuery)
+    navigate("/search");
   };
-const searchProduct = () => {
-  navigate("/search",{state:productQuery})
-}
+
   return (
     <>
       <div className="header__Container">
@@ -119,24 +120,24 @@ const searchProduct = () => {
               <div
                 className={searchActive ? "nav-link" : "nav-link__hide"}
                 to="/chat"
-                // state={}
               >
-                <form className="nav__form" onSubmit={(e) => {e.preventDefault();}}>
+                <form
+                  className="nav__form"
+                  onSubmit={(e) => {
+                    handleSubmit(e);
+                  }}
+                >
                   <input
-                    onChange={(e) => {
-                      handleProductChange(e);
-                    }}
                     className="nav__search"
                     type="text"
                     placeholder="Search"
                     value={productQuery}
+                    ref={queryRef}
+                    onChange={(e) => setProductQuery(e.target.value)}
                   />
                   <button
-                  type="submit"
+                    type="submit"
                     className="nav__listItem-queryBtn nav__listItem-search-btn"
-                    onClick={() => {
-                      searchProduct();
-                    }}
                   >
                     <svg
                       width="15"
@@ -300,12 +301,12 @@ const searchProduct = () => {
                 </Link>
               </li>
               <li className="nav__list-listItem">
-                <Link to="/cart">
+                <Link to="/search">
                   <button
                     className="listItem__btn"
                     onClick={() => toogleMenu()}
                   >
-                    <span>MY BAG</span>
+                    <span>SEARCH</span>
                   </button>
                 </Link>
               </li>
