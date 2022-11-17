@@ -247,7 +247,7 @@
 .promo__title-three {
   font-family: "Oswald";
   font-weight: 600;
-  font-size: 75px;
+  font-size: calc(30px + 3vw);
   line-height: 86px;
   margin: 0 0 6px 0;
 }
@@ -445,15 +445,16 @@
     background-position: left -90px center;
   }
   .promotion__promo-three-container {
-    margin: 336.5px 0 0 28px;
+    margin: 250px 0 0 28px;
     width: 189px;
     min-width: 200px;
   }
-  .promo__title-three {
-    font-size: 65px;
-  }
+
   .promo__text-three {
     margin-bottom: 25px;
+  }
+  .promo__title-three {
+    line-height: 75px
   }
   .banner__container {
     height: auto;
