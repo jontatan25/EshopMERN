@@ -49,15 +49,12 @@ const Search = () => {
                     }}
                     className="search__field"
                     type="text"
-                    placeholder="Search"
+                    placeholder="Search Products"
                     value={productQuery}
                   />
                   <button
                   type="submit"
                     className="search__field-btn"
-                    // onClick={() => {
-                    //   searchProduct();
-                    // }}
                   >
                     <svg
                       width="15"

@@ -50,6 +50,7 @@
   font-family: "Roboto";
   font-weight: 400;
   font-size: 14px;
+  min-width: 75px;
   margin: 0;
   padding: 0;
   display: flex;
@@ -100,7 +101,6 @@
 }
 
 #password,#confirm-password {
-  width: 374px;
   border: none;
 }
 
@@ -127,6 +127,8 @@
   display: flex;
   align-items: center;
   border: 1px solid #c4c4c4;
+  width: 400px;
+  min-width: 230px;
 }
 .register__vision-container:hover {
   border: 1px solid #848484;
@@ -162,6 +164,18 @@
     width: 100%;
     padding:  10px 8%;
   }
+  .register__vision-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #c4c4c4;
+  }
+  .register__lb {
+    min-width: 128px;
+  }
+  .register__vision-container {
+    width: 400px;
+    min-width: 130px;
+  }
  
 }
  @media screen and (max-width: 480px) {
@@ -170,7 +184,7 @@
     width: 250px;
   }
   .register__lb {
-    width: 76.6px;
+    min-width: 86.6px;
   }
   #password,#confirm-password {
     width: 226px;

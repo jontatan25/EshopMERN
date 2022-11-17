@@ -130,7 +130,7 @@ const NavigationBar = () => {
                   <input
                     className="nav__search"
                     type="text"
-                    placeholder="Search"
+                    placeholder="Search Products"
                     value={productQuery}
                     ref={queryRef}
                     onChange={(e) => setProductQuery(e.target.value)}

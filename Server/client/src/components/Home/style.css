@@ -11,7 +11,7 @@
 
 .carousel__container {
   height: 554px;
-  width: 1141px;
+  width: 80%;
   display: flex;
   justify-content: space-between;
 }
@@ -25,16 +25,16 @@
 
 .carousel__sign-text-container {
   width: 100%;
-  height: 225px;
+  height: auto;
   padding: 22px 32px 0 0;
   border: 2px solid transparent;
-  margin-bottom: 52px;
+  margin-bottom: 45px;
   position: relative;
 }
 .carousel__sign-text {
   font-family: "Oswald";
   font-weight: 600;
-  font-size: 68px;
+  font-size: calc(30px + 2.45vw);;
   line-height: 75px;
   margin: 0;
 }
@@ -46,7 +46,7 @@
 .carousel__sign-text-container::before {
   content: "";
   position: absolute;
-  width: 388px;
+  width: 25vw;
   height: 78px;
   right: 0;
   top: 0;
@@ -55,7 +55,8 @@
 }
 
 .carousel__images {
-  width: 652px;
+  width: 55%;
+  min-width: 400px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -155,7 +156,7 @@
   flex-direction: column;
   height: 702px;
   justify-content: space-between;
-  width: 722px;
+  width: 48.5%;
 }
 
 .promotion__promo-one {
@@ -200,7 +201,7 @@
 .promotion__promo-three {
   border: white 1px solid;
   height: 702px;
-  width: 743px;
+  width: 49.5%;
   transition: all 0.5s ease;
   background-image: url(../../images/promo/big1.jpg);
   background-size: cover;
@@ -223,6 +224,7 @@
 }
 .promotion__promo-three-container {
   width: 289px;
+  min-width: 200px;
   height: 285.6px;
   margin: 336.5px 0 0 67.5px;
 }
@@ -410,9 +412,13 @@
 @media screen and (max-width: 1024px) {
   .homeContainer {
     padding-left: 3%;
+    margin-left: 0;
   }
   .carousel__images {
     width: 482px;
+  }
+  .carousel__container{
+    width: 90%;
   }
   .promotions__small-container {
     margin-right: 15px;
@@ -471,21 +477,20 @@
 }
 
 @media screen and (max-width: 768px) {
-  .carousel__images {
-    width: 400px;
-  }
+
   .carousel__sign {
     width: 320px;
   }
-
+  .carousel__container {
+    width: 100%;
+  }
+  
   .carousel__sign-text-container {
-    width: 300px;
     padding: 22px 0 0 0;
     margin-bottom: 25px;
   }
   .carousel__sign-text {
-    font-size: 48px;
-    line-height: 65px;
+    line-height: 62px;
   }
 
   .highlight {
@@ -494,7 +499,6 @@
   }
   .carousel__sign-text-container::before {
     content: "";
-    width: 258px;
     height: 78px;
   }
   .promotion__promo-one {

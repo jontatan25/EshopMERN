@@ -39,7 +39,7 @@ const Blog = () => {
         <div className="banner__content"> 
           <div className="banner__article">
             <h4 className="banner__article-title">The Dress</h4>
-            <p className="banner__article-text">
+            <div className="banner__article-text">
               It’s a tricky thing, being a wedding guest.<br/> Among the endless list
               of requirements – buy a present, arrange accommodation, practise
               your small talk – there’s one obligation that trumps them all in
@@ -60,10 +60,10 @@ const Blog = () => {
               our handy guide to summer wedding guest dressing, with tips from
               industry experts on the trends and colours you need to know about
               this season .
-            </p>
+            </div>
             <div className="banner__article-img"></div>
             <h4 className="banner__article-title">The Dress</h4>
-            <p className="banner__article-text">
+            <div className="banner__article-text">
               It’s a tricky thing, being a wedding guest.<br/> Among the endless list
               of requirements – buy a present, arrange accommodation, practise
               your small talk – there’s one obligation that trumps them all in
@@ -84,7 +84,7 @@ const Blog = () => {
               our handy guide to summer wedding guest dressing, with tips from
               industry experts on the trends and colours you need to know about
               this season .
-            </p>
+            </div>
           </div>
           <div className="banner__ads">
             <div className="banner__ads-1"></div>

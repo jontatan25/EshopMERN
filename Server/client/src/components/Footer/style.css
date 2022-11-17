@@ -173,9 +173,10 @@
 .advantages__check {
   margin-right: 6px;
 }
-.footerlist__title-btn {
+.footerlist__title-btn,.footerlist__title-btn-text {
   display: none;
 }
+
 
 @media screen and (max-width: 768px) {
   .home__footer-container {
@@ -235,6 +236,7 @@
     position: relative;
   }
   .footerlist__title-btn-text {
+    display: inline-block;
     color: white;
     font-family: "Oswald";
     font-size: 21px;

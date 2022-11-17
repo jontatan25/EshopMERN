@@ -23,7 +23,7 @@
 }
 
 .productsContainer_productsAndBanners {
-  flex: 4;
+  min-width: 300px;
   border-left: 1px solid #c4c4c4;
   margin-bottom: 35px;
 }
