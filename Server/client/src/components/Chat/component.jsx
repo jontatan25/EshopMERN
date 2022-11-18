@@ -17,7 +17,7 @@ const Chat = () => {
     if (email) {
       try {
         const res = await axios.get(
-          "https://jhonndevelopershop.herokuapp.com//messages/email/" + email,
+          "https://jhonndevelopershop.herokuapp.com/messages/email/" + email,
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -39,7 +39,7 @@ const Chat = () => {
       }
     }
     try {
-      const res = await axios.get("https://jhonndevelopershop.herokuapp.com//messages", {
+      const res = await axios.get("https://jhonndevelopershop.herokuapp.com/messages", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessages(res.data.messages);
@@ -62,7 +62,7 @@ const Chat = () => {
     e.preventDefault();
     var message = { body: inputRef.current.value };
     try {
-      var res = await axios.post("https://jhonndevelopershop.herokuapp.com//messages", message, {
+      var res = await axios.post("https://jhonndevelopershop.herokuapp.com/messages", message, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if ((res.data.success = true)) {

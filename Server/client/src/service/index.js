@@ -17,7 +17,7 @@ import axios from "axios";
 };
  async function getProductByID(productID) {
   const res = await axios.get(
-    // `https://jhonndevelopershop.herokuapp.com//products/id/${id}`,
+    // `https://jhonndevelopershop.herokuapp.com/products/id/${id}`,
     // {
     //   headers: { Authorization: `Bearer ${token}` },
     // }
