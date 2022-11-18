@@ -76,6 +76,6 @@
 
 @media screen and (max-width: 320px){
   .single-container__itemList {
-    padding-left: 41px;
+    padding-left: 14%;
   }
 }

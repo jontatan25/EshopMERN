@@ -6,7 +6,8 @@ import "./style.css";
 const CarouselSingle = ({ title, products, category, origin }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [carouselMoves, setCarouselMoves] = useState(5);
-  const [itemWidth , setItemWidth] = useState(-295.5)
+  const [itemWidth, setItemWidth] = useState(-295.5);
+  const [touchPosition, setTouchPosition] = useState(null);
 
   const updateIndex = (newIndex) => {
     // FILTERING PRODUCTS
@@ -33,16 +34,38 @@ const CarouselSingle = ({ title, products, category, origin }) => {
     } else if (window.innerWidth <= 769 && window.innerWidth > 481) {
       console.log("tablet");
       setCarouselMoves(2);
-    } else if (window.innerWidth <= 480 && window.innerWidth > 320) {
+    } else if (window.innerWidth <= 480) {
       console.log("mobile");
-      setCarouselMoves(2);
-      setItemWidth(-233.5)
-    } else if (window.innerWidth <= 320) {
-      console.log("mobile 320px");
       setCarouselMoves(1);
-      setItemWidth(-233.5)
+      setItemWidth(-233.5);
     }
   }, []);
+
+  const handleSwipe = (e) => {
+    const touchDown = e.touches[0].clientX;
+    setTouchPosition(touchDown);
+  };
+
+  const handleTouchMove = (e) => {
+    const touchDown = touchPosition;
+
+    if (touchDown === null) {
+      return;
+    }
+
+    const currentTouch = e.touches[0].clientX;
+    const diff = touchDown - currentTouch;
+
+    if (diff > 5) {
+      updateIndex(activeIndex + 1);
+    }
+
+    if (diff < -5) {
+      updateIndex(activeIndex - 1);
+    }
+
+    setTouchPosition(null);
+  };
 
   return (
     <div className="single-container">
@@ -93,13 +116,19 @@ const CarouselSingle = ({ title, products, category, origin }) => {
       </div>
       <div
         className="single-container__itemList"
+        onTouchStart={handleSwipe}
+        onTouchMove={handleTouchMove}
         style={{ transform: `translate(${activeIndex * itemWidth}px)` }}
       >
         {products &&
           products
             .filter((product) => product.category === category)
             .map((product) => (
-              <CarouselItem key={product._id} product={product} origin={origin}/>
+              <CarouselItem
+                key={product._id}
+                product={product}
+                origin={origin}
+              />
             ))}
       </div>
     </div>
