@@ -298,7 +298,6 @@
   .burguer-active span:after {
     content: "";
     top: 0;
-
     visibility: visible;
     transform: rotate(-45deg);
   }

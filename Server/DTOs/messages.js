@@ -1,11 +1,10 @@
-function saveMessageDTO(messageWithEmail) {
+function saveMessageDTO(messageInfo) {
   const date = new Date();
   const dateString = date.toString();
   const messageDTO = {
-    email: messageWithEmail.email,
-    type: "user",
+    username: messageInfo.username,
+    message: messageInfo.message,
     date: dateString,
-    body: messageWithEmail.message.body,
   };
   return messageDTO;
 }

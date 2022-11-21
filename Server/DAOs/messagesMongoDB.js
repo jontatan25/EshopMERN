@@ -7,11 +7,11 @@ const { connect, disconnect } = mongoose;
 // const URL = "mongodb://localhost:27017/ecommerce";
 const URL = process.env.MONGO_ATLAS_URL
 
-async function saveMessageDB (messageWithEmail){
+async function saveMessageDB (messageInfo){
     try {
         await connect(URL);
         console.log(`Base de datos connectada en ${URL} `);
-        const messageDTO = saveMessageDTO(messageWithEmail)
+        const messageDTO = saveMessageDTO(messageInfo)
         const newMessage = new MessageModel(messageDTO);
         const saveResult = await newMessage.save();
         return saveResult

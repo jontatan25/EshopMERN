@@ -1,14 +1,15 @@
 import {saveMessage,getAllMessages,getLoggedUserMessages,getMessagesByEmail} from "../api/messages.js"
 
+
 async function saveMessageController(req, res) {
-    try {
-        const userId = req.user.data
-        const message = {userId: userId,text:req.body};
-        const saveResult = await saveMessage(message);
-        res.json(saveResult);
-      } catch (error) {
-        console.log("Error in Message Controller:" + error);
-      }
+  try {
+
+      const messageInfo = req.body;
+      const saveResult = await saveMessage(messageInfo);
+      res.json(saveResult);
+    } catch (error) {
+      console.log("Error in Message Controller:" + error);
+    }
 }
 
 async function getAllMessagesController(req, res) {
