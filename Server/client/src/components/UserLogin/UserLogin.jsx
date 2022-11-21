@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import "./style.css";
 
 import axios from "axios";
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://jhonndevelopershop.herokuapp.com/'
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://jhonndevshop.vercel.app/api/'
 
 const UserLogin = () => {
   const { showLogin, setShowLogin, setLoggedIn } = useCartContext();

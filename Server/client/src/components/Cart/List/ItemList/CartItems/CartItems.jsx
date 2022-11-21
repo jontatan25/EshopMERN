@@ -11,7 +11,7 @@ const CartItems = () => {
   let [loading, setloading] = useState(true);
   const [cart, setCart] = useState([]);
   const getInfo = async () => {
-    const res = await axios.get("https://jhonndevelopershop.herokuapp.com/cart/myCart", {
+    const res = await axios.get("https://jhonndevshop.vercel.app/api/cart/myCart", {
       headers: { Authorization: `Bearer ${token}` },
     });
     const itemsFromCart = res.data.cart[0].items;
@@ -24,7 +24,7 @@ const CartItems = () => {
     try {
       const data = {id:id}
       const res = await axios.post(
-        `https://jhonndevelopershop.herokuapp.com/cart/addProduct`,data,
+        `https://jhonndevshop.vercel.app/api/cart/addProduct`,data,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -45,7 +45,7 @@ const CartItems = () => {
     try {
       const data = {id:id}
       const res = await axios.post(
-        `https://jhonndevelopershop.herokuapp.com/cart/substractOneProduct`,data,
+        `https://jhonndevshop.vercel.app/api/cart/substractOneProduct`,data,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -65,7 +65,7 @@ const CartItems = () => {
     try {
       const data = {id:id}
       const res = await axios.delete(
-        `https://jhonndevelopershop.herokuapp.com/cart/deleteProduct`,
+        `https://jhonndevshop.vercel.app/api/cart/deleteProduct`,
         {
           headers: { Authorization: `Bearer ${token}` },
           data:data

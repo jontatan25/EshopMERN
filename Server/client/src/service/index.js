@@ -2,7 +2,7 @@ import axios from "axios";
 
  async function getProducts() {
   const res = await axios.get(
-    `https://jhonndevelopershop.herokuapp.com/products`,
+    `https://jhonndevshop.vercel.app/api/products`,
     // {
     //   headers: { Authorization: `Bearer ${token}` },
     // }
@@ -17,11 +17,11 @@ import axios from "axios";
 };
  async function getProductByID(productID) {
   const res = await axios.get(
-    // `https://jhonndevelopershop.herokuapp.com/products/id/${id}`,
+    // `https://jhonndevshop.vercel.app/api/products/id/${id}`,
     // {
     //   headers: { Authorization: `Bearer ${token}` },
     // }
-  `https://jhonndevelopershop.herokuapp.com/products/id/${productID}`,
+  `https://jhonndevshop.vercel.app/api/products/id/${productID}`,
   );
   return res.data.product;
 };

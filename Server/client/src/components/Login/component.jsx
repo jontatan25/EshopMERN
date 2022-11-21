@@ -4,7 +4,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import axios from "axios";
 import "./style.css";
 
-const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://jhonndevelopershop.herokuapp.com'
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://jhonndevshop.vercel.app/api'
 
 const Login = () => {
   const navigate = useNavigate()

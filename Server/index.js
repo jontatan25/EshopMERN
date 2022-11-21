@@ -54,11 +54,11 @@ io.on('connection', socket => {
 });
 
 //ROUTERS
-app.use("/users", usersRouter);
-app.use("/products", productsRouter); 
-app.use("/messages", messagesRouter); 
-app.use("/cart", cartRouter);
-app.use("/orders", ordersRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/products", productsRouter); 
+app.use("/api/messages", messagesRouter); 
+app.use("/api/cart", cartRouter);
+app.use("/api/orders", ordersRouter);
 
 // FOR HEROKU
 app.use(express.static(path.join(__dirname, "/client/build")));
