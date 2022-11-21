@@ -23,7 +23,7 @@ function saveMessageDTOClient(getMessages) {
 function getMessagesByEmailDTO(messages) {
   const messagesDTO = [];
   for (let i = 0; i < messages.length; i++) {
-    const DTOMessage = { id:messages[i]._id, email: messages[i].email, type: messages[i].type, date: messages[i].date, body: messages[i].body};
+    const DTOMessage = { id:messages[i]._id, username: messages[i].username,message: messages[i].message, date: messages[i].date};
     messagesDTO.push(DTOMessage);
   }
   return messagesDTO;
