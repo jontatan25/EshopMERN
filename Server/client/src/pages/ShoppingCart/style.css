@@ -104,7 +104,8 @@
 }
 
 .cart__payment {
-  width: 30%;
+  width: 40%;
+  min-width: 340px;
   height: auto;
 }
 
@@ -392,11 +393,6 @@
 @media screen and (max-width: 1024px) {
   .cart__container {
     width: 96%;
-  }
-
-
-  .cart__payment {
-    width: 35%;
   }
 
   .shipping__information-title {

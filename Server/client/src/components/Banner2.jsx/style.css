@@ -45,7 +45,7 @@
   .banner2__text {
     font-family: "Roboto";
     font-weight: 300;
-    font-size: calc(12px + 0.vw);
+    font-size: calc(12px + 0.5vw);
     line-height: 148%;
     margin: 0 0 18px 0;
   }
