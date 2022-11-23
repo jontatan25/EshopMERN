@@ -3,6 +3,8 @@
 }
 
 .productsContainer__list {
+  width: 300px;
+  min-width: 250px;
   padding: 18px 39px 0 0;
   list-style-type: none;
   margin: 0;
