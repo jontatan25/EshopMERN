@@ -14,27 +14,44 @@ function saveUserDTO(userInfo) {
 }
 function saveMessageDTO(messageInfo) {
   const now = new Date();
-  const hoursAndMinutes = (now.getHours()<10?'0':'') + now.getHours() + ':' + (now.getMinutes()<10?'0':'') + now.getMinutes() + ':' + now.getSeconds();
+  const hoursAndMinutes = (now.getHours()<10?'0':'') + now.getHours() + ':' + (now.getMinutes()<10?'0':'') + now.getMinutes() + ':' + (now.getSeconds()<10?'0':'') + now.getSeconds()
   const dateString = hoursAndMinutes.toString();
   const messageDTO = {
     username: messageInfo.username,
     message: messageInfo.message,
+    avatar: messageInfo.avatar,
     date: dateString,
   };
   return messageDTO;
 }
 
-function saveMessageDTOClient(getMessages) {
-  const date = new Date();
-  const dateString = date.toString();
+function saveMessageDTOClient(saveResult) {
   const messageDTO = {
-    email: getMessages.email,
-    date: dateString,
-    body: getMessages.body,
+    username: saveResult.username,
+    message: saveResult.message,
+    avatar: saveResult.avatar,
+    date: saveResult.date,
+    id: saveResult._id,
   };
   return messageDTO;
 }
 
+function getChatUsersDTO(users) {
+  const usersDTO = [];
+  for (let i = 0; i < users.length; i++) {
+    const DTOMessage = {
+      id: users[i]._id,
+      username: users[i].username,
+      country: users[i].country,
+      flag: users[i].flag,
+      age: users[i].age,
+      gender: users[i].gender,
+      avatar: users[i].avatar,
+    };
+    usersDTO.push(DTOMessage);
+  }
+  return usersDTO;
+}
 function getMessagesByEmailDTO(messages) {
   const messagesDTO = [];
   for (let i = 0; i < messages.length; i++) {
@@ -52,6 +69,7 @@ function getMessagesByEmailDTO(messages) {
 export {
   saveUserDTO,
   saveMessageDTO,
+  getChatUsersDTO,
   getMessagesByEmailDTO,
   saveMessageDTOClient,
 };

@@ -1,6 +1,7 @@
 import {
   saveUserDB,
   saveMessageDB,
+  getChatUsersDB,
   getAllMessagesDB,
   getLoggedUserMessagesDB,
   getMessagesByEmailDB,
@@ -9,6 +10,7 @@ import { getUserById } from "../DAOs/userMongoDB.js";
 import {
   getMessagesByEmailDTO,
   saveMessageDTOClient,
+  getChatUsersDTO,
 } from "../DTOs/messages.js";
 
 async function saveUser(userInfo) {
@@ -31,14 +33,31 @@ async function saveMessage(messageInfo) {
     if (saveResult.length === 0) {
       return { success: false, message: "You have no Messages yet" };
     } else {
-      // const messagesDTO = saveMessageDTOClient(saveResult);
-      return { success: true, message: "Message saved", body: saveResult };
+      const messagesDTO = saveMessageDTOClient(saveResult);
+      return { success: true, message: "Message saved", body: messagesDTO };
     }
   } catch (error) {
     console.log(`Error while getting user Messages: ${error}`);
   }
 }
 
+async function getChatUsers() {
+  try {
+    const res = await getChatUsersDB();
+    if (res.length === 0) {
+      return { success: false, message: "There is no Users yet" };
+    } else {
+      const chatUsersDTO = getChatUsersDTO(res);
+      return {
+        success: true,
+        result: "Users gathered",
+        users: chatUsersDTO,
+      };
+    }
+  } catch (error) {
+    console.log(`Error while saving: ${error}`);
+  }
+}
 async function getAllMessages() {
   try {
     const res = await getAllMessagesDB();
@@ -107,6 +126,7 @@ async function getMessagesByEmail(userEmail) {
 export {
   saveUser,
   saveMessage,
+  getChatUsers,
   getAllMessages,
   getLoggedUserMessages,
   getMessagesByEmail,

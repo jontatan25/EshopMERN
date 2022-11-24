@@ -37,6 +37,18 @@ async function saveMessageDB (messageInfo){
       }
 }
 
+async function getChatUsersDB (){
+    try {
+        await connect(URL);
+        console.log(`Base de datos connectada en ${URL} `);
+        const getConnectedUsers = await ChatUserModel.find({});
+        return getConnectedUsers;
+      } catch (error) {
+        console.log(`Server error: ${error}`);
+      } finally {
+        disconnect().catch((error) => console(error));
+      }
+}
 async function getAllMessagesDB (){
     try {
         await connect(URL);
@@ -74,4 +86,4 @@ async function getMessagesByEmailDB (userEmail){
       disconnect().catch((error) => console(error));
     }
 }
-export {saveUserDB,saveMessageDB,getAllMessagesDB,getLoggedUserMessagesDB,getMessagesByEmailDB}
+export {saveUserDB,saveMessageDB,getChatUsersDB,getAllMessagesDB,getLoggedUserMessagesDB,getMessagesByEmailDB}

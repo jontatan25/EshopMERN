@@ -1,4 +1,4 @@
-import {saveUser,saveMessage,getAllMessages,getLoggedUserMessages,getMessagesByEmail} from "../api/messages.js"
+import {saveUser,saveMessage,getChatUsers,getAllMessages,getLoggedUserMessages,getMessagesByEmail} from "../api/messages.js"
 
 
 async function registerController(req, res) {
@@ -15,6 +15,14 @@ async function saveMessageController(req, res) {
       const messageInfo = req.body;
       const saveResult = await saveMessage(messageInfo);
       res.json(saveResult);
+    } catch (error) {
+      console.log("Error in Message Controller:" + error);
+    }
+}
+async function getChatUsersController(req, res) {
+  try {
+      const getUsersResult = await getChatUsers();
+      res.json(getUsersResult);
     } catch (error) {
       console.log("Error in Message Controller:" + error);
     }
@@ -46,4 +54,4 @@ async function getMessagesByEmailController(req, res) {
     console.log("Error in Product Controller:" + error);
   }
 }
-export {registerController,saveMessageController,getAllMessagesController,getLoggedUserMessagesController,getMessagesByEmailController}
+export {registerController,saveMessageController,getChatUsersController,getAllMessagesController,getLoggedUserMessagesController,getMessagesByEmailController}

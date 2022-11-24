@@ -1,6 +1,6 @@
 import express from "express";
 import {authenticateToken} from "../utils/utils.js"
-import {registerController,saveMessageController,getAllMessagesController,getLoggedUserMessagesController,getMessagesByEmailController} from "../controller/messages.js"
+import {registerController,saveMessageController,getChatUsersController,getAllMessagesController,getLoggedUserMessagesController,getMessagesByEmailController} from "../controller/messages.js"
 const { Router } = express;
 const messagesRouter = Router();
 
@@ -12,10 +12,12 @@ messagesRouter.get("/chat", async (req, res) => {
   });
 });
 messagesRouter.post("/register", registerController);
+messagesRouter.get("/chatusers", getChatUsersController);
 messagesRouter.post("/", saveMessageController);
-messagesRouter.get("/", getAllMessagesController);
-messagesRouter.get("/myMessages", getLoggedUserMessagesController);
-messagesRouter.get("/email/:userEmail", getMessagesByEmailController);
+
+// messagesRouter.get("/", getAllMessagesController);
+// messagesRouter.get("/myMessages", getLoggedUserMessagesController);
+// messagesRouter.get("/email/:userEmail", getMessagesByEmailController);
 messagesRouter.get("*", async (req, res) => {
   res.status(404).send('Sorry, cant find that');
 });
