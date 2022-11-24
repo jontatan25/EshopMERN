@@ -1,9 +1,17 @@
-import {saveMessage,getAllMessages,getLoggedUserMessages,getMessagesByEmail} from "../api/messages.js"
+import {saveUser,saveMessage,getAllMessages,getLoggedUserMessages,getMessagesByEmail} from "../api/messages.js"
 
 
+async function registerController(req, res) {
+  try {
+      const userInfo = req.body;
+      const saveResult = await saveUser(userInfo);
+      res.json(saveResult);
+    } catch (error) {
+      console.log("Error in Message Controller:" + error);
+    }
+}
 async function saveMessageController(req, res) {
   try {
-
       const messageInfo = req.body;
       const saveResult = await saveMessage(messageInfo);
       res.json(saveResult);
@@ -38,4 +46,4 @@ async function getMessagesByEmailController(req, res) {
     console.log("Error in Product Controller:" + error);
   }
 }
-export {saveMessageController,getAllMessagesController,getLoggedUserMessagesController,getMessagesByEmailController}
+export {registerController,saveMessageController,getAllMessagesController,getLoggedUserMessagesController,getMessagesByEmailController}

@@ -1,4 +1,5 @@
 import {
+  saveUserDB,
   saveMessageDB,
   getAllMessagesDB,
   getLoggedUserMessagesDB,
@@ -9,6 +10,20 @@ import {
   getMessagesByEmailDTO,
   saveMessageDTOClient,
 } from "../DTOs/messages.js";
+
+async function saveUser(userInfo) {
+  try {
+    const saveUserAPI = await saveUserDB(userInfo);
+    if (saveUserAPI.length === 0) {
+      return { success: false, message: "You have no Messages yet" };
+    } else {
+      // const userDTO = saveUserDTOClient(saveUserAPI);
+      return { success: true, message: "User saved", body: saveUserAPI };
+    }
+  } catch (error) {
+    console.log(`Error while getting user Messages: ${error}`);
+  }
+}
 
 async function saveMessage(messageInfo) {
   try {
@@ -90,6 +105,7 @@ async function getMessagesByEmail(userEmail) {
 }
 
 export {
+  saveUser,
   saveMessage,
   getAllMessages,
   getLoggedUserMessages,

@@ -6,11 +6,9 @@ import NavigationBar from "../NavigationBar/component";
 import HomeContainer from "../Home/component";
 
 import "./style.css";
-import Chat from "../Chat/component";
-import Logout from "../Logout/component";
 
 import CartContextProvider from "../CartContext/context";
-
+import Logout from "../Logout/component";
 import Catalog from "../../pages/Catalog";
 import Footer from "../Footer/component";
 import ProductDetail from "../../pages/ProductDetail/ProductDetail";
@@ -38,10 +36,6 @@ function App() {
           <Route path="/logout" element={<Logout />}></Route>
           <Route path="/search" element={<Search />}></Route>
         
-          {/* <Route
-            path="/chat"
-            element={<Chat/>}
-          ></Route> */}
           {/* <Route path="/loginfb" element={<LoginFacebook />}></Route>
         <Route
           path="/datos"

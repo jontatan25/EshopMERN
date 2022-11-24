@@ -1,6 +1,6 @@
 import express from "express";
 import {authenticateToken} from "../utils/utils.js"
-import {saveMessageController,getAllMessagesController,getLoggedUserMessagesController,getMessagesByEmailController} from "../controller/messages.js"
+import {registerController,saveMessageController,getAllMessagesController,getLoggedUserMessagesController,getMessagesByEmailController} from "../controller/messages.js"
 const { Router } = express;
 const messagesRouter = Router();
 
@@ -11,6 +11,7 @@ messagesRouter.get("/chat", async (req, res) => {
     message: "Chat Home",
   });
 });
+messagesRouter.post("/register", registerController);
 messagesRouter.post("/", saveMessageController);
 messagesRouter.get("/", getAllMessagesController);
 messagesRouter.get("/myMessages", getLoggedUserMessagesController);

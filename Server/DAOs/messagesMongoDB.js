@@ -1,12 +1,27 @@
 import MessageModel from "../models/Messages.js";
+import ChatUserModel from "../models/ChatUser.js";
 import mongoose from "mongoose";
-import {saveMessageDTO} from "../DTOs/messages.js"
+import {saveMessageDTO,saveUserDTO} from "../DTOs/messages.js"
 
 const { connect, disconnect } = mongoose;
 
-// const URL = "mongodb://localhost:27017/ecommerce";
-const URL = process.env.MONGO_ATLAS_URL
+const URL = "mongodb://localhost:27017/ecommerce";
+// const URL = process.env.MONGO_ATLAS_URL
 
+async function saveUserDB (userInfo){
+    try {
+        await connect(URL);
+        console.log(`Base de datos connectada en ${URL} `);
+        const userDTO = saveUserDTO(userInfo)
+        const newUser = new ChatUserModel(userDTO);
+        const saveResult = await newUser.save();
+        return saveResult
+      } catch (error) {
+        console.log(`Server error: ${error}`);
+      } finally {
+        await disconnect().catch((error) => console(error));
+      }
+}
 async function saveMessageDB (messageInfo){
     try {
         await connect(URL);
@@ -59,4 +74,4 @@ async function getMessagesByEmailDB (userEmail){
       disconnect().catch((error) => console(error));
     }
 }
-export {saveMessageDB,getAllMessagesDB,getLoggedUserMessagesDB,getMessagesByEmailDB}
+export {saveUserDB,saveMessageDB,getAllMessagesDB,getLoggedUserMessagesDB,getMessagesByEmailDB}
