@@ -27,12 +27,12 @@ async function saveUser(userInfo) {
 
 async function saveMessage(messageInfo) {
   try {
-    const getMessages = await saveMessageDB(messageInfo);
-    if (getMessages.length === 0) {
+    const saveResult = await saveMessageDB(messageInfo);
+    if (saveResult.length === 0) {
       return { success: false, message: "You have no Messages yet" };
     } else {
-      const messagesDTO = saveMessageDTOClient(getMessages);
-      return { success: true, message: "Message saved", body: messagesDTO };
+      // const messagesDTO = saveMessageDTOClient(saveResult);
+      return { success: true, message: "Message saved", body: saveResult };
     }
   } catch (error) {
     console.log(`Error while getting user Messages: ${error}`);

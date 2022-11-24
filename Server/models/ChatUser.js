@@ -4,6 +4,7 @@ const chatUserSchema = new Schema({
 
     username: { type: String, required: true },
     country: { type: String, required: true },
+    flag: { type: String, required: true},
     age: { type: String, required: true },
     gender: { type: String, required: true },
     avatar: { type: String, required: true },
