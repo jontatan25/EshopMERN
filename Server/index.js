@@ -69,6 +69,11 @@ io.on("connection", (socket) => {
     removeUser(socket.id)
     io.emit("newUserConnected", chatUsers)
   });
+  socket.on("logout", () => {
+    socket.disconnect();
+    removeUser(socket.id)
+    io.emit("newUserConnected", chatUsers)
+  })
   socket.on("user_message", (newMessage) => {
     io.emit("new_message", newMessage); // emit an event to all connected sockets
   });
