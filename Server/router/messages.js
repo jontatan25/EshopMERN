@@ -12,10 +12,10 @@ messagesRouter.get("/chat", async (req, res) => {
   });
 });
 messagesRouter.post("/register", registerController);
-messagesRouter.get("/chatusers", getChatUsersController);
 messagesRouter.post("/", saveMessageController);
+messagesRouter.get("/chatusers", getChatUsersController);
+messagesRouter.get("/", getAllMessagesController);
 
-// messagesRouter.get("/", getAllMessagesController);
 // messagesRouter.get("/myMessages", getLoggedUserMessagesController);
 // messagesRouter.get("/email/:userEmail", getMessagesByEmailController);
 messagesRouter.get("*", async (req, res) => {

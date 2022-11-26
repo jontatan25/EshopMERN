@@ -59,6 +59,7 @@ function getMessagesByEmailDTO(messages) {
       id: messages[i]._id,
       username: messages[i].username,
       message: messages[i].message,
+      avatar: messages[i].avatar,
       date: messages[i].date,
     };
     messagesDTO.push(DTOMessage);
