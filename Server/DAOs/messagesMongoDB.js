@@ -5,8 +5,8 @@ import {saveMessageDTO,saveUserDTO} from "../DTOs/messages.js"
 
 const { connect, disconnect } = mongoose;
 
-const URL = "mongodb://localhost:27017/ecommerce";
-// const URL = process.env.MONGO_ATLAS_URL
+// const URL = "mongodb://localhost:27017/ecommerce";
+const URL = process.env.MONGO_ATLAS_URL
 
 async function saveUserDB (userInfo){
     try {
