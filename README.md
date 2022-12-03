@@ -17,7 +17,7 @@ Technologies Used:
 - Find products using filters or by going directly to the catalog, you can filter them by Collection, Brand, Discount or price Range
 - Create your account to save your favorite items in your Wishlist and you can buy them later.
 - Responsive design from 320px to 1440px width
-- Front end deployed Using Netlofy,Backend deployed in Vercel,
+- Front end deployed Using Netlify,Backend deployed in Vercel,
 - API rest with CRUD for Items and users.
 - only 5 products are from real photos, the rest were genereted Using IA Text to Image with real references.
 
@@ -74,5 +74,3 @@ npm run build
 ## LICENSE
 Jonathan Sarmiento Espitia 2022 @jhonnDev
 **If you have Any comment or sugestions please contact me to jhonn.developer@gmail.com**
-
-
